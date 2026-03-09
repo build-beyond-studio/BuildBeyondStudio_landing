@@ -1,11 +1,13 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Mail } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const WHATSAPP_NUMBER = "+919301579493";
 const WHATSAPP_MESSAGE =
   "Hi! I would like to discuss partnership opportunities with your agency.";
+
+const EMAIL = "buildbeyondstudio@gmail.com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -93,79 +95,72 @@ export default function Contact() {
               className="opacity-0 space-y-6"
             >
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
+                <label className="block text-sm font-semibold text-black mb-2">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black placeholder-gray-500"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
+                <label className="block text-sm font-semibold text-black mb-2">
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black placeholder-gray-500"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-black mb-2"
-                >
+                <label className="block text-sm font-semibold text-black mb-2">
                   Message
                 </label>
                 <textarea
-                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-black resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full cursor-pointer bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold text-base"
+                className="w-full cursor-pointer bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold"
               >
                 Send Message
               </button>
 
               {status && (
                 <p
-                  className={`text-sm text-center ${status.includes("Thank you") ? "text-green-600" : "text-blue-600"}`}
+                  className={`text-sm text-center ${
+                    status.includes("Thank you")
+                      ? "text-green-600"
+                      : "text-blue-600"
+                  }`}
                 >
                   {status}
                 </p>
               )}
             </form>
           </div>
-          {/* WhatsApp Contact */}
+
+          {/* WhatsApp + Email Contact */}
           <div className="flex items-center justify-center">
             <div className="bg-white p-8 sm:p-10 rounded-xl border border-gray-200 hover:border-green-400 transition-all h-full flex flex-col items-center justify-center text-center">
               <MessageCircle className="w-14 h-14 text-green-600 mb-6" />
@@ -182,10 +177,21 @@ export default function Contact() {
                 href={`https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block cursor-pointer bg-green-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-green-700 transition-all font-semibold text-base"
+                className="inline-block cursor-pointer bg-green-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-green-700 transition-all font-semibold text-base mb-6"
               >
                 Start WhatsApp Chat
               </a>
+
+              {/* Email Contact */}
+              <div className="flex items-center gap-2 text-gray-700 text-sm sm:text-base">
+                <Mail className="w-5 h-5 text-blue-600" />
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="hover:text-blue-600 transition-colors font-medium"
+                >
+                  {EMAIL}
+                </a>
+              </div>
             </div>
           </div>
         </div>
