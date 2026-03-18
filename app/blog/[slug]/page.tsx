@@ -145,7 +145,7 @@ export default async function BlogPostPage({
       />
 
       {/* Blog Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-[#050505] border-b border-white/5">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-4">
           <Link
             href="/blog"
@@ -155,9 +155,9 @@ export default async function BlogPostPage({
           </Link>
         </div>
       </div>
-      <article className="bg-white">
+      <article className="bg-[#050505]">
         {/* Featured Image */}
-        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full bg-gray-200">
+        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full bg-gray-900">
           <Image
             src={blog.featuredImage}
             alt={blog.title}
@@ -174,10 +174,10 @@ export default async function BlogPostPage({
             <time className="text-sm text-gray-500">
               {formatDate(blog.date)}
             </time>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mt-4 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
               {blog.title}
             </h1>
-            <p className="text-lg text-gray-600">{blog.description}</p>
+            <p className="text-lg text-gray-400">{blog.description}</p>
           </div>
 
           {/* Keywords Tags */}
@@ -185,7 +185,7 @@ export default async function BlogPostPage({
             {blog.keywords.slice(0, 5).map((keyword, idx) => (
               <span
                 key={idx}
-                className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full"
+                className="text-xs font-medium text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full"
               >
                 {keyword}
               </span>
@@ -193,22 +193,22 @@ export default async function BlogPostPage({
           </div>
 
           {/* Blog Content */}
-          <div className="prose prose-blue prose-lg max-w-none mb-12">
+          <div className="prose-lg max-w-none mb-12">
             <div
-              className="text-gray-700 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-black [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-black [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_strong]:font-semibold [&_a]:text-blue-600 [&_a]:hover:text-blue-700 [&_a]:underline"
+              className="text-gray-400 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-white [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_strong]:font-semibold [&_a]:text-blue-400 [&_a]:hover:text-blue-300 [&_a]:underline"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </div>
 
           {/* Author Info */}
-          <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-2xl p-8 mb-12">
+          <div className="bg-[#0c0c0e] border border-white/5 rounded-2xl p-8 mb-12">
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 bg-linear-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
                 B
               </div>
               <div>
-                <h3 className="font-bold text-black">Build Beyond Studio</h3>
-                <p className="text-gray-600 text-sm mt-1">
+                <h3 className="font-bold text-white">Build Beyond Studio</h3>
+                <p className="text-gray-400 text-sm mt-1">
                   Web development agency specializing in MERN stack applications, DevOps, and white-label solutions for ambitious founders and modern agencies.
                 </p>
                 <Link
@@ -223,7 +223,7 @@ export default async function BlogPostPage({
 
           {/* Related Articles */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-black mb-6">Read Next</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Read Next</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {blogs
                 .filter((b) => b.slug !== blog.slug)
@@ -232,12 +232,12 @@ export default async function BlogPostPage({
                   <Link
                     key={relatedBlog.id}
                     href={`/blog/${relatedBlog.slug}`}
-                    className="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-400 hover:shadow-lg transition-all duration-300"
+                    className="group bg-[#0c0c0e] border border-white/5 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
                   >
-                    <h3 className="font-bold text-black group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">
+                    <h3 className="font-bold text-white group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">
                       {relatedBlog.title}
                     </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                    <p className="text-sm text-gray-400 line-clamp-2 mb-3">
                       {relatedBlog.description}
                     </p>
                     <span className="text-blue-600 group-hover:text-blue-700 font-semibold text-sm">
@@ -249,7 +249,7 @@ export default async function BlogPostPage({
           </div>
 
           {/* CTA Section */}
-          <div className="bg-linear-to-r from-blue-600 to-blue-500 rounded-2xl p-8 md:p-12 text-white text-center">
+          <div className="bg-linear-to-r from-blue-900/40 to-blue-800/40 border border-white/5 rounded-2xl p-8 md:p-12 text-white text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Beyond?
             </h2>
@@ -259,7 +259,7 @@ export default async function BlogPostPage({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/services/web-applications"
-                className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 Explore Web Development
               </Link>

@@ -69,13 +69,13 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section id="why" className="bg-white py-24 md:py-32 px-6" ref={sectionRef}>
+    <section id="why" className="bg-[#050505] py-24 md:py-32 px-6" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Why Choose Build Beyond Studio?
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-400">
             Leading web development agency for agencies seeking production-ready
             applications
           </p>
@@ -90,19 +90,19 @@ export default function WhyUs() {
               }}
               className="opacity-0 group"
             >
-              <div className="bg-linear-to-br from-gray-50 to-white p-8 md:p-10 rounded-2xl border border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="bg-[#0c0c0e] p-8 md:p-10 rounded-2xl border border-white/5 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-blue-100 to-blue-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white/5 rounded-xl group-hover:scale-110 transition-transform duration-300">
                     <div className="text-3xl">{item.icon}</div>
                   </div>
-                  <div className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-bold">
+                  <div className="bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-xs font-bold">
                     {item.metric}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-3">
+                <h3 className="text-2xl font-bold text-white mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -111,7 +111,7 @@ export default function WhyUs() {
         </div>
 
         {/* Comparison Section */}
-        <div className="bg-linear-to-r from-blue-600 to-blue-500 rounded-2xl p-8 md:p-12 text-white mb-16">
+        <div className="bg-linear-to-r from-blue-900/40 to-blue-800/40 border border-blue-500/20 rounded-2xl p-8 md:p-12 text-white mb-16">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
             Our Guarantee
           </h3>
@@ -132,11 +132,11 @@ export default function WhyUs() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-2xl font-bold text-black mb-4">
+        <div className="bg-[#0c0c0e] border border-white/10 rounded-2xl p-8 md:p-12 text-center">
+          <h3 className="text-2xl font-bold text-white mb-4">
             Ready to Partner With Us?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             We're not just developers. We're your extension team, committed to
             delivering production-ready solutions that make your clients happy.
           </p>

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-16 md:py-20 px-6 relative">
+    <footer className="bg-[#050505] text-white py-16 md:py-20 px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Main Section */}
         <div className="text-center mb-16">
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-gray-500">
             {/* Left Text */}
             <div className="text-center md:text-left">

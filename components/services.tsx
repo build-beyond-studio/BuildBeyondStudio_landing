@@ -1,129 +1,233 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import Link from 'next/link';
-import {  CloudCog, Globe, Lightbulb, Paintbrush } from 'lucide-react';
+import { useRef } from "react";
+import Link from "next/link";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const services = [
   {
-    icon: <Globe className="w-6 h-6 text-blue-500" />,
-    title: 'Web Application Development',
-    description: 'Production-ready MERN stack applications built to scale from day one.',
-    features: ['MERN Stack', 'Scalable Architecture', 'Production-Ready'],
-    link: '/services/web-applications'
+    num: "01",
+    title: "Web Application\nDevelopment",
+    desc: "Production-ready MERN stack applications built to scale from day one.",
+    features: ["MERN Stack", "Scalable Architecture", "Production-Ready"],
+    link: "/services/web-applications",
+    color: "#2563eb",
   },
   {
-    icon: <CloudCog className="w-6 h-6 text-blue-500" />,
-    title: 'DevOps & Deployment',
-    description: 'Docker, CI/CD, cloud deployment, and infrastructure that handles growth.',
-    features: ['Docker Setup', 'CI/CD Pipeline', 'Cloud Deployment'],
-    link: '/services/devops'
+    num: "02",
+    title: "DevOps &\nDeployment",
+    desc: "Docker, CI/CD, cloud deployment, and infrastructure that handles growth.",
+    features: ["Docker Setup", "CI/CD Pipeline", "Cloud Deployment"],
+    link: "/services/devops",
+    color: "#8b5cf6",
   },
   {
-    icon: <Paintbrush className="w-6 h-6 text-blue-500" />,
-    title: 'White-Label Solutions',
-    description: 'Build custom applications under your brand. Your reputation, our expertise.',
-    features: ['Full IP Rights', 'Your Branding', 'Complete Ownership'],
-    link: '/services/white-label'
+    num: "03",
+    title: "White-Label\nSolutions",
+    desc: "Build custom applications under your brand. Your reputation, our expertise.",
+    features: ["Full IP Rights", "Your Branding", "Complete Ownership"],
+    link: "/services/white-label",
+    color: "#0891b2",
   },
   {
-    icon: <Lightbulb className="w-6 h-6 text-blue-500" />,
-    title: 'Technical Consulting',
-    description: 'Strategic guidance on architecture, technology selection, and scalability.',
-    features: ['Tech Strategy', 'Architecture Review', 'Best Practices'],
-    link: '/services/consulting'
+    num: "04",
+    title: "Technical\nConsulting",
+    desc: "Strategic guidance on architecture, technology selection, and scalability.",
+    features: ["Tech Strategy", "Architecture Review", "Best Practices"],
+    link: "/services/consulting",
+    color: "#1d4ed8",
   },
 ];
 
 export default function Services() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLElement | null)[]>([]);
+  const targetRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('animate-slide-in-up');
-            }, index * 150);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  // Desktop horizontal scroll progress
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    // By tracking "start start", the scroll value begins exactly when the section touches the top
+    offset: ["start start", "end end"]
+  });
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
+  // The buttery-smooth spring physics, matching How It Works section
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 40,
+    damping: 18,
+    mass: 1.2,
+    restDelta: 0.001,
+  });
 
-    return () => observer.disconnect();
-  }, []);
+  // Slide left by ~120vw to reveal the 4 cards. 
+  // Container logic: 40vw intro + (35vw * 4 cards) = 180vw content + gaps
+  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-140vw"]);
 
   return (
-    <section id="services" className="bg-linear-to-b from-white via-blue-50/30 to-white py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden" ref={sectionRef}>
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-40 h-40 bg-blue-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-blue-100/20 rounded-full blur-3xl"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16 md:mb-20">
-          <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">WHAT WE OFFER</span>
+    <div id="services">
+      {/* ── Desktop Horizontal Scroll Layer ── */}
+      <section 
+        ref={targetRef} 
+        className="relative hidden lg:block h-[400vh] bg-[#050505] text-white"
+      >
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          
+          {/* Ambient Glows */}
+          <div className="absolute top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none z-0">
+             <div className="absolute top-1/2 left-[15%] w-[40vw] h-[40vw] bg-blue-900/10 rounded-full blur-[140px] -translate-y-1/2" />
+             <div className="absolute top-1/2 right-[10%] w-[35vw] h-[35vw] bg-indigo-900/10 rounded-full blur-[140px] -translate-y-1/2" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-black mb-4">Web Development Services</h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Build Beyond Studio specializes in MERN stack development, DevOps deployment, and white-label solutions</p>
+
+          <motion.div 
+            style={{ x: xDesktop }} 
+            className="flex gap-16 px-[10vw] relative z-10 items-center h-full pt-10"
+          >
+            
+            {/* Intro Block (Sticky to left briefly as we scroll) */}
+            <div className="w-[45vw] flex-shrink-0 flex flex-col justify-center translate-y-[-5%]">
+               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 self-start">
+                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                 <span className="text-[12px] font-bold tracking-[0.15em] text-gray-300 uppercase">Our Capabilities</span>
+               </div>
+               
+               <h2 className="text-[4.5rem] xl:text-[5.5rem] leading-[0.95] font-black tracking-[-0.04em] text-white mb-8">
+                 Elite tech<br />for <span className="text-[#64748b]">elite brands.</span>
+               </h2>
+               <p className="text-xl xl:text-2xl text-gray-400 max-w-lg leading-relaxed font-light tracking-wide">
+                 We don't just write code. We architect scalable, production-ready systems that power your business forward at velocity.
+               </p>
+            </div>
+
+            {/* Service Cards Track */}
+            <div className="flex gap-8 items-center h-[65vh] pb-10">
+              {services.map((svc, i) => {
+                // To add organic depth, we give alternating cards a slight Y offset
+                const yOffset = i % 2 === 1 ? '40px' : '0px';
+
+                return (
+                  <Link 
+                    key={svc.num} 
+                    href={svc.link} 
+                    className="block group w-[34vw] h-full flex-shrink-0 relative outline-none"
+                    style={{ transform: `translateY(${yOffset})` }}
+                  >
+                     <div className="absolute inset-0 bg-[#0c0c0e] border border-white/5 rounded-[32px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-white/20 group-hover:bg-[#111115] hover:shadow-[0_0_80px_-20px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                       
+                       {/* Top Accent Gradient */}
+                       <div className="absolute top-0 left-0 right-0 h-1 opacity-40 transition-opacity duration-500 group-hover:opacity-100" style={{ background: `linear-gradient(90deg, ${svc.color}, transparent)` }} />
+
+                       {/* Giant Number Watermark layout */}
+                       <div className="absolute -bottom-6 -right-8 text-[14rem] xl:text-[18rem] font-black tracking-tighter text-white/[0.015] group-hover:text-white/[0.04] transition-colors duration-700 select-none pointer-events-none z-0">
+                         {svc.num}
+                       </div>
+
+                       {/* Content Layout */}
+                       <div className="relative z-10 p-10 xl:p-12 h-full flex flex-col">
+                         <div className="flex justify-between items-start mb-auto">
+                           <h3 className="text-3xl xl:text-4xl font-bold tracking-tight text-white/90 whitespace-pre-line group-hover:text-white transition-colors duration-500 leading-tight">
+                             {svc.title}
+                           </h3>
+                           <div className="w-14 h-14 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] backdrop-blur-md">
+                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-white transition-all duration-500 group-hover:rotate-45">
+                               <path d="M5 12h14M12 5l7 7-7 7"/>
+                             </svg>
+                           </div>
+                         </div>
+
+                         <div className="mt-auto">
+                           <p className="text-gray-400 text-lg xl:text-xl leading-[1.6] mb-8 group-hover:text-gray-300 transition-colors duration-500 font-light">
+                             {svc.desc}
+                           </p>
+
+                           <div className="flex flex-wrap gap-2">
+                             {svc.features.map((feat) => (
+                               <span key={feat} className="px-4 py-2 rounded-full bg-white/[0.02] border border-white/5 text-[13px] font-medium text-gray-400 group-hover:bg-white/10 group-hover:border-white/10 group-hover:text-white transition-all duration-500">
+                                 {feat}
+                               </span>
+                             ))}
+                           </div>
+                         </div>
+                       </div>
+
+                     </div>
+                  </Link>
+                );
+              })}
+            </div>
+
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Mobile Vertical Scroll Layer ── */}
+      <section id="services-mobile" className="lg:hidden bg-[#050505] text-white pt-24 pb-20 px-5 sm:px-8 overflow-hidden relative">
+        {/* Glow */}
+        <div className="absolute top-20 left-0 w-full h-[60vh] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/2" />
+        
+        <div className="relative z-10 mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-[11px] font-bold tracking-widest text-gray-300 uppercase">Capabilities</span>
+          </div>
+          
+          <h2 className="text-[2.8rem] sm:text-[3.5rem] leading-[1] font-black tracking-[-0.04em] text-white mb-5">
+            Elite tech for <br/><span className="text-[#64748b]">elite brands.</span>
+          </h2>
+          <p className="text-[17px] text-gray-400 max-w-md leading-relaxed font-light">
+            We don't just write code. We architect scalable systems that power your business forward.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {services.map((service, index) => (
-            <Link
-              key={index}
-              href={service.link}
-              ref={(el) => {
-                cardsRef.current[index] = el;
-              }}
-              className="opacity-0 group relative block cursor-pointer"
+        <div className="flex flex-col gap-6 relative z-10">
+          {services.map((svc, i) => (
+            <motion.div
+              key={svc.num}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Card Background with Gradient */}
-              <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 to-blue-400/5 rounded-2xl border border-blue-200/50 group-hover:border-blue-400/80 transition-all duration-300"></div>
-
-              {/* Premium Hover Effect */}
-              <div className="absolute inset-0 bg-linear-to-br from-white to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-
-              {/* Content */}
-              <div className="relative p-7 sm:p-8 h-full flex flex-col rounded-2xl backdrop-blur-sm">
-                {/* Icon Container */}
-                <div className="w-14 h-14 bg-linear-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                  <span className="text-3xl">{service.icon}</span>
+              <Link 
+                href={svc.link} 
+                className="block group relative bg-[#0c0c0e] border border-white/5 rounded-[24px] overflow-hidden p-8 hover:bg-[#111115] transition-colors"
+              >
+                {/* Mobile top gradient */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-40" style={{ background: `linear-gradient(90deg, ${svc.color}, transparent)` }} />
+                
+                {/* Watermark */}
+                <div className="absolute -bottom-8 -right-4 text-[10rem] font-black tracking-tighter text-white/[0.02] select-none pointer-events-none">
+                  {svc.num}
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-black mb-3 group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h3>
+                <div className="relative z-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white/90">
+                      {svc.title.replace('\n', ' ')}
+                    </h3>
+                  </div>
 
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed text-sm mb-5 grow group-hover:text-gray-700 transition-colors">
-                  {service.description}
-                </p>
+                  <p className="text-gray-400 text-base leading-relaxed mb-8">
+                    {svc.desc}
+                  </p>
 
-                {/* Features & Arrow */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 group-hover:border-blue-200 transition-colors items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.slice(0, 2).map((feature, idx) => (
-                      <span key={idx} className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full group-hover:bg-blue-100 transition-colors">
-                        {feature}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {svc.features.slice(0, 2).map((feat) => (
+                      <span key={feat} className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-[12px] font-medium text-gray-400">
+                        {feat}
                       </span>
                     ))}
                   </div>
-                  <span className="text-blue-600 group-hover:text-blue-700 font-semibold text-sm">→</span>
+
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 group-hover:text-white transition-colors">
+                    Explore Service 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

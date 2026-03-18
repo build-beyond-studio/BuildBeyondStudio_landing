@@ -46,24 +46,24 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <section className="bg-linear-to-br from-white via-blue-50/40 to-white pt-0 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 relative overflow-hidden min-h-[60vh] flex items-center justify-center">
+      <section className="bg-linear-to-br from-[#050505] via-blue-900/10 to-[#050505] pt-0 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 relative overflow-hidden min-h-[60vh] flex items-center justify-center">
         {/* Decorative Elements */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-linear-to-br from-blue-400/35 to-blue-200/15 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-linear-to-tr from-blue-300/25 to-blue-100/15 rounded-full blur-3xl"></div>
 
         {/* Content */}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Insights & Growth Strategies
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
             Expert insights on branding, web development, SEO, and startup growth. Practical strategies to accelerate your business.
           </p>
         </div>
       </section>
 
       {/* Blog Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-[#050505]">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedBlogs.map((blog) => (
@@ -72,9 +72,9 @@ export default function BlogPage() {
                 href={`/blog/${blog.slug}`}
                 className="group h-full flex flex-col"
               >
-                <article className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-blue-400 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
+                <article className="bg-[#0c0c0e] border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500 transition-all duration-300 h-full flex flex-col hover:shadow-lg">
                   {/* Featured Image */}
-                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-200 group-hover:scale-105 transition-transform duration-300">
+                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-900 group-hover:scale-105 transition-transform duration-300">
                     <Image
                       src={blog.featuredImage}
                       alt={blog.title}
@@ -92,12 +92,12 @@ export default function BlogPage() {
                     </time>
 
                     {/* Title */}
-                    <h2 className="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
                       {blog.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 grow line-clamp-3">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-6 grow line-clamp-3">
                       {blog.description}
                     </p>
 
@@ -117,7 +117,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 bg-linear-to-r from-blue-600 to-blue-500">
+      <section className="py-16 md:py-24 px-4 sm:px-6 bg-linear-to-r from-blue-900/40 to-blue-800/40 border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
@@ -127,7 +127,7 @@ export default function BlogPage() {
           </p>
           <Link
             href="/services/web-applications"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Explore Our Services
           </Link>

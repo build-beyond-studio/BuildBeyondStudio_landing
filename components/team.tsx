@@ -78,11 +78,11 @@ export default function Team() {
   }, []);
 
   return (
-    <section id="team" className="bg-white py-24 md:py-32 px-6" ref={sectionRef}>
+    <section id="team" className="bg-[#050505] py-24 md:py-32 px-6" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Meet Our Team</h2>
-          <p className="text-lg text-gray-600">The developers behind your success</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Meet Our Team</h2>
+          <p className="text-lg text-gray-400">The developers behind your success</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -94,7 +94,7 @@ export default function Team() {
               }}
               className="opacity-0 group"
             >
-              <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+              <div className="bg-[#0c0c0e] rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-500/10">
                 {/* Avatar Section with Gradient Background */}
                 <div className={`relative h-48 bg-gradient-to-br ${member.color} overflow-hidden flex items-end justify-center pb-8`}>
                   {/* Animated background shapes */}
@@ -107,22 +107,22 @@ export default function Team() {
                   <img
                     src={member.avatar}
                     alt={member.name}
-                    className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
+                    className="w-32 h-32 rounded-full border-4 border-[#0c0c0e] shadow-lg shadow-black/50 object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-black mb-1 text-center">{member.name}</h3>
-                  <p className="text-sm font-semibold text-blue-600 mb-1 text-center">{member.role}</p>
-                  <p className="text-sm text-gray-600 mb-6 text-center">{member.specialty}</p>
+                  <h3 className="text-xl font-bold text-white mb-1 text-center">{member.name}</h3>
+                  <p className="text-sm font-semibold text-blue-500 mb-1 text-center">{member.role}</p>
+                  <p className="text-sm text-gray-400 mb-6 text-center">{member.specialty}</p>
 
                   {/* Skills/Tags */}
                   <div className="flex flex-wrap gap-2 justify-center mb-6">
                     {member.specialty.split('&').map((skill, i) => (
                       <span
                         key={i}
-                        className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium"
+                        className="text-xs bg-white/5 text-gray-300 px-3 py-1 rounded-full font-medium"
                       >
                         {skill.trim()}
                       </span>
@@ -132,12 +132,12 @@ export default function Team() {
                   {/* Social Links & Contact */}
                   <div className="space-y-4">
                     {/* Social Media Links */}
-                    <div className="flex items-center justify-center gap-3 pb-4 border-b border-gray-200">
+                    <div className="flex items-center justify-center gap-3 pb-4 border-b border-white/10">
                       <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white transition-all"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-blue-900/30 text-blue-400 hover:bg-blue-600 hover:text-white transition-all"
                         title="LinkedIn"
                       >
                         <FaLinkedin className="w-5 h-5" />
@@ -146,7 +146,7 @@ export default function Team() {
                         href={member.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-800 hover:text-white transition-all"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white transition-all"
                         title="GitHub"
                       >
                         <FaGithub className="w-5 h-5" />
@@ -155,7 +155,7 @@ export default function Team() {
                         href={member.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-pink-100 text-pink-600 hover:bg-pink-600 hover:text-white transition-all"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-pink-900/30 text-pink-400 hover:bg-pink-600 hover:text-white transition-all"
                         title="Instagram"
                       >
                         <FaInstagram className="w-5 h-5" />
@@ -166,14 +166,14 @@ export default function Team() {
                     <div className="space-y-2">
                       <a
                         href={`mailto:${member.email}`}
-                        className="flex items-center justify-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors py-2 hover:bg-blue-50 rounded-lg"
+                        className="flex items-center justify-center gap-2 text-sm text-gray-400 hover:text-blue-400 transition-colors py-2 hover:bg-white/5 rounded-lg"
                       >
                         <FiMail className="w-4 h-4" />
                         <span className="truncate">{member.email}</span>
                       </a>
                       <a
                         href={`tel:${member.phone}`}
-                        className="flex items-center justify-center gap-2 text-sm text-gray-700 hover:text-blue-600 transition-colors py-2 hover:bg-blue-50 rounded-lg"
+                        className="flex items-center justify-center gap-2 text-sm text-gray-400 hover:text-blue-400 transition-colors py-2 hover:bg-white/5 rounded-lg"
                       >
                         <FiPhone className="w-4 h-4" />
                         <span>{member.phone}</span>
@@ -198,26 +198,26 @@ export default function Team() {
 
         {/* Team Description */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-8 hover:border-blue-200 transition-all">
+          <div className="bg-[#0c0c0e] border border-white/5 rounded-2xl p-8 hover:border-blue-500 transition-all">
             <div className="text-3xl mb-3">🚀</div>
-            <h3 className="text-lg font-bold text-black mb-2">Fast Execution</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-2">Fast Execution</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
               We move quickly without sacrificing quality. Agile sprints, clear milestones, and consistent communication ensure on-time delivery.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-8 hover:border-blue-200 transition-all">
+          <div className="bg-[#0c0c0e] border border-white/5 rounded-2xl p-8 hover:border-blue-500 transition-all">
             <div className="text-3xl mb-3">🔒</div>
-            <h3 className="text-lg font-bold text-black mb-2">Production Ready</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-2">Production Ready</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
               Every project is built with security, scalability, and performance as first-class citizens. DevOps practices included from day one.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-8 hover:border-blue-200 transition-all">
+          <div className="bg-[#0c0c0e] border border-white/5 rounded-2xl p-8 hover:border-blue-500 transition-all">
             <div className="text-3xl mb-3">🤝</div>
-            <h3 className="text-lg font-bold text-black mb-2">Long-Term Partner</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-2">Long-Term Partner</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
               We're here for the long haul. Ongoing support, maintenance, and scaling assistance are part of our commitment to your success.
             </p>
           </div>
