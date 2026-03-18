@@ -38,11 +38,11 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-white py-12 md:py-16 px-4 sm:px-6">
+    <section className="bg-[#050505] py-12 md:py-16 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-2\">Trusted by Agencies</h2>
-          <p className="text-gray-600 text-sm md:text-base\">Web applications and projects delivered for agencies and businesses</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Trusted by Agencies</h2>
+          <p className="text-gray-400 text-sm md:text-base">Web applications and projects delivered for agencies and businesses</p>
         </div>
 
         {/* Carousel */}
@@ -63,7 +63,7 @@ export default function Testimonials() {
 
               {/* Current item (center) */}
               <div className="relative w-full md:w-3/4 h-full flex items-center justify-center transition-all duration-700 ease-out">
-                <div className="w-full h-4/5 rounded-xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm">
+                <div className="w-full h-4/5 rounded-xl overflow-hidden shadow-lg bg-white/5 backdrop-blur-md border border-white/10">
                   <img
                     key={currentIndex}
                     src={testimonials[currentIndex].image}
@@ -93,8 +93,8 @@ export default function Testimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${index === currentIndex
-                  ? 'bg-blue-600 w-8 h-2'
-                  : 'bg-gray-300 w-2 h-2 hover:bg-gray-400'
+                  ? 'bg-white w-8 h-2'
+                  : 'bg-white/20 w-2 h-2 hover:bg-white/40'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -104,8 +104,8 @@ export default function Testimonials() {
 
         {/* Client info below carousel */}
         <div className="text-center mt-4">
-          <p className="text-gray-600 text-xs md:text-sm font-medium mb-1">{testimonials[currentIndex].client}</p>
-          <h3 className="text-black text-sm md:text-base font-bold">{testimonials[currentIndex].title}</h3>
+          <p className="text-gray-400 text-xs md:text-sm font-medium mb-1">{testimonials[currentIndex].client}</p>
+          <h3 className="text-white text-sm md:text-base font-bold">{testimonials[currentIndex].title}</h3>
         </div>
       </div>
     </section>

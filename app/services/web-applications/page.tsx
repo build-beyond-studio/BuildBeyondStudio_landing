@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function WebApplicationsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#050505] text-white">
       <Header />
       <WebApplicationsService />
       <Footer />

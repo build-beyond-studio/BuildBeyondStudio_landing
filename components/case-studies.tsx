@@ -139,11 +139,11 @@ export default function CaseStudies() {
   }, []);
 
   return (
-    <section id="cases" className="bg-white py-20 md:py-32 px-4 sm:px-6" ref={sectionRef}>
+    <section id="cases" className="bg-[#050505] py-20 md:py-32 px-4 sm:px-6" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4">Latest Projects</h2>
-          <p className="text-base sm:text-lg text-gray-600">Real impact across diverse industries and use cases</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Latest Projects</h2>
+          <p className="text-base sm:text-lg text-gray-400">Real impact across diverse industries and use cases</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
@@ -176,7 +176,7 @@ export default function CaseStudies() {
                       href={study.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 sm:top-6 right-4 sm:right-6 px-4 sm:px-5 py-2 sm:py-2.5 bg-white/95 hover:bg-white text-gray-900 font-semibold text-xs sm:text-sm rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-white/30 flex items-center gap-2 backdrop-blur-sm border border-white/20"
+                      className="absolute top-4 sm:top-6 right-4 sm:right-6 px-4 sm:px-5 py-2 sm:py-2.5 bg-[#0c0c0e]/95 hover:bg-[#15151a] text-white font-semibold text-xs sm:text-sm rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-white/10 flex items-center gap-2 backdrop-blur-sm border border-white/20"
                     >
                       <span>Go Live</span>
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

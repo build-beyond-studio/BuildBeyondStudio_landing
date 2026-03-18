@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function DevOpsPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#050505] text-white">
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <h1 className="text-5xl font-bold text-black mb-6">DevOps & Deployment</h1>

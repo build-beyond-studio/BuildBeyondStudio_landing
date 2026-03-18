@@ -223,10 +223,10 @@ export default function Hero() {
       <style>{`
         /* ── section ───────────────────────────────────────── */
         .hero-section {
-          background: #f8fafc;
+          background: #050505;
           background-image:
             radial-gradient(ellipse 70% 70% at 50% 50%,
-              rgba(219,234,254,0.5) 0%, transparent 72%);
+              rgba(37,99,235,0.12) 0%, transparent 72%);
         }
 
         /* ── tiny glow balls ───────────────────────────────── */
@@ -277,9 +277,9 @@ export default function Hero() {
         .eyebrow-pill {
           display:inline-flex; align-items:center; gap:8px;
           padding:5px 14px 5px 8px; border-radius:999px;
-          border:1px solid #e2e8f0;
-          background:rgba(255,255,255,0.92);
-          font-size:11.5px; font-weight:500; color:#64748b;
+          border:1px solid rgba(255,255,255,0.1);
+          background:rgba(255,255,255,0.03);
+          font-size:11.5px; font-weight:500; color:#e2e8f0;
           letter-spacing:.03em; backdrop-filter:blur(8px);
           box-shadow:0 1px 4px rgba(0,0,0,.05);
         }
@@ -298,9 +298,9 @@ export default function Hero() {
         .stat-pill {
           display:inline-flex; align-items:center; gap:5px;
           padding:4px 11px; border-radius:999px;
-          background:rgba(255,255,255,0.85);
-          border:1px solid #e5e7eb;
-          font-size:11px; font-weight:600; color:#374151;
+          background:rgba(255,255,255,0.03);
+          border:1px solid rgba(255,255,255,0.1);
+          font-size:11px; font-weight:600; color:#e2e8f0;
           backdrop-filter:blur(6px);
           box-shadow:0 1px 3px rgba(0,0,0,.04);
         }
@@ -330,8 +330,7 @@ export default function Hero() {
 
       <section
         ref={sectionRef}
-        className="hero-section relative flex items-center justify-center overflow-hidden"
-        style={{ height: "calc(100svh - var(--navbar-h, 64px))", minHeight: "580px" }}
+        className="hero-section relative flex flex-col overflow-hidden w-full max-w-[100vw] min-h-[100svh]"
       >
         {/* ── Physics balls — distributed across entire section ── */}
         {Array.from({ length: BALL_COUNT }).map((_, i) => (
@@ -347,8 +346,8 @@ export default function Hero() {
         <div
           ref={contentRef}
           className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10
-                     flex flex-col items-center text-center gap-3 sm:gap-4
-                     will-change-[transform,opacity]"
+                     flex flex-col items-center text-center gap-4 sm:gap-6
+                     will-change-[transform,opacity] my-auto pt-24 pb-20"
         >
           {/* Eyebrow */}
           <div ref={eyebrowRef} className="hero-pre">
@@ -363,7 +362,7 @@ export default function Hero() {
             <h1
               ref={titleRef}
               className="hero-pre text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[4rem]
-                         font-black text-[#09090b] leading-[1.04] tracking-[-0.042em]"
+                         font-black text-white leading-[1.04] tracking-[-0.042em]"
             >
               Build Beyond Studio
             </h1>
@@ -382,11 +381,11 @@ export default function Hero() {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-500
+            className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-400
                        max-w-[480px] leading-[1.75]"
           >
             Partner with us to deliver stunning,{" "}
-            <span className="font-semibold text-gray-800">
+            <span className="font-semibold text-gray-200">
               production-ready web applications.
             </span>{" "}
             We help agencies deliver high-quality digital solutions
@@ -440,11 +439,11 @@ export default function Hero() {
               onMouseMove={mag2.onMove}
               onMouseLeave={mag2.onLeave}
               onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
-              className="mag-btn border border-gray-200 text-gray-700 px-9 py-3.5
+              className="mag-btn border border-white/10 text-white px-9 py-3.5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
-                         bg-white/90 hover:border-gray-300 hover:bg-white
-                         shadow-[0_2px_8px_rgba(0,0,0,0.06)]
-                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.10)]"
+                         bg-[#0c0c0e] hover:border-white/20 hover:bg-[#15151a]
+                         shadow-[0_2px_8px_rgba(0,0,0,0.5)]
+                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
             >
               See Our Work
             </button>

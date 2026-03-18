@@ -108,7 +108,7 @@ export default function Workflow() {
       <style>{`
         /* ── section ─────────────────────────────────────────────── */
         .wf-section {
-          background: #f8fafc;
+          background: #050505;
           /* Taller top padding because cards "fall" into here from above */
           padding-top: 240px;
           padding-bottom: 120px;
@@ -124,7 +124,7 @@ export default function Workflow() {
         /* ── bg glow ─────────────────────────────────────────────── */
         .wf-glow {
           position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-          background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(219,234,254,0.45) 0%, transparent 68%);
+          background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 68%);
           pointer-events: none; z-index: 0;
         }
 
@@ -137,9 +137,9 @@ export default function Workflow() {
         .wf-pill {
           display: inline-flex; align-items: center; gap: 8px;
           padding: 5px 14px 5px 10px; border-radius: 999px;
-          border: 1px solid #e2e8f0;
-          background: rgba(255,255,255,0.92);
-          font-size: 11.5px; font-weight: 500; color: #64748b;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.05);
+          font-size: 11.5px; font-weight: 500; color: #e2e8f0;
           letter-spacing: .03em; backdrop-filter: blur(8px);
           box-shadow: 0 1px 4px rgba(0,0,0,.05);
         }
@@ -168,9 +168,9 @@ export default function Workflow() {
           position: relative; overflow: hidden;
           border-radius: 16px; cursor: pointer; flex-shrink: 0;
           flex-grow: 1;
-          border: 1px solid #eaecef;
-          background: #fff;
-          box-shadow: 0 12px 40px rgba(0,0,0,.08);
+          border: 1px solid rgba(255,255,255,0.05);
+          background: #0c0c0e;
+          box-shadow: 0 12px 40px rgba(0,0,0,.5);
           transition:
             flex-grow .45s cubic-bezier(.65,0,.35,1),
             border-color .35s ease,
@@ -182,8 +182,8 @@ export default function Workflow() {
 
         .wf-panel.is-active {
           flex-grow: 4.8;
-          border-color: transparent;
-          box-shadow: 0 20px 60px rgba(0,0,0,.15);
+          border-color: rgba(255,255,255,0.2);
+          box-shadow: 0 20px 60px rgba(0,0,0,.6);
         }
 
         /* ── inactive face ────────────────────────────────────────── */
@@ -197,11 +197,11 @@ export default function Workflow() {
 
         .wf-idle-n {
           font-size: 38px; font-weight: 900;
-          letter-spacing: -0.055em; line-height: 1; color: #e4e8f0;
+          letter-spacing: -0.055em; line-height: 1; color: rgba(255,255,255,0.05);
           transition: color .25s ease, transform .3s cubic-bezier(.22,1,.36,1);
         }
         .wf-panel:hover:not(.is-active) .wf-idle-n {
-          color: #cdd4e0; transform: scale(1.08);
+          color: rgba(255,255,255,0.1); transform: scale(1.08);
         }
 
         /* ── active content mask ──────────────────────────────────── */
@@ -230,7 +230,7 @@ export default function Workflow() {
         .wf-panel.is-active .wf-title-clip { clip-path: inset(0 0% 0 0); }
         .wf-title {
           font-size: clamp(16px, 1.5vw, 19px);
-          font-weight: 800; color: #09090b;
+          font-weight: 800; color: #fff;
           letter-spacing: -0.025em; line-height: 1.2;
           margin-top: 6px;
         }
@@ -242,7 +242,7 @@ export default function Workflow() {
         .wf-panel.is-active .wf-div { transform: scaleX(1); }
 
         .wf-desc {
-          font-size: 13px; color: #64748b; line-height: 1.72;
+          font-size: 13px; color: #94a3b8; line-height: 1.72;
           opacity: 0; transform: translateY(8px);
           transition: opacity .45s cubic-bezier(.22,1,.36,1) .28s,
                       transform .45s cubic-bezier(.22,1,.36,1) .28s;
@@ -274,7 +274,7 @@ export default function Workflow() {
         /* ── pips nav ────────────────────────────────────────────── */
         .wf-pip {
           cursor: pointer; height: 3px; border-radius: 99px;
-          background: #e2e8f0; flex: 1;
+          background: rgba(255,255,255,0.1); flex: 1;
           transition: background .3s ease, transform .35s cubic-bezier(.22,1,.36,1);
         }
         .wf-pip.is-active { transform: scaleY(1.6); }
@@ -285,7 +285,7 @@ export default function Workflow() {
 
         .wf-mob-card {
           border-radius: 13px; overflow: hidden;
-          background: #fff; border: 1px solid #eaecef;
+          background: #0c0c0e; border: 1px solid rgba(255,255,255,0.05);
           transition: border-color .28s, box-shadow .28s;
         }
         .wf-mob-card.is-active {
@@ -336,7 +336,7 @@ export default function Workflow() {
                   How It Works
                 </span>
               </div>
-              <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-[#09090b] leading-[1.06] tracking-[-0.034em]">
+              <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-white leading-[1.06] tracking-[-0.034em]">
                 You Close Clients.{" "}
                 <span style={{
                   background: "linear-gradient(130deg,#1d4ed8 0%,#3b82f6 45%,#8b5cf6 100%)",
@@ -457,7 +457,7 @@ export default function Workflow() {
                   <div className="wf-mob-row" onClick={() => select(i)}>
                     <span className="wf-mob-ring">{step.num}</span>
                     <div className="flex-1 min-w-0">
-                      <div style={{ fontSize: 13.5, fontWeight: 800, color: "#09090b", letterSpacing: "-0.02em" }}>
+                      <div style={{ fontSize: 13.5, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>
                         {step.title}
                       </div>
                     </div>
@@ -467,7 +467,7 @@ export default function Workflow() {
                   </div>
                   <div className={`wf-mob-expand ${isActive ? "open" : ""}`}>
                     <div className="wf-mob-inner">
-                      <p style={{ padding: "2px 16px 16px", fontSize: 13, color: "#64748b", lineHeight: 1.72 }}>
+                      <p style={{ padding: "2px 16px 16px", fontSize: 13, color: "#94a3b8", lineHeight: 1.72 }}>
                         {step.body}
                       </p>
                     </div>
