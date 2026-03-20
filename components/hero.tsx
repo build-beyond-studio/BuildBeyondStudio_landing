@@ -7,61 +7,69 @@ const BALL_COUNT = 120;
 
 /* Colorful palette with matching glow colors */
 const PALETTE = [
-  { fill: "#60a5fa", glow: "rgba(96,165,250,0.7)"   },
-  { fill: "#a78bfa", glow: "rgba(167,139,250,0.7)"  },
-  { fill: "#34d399", glow: "rgba(52,211,153,0.7)"   },
-  { fill: "#f472b6", glow: "rgba(244,114,182,0.7)"  },
-  { fill: "#38bdf8", glow: "rgba(56,189,248,0.7)"   },
-  { fill: "#fb923c", glow: "rgba(251,146,60,0.7)"   },
-  { fill: "#818cf8", glow: "rgba(129,140,248,0.7)"  },
-  { fill: "#4ade80", glow: "rgba(74,222,128,0.7)"   },
-  { fill: "#e879f9", glow: "rgba(232,121,249,0.7)"  },
-  { fill: "#2dd4bf", glow: "rgba(45,212,191,0.7)"   },
-  { fill: "#facc15", glow: "rgba(250,204,21,0.7)"   },
-  { fill: "#f87171", glow: "rgba(248,113,113,0.7)"  },
+  { fill: "#60a5fa", glow: "rgba(96,165,250,0.7)" },
+  { fill: "#a78bfa", glow: "rgba(167,139,250,0.7)" },
+  { fill: "#34d399", glow: "rgba(52,211,153,0.7)" },
+  { fill: "#f472b6", glow: "rgba(244,114,182,0.7)" },
+  { fill: "#38bdf8", glow: "rgba(56,189,248,0.7)" },
+  { fill: "#fb923c", glow: "rgba(251,146,60,0.7)" },
+  { fill: "#818cf8", glow: "rgba(129,140,248,0.7)" },
+  { fill: "#4ade80", glow: "rgba(74,222,128,0.7)" },
+  { fill: "#e879f9", glow: "rgba(232,121,249,0.7)" },
+  { fill: "#2dd4bf", glow: "rgba(45,212,191,0.7)" },
+  { fill: "#facc15", glow: "rgba(250,204,21,0.7)" },
+  { fill: "#f87171", glow: "rgba(248,113,113,0.7)" },
 ];
 
 interface Ball {
-  x: number; y: number;       // 0–1 fractions of section size
-  vx: number; vy: number;     // current velocity px/frame
-  angle: number;              // current natural flight direction (radians)
-  angleSpeed: number;         // how fast direction slowly rotates
-  speed: number;              // cruise speed px/frame
-  r: number;                  // radius px
+  x: number;
+  y: number; // 0–1 fractions of section size
+  vx: number;
+  vy: number; // current velocity px/frame
+  angle: number; // current natural flight direction (radians)
+  angleSpeed: number; // how fast direction slowly rotates
+  speed: number; // cruise speed px/frame
+  r: number; // radius px
   fill: string;
   glow: string;
 }
 
 /* ── Magnetic button ──────────────────────────────────────────────── */
 function useMagnetic(s = 0.38) {
-  const ref    = useRef<HTMLButtonElement>(null);
-  const onMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    const el = ref.current; if (!el) return;
-    const r  = el.getBoundingClientRect();
-    el.style.transform = `translate(${(e.clientX-r.left-r.width/2)*s}px,${(e.clientY-r.top-r.height/2)*s}px)`;
-  }, [s]);
-  const onLeave = useCallback(() => { if (ref.current) ref.current.style.transform = ""; }, []);
+  const ref = useRef<HTMLButtonElement>(null);
+  const onMove = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      const el = ref.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * s}px,${(e.clientY - r.top - r.height / 2) * s}px)`;
+    },
+    [s],
+  );
+  const onLeave = useCallback(() => {
+    if (ref.current) ref.current.style.transform = "";
+  }, []);
   return { ref, onMove, onLeave };
 }
 
 export default function Hero() {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const contentRef  = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const particleEls = useRef<(HTMLSpanElement | null)[]>([]);
-  const balls       = useRef<Ball[]>([]);
-  const cursorX     = useRef(-9999);
-  const cursorY     = useRef(-9999);
-  const mainRaf     = useRef<number>(0);
+  const balls = useRef<Ball[]>([]);
+  const cursorX = useRef(-9999);
+  const cursorY = useRef(-9999);
+  const mainRaf = useRef<number>(0);
 
   /* entrance refs */
-  const eyebrowRef  = useRef<HTMLDivElement>(null);
-  const titleRef    = useRef<HTMLHeadingElement>(null);
-  const line2Ref    = useRef<HTMLSpanElement>(null);
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const badgesRef   = useRef<HTMLDivElement>(null);
-  const buttonsRef  = useRef<HTMLDivElement>(null);
-  const emailRef    = useRef<HTMLDivElement>(null);
-  const scrollRef   = useRef<HTMLDivElement>(null);
+  const badgesRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const emailRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const mag1 = useMagnetic(0.42);
   const mag2 = useMagnetic(0.42);
@@ -69,24 +77,30 @@ export default function Hero() {
   /* ── Staggered entrance ─────────────────────────────────────────── */
   useEffect(() => {
     const items = [
-      { el: eyebrowRef.current,  delay: 0   },
-      { el: titleRef.current,    delay: 80   },
-      { el: line2Ref.current,    delay: 200  },
-      { el: subtitleRef.current, delay: 340  },
-      { el: badgesRef.current,   delay: 460  },
-      { el: buttonsRef.current,  delay: 560  },
-      { el: emailRef.current,    delay: 650  },
-      { el: scrollRef.current,   delay: 760  },
+      { el: eyebrowRef.current, delay: 0 },
+      { el: titleRef.current, delay: 80 },
+      { el: line2Ref.current, delay: 200 },
+      { el: subtitleRef.current, delay: 340 },
+      { el: badgesRef.current, delay: 460 },
+      { el: buttonsRef.current, delay: 560 },
+      { el: emailRef.current, delay: 650 },
+      { el: scrollRef.current, delay: 760 },
     ];
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const item = items.find(i => i.el === entry.target);
-        if (!item) return;
-        setTimeout(() => (entry.target as HTMLElement).classList.add("hero-enter"), item.delay);
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.05 });
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const item = items.find((i) => i.el === entry.target);
+          if (!item) return;
+          setTimeout(
+            () => (entry.target as HTMLElement).classList.add("hero-enter"),
+            item.delay,
+          );
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.05 },
+    );
     items.forEach(({ el }) => el && obs.observe(el));
     return () => obs.disconnect();
   }, []);
@@ -95,21 +109,22 @@ export default function Hero() {
   useEffect(() => {
     /* 1. Initialise balls — all start at y ≈ 0 (navbar top) and fall in */
     balls.current = Array.from({ length: BALL_COUNT }, (_, i) => {
-      const c       = PALETTE[i % PALETTE.length];
-      const angle   = Math.random() * Math.PI * 2;          // random start direction
-      const speed   = 0.15 + Math.random() * 0.2;           // gentle cruise 0.15–0.35 px/frame
+      const c = PALETTE[i % PALETTE.length];
+      const angle = Math.random() * Math.PI * 2; // random start direction
+      const speed = 0.15 + Math.random() * 0.2; // gentle cruise 0.15–0.35 px/frame
       return {
-        x:          0.03 + Math.random() * 0.94,            // wide horizontal spread
-        y:          -0.04 - Math.random() * 0.08,           // start just above navbar
-        vx:         (Math.random() - 0.5) * 2.8,            // wide horizontal scatter
-        vy:         3.5  + Math.random() * 3.0,             // fast fall into section
+        x: 0.03 + Math.random() * 0.94, // wide horizontal spread
+        y: -0.04 - Math.random() * 0.08, // start just above navbar
+        vx: (Math.random() - 0.5) * 2.8, // wide horizontal scatter
+        vy: 3.5 + Math.random() * 3.0, // fast fall into section
         angle,
-        angleSpeed: (Math.random() < 0.5 ? 1 : -1)         // clockwise or counter
-                    * (0.001 + Math.random() * 0.002),      //   0.001–0.003 rad/frame (slower turn)
+        angleSpeed:
+          (Math.random() < 0.5 ? 1 : -1) * // clockwise or counter
+          (0.001 + Math.random() * 0.002), //   0.001–0.003 rad/frame (slower turn)
         speed,
-        r:          1.5 + Math.random() * 1.5,
-        fill:       c.fill,
-        glow:       c.glow,
+        r: 1.5 + Math.random() * 1.5,
+        fill: c.fill,
+        glow: c.glow,
       };
     });
 
@@ -118,33 +133,36 @@ export default function Hero() {
       const el = particleEls.current[i];
       if (!el) return;
       const d = ball.r * 2;
-      el.style.width      = `${d}px`;
-      el.style.height     = `${d}px`;
+      el.style.width = `${d}px`;
+      el.style.height = `${d}px`;
       el.style.marginLeft = `-${ball.r}px`;
-      el.style.marginTop  = `-${ball.r}px`;
+      el.style.marginTop = `-${ball.r}px`;
       el.style.background = ball.fill;
-      el.style.boxShadow  =
+      el.style.boxShadow =
         `0 0 ${ball.r * 3}px ${ball.r * 1.5}px ${ball.glow},` +
-        `0 0 ${ball.r * 7}px ${ball.r}px ${ball.glow.replace("0.7","0.25")}`;
+        `0 0 ${ball.r * 7}px ${ball.r}px ${ball.glow.replace("0.7", "0.25")}`;
     });
 
     /* 3. Mouse tracking */
-    const onMove  = (e: MouseEvent) => {
+    const onMove = (e: MouseEvent) => {
       const rect = sectionRef.current?.getBoundingClientRect();
       if (!rect) return;
       cursorX.current = e.clientX - rect.left;
       cursorY.current = e.clientY - rect.top;
     };
-    const onLeave = () => { cursorX.current = -9999; cursorY.current = -9999; };
-    window.addEventListener("mousemove",  onMove,  { passive: true });
+    const onLeave = () => {
+      cursorX.current = -9999;
+      cursorY.current = -9999;
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mouseleave", onLeave, { passive: true });
 
     /* 4. Physics rAF loop */
-    const REPEL_R  = 110;    // repulsion radius px
-    const REPEL_F  = 3.8;    // repulsion acceleration
-    const STEER    = 0.018;  // how strongly ball steers toward cruise direction
-    const RESTITUT = 0.75;   // wall bounce energy retention
-    const MAX_SPD  = 9;      // max speed during repulsion
+    const REPEL_R = 110; // repulsion radius px
+    const REPEL_F = 3.8; // repulsion acceleration
+    const STEER = 0.018; // how strongly ball steers toward cruise direction
+    const RESTITUT = 0.75; // wall bounce energy retention
+    const MAX_SPD = 9; // max speed during repulsion
 
     const loop = () => {
       const section = sectionRef.current;
@@ -164,10 +182,10 @@ export default function Hero() {
           ball.vy += (cruiseVy - ball.vy) * STEER;
 
           /* ─ Cursor repulsion — pushes hard, then steer naturally undoes it */
-          const px   = ball.x * W;
-          const py   = ball.y * H;
-          const dx   = px - cx;
-          const dy   = py - cy;
+          const px = ball.x * W;
+          const py = ball.y * H;
+          const dx = px - cx;
+          const dy = py - cy;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < REPEL_R && dist > 1) {
             const f = (1 - dist / REPEL_R) * REPEL_F;
@@ -189,22 +207,39 @@ export default function Hero() {
           /* ─ Wall bounce — also reflect angle so bird turns naturally */
           const rW = ball.r / W;
           const rH = ball.r / H;
-          if (ball.x < rW)     { ball.x = rW;     ball.vx =  Math.abs(ball.vx) * RESTITUT; ball.angle = Math.PI - ball.angle; }
-          if (ball.x > 1-rW)   { ball.x = 1-rW;   ball.vx = -Math.abs(ball.vx) * RESTITUT; ball.angle = Math.PI - ball.angle; }
-          if (ball.y < rH)     { ball.y = rH;      ball.vy =  Math.abs(ball.vy) * RESTITUT; ball.angle = -ball.angle; }
-          if (ball.y > 1-rH)   { ball.y = 1-rH;   ball.vy = -Math.abs(ball.vy) * RESTITUT; ball.angle = -ball.angle; }
+          if (ball.x < rW) {
+            ball.x = rW;
+            ball.vx = Math.abs(ball.vx) * RESTITUT;
+            ball.angle = Math.PI - ball.angle;
+          }
+          if (ball.x > 1 - rW) {
+            ball.x = 1 - rW;
+            ball.vx = -Math.abs(ball.vx) * RESTITUT;
+            ball.angle = Math.PI - ball.angle;
+          }
+          if (ball.y < rH) {
+            ball.y = rH;
+            ball.vy = Math.abs(ball.vy) * RESTITUT;
+            ball.angle = -ball.angle;
+          }
+          if (ball.y > 1 - rH) {
+            ball.y = 1 - rH;
+            ball.vy = -Math.abs(ball.vy) * RESTITUT;
+            ball.angle = -ball.angle;
+          }
 
           /* ─ Push to DOM */
           const el = particleEls.current[i];
-          if (el) el.style.transform = `translate(${ball.x * W}px,${ball.y * H}px)`;
+          if (el)
+            el.style.transform = `translate(${ball.x * W}px,${ball.y * H}px)`;
         });
 
         /* ─ Scroll parallax on content */
-        const sy   = window.scrollY;
+        const sy = window.scrollY;
         const prog = Math.min(sy / (H * 0.8), 1);
         if (contentRef.current) {
           contentRef.current.style.transform = `translateY(${sy * 0.2}px)`;
-          contentRef.current.style.opacity   = `${1 - prog}`;
+          contentRef.current.style.opacity = `${1 - prog}`;
         }
       }
       mainRaf.current = requestAnimationFrame(loop);
@@ -213,7 +248,7 @@ export default function Hero() {
 
     return () => {
       cancelAnimationFrame(mainRaf.current);
-      window.removeEventListener("mousemove",  onMove);
+      window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseleave", onLeave);
     };
   }, []);
@@ -227,6 +262,9 @@ export default function Hero() {
           background-image:
             radial-gradient(ellipse 70% 70% at 50% 50%,
               rgba(37,99,235,0.12) 0%, transparent 72%);
+          overflow: hidden;
+          min-height: 105vh;
+          padding-top:20px;
         }
 
         /* ── tiny glow balls ───────────────────────────────── */
@@ -330,13 +368,15 @@ export default function Hero() {
 
       <section
         ref={sectionRef}
-        className="hero-section relative flex flex-col overflow-hidden w-full max-w-[100vw] min-h-[100svh]"
+        className="hero-section relative flex flex-col w-screen max-w-[100%]"
       >
         {/* ── Physics balls — distributed across entire section ── */}
         {Array.from({ length: BALL_COUNT }).map((_, i) => (
           <span
             key={`ball-${i}`}
-            ref={el => { particleEls.current[i] = el; }}
+            ref={(el) => {
+              particleEls.current[i] = el;
+            }}
             className="orb-ball"
             aria-hidden
           />
@@ -346,8 +386,8 @@ export default function Hero() {
         <div
           ref={contentRef}
           className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10
-                     flex flex-col items-center text-center gap-4 sm:gap-6
-                     will-change-[transform,opacity] my-auto pt-24 pb-20"
+                     flex flex-col items-center text-center gap-5 sm:gap-5
+                     will-change-[transform,opacity] pt-2 pb-40"
         >
           {/* Eyebrow */}
           <div ref={eyebrowRef} className="hero-pre">
@@ -376,7 +416,10 @@ export default function Hero() {
           </div>
 
           {/* Divider */}
-          <div className="hero-pre hero-divider" style={{ transitionDelay: "300ms" }} />
+          <div
+            className="hero-pre hero-divider"
+            style={{ transitionDelay: "300ms" }}
+          />
 
           {/* Subtitle */}
           <p
@@ -388,25 +431,51 @@ export default function Hero() {
             <span className="font-semibold text-gray-200">
               production-ready web applications.
             </span>{" "}
-            We help agencies deliver high-quality digital solutions
-            without managing a technical team.
+            We help agencies deliver high-quality digital solutions without
+            managing a technical team.
           </p>
 
           {/* Service highlights */}
-          <div ref={badgesRef} className="hero-pre flex items-center justify-center gap-2 flex-wrap">
+          <div
+            ref={badgesRef}
+            className="hero-pre flex items-center justify-center gap-2 flex-wrap"
+          >
             {[
-              { label: "Development",  icon: "</>",  accent: "#2563eb", bg: "rgba(37,99,235,0.07)",  border: "rgba(37,99,235,0.18)" },
-              { label: "Deployment",   icon: "⬆",   accent: "#7c3aed", bg: "rgba(124,58,237,0.07)", border: "rgba(124,58,237,0.18)" },
-              { label: "Maintenance",  icon: "⚙",   accent: "#0891b2", bg: "rgba(8,145,178,0.07)",  border: "rgba(8,145,178,0.18)" },
+              {
+                label: "Development",
+                icon: "</>",
+                accent: "#2563eb",
+                bg: "rgba(37,99,235,0.07)",
+                border: "rgba(37,99,235,0.18)",
+              },
+              {
+                label: "Deployment",
+                icon: "⬆",
+                accent: "#7c3aed",
+                bg: "rgba(124,58,237,0.07)",
+                border: "rgba(124,58,237,0.18)",
+              },
+              {
+                label: "Maintenance",
+                icon: "⚙",
+                accent: "#0891b2",
+                bg: "rgba(8,145,178,0.07)",
+                border: "rgba(8,145,178,0.18)",
+              },
             ].map(({ label, icon, accent, bg, border }) => (
               <span
                 key={label}
                 style={{
-                  display: "inline-flex", alignItems: "center", gap: "6px",
-                  padding: "5px 13px", borderRadius: "999px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "5px 13px",
+                  borderRadius: "999px",
                   background: bg,
                   border: `1px solid ${border}`,
-                  fontSize: "11.5px", fontWeight: 600, color: accent,
+                  fontSize: "11.5px",
+                  fontWeight: 600,
+                  color: accent,
                   letterSpacing: ".02em",
                   backdropFilter: "blur(6px)",
                 }}
@@ -427,7 +496,11 @@ export default function Hero() {
               ref={mag1.ref}
               onMouseMove={mag1.onMove}
               onMouseLeave={mag1.onLeave}
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="mag-btn btn-primary text-white px-9 py-3.5 rounded-xl
                          font-bold text-[13.5px] w-full sm:w-auto"
             >
@@ -438,7 +511,11 @@ export default function Hero() {
               ref={mag2.ref}
               onMouseMove={mag2.onMove}
               onMouseLeave={mag2.onLeave}
-              onClick={() => document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("cases")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="mag-btn border border-white/10 text-white px-9 py-3.5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-[#0c0c0e] hover:border-white/20 hover:bg-[#15151a]
@@ -458,8 +535,11 @@ export default function Hero() {
               { icon: "⚡", label: "Fast Delivery" },
               { icon: "🔒", label: "100% Ownership" },
               { icon: "♾️", label: "Ongoing Support" },
-            ].map(s => (
-              <span key={s.label} className="stat-pill"><span>{s.icon}</span>{s.label}</span>
+            ].map((s) => (
+              <span key={s.label} className="stat-pill">
+                <span>{s.icon}</span>
+                {s.label}
+              </span>
             ))}
           </div>
 
@@ -474,26 +554,9 @@ export default function Hero() {
               {EMAIL}
             </a>
           </div>
-
-
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          ref={scrollRef}
-          className="hero-pre absolute bottom-8 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
-          onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-        >
-          <div className="scroll-caret flex flex-col items-center gap-1.5">
-            <span className="text-[9px] tracking-[0.22em] uppercase text-gray-400 font-semibold">
-              Scroll
-            </span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 2v10M3 8l4 4 4-4" stroke="#9ca3af" strokeWidth="1.5"
-                    strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
+       
       </section>
     </>
   );

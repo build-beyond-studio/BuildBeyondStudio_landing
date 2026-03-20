@@ -45,24 +45,29 @@ const CYCLE_MS = 2800;
 
 export default function Workflow() {
   const [active, setActive] = useState(0);
-  const [prog, setProg]     = useState(0);
+  const [prog, setProg] = useState(0);
 
-  const sectionRef   = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const cycleRef     = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const rafRef       = useRef<number>(0);
-  const hoverRef     = useRef(false);
+  const cycleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number>(0);
+  const hoverRef = useRef(false);
 
   /* ── 1. Scroll animations for falling cards ── */
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     // Start tracking when the section is further up the screen (starts later)
     // End tracking when the section hits the upper third of the screen
-    offset: ["start 85%", "start 25%"]
+    offset: ["start 85%", "start 25%"],
   });
 
   // A very heavy, fluid spring for cinematic momentum
-  const smoothY = useSpring(scrollYProgress, { stiffness: 40, damping: 18, mass: 1.2, restDelta: 0.001 });
+  const smoothY = useSpring(scrollYProgress, {
+    stiffness: 40,
+    damping: 18,
+    mass: 1.2,
+    restDelta: 0.001,
+  });
 
   /* ── 2. Auto-cycle logic (only starts after scroll entrance finishes) ── */
   const kick = useCallback((idx: number) => {
@@ -95,12 +100,16 @@ export default function Workflow() {
 
   useEffect(() => {
     if (canAutoPlay) kick(active);
-    return () => { if (cycleRef.current) clearTimeout(cycleRef.current); cancelAnimationFrame(rafRef.current); };
+    return () => {
+      if (cycleRef.current) clearTimeout(cycleRef.current);
+      cancelAnimationFrame(rafRef.current);
+    };
   }, [active, canAutoPlay, kick]);
 
   const select = (i: number) => {
     if (!canAutoPlay) return;
-    setActive(i); kick(i);
+    setActive(i);
+    kick(i);
   };
 
   return (
@@ -110,15 +119,17 @@ export default function Workflow() {
         .wf-section {
           background: #050505;
           /* Taller top padding because cards "fall" into here from above */
-          padding-top: 240px;
+          padding-top: 80px;
           padding-bottom: 120px;
           position: relative;
           z-index: 20; /* Keep above hero if they overlap */
-          overflow: visible; /* CRITICAL: let cards bleed out the top */
+          overflow-x: hidden; /* Prevent horizontal scroll while letting cards bleed out top */
+          overflow-y: visible;
           margin-top: -100px; /* Pull it up into the hero section slightly */
+          transition: background-color 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
         }
         @media (max-width: 767px) {
-           .wf-section { padding-top: 140px; padding-bottom: 80px; margin-top: -50px; }
+           .wf-section { padding-top: 60px; padding-bottom: 80px; margin-top: -50px; }
         }
 
         /* ── bg glow ─────────────────────────────────────────────── */
@@ -316,17 +327,20 @@ export default function Workflow() {
 
       `}</style>
 
-      <section ref={sectionRef} id="how-we-work" className="wf-section">
+      <section
+        ref={sectionRef}
+        id="how-we-work"
+        className="wf-section overflow-hidden max-w-[100vw] overflow-x-hidden"
+      >
         <div className="wf-glow" />
 
         <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
-          
           {/* ── Text block (simple CSS entrance tracking the same scroll progress) ── */}
           <motion.div
             className="wf-header-wrap flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
             style={{
               opacity: useTransform(smoothY, [0, 0.4], [0, 1]),
-              y: useTransform(smoothY, [0, 0.4], [40, 0])
+              y: useTransform(smoothY, [0, 0.4], [40, 0]),
             }}
           >
             <div className="flex flex-col gap-3">
@@ -337,30 +351,104 @@ export default function Workflow() {
                 </span>
               </div>
               <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-white leading-[1.06] tracking-[-0.034em]">
-                You Close Clients.{" "}
-                <span style={{
-                  background: "linear-gradient(130deg,#1d4ed8 0%,#3b82f6 45%,#8b5cf6 100%)",
-                  WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
-                }}>
-                  We Handle the Code.
+                How We Work.{" "}
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(130deg,#1d4ed8 0%,#3b82f6 45%,#8b5cf6 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  With Agencies .
                 </span>
               </h2>
             </div>
             <p className="text-[13.5px] text-gray-400 leading-[1.8] max-w-[240px] sm:text-right">
-              A 5-step process from<br />handshake to pure profit.
+              A 5-step process from
+              <br />
+              handshake to pure profit.
             </p>
           </motion.div>
 
+          {/* ── Simplified Workflow – Steps Overview ── */}
+          <motion.div
+            className="mb-16"
+            style={{
+              opacity: useTransform(smoothY, [0, 0.4], [0, 1]),
+              y: useTransform(smoothY, [0, 0.4], [40, 0]),
+            }}
+          >
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 z-0"></div>
+
+              <div className="grid md:grid-cols-5 gap-4 relative z-10">
+                {[
+                  {
+                    step: "1",
+                    title: "Agency Closes Client",
+                    description: "You land a deal requiring web development.",
+                  },
+                  {
+                    step: "2",
+                    title: "Share Scope",
+                    description:
+                      "Send us detailed requirements, wireframes, or brief.",
+                  },
+                  {
+                    step: "3",
+                    title: "Estimate & Timeline",
+                    description:
+                      "We provide clear estimate, timeline, and roadmap.",
+                  },
+                  {
+                    step: "4",
+                    title: "Development & Staging",
+                    description:
+                      "Weekly updates, dedicated staging environment for review.",
+                  },
+                  {
+                    step: "5",
+                    title: "Deployment & Support",
+                    description:
+                      "Clean handover, production deployment, ongoing support.",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-lg">
+                      {item.step}
+                    </div>
+                    <h4 className="font-bold text-white text-sm">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-400 text-xs leading-relaxed mt-2">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
           {/* ── Desktop Falling Cards Accordion ── */}
-          <div ref={containerRef} className="wf-accord" style={{ perspective: "1500px" }}>
+          <div
+            ref={containerRef}
+            className="wf-accord"
+            style={{ perspective: "1500px" }}
+          >
             {STEPS.map((step, i) => {
               const isActive = active === i;
-              
-              const offsetMultiplier = (i - 2); // -2, -1, 0, 1, 2
-              
+
+              const offsetMultiplier = i - 2; // -2, -1, 0, 1, 2
+
               // Extreme fall: start from off-screen top (hero section), spin heavily
-              const startY = -1200 - (Math.abs(offsetMultiplier) * 200);
-              const startX = offsetMultiplier * 160; 
+              const startY = -1200 - Math.abs(offsetMultiplier) * 200;
+              const startX = offsetMultiplier * 160;
               const startRotZ = offsetMultiplier * 45; // extreme tilt
               const startRotY = offsetMultiplier * -30; // heavy 3D swing
               const startRotX = 80; // almost flat
@@ -369,23 +457,56 @@ export default function Workflow() {
 
               // Center arrives first, edges float in later
               const startDomain = 0.0;
-              const endDomain = 0.7 + (Math.abs(offsetMultiplier) * 0.15); // Staggered landings up to 1.0
+              const endDomain = 0.7 + Math.abs(offsetMultiplier) * 0.15; // Staggered landings up to 1.0
 
-              const cardY = useTransform(smoothY, [startDomain, endDomain], [startY, 0]);
-              const cardX = useTransform(smoothY, [startDomain, endDomain], [startX, 0]);
-              const cardRotZ = useTransform(smoothY, [startDomain, endDomain], [startRotZ, 0]);
-              const cardRotY = useTransform(smoothY, [startDomain, endDomain], [startRotY, 0]);
-              const cardRotX = useTransform(smoothY, [startDomain, endDomain], [startRotX, 0]);
-              const cardScale = useTransform(smoothY, [startDomain, endDomain], [startScale, 1]);
-              const cardOpacity = useTransform(smoothY, [startDomain, endDomain], [startOpacity, 1]);
+              const cardY = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startY, 0],
+              );
+              const cardX = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startX, 0],
+              );
+              const cardRotZ = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startRotZ, 0],
+              );
+              const cardRotY = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startRotY, 0],
+              );
+              const cardRotX = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startRotX, 0],
+              );
+              const cardScale = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startScale, 1],
+              );
+              const cardOpacity = useTransform(
+                smoothY,
+                [startDomain, endDomain],
+                [startOpacity, 1],
+              );
 
               return (
                 <motion.div
                   key={step.num}
                   className={`wf-panel ${isActive ? "is-active" : ""}`}
                   onClick={() => select(i)}
-                  onMouseEnter={() => { hoverRef.current = true; select(i); }}
-                  onMouseLeave={() => { hoverRef.current = false; }}
+                  onMouseEnter={() => {
+                    hoverRef.current = true;
+                    select(i);
+                  }}
+                  onMouseLeave={() => {
+                    hoverRef.current = false;
+                  }}
                   style={{
                     y: cardY,
                     x: cardX,
@@ -395,29 +516,59 @@ export default function Workflow() {
                     scale: cardScale,
                     opacity: cardOpacity,
                     // Subtle drop shadow matching the height
-                    boxShadow: useTransform(smoothY, [startDomain, endDomain], 
-                      ["0 100px 100px -20px rgba(0,0,0,0.3)", "0 12px 40px rgba(0,0,0,0.08)"])
+                    boxShadow: useTransform(
+                      smoothY,
+                      [startDomain, endDomain],
+                      [
+                        "0 100px 100px -20px rgba(0,0,0,0.3)",
+                        "0 12px 40px rgba(0,0,0,0.08)",
+                      ],
+                    ),
                   }}
                 >
-                  <span className="wf-ghost" style={{ color: step.accent }}>{step.num}</span>
+                  <span className="wf-ghost" style={{ color: step.accent }}>
+                    {step.num}
+                  </span>
 
                   <div className="wf-idle">
-                    <span className="wf-idle-n" style={{ color: isActive ? step.accent + "22" : undefined }}>
+                    <span
+                      className="wf-idle-n"
+                      style={{
+                        color: isActive ? step.accent + "22" : undefined,
+                      }}
+                    >
                       {step.num}
                     </span>
                   </div>
 
                   <div className="wf-body">
                     <div>
-                      <div className="wf-cue-wrap"><span className="wf-cue" style={{ color: step.accent }}>{step.num} · {step.cue}</span></div>
-                      <div className="wf-title-clip"><h3 className="wf-title">{step.title}</h3></div>
+                      <div className="wf-cue-wrap">
+                        <span className="wf-cue" style={{ color: step.accent }}>
+                          {step.num} · {step.cue}
+                        </span>
+                      </div>
+                      <div className="wf-title-clip">
+                        <h3 className="wf-title">{step.title}</h3>
+                      </div>
                     </div>
-                    <div className="wf-div" style={{ background: `linear-gradient(90deg, ${step.accent}55, transparent)` }} />
+                    <div
+                      className="wf-div"
+                      style={{
+                        background: `linear-gradient(90deg, ${step.accent}55, transparent)`,
+                      }}
+                    />
                     <p className="wf-desc">{step.body}</p>
                   </div>
 
                   <div className="wf-bar">
-                    <div className="wf-bar-fill" style={{ width: isActive ? `${prog}%` : "0%", background: `linear-gradient(90deg, ${step.accent}, ${step.accent}88)` }} />
+                    <div
+                      className="wf-bar-fill"
+                      style={{
+                        width: isActive ? `${prog}%` : "0%",
+                        background: `linear-gradient(90deg, ${step.accent}, ${step.accent}88)`,
+                      }}
+                    />
                   </div>
                 </motion.div>
               );
@@ -425,7 +576,7 @@ export default function Workflow() {
           </div>
 
           {/* ── Pip nav (also fades in via scroll) ── */}
-          <motion.div 
+          <motion.div
             className="hidden md:flex items-center gap-2 mt-5"
             style={{ opacity: useTransform(smoothY, [0.8, 1], [0, 1]) }}
           >
@@ -442,32 +593,71 @@ export default function Workflow() {
 
           {/* ── Mobile fallback (standard entrance) ── */}
           <div className="wf-mob mt-4">
-             {/* Simple fade-in sequence for mobile so it's not messy */}
+            {/* Simple fade-in sequence for mobile so it's not messy */}
             {STEPS.map((step, i) => {
               const isActive = active === i;
               return (
-                <motion.div 
-                  key={step.num} 
+                <motion.div
+                  key={step.num}
                   className={`wf-mob-card ${isActive ? "is-active" : ""}`}
                   style={{
-                    opacity: useTransform(smoothY, [0.2 + i*0.1, 0.4 + i*0.1], [0, 1]),
-                    y: useTransform(smoothY, [0.2 + i*0.1, 0.4 + i*0.1], [20, 0]),
+                    opacity: useTransform(
+                      smoothY,
+                      [0.2 + i * 0.1, 0.4 + i * 0.1],
+                      [0, 1],
+                    ),
+                    y: useTransform(
+                      smoothY,
+                      [0.2 + i * 0.1, 0.4 + i * 0.1],
+                      [20, 0],
+                    ),
                   }}
                 >
                   <div className="wf-mob-row" onClick={() => select(i)}>
                     <span className="wf-mob-ring">{step.num}</span>
                     <div className="flex-1 min-w-0">
-                      <div style={{ fontSize: 13.5, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>
+                      <div
+                        style={{
+                          fontSize: 13.5,
+                          fontWeight: 800,
+                          color: "#fff",
+                          letterSpacing: "-0.02em",
+                        }}
+                      >
                         {step.title}
                       </div>
                     </div>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, color: "#94a3b8", transition: "transform .35s", transform: isActive ? "rotate(180deg)" : "none" }}>
-                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      style={{
+                        flexShrink: 0,
+                        color: "#94a3b8",
+                        transition: "transform .35s",
+                        transform: isActive ? "rotate(180deg)" : "none",
+                      }}
+                    >
+                      <path
+                        d="M4 6l4 4 4-4"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                   <div className={`wf-mob-expand ${isActive ? "open" : ""}`}>
                     <div className="wf-mob-inner">
-                      <p style={{ padding: "2px 16px 16px", fontSize: 13, color: "#94a3b8", lineHeight: 1.72 }}>
+                      <p
+                        style={{
+                          padding: "2px 16px 16px",
+                          fontSize: 13,
+                          color: "#94a3b8",
+                          lineHeight: 1.72,
+                        }}
+                      >
                         {step.body}
                       </p>
                     </div>
@@ -476,7 +666,6 @@ export default function Workflow() {
               );
             })}
           </div>
-
         </div>
       </section>
     </>
