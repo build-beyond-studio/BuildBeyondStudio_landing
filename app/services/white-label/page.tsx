@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'White-Label Web Development for Agencies | Build Beyond Studio',
@@ -108,12 +109,12 @@ export default function WhiteLabelPage() {
           expertise. Full IP rights included — your clients never know we exist.
         </p>
 
-        
+        <Link
           href="/contact"
           className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold mb-16"
         >
           Start a White-Label Project
-        </a>
+        </Link>
 
         <div className="space-y-12 text-gray-300">
           <div>
@@ -230,12 +231,12 @@ export default function WhiteLabelPage() {
             Join agencies across India who use Build Beyond Studio as their
             silent technical partner.
           </p>
-          
+          <Link
             href="/#contact"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold"
           >
             Book a Free Consultation
-          </a>
+          </Link>
         </div>
       </section>
       <Footer />
