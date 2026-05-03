@@ -79,10 +79,12 @@ export default function Home() {
       <Workflow />
       <Services />
       <CaseStudies />
+      <WhyUs />
       <Testimonials />
       <AgencyPartners />
       <WhyUs />
       <FAQ />
+      {/* <Team /> */}
       <Contact />
       <Footer />
     </main>

@@ -5,18 +5,18 @@ import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 
 const NAV_LINKS = [
-  { href: "/",                          label: "Home"        },
-  { href: "/#services",                 label: "Services"    },
-  { href: "/services/web-applications", label: "Your Website"},
-  { href: "/#cases",                    label: "Our Work"    },
-  { href: "/#why",                      label: "Why Us"      },
-  { href: "/#partners",                 label: "For Agencies"},
-  { href: "/blog",                      label: "Blog"        },
+  { href: "/", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/#why", label: "Why Us" },
+  { href: "/services/web-applications", label: "Your Website" },
+  { href: "/#cases", label: "Our Work" },
+  { href: "/#partners", label: "For Agencies" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -178,11 +178,8 @@ export default function Header() {
         The inner .nav-morph handles the morphing width + shape.
       */}
       <header className="navbar-capsule fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4">
-
         <div className={`nav-morph ${scrolled ? "scrolled" : ""}`}>
-
           <div className="flex items-center justify-between px-5 sm:px-6">
-
             {/* Logo — slides from LEFT */}
             <div className="anim-from-left flex items-center gap-2.5">
               <Image
@@ -190,7 +187,7 @@ export default function Header() {
                 alt="Build Beyond Studio - Web Development & DevOps Agency"
                 width={40}
                 height={40}
-                className="w-8 sm:w-9 h-8 sm:h-9 shrink-0"
+                className="w-8 sm:w-9 h-8 sm:h-9 shrink-0 bg-white rounded-full"
               />
               <span className="font-semibold text-white text-sm sm:text-[15px] tracking-tight">
                 Build Beyond Studio
@@ -241,7 +238,6 @@ export default function Header() {
               </nav>
             </div>
           </div>
-
         </div>
       </header>
 
