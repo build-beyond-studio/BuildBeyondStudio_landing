@@ -59,40 +59,40 @@ const caseStudies = [
       'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080305_sn5c77.png?w=1200&h=800&fit=crop&q=100&dpr=2',
     ],
   },
-
   {
-    title: 'DLAR Dashboard – Enterprise Data Visualization Platform',
-    industry: 'Enterprise / Data Analytics',
+    title: 'Srijjan IVF Center – Fertility Clinic Website',
+    industry: 'Healthcare / Fertility & IVF',
     problem:
-      'DLAR managed large volumes of store-level data using spreadsheets, making analysis, monitoring, and decision-making inefficient.',
+      'Srijjan IVF Center, led by Dr. Sangeeta Sinha with 20+ years of experience, had no strong digital presence to reach patients seeking advanced fertility care in the Bhilai-Durg region and beyond.',
     solution:
-      'Built a personalized dashboard to automate sheet data processing with advanced visualizations, charts, and role-based access for admins, clients, and managers.',
+      'Built a professional, trust-inspiring website showcasing their full range of services — IVF, IUI, ICSI, egg freezing, and laparoscopy — with clear service pages, doctor profiles, and an easy appointment booking flow.',
     deployment:
-      'Deployed on secure cloud infrastructure with performance-optimized backend and scalable database architecture.',
+      'Deployed on a reliable hosting environment with fast load times, mobile responsiveness, and SEO optimization to improve local discoverability for patients in Supela and surrounding areas.',
     impact:
-      'Automated data workflows, improved reporting accuracy, enabled faster insights through visual analytics, and reduced dependency on manual spreadsheets.',
+      'Established a credible online identity for the clinic, improved patient enquiry rates, and made it easier for couples to learn about high-success-rate IVF programs running since 2015.',
+    liveUrl: 'https://www.srijjanivfbhilai.com/',
     screenshots: [
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468853/Screenshot_2026-02-19_080436_ty42mg.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080448_ukyp8g.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468851/Screenshot_2026-02-19_080504_zmlcjd.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905740/Screenshot_2026-05-04_200945_etjkty.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905692/Screenshot_2026-05-04_201025_iwjx2a.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905693/Screenshot_2026-05-04_201052_myqm1p.png',
     ],
   },
-
   {
-    title: 'Pinnacle Dashboard – Lightweight Data Monitoring System',
-    industry: 'Business Intelligence / Internal Tools',
+    title: 'DOZZED – Redefining India\'s Coffee Culture',
+    industry: 'F&B / Coffee & Hospitality',
     problem:
-      'The team needed a simple system to display structured sheet data without complex analytics or administrative controls.',
+      'DOZZED, a proudly homegrown Delhi NCR café brand founded by entrepreneur Ashwin Singh Takiar, needed a digital presence that matched its bold identity — a brand built on the belief that great coffee should be accessible to all, not just a few.',
     solution:
-      'Developed a streamlined dashboard focused on displaying sheet data in structured table formats with essential details and minimal configuration.',
+      'Built a high-impact website that captures the DOZZED brand story — house-roasted beans, an open coffee bar experience, and a community-first mission. The site highlights the founder\'s vision, the in-house roasting process, and the culture behind every cup.',
     deployment:
-      'Hosted on a reliable cloud platform ensuring consistent access and performance.',
+      'Deployed with fast load times and a mobile-first design to reach coffee lovers across Delhi NCR and beyond, with an aesthetic that reflects the premium yet accessible brand identity.',
     impact:
-      'Simplified data access, reduced dependency on raw spreadsheets, and provided a clean, readable data view for internal users.',
+      'Gave DOZZED a digital home that mirrors its real-world energy — building brand credibility, driving café footfall, and amplifying Ashwin\'s vision of a homegrown Indian coffee movement.',
+    liveUrl: 'https://www.getdozzed.com/',
     screenshots: [
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468851/Screenshot_2026-02-19_080649_sfzpje.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468851/Screenshot_2026-02-19_080711_j1cpci.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468851/Screenshot_2026-02-19_080638_dmo4xg.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905373/Screenshot_2026-05-04_200455_pfsolm.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905372/Screenshot_2026-05-04_200515_ujeqqn.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905370/Screenshot_2026-05-04_200539_ohmvzn.png',
     ],
   },
 ];
@@ -156,7 +156,7 @@ export default function CaseStudies() {
               onClick={() => setSelectedStudy(index)}
               className="opacity-0 group cursor-pointer"
             >
-              <div className="h-full bg-white rounded-2xl border border-[rgba(200,134,10,0.12)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(200,134,10,0.16)] hover:-translate-y-2 flex flex-col overflow-hidden" style={{boxShadow:'0 4px 16px rgba(200,134,10,0.08)'}}>
+              <div className="h-full bg-white rounded-2xl border border-[rgba(200,134,10,0.12)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(200,134,10,0.16)] hover:-translate-y-2 flex flex-col overflow-hidden" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.08)' }}>
                 {/* Image Carousel - Larger & Premium */}
                 <div className="relative h-40 sm:h-48 md:h-56 bg-gray-50 overflow-hidden shrink-0 group">
                   <img
@@ -242,7 +242,7 @@ export default function CaseStudies() {
           onClick={() => setSelectedStudy(null)}
         >
           <div
-            className="bg-white rounded-2xl w-full max-w-6xl max-h-[95vh] overflow-y-auto animate-scale-in my-auto border border-[rgba(200,134,10,0.18)]" style={{boxShadow:'0 24px 80px rgba(200,134,10,0.18), 0 0 0 1px rgba(200,134,10,0.10)'}}
+            className="bg-white rounded-2xl w-full max-w-6xl max-h-[95vh] overflow-y-auto animate-scale-in my-auto border border-[rgba(200,134,10,0.18)]" style={{ boxShadow: '0 24px 80px rgba(200,134,10,0.18), 0 0 0 1px rgba(200,134,10,0.10)' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
