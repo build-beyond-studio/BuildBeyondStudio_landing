@@ -72,15 +72,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#050505] py-20 md:py-32 px-4 sm:px-6"
+      className="bg-[#F5F2EC] py-20 md:py-32 px-4 sm:px-6 border-t border-black/5"
       ref={sectionRef}
     >
       <div className="max-w-5xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-3 md:mb-4">
             Partner with Build Beyond Studio
           </h2>
-          <p className="text-base sm:text-lg text-gray-400">
+          <p className="text-base sm:text-lg text-gray-600">
             Get in touch to discuss your web development project and how we can
             help scale your business.
           </p>
@@ -95,7 +95,7 @@ export default function Contact() {
               className="opacity-0 space-y-6"
             >
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label className="block text-sm font-semibold text-black mb-2">
                   Name
                 </label>
                 <input
@@ -104,13 +104,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0c0c0e] border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-white placeholder-gray-600"
+                  className="w-full px-4 py-3 bg-[#FFFDF8] border border-[rgba(200,134,10,0.18)] rounded-lg focus:outline-none focus:border-[#C8860A] focus:ring-2 focus:ring-[rgba(200,134,10,0.15)] text-black placeholder-gray-400"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label className="block text-sm font-semibold text-black mb-2">
                   Email
                 </label>
                 <input
@@ -119,13 +119,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0c0c0e] border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-white placeholder-gray-600"
+                  className="w-full px-4 py-3 bg-[#FFFDF8] border border-[rgba(200,134,10,0.18)] rounded-lg focus:outline-none focus:border-[#C8860A] focus:ring-2 focus:ring-[rgba(200,134,10,0.15)] text-black placeholder-gray-400"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">
+                <label className="block text-sm font-semibold text-black mb-2">
                   Message
                 </label>
                 <textarea
@@ -134,25 +134,30 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 bg-[#0c0c0e] border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-white placeholder-gray-600 resize-none"
+                  className="w-full px-4 py-3 bg-[#FFFDF8] border border-[rgba(200,134,10,0.18)] rounded-lg focus:outline-none focus:border-[#C8860A] focus:ring-2 focus:ring-[rgba(200,134,10,0.15)] text-black placeholder-gray-400 resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full cursor-pointer bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold"
+                className="w-full cursor-pointer text-white px-6 py-3 rounded-lg font-semibold transition-all"
+                style={{
+                  background: "linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)",
+                  boxShadow: "0 4px 16px rgba(200,134,10,0.30)",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 8px 28px rgba(200,134,10,0.45)")}
+                onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(200,134,10,0.30)")}
               >
                 Send Message
               </button>
 
               {status && (
                 <p
-                  className={`text-sm text-center ${
-                    status.includes("Thank you")
-                      ? "text-green-600"
-                      : "text-blue-600"
-                  }`}
+                  className={`text-sm text-center ${status.includes("Thank you")
+                    ? "text-green-600"
+                    : "text-[#C8860A]"
+                    }`}
                 >
                   {status}
                 </p>
@@ -162,14 +167,14 @@ export default function Contact() {
 
           {/* WhatsApp + Email Contact */}
           <div className="flex items-center justify-center">
-            <div className="bg-[#0c0c0e] p-8 sm:p-10 rounded-xl border border-white/10 hover:border-green-400 transition-all h-full flex flex-col items-center justify-center text-center">
-              <MessageCircle className="w-14 h-14 text-green-500 mb-6" />
+            <div className="bg-white p-8 sm:p-10 rounded-xl border border-[rgba(200,134,10,0.15)] hover:border-[rgba(200,134,10,0.35)] transition-all h-full flex flex-col items-center justify-center text-center" style={{boxShadow:'0 4px 18px rgba(200,134,10,0.09)'}}>
+              <MessageCircle className="w-14 h-14 text-green-600 mb-6" />
 
-              <h3 className="font-bold text-white text-xl sm:text-2xl mb-3">
+              <h3 className="font-bold text-black text-xl sm:text-2xl mb-3">
                 Chat with us on WhatsApp
               </h3>
 
-              <p className="text-gray-400 text-sm sm:text-base mb-6">
+              <p className="text-gray-600 text-sm sm:text-base mb-6">
                 Connect with us directly for quick responses
               </p>
 
@@ -183,11 +188,11 @@ export default function Contact() {
               </a>
 
               {/* Email Contact */}
-              <div className="flex items-center gap-2 text-gray-400 text-sm sm:text-base">
-                <Mail className="w-5 h-5 text-blue-500" />
+              <div className="flex items-center gap-2 text-gray-600 text-sm sm:text-base">
+                <Mail className="w-5 h-5 text-[#C8860A]" />
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="hover:text-blue-600 transition-colors font-medium"
+                  className="hover:text-[#C8860A] transition-colors font-medium"
                 >
                   {EMAIL}
                 </a>

@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://www.linkedin.com/company/buildbeyondstudio"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
+              className="flex items-center gap-3 text-gray-400 hover:text-[#E8A020] transition-colors group"
             >
               <svg
                 className="w-6 h-6 group-hover:scale-110 transition-transform"
@@ -36,7 +36,7 @@ export default function Footer() {
               href="https://github.com/buildbeyondstudio"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
+              className="flex items-center gap-3 text-gray-400 hover:text-[#E8A020] transition-colors group"
             >
               <svg
                 className="w-6 h-6 group-hover:scale-110 transition-transform"

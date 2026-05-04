@@ -9,7 +9,7 @@ const STEPS = [
     title: "Partner With Us",
     body: "Join our white-label program completely free. We stay totally invisible while you remain the face of everything.",
     cue: "Free to start",
-    accent: "#2563eb",
+    accent: "#C8860A",
   },
   {
     num: "02",
@@ -117,7 +117,7 @@ export default function Workflow() {
       <style>{`
         /* ── section ─────────────────────────────────────────────── */
         .wf-section {
-          background: #050505;
+          background: #F5F2EC;
           /* Taller top padding because cards "fall" into here from above */
           padding-top: 80px;
           padding-bottom: 120px;
@@ -127,6 +127,7 @@ export default function Workflow() {
           overflow-y: visible;
           margin-top: -100px; /* Pull it up into the hero section slightly */
           transition: background-color 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+          border-top: 1px solid rgba(0,0,0,0.05);
         }
         @media (max-width: 767px) {
            .wf-section { padding-top: 60px; padding-bottom: 80px; margin-top: -50px; }
@@ -135,7 +136,7 @@ export default function Workflow() {
         /* ── bg glow ─────────────────────────────────────────────── */
         .wf-glow {
           position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-          background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 68%);
+          background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,134,10,0.07) 0%, transparent 68%);
           pointer-events: none; z-index: 0;
         }
 
@@ -148,15 +149,15 @@ export default function Workflow() {
         .wf-pill {
           display: inline-flex; align-items: center; gap: 8px;
           padding: 5px 14px 5px 10px; border-radius: 999px;
-          border: 1px solid rgba(255,255,255,0.1);
-          background: rgba(255,255,255,0.05);
-          font-size: 11.5px; font-weight: 500; color: #e2e8f0;
+          border: 1px solid rgba(0,0,0,0.05);
+          background: rgba(0,0,0,0.02);
+          font-size: 11.5px; font-weight: 500; color: #475569;
           letter-spacing: .03em; backdrop-filter: blur(8px);
-          box-shadow: 0 1px 4px rgba(0,0,0,.05);
+          box-shadow: 0 1px 4px rgba(0,0,0,.02);
         }
         .wf-live {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #2563eb;
+          background: #C8860A;
           animation: wfpulse 2s ease-in-out infinite;
           box-shadow: 0 0 0 3px rgba(37,99,235,.2);
         }
@@ -179,22 +180,21 @@ export default function Workflow() {
           position: relative; overflow: hidden;
           border-radius: 16px; cursor: pointer; flex-shrink: 0;
           flex-grow: 1;
-          border: 1px solid rgba(255,255,255,0.05);
-          background: #0c0c0e;
-          box-shadow: 0 12px 40px rgba(0,0,0,.5);
+          border: 1px solid rgba(200,134,10,0.12);
+          background: #FFFDF8;
+          box-shadow: 0 8px 32px rgba(200,134,10,0.10), 0 0 0 1px rgba(200,134,10,0.06);
           transition:
             flex-grow .45s cubic-bezier(.65,0,.35,1),
             border-color .35s ease,
             box-shadow .35s ease;
           will-change: flex-grow, transform, opacity;
-          /* fallback if js fails */
           transform-origin: center bottom;
         }
 
         .wf-panel.is-active {
           flex-grow: 4.8;
-          border-color: rgba(255,255,255,0.2);
-          box-shadow: 0 20px 60px rgba(0,0,0,.6);
+          border-color: rgba(200,134,10,0.28);
+          box-shadow: 0 20px 60px rgba(200,134,10,0.18), 0 0 0 1px rgba(200,134,10,0.16);
         }
 
         /* ── inactive face ────────────────────────────────────────── */
@@ -208,11 +208,11 @@ export default function Workflow() {
 
         .wf-idle-n {
           font-size: 38px; font-weight: 900;
-          letter-spacing: -0.055em; line-height: 1; color: rgba(255,255,255,0.05);
+          letter-spacing: -0.055em; line-height: 1; color: rgba(0,0,0,0.05);
           transition: color .25s ease, transform .3s cubic-bezier(.22,1,.36,1);
         }
         .wf-panel:hover:not(.is-active) .wf-idle-n {
-          color: rgba(255,255,255,0.1); transform: scale(1.08);
+          color: rgba(0,0,0,0.08); transform: scale(1.08);
         }
 
         /* ── active content mask ──────────────────────────────────── */
@@ -241,7 +241,7 @@ export default function Workflow() {
         .wf-panel.is-active .wf-title-clip { clip-path: inset(0 0% 0 0); }
         .wf-title {
           font-size: clamp(16px, 1.5vw, 19px);
-          font-weight: 800; color: #fff;
+          font-weight: 800; color: #000;
           letter-spacing: -0.025em; line-height: 1.2;
           margin-top: 6px;
         }
@@ -253,7 +253,7 @@ export default function Workflow() {
         .wf-panel.is-active .wf-div { transform: scaleX(1); }
 
         .wf-desc {
-          font-size: 13px; color: #94a3b8; line-height: 1.72;
+          font-size: 13px; color: #475569; line-height: 1.72;
           opacity: 0; transform: translateY(8px);
           transition: opacity .45s cubic-bezier(.22,1,.36,1) .28s,
                       transform .45s cubic-bezier(.22,1,.36,1) .28s;
@@ -269,7 +269,7 @@ export default function Workflow() {
           transition: opacity .45s cubic-bezier(.22,1,.36,1) .06s,
                       transform .45s cubic-bezier(.22,1,.36,1) .06s;
         }
-        .wf-panel.is-active .wf-ghost { opacity: 0.055; transform: none; }
+        .wf-panel.is-active .wf-ghost { opacity: 0.035; transform: none; }
 
         .wf-bar {
           position: absolute; bottom: 0; left: 0; right: 0; height: 2.5px;
@@ -285,7 +285,7 @@ export default function Workflow() {
         /* ── pips nav ────────────────────────────────────────────── */
         .wf-pip {
           cursor: pointer; height: 3px; border-radius: 99px;
-          background: rgba(255,255,255,0.1); flex: 1;
+          background: rgba(0,0,0,0.05); flex: 1;
           transition: background .3s ease, transform .35s cubic-bezier(.22,1,.36,1);
         }
         .wf-pip.is-active { transform: scaleY(1.6); }
@@ -296,12 +296,13 @@ export default function Workflow() {
 
         .wf-mob-card {
           border-radius: 13px; overflow: hidden;
-          background: #0c0c0e; border: 1px solid rgba(255,255,255,0.05);
+          background: #FFFDF8; border: 1px solid rgba(200,134,10,0.12);
+          box-shadow: 0 4px 14px rgba(200,134,10,0.08);
           transition: border-color .28s, box-shadow .28s;
         }
         .wf-mob-card.is-active {
-          border-color: rgba(37,99,235,.2);
-          box-shadow: 0 4px 18px rgba(37,99,235,.08);
+          border-color: rgba(200,134,10,0.28);
+          box-shadow: 0 6px 22px rgba(200,134,10,0.16);
         }
         .wf-mob-row {
           display: flex; align-items: center; gap: 13px;
@@ -311,12 +312,12 @@ export default function Workflow() {
           width: 30px; height: 30px; border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
           font-size: 10.5px; font-weight: 800; flex-shrink: 0;
-          background: rgba(37,99,235,0.07); color: #2563eb;
+          background: rgba(200,134,10,0.10); color: #C8860A;
           border: 1px solid rgba(37,99,235,0.14);
           transition: background .28s, color .28s, border-color .28s;
         }
         .wf-mob-card.is-active .wf-mob-ring {
-          background: #2563eb; color: #fff; border-color: transparent;
+          background: #C8860A; color: #fff; border-color: transparent;
         }
         .wf-mob-expand {
           display: grid; grid-template-rows: 0fr;
@@ -350,12 +351,10 @@ export default function Workflow() {
                   How It Works
                 </span>
               </div>
-              <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-white leading-[1.06] tracking-[-0.034em]">
+              <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-black leading-[1.06] tracking-[-0.034em]">
                 How We Work.{" "}
                 <span
                   style={{
-                    background:
-                      "linear-gradient(130deg,#1d4ed8 0%,#3b82f6 45%,#8b5cf6 100%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -365,7 +364,7 @@ export default function Workflow() {
                 </span>
               </h2>
             </div>
-            <p className="text-[13.5px] text-gray-400 leading-[1.8] max-w-[240px] sm:text-right">
+            <p className="text-[13.5px] text-gray-600 leading-[1.8] max-w-[240px] sm:text-right">
               A 5-step process from
               <br />
               handshake to pure profit.
@@ -382,7 +381,7 @@ export default function Workflow() {
           >
             <div className="relative">
               {/* Connecting line */}
-              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 z-0"></div>
+              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-[rgba(200,134,10,0.2)] via-[rgba(200,134,10,0.4)] to-[rgba(200,134,10,0.2)] z-0"></div>
 
               <div className="grid md:grid-cols-5 gap-4 relative z-10">
                 {[
@@ -420,13 +419,13 @@ export default function Workflow() {
                     key={index}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-lg">
+                    <div className="w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-lg" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)'}}>
                       {item.step}
                     </div>
-                    <h4 className="font-bold text-white text-sm">
+                    <h4 className="font-bold text-black text-sm">
                       {item.title}
                     </h4>
-                    <p className="text-gray-400 text-xs leading-relaxed mt-2">
+                    <p className="text-gray-600 text-xs leading-relaxed mt-2">
                       {item.description}
                     </p>
                   </div>
@@ -620,7 +619,7 @@ export default function Workflow() {
                         style={{
                           fontSize: 13.5,
                           fontWeight: 800,
-                          color: "#fff",
+                          color: "#000",
                           letterSpacing: "-0.02em",
                         }}
                       >
@@ -634,7 +633,7 @@ export default function Workflow() {
                       fill="none"
                       style={{
                         flexShrink: 0,
-                        color: "#94a3b8",
+                        color: "#64748b",
                         transition: "transform .35s",
                         transform: isActive ? "rotate(180deg)" : "none",
                       }}
@@ -654,7 +653,7 @@ export default function Workflow() {
                         style={{
                           padding: "2px 16px 16px",
                           fontSize: 13,
-                          color: "#94a3b8",
+                          color: "#475569",
                           lineHeight: 1.72,
                         }}
                       >

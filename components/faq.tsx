@@ -33,13 +33,13 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-20 px-4 sm:px-6 bg-[#050505]">
+    <section className="py-20 px-4 sm:px-6 bg-[#F5F2EC] border-t border-black/5">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-600 text-lg">
             Everything you need to know about partnering with Build Beyond Studio.
           </p>
         </div>
@@ -48,17 +48,17 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group bg-[#0c0c0e] border border-white/5 rounded-xl p-6 cursor-pointer hover:border-blue-500/30 transition-all duration-200"
+              className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 cursor-pointer hover:border-[rgba(200,134,10,0.35)] transition-all duration-200" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
             >
               <summary className="flex items-center justify-between list-none">
-                <h3 className="text-white font-semibold text-base sm:text-lg pr-4">
+                <h3 className="text-black font-semibold text-base sm:text-lg pr-4">
                   {faq.question}
                 </h3>
-                <span className="text-blue-400 text-xl flex-shrink-0 group-open:rotate-45 transition-transform duration-200">
+                <span className="text-[#C8860A] text-xl flex-shrink-0 group-open:rotate-45 transition-transform duration-200">
                   +
                 </span>
               </summary>
-              <p className="mt-4 text-gray-400 leading-relaxed text-sm sm:text-base">
+              <p className="mt-4 text-gray-600 leading-relaxed text-sm sm:text-base">
                 {faq.answer}
               </p>
             </details>

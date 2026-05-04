@@ -60,11 +60,11 @@ export default function Header() {
 
         .nav-morph.scrolled {
           border-radius: 16px;
-          background: rgba(12, 12, 14, 0.75);
+          background: #F5F2EC;
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          box-shadow: 0 8px 40px rgba(0,0,0,0.10);
-          outline: 1px solid rgba(255, 255, 255, 0.05);
+          box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+          outline: 1px solid rgba(0, 0, 0, 0.05);
           padding-top: 10px;
           padding-bottom: 10px;
           max-width: 64rem; /* 1024px ≈ max-w-4xl */
@@ -118,7 +118,7 @@ export default function Header() {
           left: 0;
           width: 0;
           height: 1.5px;
-          background: #fff;
+          background: #000;
           border-radius: 99px;
           transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -129,7 +129,7 @@ export default function Header() {
           display: block;
           width: 22px;
           height: 1.5px;
-          background: #fff;
+          background: #000;
           border-radius: 99px;
           transform-origin: center;
           transition:
@@ -189,7 +189,7 @@ export default function Header() {
                 height={40}
                 className="w-8 sm:w-9 h-8 sm:h-9 shrink-0 bg-white rounded-full"
               />
-              <span className="font-semibold text-white text-sm sm:text-[15px] tracking-tight">
+              <span className="font-semibold text-black text-sm sm:text-[15px] tracking-tight">
                 Build Beyond Studio
               </span>
             </div>
@@ -200,7 +200,7 @@ export default function Header() {
                 <a
                   key={href}
                   href={href}
-                  className="nav-item nav-link text-gray-300 hover:text-white text-[13px] font-medium transition-colors duration-200"
+                  className="nav-item nav-link text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200"
                 >
                   {label}
                 </a>
@@ -209,9 +209,8 @@ export default function Header() {
 
             {/* Hamburger — slides from RIGHT */}
             <button
-              className={`anim-from-right md:hidden flex flex-col justify-center items-center gap-[5.5px] w-9 h-9 rounded-xl hover:bg-white/5 transition-colors duration-200 cursor-pointer ${
-                isMenuOpen ? "ham-open" : ""
-              }`}
+              className={`anim-from-right md:hidden flex flex-col justify-center items-center gap-[5.5px] w-9 h-9 rounded-xl hover:bg-black/5 transition-colors duration-200 cursor-pointer ${isMenuOpen ? "ham-open" : ""
+                }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -224,13 +223,13 @@ export default function Header() {
           {/* Mobile Dropdown */}
           <div className={`mobile-menu md:hidden ${isMenuOpen ? "open" : ""}`}>
             <div className="mobile-menu-inner">
-              <nav className="flex flex-col px-5 pb-4 pt-3 gap-0.5 border-t border-white/10 mt-2 bg-[#0c0c0e]/80 rounded-b-2xl backdrop-blur-md">
+              <nav className="flex flex-col px-5 pb-4 pt-3 gap-0.5 border-t border-black/5 mt-2 bg-white/90 rounded-b-2xl backdrop-blur-md">
                 {NAV_LINKS.map(({ href, label }) => (
                   <a
                     key={href}
                     href={href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="mob-link text-gray-300 hover:text-white text-sm font-medium py-2.5 border-b border-white/5 last:border-0 transition-colors duration-200"
+                    className="mob-link text-gray-600 hover:text-black text-sm font-medium py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200"
                   >
                     {label}
                   </a>

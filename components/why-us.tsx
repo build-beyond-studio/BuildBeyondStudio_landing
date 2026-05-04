@@ -5,28 +5,28 @@ import { Users, Briefcase, ShieldCheck, Layers } from "lucide-react";
 
 const differentiators = [
   {
-    icon: <Users className="w-6 h-6 text-blue-500" />,
+    icon: <Users className="w-6 h-6 text-[#C8860A]" />,
     title: "No Need to Hire Developers",
     description:
       "Offer full-scale digital services without building or managing an in-house technical team. We act as your dedicated execution partner.",
     metric: "Scale Without Hiring",
   },
   {
-    icon: <Briefcase className="w-6 h-6 text-blue-500" />,
+    icon: <Briefcase className="w-6 h-6 text-[#C8860A]" />,
     title: "You Close the Client. We Deliver.",
     description:
       "Focus on strategy, sales, and client relationships while we handle the complete technical build — seamlessly and professionally.",
     metric: "Execution Partner",
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-blue-500" />,
+    icon: <ShieldCheck className="w-6 h-6 text-[#C8860A]" />,
     title: "Secure & Skilled Development",
     description:
       "Experienced developers, clean code, and secure systems. Every project is built to perform reliably and meet high professional standards.",
     metric: "Trusted Quality",
   },
   {
-    icon: <Layers className="w-6 h-6 text-blue-500" />,
+    icon: <Layers className="w-6 h-6 text-[#C8860A]" />,
     title: "White-Label & Long-Term Support",
     description:
       "Deliver under your brand with confidence. We support your agency behind the scenes — not just for one project, but for long-term growth.",
@@ -69,13 +69,13 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section id="why" className="bg-[#050505] py-24 md:py-32 px-6" ref={sectionRef}>
+    <section id="why" className="bg-[#F5F2EC] py-24 md:py-32 px-6 border-t border-black/5" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Why Choose Build Beyond Studio?
           </h2>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-gray-600">
             Leading web development agency for agencies seeking production-ready
             applications
           </p>
@@ -90,19 +90,19 @@ export default function WhyUs() {
               }}
               className="opacity-0 group"
             >
-              <div className="bg-[#0c0c0e] p-8 md:p-10 rounded-2xl border border-white/5 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="bg-white p-8 md:p-10 rounded-2xl border border-[rgba(200,134,10,0.13)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(200,134,10,0.15)] hover:-translate-y-1" style={{boxShadow:'0 4px 16px rgba(200,134,10,0.08)'}}>
                 <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white/5 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FDF8F0] rounded-xl border border-[rgba(200,134,10,0.15)] group-hover:scale-110 transition-transform duration-300" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.10)'}}>
                     <div className="text-3xl">{item.icon}</div>
                   </div>
-                  <div className="bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-xs font-bold">
+                  <div className="bg-[#FDF8F0] text-[#A06A00] px-3 py-1 rounded-full text-xs font-bold">
                     {item.metric}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="text-2xl font-bold text-black mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -111,36 +111,44 @@ export default function WhyUs() {
         </div>
 
         {/* Comparison Section */}
-        <div className="bg-linear-to-r from-blue-900/40 to-blue-800/40 border border-blue-500/20 rounded-2xl p-8 md:p-12 text-white mb-16">
+        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black mb-16" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
             Our Guarantee
           </h3>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">24-48h</div>
-              <p className="text-blue-100">Response time on critical issues</p>
+              <div className="text-3xl md:text-4xl font-bold mb-2 text-[#C8860A]">24-48h</div>
+              <p className="text-[#6B4F2A]">Response time on critical issues</p>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">100%</div>
-              <p className="text-blue-100">Code ownership & documentation</p>
+              <div className="text-3xl md:text-4xl font-bold mb-2 text-[#C8860A]">100%</div>
+              <p className="text-[#6B4F2A]">Code ownership & documentation</p>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">∞</div>
-              <p className="text-blue-100">Support & maintenance partnership</p>
+              <div className="text-3xl md:text-4xl font-bold mb-2 text-[#C8860A]">∞</div>
+              <p className="text-[#6B4F2A]">Support & maintenance partnership</p>
             </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-[#0c0c0e] border border-white/10 rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-center" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+          <h3 className="text-2xl font-bold text-black mb-4">
             Ready to Partner With Us?
           </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             We're not just developers. We're your extension team, committed to
             delivering production-ready solutions that make your clients happy.
           </p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all hover:shadow-lg font-semibold">
+          <button
+            className="px-8 py-3 rounded-lg font-semibold text-white transition-all hover:shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)",
+              boxShadow: "0 4px 16px rgba(200,134,10,0.30)",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 8px 28px rgba(200,134,10,0.45)")}
+            onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(200,134,10,0.30)")}
+          >
             <a href="#contact">Book a Consultation</a>
           </button>
         </div>

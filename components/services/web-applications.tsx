@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Script from 'next/script';
-import { 
+import {
   Zap, Shield, Smartphone, Layers, ArrowRight,
   CheckCircle2, Rocket, Briefcase, Building2,
   Code2
@@ -69,17 +69,17 @@ export default function WebApplicationsService() {
 
   const features = [
     {
-      icon: <Zap className="w-6 h-6 text-blue-400" />,
+      icon: <Zap className="w-6 h-6 text-[#E8A020]" />,
       title: "Blazing Fast",
       desc: "Optimized architectures that load instantly and perform seamlessly under heavy traffic."
     },
     {
-      icon: <Shield className="w-6 h-6 text-blue-400" />,
+      icon: <Shield className="w-6 h-6 text-[#E8A020]" />,
       title: "Bank-Grade Security",
       desc: "Built with industry best practices, encrypted data protocols, and strict vulnerability testing."
     },
     {
-      icon: <Layers className="w-6 h-6 text-blue-400" />,
+      icon: <Layers className="w-6 h-6 text-[#E8A020]" />,
       title: "Clean Architecture",
       desc: "Maintainable, perfectly documented codebases your team can actually understand."
     },
@@ -110,7 +110,7 @@ export default function WebApplicationsService() {
 
   const useCases = [
     {
-      icon: <Rocket className="w-8 h-8 mb-4 text-blue-500" />,
+      icon: <Rocket className="w-8 h-8 mb-4 text-[#E8A020]" />,
       title: "Ambitious Startups",
       desc: "Launch an MVP that won't need to be rewritten a year later."
     },
@@ -134,31 +134,31 @@ export default function WebApplicationsService() {
       <div className="bg-[#050505] overflow-hidden">
         {/* HERO SECTION */}
         <section className="relative min-h-[90svh] flex items-center pt-32 pb-16 px-6">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#050505] to-[#050505] pointer-events-none" />
-          
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[rgba(200,134,10,0.12)] via-[#050505] to-[#050505] pointer-events-none" />
+
           <div className="max-w-5xl mx-auto w-full relative z-10">
-            <motion.div 
+            <motion.div
               initial="hidden" animate="visible" variants={staggerContainer}
               className="flex flex-col items-center text-center gap-6"
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
-                <Code2 className="w-4 h-4 text-blue-400" />
+                <Code2 className="w-4 h-4 text-[#E8A020]" />
                 <span className="text-sm font-medium text-gray-300 tracking-wide uppercase">MERN Stack Experts</span>
               </motion.div>
-              
+
               <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.1]">
                 Web Applications <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8860A] to-[#E8A020]">
                   That Scale With You.
                 </span>
               </motion.h1>
-              
+
               <motion.p variants={fadeInUp} className="max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed">
                 No tech jargon—just fast, secure, and beautiful platforms that drive results. We build production-grade applications allowing you to focus on your business.
               </motion.p>
-              
+
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-8">
-                <a href="https://wa.me/919301579493" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25 cursor-pointer">
+                <a href="https://wa.me/919301579493" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg cursor-pointer" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 20px rgba(200,134,10,0.35)'}}>
                   Start Your Project <ArrowRight className="w-5 h-5" />
                 </a>
                 <a href="#process" className="inline-flex items-center justify-center bg-[#0c0c0e] border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-all cursor-pointer">
@@ -172,7 +172,7 @@ export default function WebApplicationsService() {
         {/* BENTO GRID FEATURES */}
         <section className="py-24 px-6 relative">
           <div className="max-w-6xl mx-auto">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp} className="text-center mb-16"
             >
@@ -180,14 +180,14 @@ export default function WebApplicationsService() {
               <p className="text-gray-400 max-w-2xl mx-auto text-lg">We don't just write code. We engineer high-performance assets that become your competitive advantage.</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
               className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {features.map((feat, idx) => (
-                <motion.div key={idx} variants={fadeInUp} className="bg-[#0c0c0e] border border-white/5 p-8 rounded-2xl hover:border-blue-500/50 transition-colors group">
-                  <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <motion.div key={idx} variants={fadeInUp} className="bg-[#0c0c0e] border border-white/5 p-8 rounded-2xl hover:border-[rgba(200,134,10,0.35)] transition-colors group">
+                  <div className="w-12 h-12 bg-[rgba(200,134,10,0.10)] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     {feat.icon}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{feat.title}</h3>
@@ -201,7 +201,7 @@ export default function WebApplicationsService() {
         {/* PROCESS TIMELINE */}
         <section id="process" className="py-24 px-6 relative bg-gradient-to-b from-[#0c0c0e] to-[#050505] border-y border-white/5">
           <div className="max-w-5xl mx-auto">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
               className="text-center mb-20"
             >
@@ -211,10 +211,10 @@ export default function WebApplicationsService() {
 
             <div className="grid md:grid-cols-3 gap-8 relative">
               {/* Desktop connecting line */}
-              <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-blue-900/0 via-blue-500/20 to-blue-900/0" />
-              
+              <div className="hidden md:block absolute top-[2.5rem] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-[rgba(200,134,10,0.20)] to-transparent" />
+
               {process.map((p, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +222,7 @@ export default function WebApplicationsService() {
                   transition={{ duration: 0.6, delay: idx * 0.2 }}
                   className="relative flex flex-col items-center text-center z-10"
                 >
-                  <div className="w-20 h-20 rounded-2xl bg-[#050505] border border-blue-500/30 flex items-center justify-center text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500 mb-6 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                  <div className="w-20 h-20 rounded-2xl bg-[#050505] border border-[rgba(200,134,10,0.25)] flex items-center justify-center text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500 mb-6 shadow-[0_0_30px_rgba(200,134,10,0.12)]">
                     {p.step}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
@@ -242,7 +242,7 @@ export default function WebApplicationsService() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {useCases.map((uc, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -268,9 +268,9 @@ export default function WebApplicationsService() {
 
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-4">
               {faqData.mainEntity.map((faq, idx) => (
-                <motion.div key={idx} variants={fadeInUp} className="bg-[#050505] border border-white/5 rounded-2xl p-6 group hover:border-blue-500/30 transition-colors">
+                <motion.div key={idx} variants={fadeInUp} className="bg-[#050505] border border-white/5 rounded-2xl p-6 group hover:border-[rgba(200,134,10,0.30)] transition-colors">
                   <h3 className="text-lg font-bold text-white mb-3 flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#C8860A] shrink-0 mt-0.5" />
                     {faq.name}
                   </h3>
                   <p className="text-gray-400 pl-8 leading-relaxed">
@@ -284,21 +284,22 @@ export default function WebApplicationsService() {
 
         {/* CTA */}
         <section className="py-24 px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto bg-gradient-to-r from-[#0c0c0e] to-[#15151a] border border-blue-500/20 rounded-3xl p-10 md:p-16 text-center shadow-2xl overflow-hidden relative"
+            className="max-w-4xl mx-auto bg-gradient-to-r from-[#0c0c0e] to-[#15151a] border border-[rgba(200,134,10,0.18)] rounded-3xl p-10 md:p-16 text-center shadow-2xl overflow-hidden relative"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[rgba(200,134,10,0.12)] via-transparent to-transparent opacity-50" />
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 relative z-10">Stop Compromising.</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 relative z-10">
               Let's build a web application that drives real business value. Schedule a no-pressure technical consultation today.
             </p>
-            <a 
-              href="https://wa.me/919301579493" 
-              target="_blank" rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 relative z-10 shadow-lg shadow-blue-500/25 cursor-pointer"
+            <a
+              href="https://wa.me/919301579493"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 relative z-10 shadow-lg cursor-pointer"
+              style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 20px rgba(200,134,10,0.35)'}}
             >
               Chat on WhatsApp <ArrowRight className="w-5 h-5" />
             </a>

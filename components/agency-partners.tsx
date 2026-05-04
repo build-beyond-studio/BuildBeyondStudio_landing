@@ -54,16 +54,16 @@ export default function AgencyPartners() {
   }, []);
 
   return (
-    <section id="partners" className="bg-[#050505] py-24 md:py-32 px-6" ref={sectionRef}>
+    <section id="partners" className="bg-[#F5F2EC] py-24 md:py-32 px-6 border-t border-black/5" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for Growing Marketing Agencies</h2>
-          <p className="text-lg text-gray-400">We solve the problems that keep you up at night</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Built for Growing Marketing Agencies</h2>
+          <p className="text-lg text-gray-600">We solve the problems that keep you up at night</p>
         </div>
 
         {/* Problems & Solutions */}
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">If You Face</h3>
+          <h3 className="text-2xl font-bold text-black mb-8 text-center">If You Face</h3>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {problems.map((item, index) => (
               <div
@@ -71,13 +71,13 @@ export default function AgencyPartners() {
                 ref={(el) => {
                   problemsRef.current[index] = el;
                 }}
-                className="opacity-0 bg-[#0c0c0e] p-6 rounded-xl border border-white/5"
+                className="opacity-0 bg-white p-6 rounded-xl border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
               >
                 <div className="flex gap-4">
                   <div className="text-red-500 font-bold text-lg shrink-0">✕</div>
                   <div>
-                    <h4 className="font-bold text-white mb-2">{item.issue}</h4>
-                    <p className="text-gray-400 text-sm">
+                    <h4 className="font-bold text-black mb-2">{item.issue}</h4>
+                    <p className="text-gray-600 text-sm">
                       <span className="text-green-600 font-semibold">✓ We Solve It:</span> {item.solution}
                     </p>
                   </div>
@@ -87,26 +87,26 @@ export default function AgencyPartners() {
           </div>
         </div>
 
-      
+
 
         {/* Key Benefits */}
-        <div className="bg-[#0c0c0e] p-8 md:p-12 rounded-xl border border-white/5">
-          <h3 className="text-2xl font-bold text-white mb-6">What You Get</h3>
+        <div className="bg-white p-8 md:p-12 rounded-xl border border-[rgba(200,134,10,0.14)]" style={{boxShadow:'0 4px 18px rgba(200,134,10,0.09)'}}>
+          <h3 className="text-2xl font-bold text-black mb-6">What You Get</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="text-3xl mb-2"><ClipboardCheck  className="w-6 h-6 text-white" /></div>
-              <h4 className="font-bold text-white mb-2">Clear Scope & Timeline</h4>
-              <p className="text-gray-400 text-sm">Detailed documentation ensures no surprises.</p>
+              <div className="text-3xl mb-2"><ClipboardCheck className="w-6 h-6 text-black" /></div>
+              <h4 className="font-bold text-black mb-2">Clear Scope & Timeline</h4>
+              <p className="text-gray-600 text-sm">Detailed documentation ensures no surprises.</p>
             </div>
             <div>
-              <div className="text-3xl mb-2"><RefreshCw className="w-6 h-6 text-white" /></div>
-              <h4 className="font-bold text-white mb-2">Weekly Updates</h4>
-              <p className="text-gray-400 text-sm">Regular progress reports & direct communication.</p>
+              <div className="text-3xl mb-2"><RefreshCw className="w-6 h-6 text-black" /></div>
+              <h4 className="font-bold text-black mb-2">Weekly Updates</h4>
+              <p className="text-gray-600 text-sm">Regular progress reports & direct communication.</p>
             </div>
             <div>
-              <div className="text-3xl mb-2"><Rocket className="w-6 h-6 text-white" /></div>
-              <h4 className="font-bold text-white mb-2">Production Ready</h4>
-              <p className="text-gray-400 text-sm">Complete DevOps setup & ongoing support included.</p>
+              <div className="text-3xl mb-2"><Rocket className="w-6 h-6 text-black" /></div>
+              <h4 className="font-bold text-black mb-2">Production Ready</h4>
+              <p className="text-gray-600 text-sm">Complete DevOps setup & ongoing support included.</p>
             </div>
           </div>
         </div>

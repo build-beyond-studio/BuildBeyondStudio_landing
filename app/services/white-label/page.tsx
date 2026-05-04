@@ -85,7 +85,7 @@ const breadcrumbSchema = {
 
 export default function WhiteLabelPage() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -100,25 +100,26 @@ export default function WhiteLabelPage() {
           Home → Services → White-Label Solutions
         </div>
 
-        <h1 className="text-5xl font-bold text-white mb-6">
+        <h1 className="text-5xl font-bold text-black mb-6">
           White-Label Web Development for Agencies
         </h1>
 
-        <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Build custom web applications under your brand. Your reputation, our
           expertise. Full IP rights included — your clients never know we exist.
         </p>
 
         <Link
           href="/contact"
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold mb-16"
+          className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
+          style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
         >
           Start a White-Label Project
         </Link>
 
-        <div className="space-y-12 text-gray-300">
+        <div className="space-y-12 text-gray-700">
           <div>
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black mb-4">
               What is White-Label Web Development?
             </h2>
             <p className="leading-relaxed mb-4">
@@ -137,7 +138,7 @@ export default function WhiteLabelPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black mb-4">
               How It Works
             </h2>
             <div className="space-y-4">
@@ -163,15 +164,15 @@ export default function WhiteLabelPage() {
                   desc: 'Present the final product under your agency brand. You invoice the client. You keep the full margin.',
                 },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white/5">
-                  <span className="text-blue-400 font-mono text-sm pt-1">
+                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.06)'}}>
+                  <span className="text-[#C8860A] font-mono text-sm pt-1">
                     {item.step}
                   </span>
                   <div>
-                    <div className="font-semibold text-white mb-1">
+                    <div className="font-semibold text-black mb-1">
                       {item.title}
                     </div>
-                    <div className="text-gray-400 text-sm leading-relaxed">
+                    <div className="text-gray-600 text-sm leading-relaxed">
                       {item.desc}
                     </div>
                   </div>
@@ -181,7 +182,7 @@ export default function WhiteLabelPage() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black mb-4">
               What We Build
             </h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -197,15 +198,15 @@ export default function WhiteLabelPage() {
                 'DevOps & Cloud Deployment',
                 'CI/CD Pipeline Setup',
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-400">
-                  <span className="text-blue-400">✓</span> {item}
+                <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
+                  <span className="text-[#C8860A]">✓</span> {item}
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black mb-4">
               Why Agencies Choose Build Beyond Studio
             </h2>
             <p className="leading-relaxed mb-4">
@@ -223,17 +224,18 @@ export default function WhiteLabelPage() {
           </div>
         </div>
 
-        <div className="mt-16 p-8 rounded-xl bg-blue-600/10 border border-blue-600/20">
-          <h2 className="text-2xl font-semibold text-white mb-3">
+        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+          <h2 className="text-2xl font-semibold text-black mb-3">
             Ready to offer web development under your brand?
           </h2>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-600 mb-6">
             Join agencies across India who use Build Beyond Studio as their
             silent technical partner.
           </p>
           <Link
             href="/#contact"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold"
+            className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
+            style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
           >
             Book a Free Consultation
           </Link>

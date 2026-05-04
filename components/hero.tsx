@@ -258,10 +258,7 @@ export default function Hero() {
       <style>{`
         /* ── section ───────────────────────────────────────── */
         .hero-section {
-          background: #050505;
-          background-image:
-            radial-gradient(ellipse 70% 70% at 50% 50%,
-              rgba(37,99,235,0.12) 0%, transparent 72%);
+          background: #F5F2EC;
           overflow: hidden;
           min-height: 105vh;
           padding-top:20px;
@@ -287,7 +284,7 @@ export default function Hero() {
         /* ── shimmer gradient on headline ──────────────────── */
         .gradient-text {
           background: linear-gradient(130deg,
-            #1d4ed8 0%, #3b82f6 25%, #06b6d4 50%, #8b5cf6 75%, #ec4899 100%);
+            #A06A00 0%, #C8860A 25%, #E8A020 50%, #C8860A 75%, #A06A00 100%);
           background-size: 250% auto;
           -webkit-background-clip: text; background-clip: text;
           color: transparent;
@@ -301,7 +298,7 @@ export default function Hero() {
         /* ── gradient divider ──────────────────────────────── */
         .hero-divider {
           width: 52px; height: 2px; border-radius: 99px;
-          background: linear-gradient(90deg,#3b82f6,#a78bfa);
+          background: linear-gradient(90deg,#C8860A,#E8A020);
         }
 
         /* ── badge ─────────────────────────────────────────── */
@@ -315,11 +312,11 @@ export default function Hero() {
         .eyebrow-pill {
           display:inline-flex; align-items:center; gap:8px;
           padding:5px 14px 5px 8px; border-radius:999px;
-          border:1px solid rgba(255,255,255,0.1);
-          background:rgba(255,255,255,0.03);
-          font-size:11.5px; font-weight:500; color:#e2e8f0;
+          border:1px solid rgba(0,0,0,0.08);
+          background:rgba(0,0,0,0.02);
+          font-size:11.5px; font-weight:500; color:#4b5563;
           letter-spacing:.03em; backdrop-filter:blur(8px);
-          box-shadow:0 1px 4px rgba(0,0,0,.05);
+          box-shadow:0 1px 4px rgba(0,0,0,.03);
         }
         .live-dot {
           width:6px; height:6px; border-radius:50%;
@@ -336,20 +333,20 @@ export default function Hero() {
         .stat-pill {
           display:inline-flex; align-items:center; gap:5px;
           padding:4px 11px; border-radius:999px;
-          background:rgba(255,255,255,0.03);
-          border:1px solid rgba(255,255,255,0.1);
-          font-size:11px; font-weight:600; color:#e2e8f0;
+          background:rgba(0,0,0,0.02);
+          border:1px solid rgba(0,0,0,0.08);
+          font-size:11px; font-weight:600; color:#4b5563;
           backdrop-filter:blur(6px);
-          box-shadow:0 1px 3px rgba(0,0,0,.04);
+          box-shadow:0 1px 3px rgba(0,0,0,.02);
         }
 
         /* ── CTA primary ───────────────────────────────────── */
         .btn-primary {
-          background: linear-gradient(135deg,#1d4ed8 0%,#2563eb 60%,#3b82f6 100%);
-          box-shadow: 0 4px 20px rgba(37,99,235,0.38);
+          background: linear-gradient(135deg,#A06A00 0%,#C8860A 60%,#E8A020 100%);
+          box-shadow: 0 4px 20px rgba(200,134,10,0.38);
           transition: box-shadow .25s ease, transform .3s cubic-bezier(.22,1,.36,1);
         }
-        .btn-primary:hover { box-shadow:0 8px 36px rgba(37,99,235,0.55); }
+        .btn-primary:hover { box-shadow:0 8px 36px rgba(200,134,10,0.55); }
 
         /* ── mag button ────────────────────────────────────── */
         .mag-btn {
@@ -402,7 +399,7 @@ export default function Hero() {
             <h1
               ref={titleRef}
               className="hero-pre text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[4rem]
-                         font-black text-white leading-[1.04] tracking-[-0.042em]"
+                         font-black text-black leading-[1.04] tracking-[-0.042em]"
             >
               Build Beyond Studio
             </h1>
@@ -428,7 +425,7 @@ export default function Hero() {
                        max-w-[480px] leading-[1.75]"
           >
             Partner with us to deliver stunning,{" "}
-            <span className="font-semibold text-gray-200">
+            <span className="font-semibold text-gray-900">
               production-ready web applications.
             </span>{" "}
             We help agencies deliver high-quality digital solutions without
@@ -444,23 +441,23 @@ export default function Hero() {
               {
                 label: "Development",
                 icon: "</>",
-                accent: "#2563eb",
-                bg: "rgba(37,99,235,0.07)",
-                border: "rgba(37,99,235,0.18)",
+                accent: "#C8860A",
+                bg: "rgba(200,134,10,0.07)",
+                border: "rgba(200,134,10,0.18)",
               },
               {
                 label: "Deployment",
                 icon: "⬆",
-                accent: "#7c3aed",
-                bg: "rgba(124,58,237,0.07)",
-                border: "rgba(124,58,237,0.18)",
+                accent: "#A06A00",
+                bg: "rgba(160,106,0,0.07)",
+                border: "rgba(160,106,0,0.18)",
               },
               {
                 label: "Maintenance",
                 icon: "⚙",
-                accent: "#0891b2",
-                bg: "rgba(8,145,178,0.07)",
-                border: "rgba(8,145,178,0.18)",
+                accent: "#E8A020",
+                bg: "rgba(232,160,32,0.07)",
+                border: "rgba(232,160,32,0.18)",
               },
             ].map(({ label, icon, accent, bg, border }) => (
               <span
@@ -516,11 +513,11 @@ export default function Hero() {
                   .getElementById("cases")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="mag-btn border border-white/10 text-white px-9 py-3.5
+              className="mag-btn border border-black/10 text-gray-900 px-9 py-3.5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
-                         bg-[#0c0c0e] hover:border-white/20 hover:bg-[#15151a]
-                         shadow-[0_2px_8px_rgba(0,0,0,0.5)]
-                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
+                         bg-white hover:border-black/20 hover:bg-gray-50
+                         shadow-[0_2px_8px_rgba(0,0,0,0.05)]
+                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
             >
               See Our Work
             </button>
@@ -548,15 +545,15 @@ export default function Hero() {
             Prefer email?{" "}
             <a
               href={`mailto:${EMAIL}`}
-              className="font-semibold text-blue-500 hover:text-blue-600 transition-colors
-                         underline underline-offset-2 decoration-blue-200 hover:decoration-blue-400"
+              className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
+                         underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
             >
               {EMAIL}
             </a>
           </div>
         </div>
 
-       
+
       </section>
     </>
   );

@@ -145,17 +145,17 @@ export default async function BlogPostPage({
       />
 
       {/* Blog Header */}
-      <div className="bg-[#050505] border-b border-white/5">
+      <div className="bg-[#F5F2EC] border-b border-[rgba(200,134,10,0.10)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-4">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm mb-6"
+            className="inline-flex items-center gap-2 text-[#C8860A] hover:text-[#A06A00] font-semibold text-sm mb-6"
           >
             <span>←</span> Back to Blog
           </Link>
         </div>
       </div>
-      <article className="bg-[#050505]">
+      <article className="bg-[#F5F2EC]">
         {/* Featured Image */}
         <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full bg-gray-900">
           <Image
@@ -174,10 +174,10 @@ export default async function BlogPostPage({
             <time className="text-sm text-gray-500">
               {formatDate(blog.date)}
             </time>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mt-4 mb-4">
               {blog.title}
             </h1>
-            <p className="text-lg text-gray-400">{blog.description}</p>
+            <p className="text-lg text-gray-600">{blog.description}</p>
           </div>
 
           {/* Keywords Tags */}
@@ -185,7 +185,7 @@ export default async function BlogPostPage({
             {blog.keywords.slice(0, 5).map((keyword, idx) => (
               <span
                 key={idx}
-                className="text-xs font-medium text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full"
+                className="text-xs font-medium text-[#A06A00] bg-[#FDF8F0] px-3 py-1 rounded-full border border-[rgba(200,134,10,0.18)]"
               >
                 {keyword}
               </span>
@@ -195,25 +195,25 @@ export default async function BlogPostPage({
           {/* Blog Content */}
           <div className="prose-lg max-w-none mb-12">
             <div
-              className="text-gray-400 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-white [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_strong]:font-semibold [&_a]:text-blue-400 [&_a]:hover:text-blue-300 [&_a]:underline"
+              className="text-gray-700 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-black [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-black [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_strong]:font-semibold [&_a]:text-[#C8860A] [&_a]:hover:text-[#A06A00] [&_a]:underline"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </div>
 
           {/* Author Info */}
-          <div className="bg-[#0c0c0e] border border-white/5 rounded-2xl p-8 mb-12">
+          <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-8 mb-12" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}>
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 bg-linear-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)'}}>
                 B
               </div>
               <div>
-                <h3 className="font-bold text-white">Build Beyond Studio</h3>
-                <p className="text-gray-400 text-sm mt-1">
+                <h3 className="font-bold text-black">Build Beyond Studio</h3>
+                <p className="text-gray-600 text-sm mt-1">
                   Web development agency specializing in MERN stack applications, DevOps, and white-label solutions for ambitious founders and modern agencies.
                 </p>
                 <Link
                   href="/"
-                  className="inline-block mt-3 text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  className="inline-block mt-3 text-[#C8860A] hover:text-[#A06A00] font-semibold text-sm"
                 >
                   Learn more about us →
                 </Link>
@@ -223,7 +223,7 @@ export default async function BlogPostPage({
 
           {/* Related Articles */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6">Read Next</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Read Next</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {blogs
                 .filter((b) => b.slug !== blog.slug)
@@ -232,15 +232,15 @@ export default async function BlogPostPage({
                   <Link
                     key={relatedBlog.id}
                     href={`/blog/${relatedBlog.slug}`}
-                    className="group bg-[#0c0c0e] border border-white/5 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                    className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 hover:border-[rgba(200,134,10,0.35)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)] transition-all duration-300" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
                   >
-                    <h3 className="font-bold text-white group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">
+                    <h3 className="font-bold text-black group-hover:text-[#C8860A] transition-colors mb-2 line-clamp-2">
                       {relatedBlog.title}
                     </h3>
-                    <p className="text-sm text-gray-400 line-clamp-2 mb-3">
+                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
                       {relatedBlog.description}
                     </p>
-                    <span className="text-blue-600 group-hover:text-blue-700 font-semibold text-sm">
+                    <span className="text-[#C8860A] group-hover:text-[#A06A00] font-semibold text-sm">
                       Read More →
                     </span>
                   </Link>
@@ -249,17 +249,18 @@ export default async function BlogPostPage({
           </div>
 
           {/* CTA Section */}
-          <div className="bg-linear-to-r from-blue-900/40 to-blue-800/40 border border-white/5 rounded-2xl p-8 md:p-12 text-white text-center">
+          <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black text-center" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Beyond?
             </h2>
-            <p className="text-lg mb-8 text-blue-100 max-w-2xl mx-auto">
+            <p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto">
               These insights are most powerful when applied to a real, production-ready web application. Let's turn strategy into competitive advantage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/services/web-applications"
-                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-block text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+                style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
               >
                 Explore Web Development
               </Link>
@@ -267,7 +268,7 @@ export default async function BlogPostPage({
                 href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20my%20project%20with%20Build%20Beyond%20Studio."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                className="inline-block border-2 border-[#C8860A] text-[#C8860A] px-8 py-3 rounded-lg font-semibold hover:bg-[#FDF8F0] transition-colors"
               >
                 Chat on WhatsApp
               </a>
