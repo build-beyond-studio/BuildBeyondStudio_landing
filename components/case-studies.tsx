@@ -97,7 +97,6 @@ const caseStudies = [
   },
 ];
 
-
 export default function CaseStudies() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);

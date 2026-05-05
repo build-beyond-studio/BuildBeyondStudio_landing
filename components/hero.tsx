@@ -21,6 +21,8 @@ const PALETTE = [
   { fill: "#f87171", glow: "rgba(248,113,113,0.7)" },
 ];
 
+const CRICKET_BAT_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Crect x='11' y='2' width='10' height='18' rx='3' fill='%23c8860a' stroke='%237a4f00' stroke-width='1'/%3E%3Crect x='13' y='19' width='6' height='11' rx='1.5' fill='%23f5e6c8' stroke='%237a4f00' stroke-width='0.8'/%3E%3Crect x='14.5' y='8' width='3' height='8' rx='1' fill='%23a06a00' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E") 4 4, auto`;
+
 interface Ball {
   x: number;
   y: number; // 0–1 fractions of section size
@@ -366,6 +368,7 @@ export default function Hero() {
       <section
         ref={sectionRef}
         className="hero-section relative flex flex-col w-screen max-w-[100%]"
+        style={{ cursor: CRICKET_BAT_CURSOR }}
       >
         {/* ── Physics balls — distributed across entire section ── */}
         {Array.from({ length: BALL_COUNT }).map((_, i) => (
