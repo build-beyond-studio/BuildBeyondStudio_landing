@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 const WHATSAPP_NUMBER = "+919301579493";
 const WHATSAPP_MESSAGE =
-  "Hi! I would like to discuss partnership opportunities with your agency.";
+  "Hi! I run a marketing agency and I'd like to discuss a white-label web project with BBS.";
 
 const EMAIL = "buildbeyondstudio@gmail.com";
 
@@ -78,11 +78,10 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-3 md:mb-4">
-            Partner with Build Beyond Studio
+            Start your first pilot project
           </h2>
-          <p className="text-base sm:text-lg text-gray-600">
-            Get in touch to discuss your web development project and how we can
-            help scale your business.
+          <p className="text-base sm:text-lg text-gray-400">
+            No commitment. Share a client requirement and we'll send you a firm estimate within 24 hours. Your first project is risk-free.
           </p>
         </div>
 
@@ -167,7 +166,7 @@ export default function Contact() {
 
           {/* WhatsApp + Email Contact */}
           <div className="flex items-center justify-center">
-            <div className="bg-white p-8 sm:p-10 rounded-xl border border-[rgba(200,134,10,0.15)] hover:border-[rgba(200,134,10,0.35)] transition-all h-full flex flex-col items-center justify-center text-center" style={{boxShadow:'0 4px 18px rgba(200,134,10,0.09)'}}>
+            <div className="bg-white p-8 sm:p-10 rounded-xl border border-[rgba(200,134,10,0.15)] hover:border-[rgba(200,134,10,0.35)] transition-all h-full flex flex-col items-center justify-center text-center" style={{ boxShadow: '0 4px 18px rgba(200,134,10,0.09)' }}>
               <MessageCircle className="w-14 h-14 text-green-600 mb-6" />
 
               <h3 className="font-bold text-black text-xl sm:text-2xl mb-3">

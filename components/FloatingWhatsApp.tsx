@@ -26,6 +26,7 @@ const FloatingWhatsApp: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="relative flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl transition-all duration-300 hover:bg-green-600 hover:scale-110"
+        aria-label="Chat with us on WhatsApp"
       >
         {/* Ripple effect */}
         <span className="absolute w-full h-full rounded-full bg-green-400 animate-ping opacity-30"></span>

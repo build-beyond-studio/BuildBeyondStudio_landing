@@ -348,26 +348,17 @@ export default function Workflow() {
               <div>
                 <span className="wf-pill">
                   <span className="wf-live" />
-                  How It Works
+                  How it works
                 </span>
               </div>
               <h2 className="text-[1.8rem] sm:text-[2.2rem] font-black text-black leading-[1.06] tracking-[-0.034em]">
-                How We Work.{" "}
-                <span
-                  style={{
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  With Agencies .
-                </span>
+                From client brief to delivered project — in 5 steps
               </h2>
             </div>
             <p className="text-[13.5px] text-gray-600 leading-[1.8] max-w-[240px] sm:text-right">
-              A 5-step process from
+              Share a requirement.
               <br />
-              handshake to pure profit.
+              We handle everything else.
             </p>
           </motion.div>
 
@@ -419,7 +410,7 @@ export default function Workflow() {
                     key={index}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-lg" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)'}}>
+                    <div className="w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-lg" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)' }}>
                       {item.step}
                     </div>
                     <h4 className="font-bold text-black text-sm">

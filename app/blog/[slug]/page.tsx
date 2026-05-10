@@ -200,10 +200,25 @@ export default async function BlogPostPage({
             />
           </div>
 
+          {/* Inline CTA for Featured Blog Post */}
+          {blog.featured && blog.slug === 'how-marketing-agencies-offer-web-development-without-hiring-developers' && (
+            <div className="bg-gradient-to-r from-[#FDF8F0] to-[#FEFAF4] border-l-4 border-[#C8860A] rounded-lg p-8 mb-12">
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Ready to try this with a real client project? Start with one pilot — no commitment.
+              </p>
+              <Link
+                href="/for-agencies"
+                className="inline-flex items-center gap-2 bg-[#C8860A] hover:bg-[#A06A00] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              >
+                Get started →
+              </Link>
+            </div>
+          )}
+
           {/* Author Info */}
-          <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-8 mb-12" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}>
+          <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-8 mb-12" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}>
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)'}}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)' }}>
                 B
               </div>
               <div>
@@ -232,7 +247,7 @@ export default async function BlogPostPage({
                   <Link
                     key={relatedBlog.id}
                     href={`/blog/${relatedBlog.slug}`}
-                    className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 hover:border-[rgba(200,134,10,0.35)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)] transition-all duration-300" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
+                    className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 hover:border-[rgba(200,134,10,0.35)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)] transition-all duration-300" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}
                   >
                     <h3 className="font-bold text-black group-hover:text-[#C8860A] transition-colors mb-2 line-clamp-2">
                       {relatedBlog.title}
@@ -249,7 +264,7 @@ export default async function BlogPostPage({
           </div>
 
           {/* CTA Section */}
-          <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black text-center" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+          <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black text-center" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Beyond?
             </h2>
@@ -260,7 +275,7 @@ export default async function BlogPostPage({
               <Link
                 href="/services/web-applications"
                 className="inline-block text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-                style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
+                style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
               >
                 Explore Web Development
               </Link>

@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import RevenueMath from '@/components/revenue-math'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'White-Label Web Development for Agencies | Build Beyond Studio',
+  title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
   description:
-    'White-label web development agency in Ambikapur, India. We build production-ready MERN stack applications under your brand. Full IP rights, zero visibility. Perfect for marketing agencies.',
+    'Marketing agencies: offer web development without hiring a developer. BBS builds everything under your brand — NDA-first, full IP yours. Start with one pilot project.',
   keywords: [
     'white label web development',
     'white label web development India',
@@ -27,10 +28,10 @@ export const metadata: Metadata = {
     siteName: 'Build Beyond Studio',
     images: [
       {
-        url: 'https://buildbeyondstudio.com/logo.png',
+        url: 'https://buildbeyondstudio.com/og-white-label.png',
         width: 1200,
         height: 630,
-        alt: 'White-Label Web Development – Build Beyond Studio',
+        alt: 'White-Label Web Development for Agencies | Build Beyond Studio',
       },
     ],
     type: 'website',
@@ -112,7 +113,7 @@ export default function WhiteLabelPage() {
         <Link
           href="/contact"
           className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
-          style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
+          style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
         >
           Start a White-Label Project
         </Link>
@@ -164,7 +165,7 @@ export default function WhiteLabelPage() {
                   desc: 'Present the final product under your agency brand. You invoice the client. You keep the full margin.',
                 },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.06)'}}>
+                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
                   <span className="text-[#C8860A] font-mono text-sm pt-1">
                     {item.step}
                   </span>
@@ -205,6 +206,8 @@ export default function WhiteLabelPage() {
             </ul>
           </div>
 
+          <RevenueMath />
+
           <div>
             <h2 className="text-2xl font-semibold text-black mb-4">
               Why Agencies Choose Build Beyond Studio
@@ -224,7 +227,7 @@ export default function WhiteLabelPage() {
           </div>
         </div>
 
-        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">
             Ready to offer web development under your brand?
           </h2>
@@ -235,7 +238,7 @@ export default function WhiteLabelPage() {
           <Link
             href="/#contact"
             className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
-            style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
+            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
           >
             Book a Free Consultation
           </Link>

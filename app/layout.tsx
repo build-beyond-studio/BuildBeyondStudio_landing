@@ -18,24 +18,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://buildbeyondstudio.com"),
 
   title: {
-    default: "Build Beyond Studio | Web Development & DevOps Agency",
+    default: "Build Beyond Studio | White-Label Web Dev Partner for Marketing Agencies",
     template: "%s | Build Beyond Studio",
   },
 
   description:
-    "White-label web development agency in Ambikapur, Chhattisgarh. MERN stack development, DevOps, and technical consulting for marketing agencies across India.",
+    "Marketing agency? We're your invisible web dev team. You bring the clients, we build and deliver — fully under your brand. Zero overhead, full IP ownership, NDA-first.",
 
   keywords: [
-    "web development agency",
-    "MERN stack development",
-    "DevOps services",
-    "white-label web development",
-    "web application development",
-    "cloud deployment",
-    "web development Ambikapur",
-    "software company Ambikapur",
-    "IT company Chhattisgarh",
-    "Build Beyond Studio",
+    "white label web development for marketing agencies",
+    "web development partner for agencies India",
+    "invisible web team for agencies",
+    "agency web dev outsourcing India",
+    "white label MERN stack India",
+    "web development without hiring developers",
   ],
 
   authors: [{ name: "Build Beyond Studio" }],
@@ -64,7 +60,7 @@ export const metadata: Metadata = {
     url: "https://buildbeyondstudio.com",
     title: "Build Beyond Studio | Web Development & DevOps Agency",
     description:
-      "White-label web development agency in Ambikapur, Chhattisgarh. MERN stack, DevOps, and technical consulting for marketing agencies across India.",
+      "Your clients need websites. You don't have developers. We fix that — invisibly. BBS is the white-label web team marketing agencies across India trust.",
     siteName: "Build Beyond Studio",
     images: [
       {

@@ -9,9 +9,7 @@ export default function Footer() {
           </h3>
 
           <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            Build Beyond Studio partners with agencies to deliver stunning,
-            production-ready web applications that keep your clients coming back
-            for more.
+            BBS is the invisible web team behind marketing agencies across India. You bring the clients — we build, deploy, and maintain. Your brand. Your margins. Our expertise.
           </p>
 
           {/* Social Handles */}
@@ -33,6 +31,22 @@ export default function Footer() {
             </a>
 
             <a
+              href="https://www.linkedin.com/in/ankush-kumar-gupta-191b923b1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-gray-400 hover:text-[#E8A020] transition-colors group"
+            >
+              <svg
+                className="w-6 h-6 group-hover:scale-110 transition-transform"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              </svg>
+              <span className="font-medium">Founder — LinkedIn</span>
+            </a>
+
+            <a
               href="https://github.com/buildbeyondstudio"
               target="_blank"
               rel="noopener noreferrer"
@@ -50,6 +64,48 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Founder Profile Block */}
+        <div className="border-t border-white/10 pt-12 mb-12">
+          <div className="bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] border border-white/5 rounded-xl p-8 max-w-2xl mx-auto">
+            <div className="flex gap-6 items-start">
+              {/* Photo Placeholder */}
+              <div className="w-24 h-24 rounded-lg bg-gradient-to-br from-[#C8860A] to-[#A06A00] flex-shrink-0 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/ankush.png"
+                  alt="Ankush Kumar Gupta — Founder, BBS"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-white mb-2">
+                  Ankush Kumar Gupta — Founder & CEO
+                </h3>
+                <p className="text-gray-400 text-sm mb-4">
+                  I personally oversee every agency partnership. Reach me directly on WhatsApp.
+                </p>
+                <div className="flex gap-4 text-sm">
+                  <a
+                    href="https://wa.me/917697339962"
+                    className="text-[#E8A020] hover:text-white transition-colors font-semibold"
+                  >
+                    WhatsApp: +91 76973 39962
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/ankush-kumar-gupta-191b923b1/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#E8A020] hover:text-white transition-colors font-semibold"
+                  >
+                    LinkedIn Profile
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-gray-500">
@@ -58,7 +114,14 @@ export default function Footer() {
               <p>Let's build something great together</p>
               <p className="mt-2">
                 &copy; {new Date().getFullYear()} Build Beyond Studio. All
-                rights reserved.
+                rights reserved. |{' '}
+                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>{' '}
+                |{' '}
+                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </a>
               </p>
             </div>
 

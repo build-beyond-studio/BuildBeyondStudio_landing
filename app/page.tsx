@@ -9,6 +9,7 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Workflow from "@/components/Workflow";
+import RevenueMath from "@/components/revenue-math";
 import FAQ from "@/components/faq";
 
 const faqSchema = {
@@ -78,6 +79,7 @@ export default function Home() {
       <Hero />
       <Workflow />
       <Services />
+      <RevenueMath />
       <CaseStudies />
       {/* <WhyUs /> */}
       <Testimonials />

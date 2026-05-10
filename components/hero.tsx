@@ -411,7 +411,7 @@ export default function Hero() {
               className="hero-pre gradient-text text-[1.6rem] sm:text-[2rem] md:text-[2.6rem] lg:text-[3rem]
                          font-black leading-[1.1] tracking-[-0.032em] block"
             >
-              The Tech Partner Behind The Brand
+              The invisible web team for marketing agencies.
             </span>
           </div>
 
@@ -427,12 +427,11 @@ export default function Hero() {
             className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-400
                        max-w-[480px] leading-[1.75]"
           >
-            Partner with us to deliver stunning,{" "}
+            Your clients bring you web projects. We build them — fully under your brand.{" "}
             <span className="font-semibold text-gray-900">
-              production-ready web applications.
+              No developer salaries. No team management.
             </span>{" "}
-            We help agencies deliver high-quality digital solutions without
-            managing a technical team.
+            Just pure margin.
           </p>
 
           {/* Service highlights */}

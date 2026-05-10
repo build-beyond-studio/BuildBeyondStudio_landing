@@ -57,8 +57,8 @@ export default function AgencyPartners() {
     <section id="partners" className="bg-[#F5F2EC] py-24 md:py-32 px-6 border-t border-black/5" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Built for Growing Marketing Agencies</h2>
-          <p className="text-lg text-gray-600">We solve the problems that keep you up at night</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Built exclusively for marketing agencies</h2>
+          <p className="text-lg text-gray-600">Your clients never know we exist. That's by design.</p>
         </div>
 
         {/* Problems & Solutions */}
@@ -71,7 +71,7 @@ export default function AgencyPartners() {
                 ref={(el) => {
                   problemsRef.current[index] = el;
                 }}
-                className="opacity-0 bg-white p-6 rounded-xl border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
+                className="opacity-0 bg-white p-6 rounded-xl border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}
               >
                 <div className="flex gap-4">
                   <div className="text-red-500 font-bold text-lg shrink-0">✕</div>
@@ -87,10 +87,41 @@ export default function AgencyPartners() {
           </div>
         </div>
 
+        {/* Trust & Commitment Block */}
+        <div className="mb-20 bg-white p-8 md:p-10 rounded-xl border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}>
+          <h3 className="text-2xl font-bold text-black mb-8 text-center">Our Commitment to Your Confidentiality</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">NDA signed before every project</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">No direct client contact — ever</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">Zero BBS branding on any deliverable</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">No client data retained post-delivery</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">Full IP and copyright — always yours</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="text-green-600 font-bold text-lg flex-shrink-0">✓</div>
+              <p className="text-gray-700 font-semibold">Agreed pricing stays strictly confidential</p>
+            </div>
+          </div>
+        </div>
+
 
 
         {/* Key Benefits */}
-        <div className="bg-white p-8 md:p-12 rounded-xl border border-[rgba(200,134,10,0.14)]" style={{boxShadow:'0 4px 18px rgba(200,134,10,0.09)'}}>
+        <div className="bg-white p-8 md:p-12 rounded-xl border border-[rgba(200,134,10,0.14)]" style={{ boxShadow: '0 4px 18px rgba(200,134,10,0.09)' }}>
           <h3 className="text-2xl font-bold text-black mb-6">What You Get</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div>
