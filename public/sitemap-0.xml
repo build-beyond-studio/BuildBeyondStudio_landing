@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url><loc>https://buildbeyondstudio.com/blog/high-converting-website-increases-revenue</loc><lastmod>2026-02-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/blog/how-marketing-agencies-offer-web-development-without-hiring-developers</loc><lastmod>2026-05-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/blog/how-to-price-web-projects-marketing-agency-without-tech-team</loc><lastmod>2026-04-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/blog/real-cost-hiring-web-developer-vs-white-labelling</loc><lastmod>2026-04-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://buildbeyondstudio.com/blog/seo-strategies-modern-businesses</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://buildbeyondstudio.com/blog/why-branding-critical-startup-growth</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/blog</loc><lastmod>2026-03-18T18:28:21.746Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://buildbeyondstudio.com</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/robots.txt</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/services/consulting</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/services/devops</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/services/web-applications</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/services/white-label</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://buildbeyondstudio.com/sitemap.xml</loc><lastmod>2026-03-18T18:28:21.745Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/blog/why-marketing-agencies-losing-clients-full-service-competitors</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/blog</loc><lastmod>2026-05-10T17:08:50.304Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://buildbeyondstudio.com/for-agencies</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/privacy</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/robots.txt</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/services/consulting</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/services/devops</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/services/web-applications</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/services/white-label</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/sitemap.xml</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://buildbeyondstudio.com/terms</loc><lastmod>2026-05-10T17:08:50.303Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

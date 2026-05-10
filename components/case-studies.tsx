@@ -140,9 +140,16 @@ export default function CaseStudies() {
   return (
     <section id="cases" className="bg-[#F5F2EC] py-20 md:py-32 px-4 sm:px-6 border-t border-black/5" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4">Latest Projects</h2>
-          <p className="text-base sm:text-lg text-gray-600">Real impact across diverse industries and use cases</p>
+        {/* Section Header */}
+        <div className="mb-16">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/[0.02] mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#C8860A]" />
+              <span className="text-[11px] font-bold tracking-[0.15em] text-gray-600 uppercase">Our work</span>
+            </div>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 text-center">Delivered under agency brands across India</h2>
+          <p className="text-base sm:text-lg text-gray-600 text-center max-w-2xl mx-auto">Every project below was built by our team and delivered under a partner agency's brand. The end clients never knew we were involved.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">

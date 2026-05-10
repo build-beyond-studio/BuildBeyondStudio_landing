@@ -24,7 +24,14 @@ export const metadata: Metadata = {
       'Production-ready MERN stack web applications built to scale. React, Next.js, Node.js, MongoDB.',
     url: 'https://buildbeyondstudio.com/services/web-applications',
     siteName: 'Build Beyond Studio',
-    images: [{ url: 'https://buildbeyondstudio.com/logo.png', width: 1200, height: 630 }],
+    images: [
+      {
+        url: 'https://buildbeyondstudio.com/og-web-apps.png',
+        width: 1200,
+        height: 630,
+        alt: 'Web Applications | Build Beyond Studio',
+      },
+    ],
     type: 'website',
     locale: 'en_IN',
   },
@@ -75,7 +82,7 @@ export default function WebApplicationsPage() {
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Production-ready MERN stack applications built to scale from day one. We handle everything from architecture to deployment.
         </p>
-        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
           Start Your Project
         </a>
 
@@ -121,7 +128,7 @@ export default function WebApplicationsPage() {
                 { step: '03', title: 'QA & Testing', desc: 'Full quality assurance before delivery. Cross-browser, cross-device, performance tested.' },
                 { step: '04', title: 'Deployment & Handover', desc: 'Production deployment with full DevOps setup, documentation, and knowledge transfer.' },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.06)'}}>
+                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
                   <span className="text-[#C8860A] font-mono text-sm pt-1">{item.step}</span>
                   <div>
                     <div className="font-semibold text-black mb-1">{item.title}</div>
@@ -140,10 +147,10 @@ export default function WebApplicationsPage() {
           </div>
         </div>
 
-        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">Ready to build your web application?</h2>
           <p className="text-gray-600 mb-6">Tell us what you need. We'll give you a clear estimate and timeline within 24 hours.</p>
-          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
             Get a Free Estimate
           </a>
         </div>

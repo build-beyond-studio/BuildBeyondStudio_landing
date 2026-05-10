@@ -20,10 +20,10 @@ const differentiators = [
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-[#C8860A]" />,
-    title: "Secure & Skilled Development",
+    title: "NDA-first, always confidential",
     description:
-      "Experienced developers, clean code, and secure systems. Every project is built to perform reliably and meet high professional standards.",
-    metric: "Trusted Quality",
+      "We sign an NDA before every project starts. No BBS branding on deliverables. No client data retained. Your partnership stays invisible.",
+    metric: "Complete protection",
   },
   {
     icon: <Layers className="w-6 h-6 text-[#C8860A]" />,
@@ -73,11 +73,10 @@ export default function WhyUs() {
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Why Choose Build Beyond Studio?
+            Why marketing agencies choose BBS
           </h2>
           <p className="text-lg text-gray-600">
-            Leading web development agency for agencies seeking production-ready
-            applications
+            We're not a subcontractor. We're your silent tech partner — invested in your growth.
           </p>
         </div>
 
@@ -90,9 +89,9 @@ export default function WhyUs() {
               }}
               className="opacity-0 group"
             >
-              <div className="bg-white p-8 md:p-10 rounded-2xl border border-[rgba(200,134,10,0.13)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(200,134,10,0.15)] hover:-translate-y-1" style={{boxShadow:'0 4px 16px rgba(200,134,10,0.08)'}}>
+              <div className="bg-white p-8 md:p-10 rounded-2xl border border-[rgba(200,134,10,0.13)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(200,134,10,0.15)] hover:-translate-y-1" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.08)' }}>
                 <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FDF8F0] rounded-xl border border-[rgba(200,134,10,0.15)] group-hover:scale-110 transition-transform duration-300" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.10)'}}>
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FDF8F0] rounded-xl border border-[rgba(200,134,10,0.15)] group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.10)' }}>
                     <div className="text-3xl">{item.icon}</div>
                   </div>
                   <div className="bg-[#FDF8F0] text-[#A06A00] px-3 py-1 rounded-full text-xs font-bold">
@@ -111,7 +110,7 @@ export default function WhyUs() {
         </div>
 
         {/* Comparison Section */}
-        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black mb-16" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-black mb-16" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
             Our Guarantee
           </h3>
@@ -132,7 +131,7 @@ export default function WhyUs() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-center" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="bg-white border border-[rgba(200,134,10,0.16)] rounded-2xl p-8 md:p-12 text-center" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h3 className="text-2xl font-bold text-black mb-4">
             Ready to Partner With Us?
           </h3>

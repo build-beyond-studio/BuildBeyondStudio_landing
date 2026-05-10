@@ -72,7 +72,7 @@ export default function Services() {
 
           {/* Ambient Glows */}
           <div className="absolute top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none z-0">
-            <div className="absolute top-1/2 left-[15%] w-[40vw] h-[40vw] rounded-full blur-[140px] -translate-y-1/2" style={{background:'rgba(200,134,10,0.06)'}} />
+            <div className="absolute top-1/2 left-[15%] w-[40vw] h-[40vw] rounded-full blur-[140px] -translate-y-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
             <div className="absolute top-1/2 right-[10%] w-[35vw] h-[35vw] bg-indigo-900/10 rounded-full blur-[140px] -translate-y-1/2" />
           </div>
 
@@ -85,14 +85,14 @@ export default function Services() {
             <div className="w-[45vw] flex-shrink-0 flex flex-col justify-center translate-y-[-5%]">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-8 self-start">
                 <span className="w-2 h-2 rounded-full bg-[#C8860A] animate-pulse" />
-                <span className="text-[12px] font-bold tracking-[0.15em] text-gray-600 uppercase">Our Capabilities</span>
+                <span className="text-[12px] font-bold tracking-[0.15em] text-gray-600 uppercase">What we deliver for your agency</span>
               </div>
 
               <h2 className="text-[4.5rem] xl:text-[5.5rem] leading-[0.95] font-black tracking-[-0.04em] text-black mb-8">
-                Elite tech<br />for <span className="text-gray-400">elite brands.</span>
+                Everything your agency<br />needs to <span className="text-gray-400">deliver web projects.</span>
               </h2>
               <p className="text-xl xl:text-2xl text-gray-600 max-w-lg leading-relaxed font-light tracking-wide">
-                We don't just write code. We architect scalable, production-ready systems that power your business forward at velocity.
+                We handle 100% of the technical work — design, development, DevOps, and maintenance — so you can focus on closing clients and growing your agency.
               </p>
             </div>
 
@@ -109,7 +109,7 @@ export default function Services() {
                     className="block group w-[34vw] h-full flex-shrink-0 relative outline-none"
                     style={{ transform: `translateY(${yOffset})` }}
                   >
-                    <div className="absolute inset-0 bg-white border border-[rgba(200,134,10,0.12)] rounded-[32px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_20px_80px_-20px_rgba(200,134,10,0.18)] hover:-translate-y-2" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.08)'}}>
+                    <div className="absolute inset-0 bg-white border border-[rgba(200,134,10,0.12)] rounded-[32px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_20px_80px_-20px_rgba(200,134,10,0.18)] hover:-translate-y-2" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.08)' }}>
 
                       {/* Top Accent Gradient */}
                       <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />
@@ -160,7 +160,7 @@ export default function Services() {
       {/* ── Mobile Vertical Scroll Layer ── */}
       <section id="services-mobile" className="lg:hidden bg-[#F5F2EC] text-black pt-24 pb-20 px-5 sm:px-8 overflow-hidden relative border-t border-black/5">
         {/* Glow */}
-        <div className="absolute top-20 left-0 w-full h-[60vh] rounded-full blur-[100px] pointer-events-none -translate-x-1/2" style={{background:'rgba(200,134,10,0.06)'}} />
+        <div className="absolute top-20 left-0 w-full h-[60vh] rounded-full blur-[100px] pointer-events-none -translate-x-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
 
         <div className="relative z-10 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-6">
@@ -187,7 +187,7 @@ export default function Services() {
             >
               <Link
                 href={svc.link}
-                className="block group relative bg-white border border-[rgba(200,134,10,0.12)] rounded-[24px] overflow-hidden p-8 transition-colors hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)]" style={{boxShadow:'0 4px 16px rgba(200,134,10,0.08)'}}
+                className="block group relative bg-white border border-[rgba(200,134,10,0.12)] rounded-[24px] overflow-hidden p-8 transition-colors hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)]" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.08)' }}
               >
                 {/* Mobile top gradient */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />

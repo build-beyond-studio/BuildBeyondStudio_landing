@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     url: 'https://buildbeyondstudio.com/blog',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&h=630&fit=crop',
+        url: 'https://buildbeyondstudio.com/og-blog.png',
         width: 1200,
         height: 630,
-        alt: 'Build Beyond Studio Blog',
+        alt: 'BBS Blog — Insights for Marketing Agencies',
       },
     ],
   },
@@ -48,8 +48,8 @@ export default function BlogPage() {
       <Header />
       <section className="bg-[#F5F2EC] pt-24 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 relative overflow-hidden min-h-[40vh] flex items-center justify-center border-b border-[rgba(200,134,10,0.10)]">
         {/* Decorative Elements */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl" style={{background:'radial-gradient(circle, rgba(200,134,10,0.08) 0%, transparent 70%)'}}></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-3xl" style={{background:'radial-gradient(circle, rgba(200,134,10,0.06) 0%, transparent 70%)'}}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(200,134,10,0.08) 0%, transparent 70%)' }}></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(200,134,10,0.06) 0%, transparent 70%)' }}></div>
 
         {/* Content */}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
@@ -65,14 +65,69 @@ export default function BlogPage() {
       {/* Blog Grid */}
       <section className="py-16 md:py-24 px-4 sm:px-6 bg-[#F5F2EC]">
         <div className="max-w-7xl mx-auto">
+          {/* Featured Post */}
+          {sortedBlogs.filter((blog) => blog.featured).length > 0 && (
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold text-black mb-8">Featured</h2>
+              {sortedBlogs.filter((blog) => blog.featured).map((blog) => (
+                <Link
+                  key={blog.id}
+                  href={`/blog/${blog.slug}`}
+                  className="group block md:flex gap-8"
+                >
+                  <article className="bg-white border-2 border-[rgba(200,134,10,0.30)] rounded-2xl overflow-hidden hover:border-[rgba(200,134,10,0.50)] transition-all duration-300 flex flex-col md:flex-row h-full hover:shadow-[0_20px_50px_rgba(200,134,10,0.18)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.12)' }}>
+                    {/* Featured Image */}
+                    <div className="relative h-48 md:h-auto md:w-2/5 overflow-hidden bg-gray-900 group-hover:scale-105 transition-transform duration-300">
+                      <Image
+                        src={blog.featuredImage}
+                        alt={blog.title}
+                        fill
+                        className="object-cover"
+                        priority={true}
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-8 md:w-3/5 flex flex-col justify-between">
+                      <div>
+                        {/* Date */}
+                        <time className="text-sm text-gray-500 mb-3 block">
+                          {formatDate(blog.date)}
+                        </time>
+
+                        {/* Title */}
+                        <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 group-hover:text-[#C8860A] transition-colors">
+                          {blog.title}
+                        </h2>
+
+                        {/* Description */}
+                        <p className="text-gray-600 text-base leading-relaxed mb-6">
+                          {blog.description}
+                        </p>
+                      </div>
+
+                      {/* Read More */}
+                      <div className="inline-flex items-center gap-2 text-[#C8860A] font-semibold text-sm group-hover:gap-3 transition-all">
+                        Read article
+                        <span>→</span>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Regular Posts Grid */}
+          <h2 className="text-2xl font-bold text-black mb-8">Latest Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sortedBlogs.map((blog) => (
+            {sortedBlogs.filter((blog) => !blog.featured).map((blog) => (
               <Link
                 key={blog.id}
                 href={`/blog/${blog.slug}`}
                 className="group h-full flex flex-col"
               >
-                <article className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl overflow-hidden hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 h-full flex flex-col hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)]" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}>
+                <article className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl overflow-hidden hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 h-full flex flex-col hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)]" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}>
                   {/* Featured Image */}
                   <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-900 group-hover:scale-105 transition-transform duration-300">
                     <Image
@@ -128,7 +183,7 @@ export default function BlogPage() {
           <Link
             href="/services/web-applications"
             className="inline-block text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-            style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}
+            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
           >
             Explore Our Services
           </Link>

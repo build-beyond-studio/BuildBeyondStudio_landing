@@ -5,9 +5,9 @@ const faqs = [
       "White-label web development means your agency offers web development to clients, but a technical partner like Build Beyond Studio builds everything behind the scenes. You present the work under your brand, invoice the client at your price, and keep the full margin. Your clients never know we were involved.",
   },
   {
-    question: "Do you work with agencies in Ambikapur and Chhattisgarh?",
+    question: "How does the revenue split work?",
     answer:
-      "Yes. Build Beyond Studio is based in Ambikapur, Chhattisgarh. We work with marketing agencies, businesses, and startups across Ambikapur, Surguja, Raipur, Bilaspur, and all of India.",
+      "Simple — you agree a price with us privately. Whatever you charge your client is entirely your decision. We take 50% of the agreed amount: 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh project, you net ₹50K with zero developer overhead.",
   },
   {
     question: "What is your typical project timeline?",
@@ -29,6 +29,16 @@ const faqs = [
     answer:
       "Simply reach out via our contact form or WhatsApp. Share your project requirements or your client's brief. We'll respond within 24 hours with a clear estimate and timeline.",
   },
+  {
+    question: "Will you ever contact my client directly?",
+    answer:
+      "Never. No direct client contact is a non-negotiable commitment. We sign an NDA before every project. Your client relationship is yours — we stay completely invisible.",
+  },
+  {
+    question: "Can we start with just one project?",
+    answer:
+      "Yes — and we recommend it. Share one live client requirement, we send you an estimate within 24 hours, and you decide whether to proceed. No long-term commitment required to start.",
+  },
 ]
 
 export default function FAQ() {
@@ -48,7 +58,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 cursor-pointer hover:border-[rgba(200,134,10,0.35)] transition-all duration-200" style={{boxShadow:'0 2px 10px rgba(200,134,10,0.07)'}}
+              className="group bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 cursor-pointer hover:border-[rgba(200,134,10,0.35)] transition-all duration-200" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}
             >
               <summary className="flex items-center justify-between list-none">
                 <h3 className="text-black font-semibold text-base sm:text-lg pr-4">

@@ -6,11 +6,9 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#services", label: "Services" },
-  { href: "/#why", label: "Why Us" },
-  { href: "/services/web-applications", label: "Your Website" },
+  { href: "/for-agencies", label: "For Agencies" },
+  { href: "/#services", label: "How It Works" },
   { href: "/#cases", label: "Our Work" },
-  { href: "/#partners", label: "For Agencies" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -207,16 +205,29 @@ export default function Header() {
               ))}
             </nav>
 
+            {/* Desktop CTA Button */}
+            <a
+              href="/#contact"
+              className="hidden md:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right"
+              style={{
+                background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+                boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
+              }}
+            >
+              Start a Project →
+            </a>
+
             {/* Hamburger — slides from RIGHT */}
             <button
               className={`anim-from-right md:hidden flex flex-col justify-center items-center gap-[5.5px] w-9 h-9 rounded-xl hover:bg-black/5 transition-colors duration-200 cursor-pointer ${isMenuOpen ? "ham-open" : ""
                 }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label="Open navigation menu"
+              aria-expanded={isMenuOpen}
             >
-              <span className="ham-bar bar-top" />
-              <span className="ham-bar bar-mid" />
-              <span className="ham-bar bar-bot" />
+              <span className="ham-bar bar-top" aria-hidden="true" />
+              <span className="ham-bar bar-mid" aria-hidden="true" />
+              <span className="ham-bar bar-bot" aria-hidden="true" />
             </button>
           </div>
 
@@ -234,6 +245,17 @@ export default function Header() {
                     {label}
                   </a>
                 ))}
+                <a
+                  href="/#contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mob-link text-white text-sm font-medium py-2.5 px-4 rounded-lg mt-2 text-center transition-all"
+                  style={{
+                    background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+                    boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
+                  }}
+                >
+                  Start a Project →
+                </a>
               </nav>
             </div>
           </div>

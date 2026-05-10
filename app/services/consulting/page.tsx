@@ -23,7 +23,14 @@ export const metadata: Metadata = {
       'Strategic guidance on architecture, technology selection, and scalability for agencies and startups across India.',
     url: 'https://buildbeyondstudio.com/services/consulting',
     siteName: 'Build Beyond Studio',
-    images: [{ url: 'https://buildbeyondstudio.com/logo.png', width: 1200, height: 630 }],
+    images: [
+      {
+        url: 'https://buildbeyondstudio.com/og-consulting.png',
+        width: 1200,
+        height: 630,
+        alt: 'Technical Consulting | Build Beyond Studio',
+      },
+    ],
     type: 'website',
     locale: 'en_IN',
   },
@@ -74,7 +81,7 @@ export default function ConsultingPage() {
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Strategic guidance on architecture, technology selection, and scalability. Make the right technical decisions before they become expensive mistakes.
         </p>
-        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
           Book a Consulting Call
         </a>
 
@@ -120,7 +127,7 @@ export default function ConsultingPage() {
                 { step: '03', title: 'Recommendations', desc: 'Clear, actionable recommendations with reasoning — no fluff, no jargon.' },
                 { step: '04', title: 'Ongoing support', desc: 'Optional ongoing advisory if you want a technical partner as you implement changes.' },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.06)'}}>
+                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
                   <span className="text-[#C8860A] font-mono text-sm pt-1">{item.step}</span>
                   <div>
                     <div className="font-semibold text-black mb-1">{item.title}</div>
@@ -132,10 +139,10 @@ export default function ConsultingPage() {
           </div>
         </div>
 
-        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">Need a technical second opinion?</h2>
           <p className="text-gray-600 mb-6">Book a free 30-minute discovery call. No commitment, no sales pitch.</p>
-          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
             Book Free Discovery Call
           </a>
         </div>

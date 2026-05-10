@@ -24,7 +24,14 @@ export const metadata: Metadata = {
       'Docker, CI/CD, cloud deployment, and infrastructure that handles growth. Full DevOps setup for agencies and startups.',
     url: 'https://buildbeyondstudio.com/services/devops',
     siteName: 'Build Beyond Studio',
-    images: [{ url: 'https://buildbeyondstudio.com/logo.png', width: 1200, height: 630 }],
+    images: [
+      {
+        url: 'https://buildbeyondstudio.com/og-devops.png',
+        width: 1200,
+        height: 630,
+        alt: 'DevOps Services | Build Beyond Studio',
+      },
+    ],
     type: 'website',
     locale: 'en_IN',
   },
@@ -75,7 +82,7 @@ export default function DevOpsPage() {
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Docker, CI/CD pipelines, and cloud infrastructure that scales with your business. We handle the ops so your team can focus on building.
         </p>
-        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
           Get DevOps Setup
         </a>
 
@@ -121,7 +128,7 @@ export default function DevOpsPage() {
                 { step: '03', title: 'Cloud Infrastructure', desc: 'AWS, DigitalOcean, or Vercel depending on project requirements and budget.' },
                 { step: '04', title: 'Monitoring & Alerts', desc: 'Uptime monitoring, error tracking, and alerting so issues are caught before clients notice.' },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{boxShadow:'0 2px 8px rgba(200,134,10,0.06)'}}>
+                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
                   <span className="text-[#C8860A] font-mono text-sm pt-1">{item.step}</span>
                   <div>
                     <div className="font-semibold text-black mb-1">{item.title}</div>
@@ -133,10 +140,10 @@ export default function DevOpsPage() {
           </div>
         </div>
 
-        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{boxShadow:'0 4px 20px rgba(200,134,10,0.10)'}}>
+        <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">Need a proper DevOps setup?</h2>
           <p className="text-gray-600 mb-6">We'll audit your current infrastructure and give you a clear plan within 24 hours.</p>
-          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 16px rgba(200,134,10,0.30)'}}>
+          <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
             Book a Free Audit
           </a>
         </div>
