@@ -1,8 +1,8 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
-import CaseStudies from "@/components/case-studies";
-import Testimonials from "@/components/testimonials";
+// import CaseStudies from "@/components/case-studies";
+// import Testimonials from "@/components/testimonials";
 import WhyUs from "@/components/why-us";
 import AgencyPartners from "@/components/agency-partners";
 import Contact from "@/components/contact";
@@ -80,9 +80,8 @@ export default function Home() {
       <Workflow />
       <Services />
       <RevenueMath />
-      <CaseStudies />
-      {/* <WhyUs /> */}
-      <Testimonials />
+      {/* <CaseStudies /> */}
+      {/* <Testimonials /> */}
       <AgencyPartners />
       <WhyUs />
       <FAQ />

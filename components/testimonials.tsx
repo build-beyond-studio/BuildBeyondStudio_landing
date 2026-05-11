@@ -25,11 +25,6 @@ export default function Testimonials() {
   return (
     <section className="bg-[#F5F2EC] py-16 md:py-24 px-4 sm:px-6 border-t border-black/5">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">Trusted by Agencies Across India</h2>
-          <p className="text-gray-600 text-base md:text-lg">Real feedback from agencies delivering web projects with Build Beyond Studio</p>
-        </div>
-
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (

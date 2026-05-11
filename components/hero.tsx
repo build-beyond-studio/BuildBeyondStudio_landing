@@ -67,6 +67,7 @@ export default function Hero() {
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
+  const subheadRef = useRef<HTMLParagraphElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const badgesRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -82,11 +83,12 @@ export default function Hero() {
       { el: eyebrowRef.current, delay: 0 },
       { el: titleRef.current, delay: 80 },
       { el: line2Ref.current, delay: 200 },
-      { el: subtitleRef.current, delay: 340 },
-      { el: badgesRef.current, delay: 460 },
-      { el: buttonsRef.current, delay: 560 },
-      { el: emailRef.current, delay: 650 },
-      { el: scrollRef.current, delay: 760 },
+      { el: subheadRef.current, delay: 260 },
+      { el: subtitleRef.current, delay: 360 },
+      { el: badgesRef.current, delay: 480 },
+      { el: buttonsRef.current, delay: 580 },
+      { el: emailRef.current, delay: 670 },
+      { el: scrollRef.current, delay: 780 },
     ];
     const obs = new IntersectionObserver(
       (entries) => {
@@ -357,6 +359,24 @@ export default function Hero() {
                      box-shadow .25s ease, background .18s ease, border-color .18s ease;
         }
 
+        /* ── Revenue Model button ───────────────────────────── */
+        .btn-revenue {
+          background: #fff;
+          color: #C8860A;
+          border: 2px solid rgba(200,134,10,0.45);
+          box-shadow: 0 0 0 4px rgba(200,134,10,0.10), 0 4px 20px rgba(200,134,10,0.15);
+          animation: revBtnPulse 2.8s ease-in-out infinite;
+        }
+        .btn-revenue:hover {
+          background: rgba(200,134,10,0.04);
+          border-color: rgba(200,134,10,0.7);
+          box-shadow: 0 0 0 6px rgba(200,134,10,0.08), 0 6px 28px rgba(200,134,10,0.25);
+        }
+        @keyframes revBtnPulse {
+          0%,100% { box-shadow: 0 0 0 4px rgba(200,134,10,0.10), 0 4px 20px rgba(200,134,10,0.15); }
+          50%      { box-shadow: 0 0 0 8px rgba(200,134,10,0.06), 0 4px 28px rgba(200,134,10,0.22); }
+        }
+
         /* ── scroll caret ──────────────────────────────────── */
         @keyframes caretDrop {
           0%,100%{transform:translateY(0);opacity:.35;}
@@ -398,22 +418,34 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <div className="flex flex-col items-center gap-1.5">
+          <div className="flex flex-col items-center gap-3">
             <h1
               ref={titleRef}
-              className="hero-pre text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[4rem]
-                         font-black text-black leading-[1.04] tracking-[-0.042em]"
+              className="hero-pre text-[2.2rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem]
+                         font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
-              Build Beyond Studio
+              The invisible web team for{" "}
+              <span
+                ref={line2Ref}
+                className="hero-pre gradient-text"
+                style={{ display: "inline" }}
+              >
+                marketing agencies.
+              </span>
             </h1>
-            <span
-              ref={line2Ref}
-              className="hero-pre gradient-text text-[1.6rem] sm:text-[2rem] md:text-[2.6rem] lg:text-[3rem]
-                         font-black leading-[1.1] tracking-[-0.032em] block"
+            <p
+              ref={subheadRef}
+              className="hero-pre text-[15px] sm:text-[17px] font-semibold"
+              style={{
+                color: '#C8860A',
+                letterSpacing: '0.01em',
+                transitionDelay: '260ms',
+              }}
             >
-              The invisible web team for marketing agencies.
-            </span>
+              Built Exclusively for Marketing Agencies
+            </p>
           </div>
+
 
           {/* Divider */}
           <div
@@ -491,6 +523,24 @@ export default function Hero() {
             className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3
                        w-full sm:w-auto"
           >
+        
+
+            {/* Revenue Model — highlighted primary with pulse */}
+            <button
+              ref={mag2.ref}
+              onMouseMove={mag2.onMove}
+              onMouseLeave={mag2.onLeave}
+              onClick={() =>
+                document
+                  .getElementById("revenue")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="mag-btn btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto"
+            >
+              Revenue Model →
+            </button>
+
+                {/* Book a Call — plain secondary */}
             <button
               ref={mag1.ref}
               onMouseMove={mag1.onMove}
@@ -500,28 +550,13 @@ export default function Hero() {
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="mag-btn btn-primary text-white px-9 py-3.5 rounded-xl
-                         font-bold text-[13.5px] w-full sm:w-auto"
-            >
-              Book a Call →
-            </button>
-
-            <button
-              ref={mag2.ref}
-              onMouseMove={mag2.onMove}
-              onMouseLeave={mag2.onLeave}
-              onClick={() =>
-                document
-                  .getElementById("cases")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="mag-btn border border-black/10 text-gray-900 px-9 py-3.5
+              className="mag-btn border border-black/12 text-gray-800 px-9 py-3.5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-white hover:border-black/20 hover:bg-gray-50
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
                          hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
             >
-              See Our Work
+              Book a Call
             </button>
           </div>
 
