@@ -7,8 +7,8 @@ import { FaWhatsapp } from "react-icons/fa";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/for-agencies", label: "For Agencies" },
-  { href: "/#services", label: "How It Works" },
-  { href: "/#cases", label: "Our Work" },
+  { href: "/#services", label: "Services" },
+  { href: "/#revenue", label: "Revenue Model" },
   { href: "/blog", label: "Blog" },
 ];
 
