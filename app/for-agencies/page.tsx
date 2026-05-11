@@ -9,23 +9,21 @@ import Link from 'next/link';
 import RevenueScrollBtn from '@/components/revenue-scroll-btn';
 
 export const metadata: Metadata = {
-  title: 'White-Label Web Dev for Marketing Agencies | Build Beyond Studio',
+  title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
   description:
-    'Marketing agencies: offer web development without hiring a single developer. BBS is your invisible tech team — NDA-first, full IP yours, zero overhead.',
+    'BBS is your invisible web development team. We build under your brand — NDA-first, full IP ownership, 50/50 revenue split. Web development partner for agencies across India.',
   keywords: [
     'white label web development for marketing agencies',
-    'web development partner for agencies',
-    'invisible web team for agencies',
-    'agency web dev outsourcing',
-    'web development without hiring developers',
+    'web development partner for agencies India',
+    'outsource web development agency India',
   ],
   alternates: {
     canonical: 'https://buildbeyondstudio.com/for-agencies',
   },
   openGraph: {
-    title: 'White-Label Web Dev for Marketing Agencies | Build Beyond Studio',
+    title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
     description:
-      'Marketing agencies: offer web development without hiring a single developer. BBS is your invisible tech team — NDA-first, full IP yours, zero overhead.',
+      'BBS is your invisible web development team. We build under your brand — NDA-first, full IP ownership, 50/50 revenue split. Web development partner for agencies across India.',
     url: 'https://buildbeyondstudio.com/for-agencies',
     siteName: 'Build Beyond Studio',
     type: 'website',
@@ -34,8 +32,35 @@ export const metadata: Metadata = {
 };
 
 export default function ForAgenciesPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "White-Label Web Development for Marketing Agencies",
+    "description": "BBS builds websites and web applications fully under your agency brand. NDA-first, full IP ownership, 50/50 revenue split, zero fixed overhead.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Build Beyond Studio",
+      "url": "https://buildbeyondstudio.com"
+    },
+    "areaServed": "India",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Marketing Agencies"
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "50/50 revenue split. Zero fixed overhead. Start with one pilot project.",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -64,10 +89,9 @@ export default function ForAgenciesPage() {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold text-black mb-4 leading-tight">
-          Your clients need websites.
-          <br />
+          White-Label Web Development for<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8860A] to-[#E8A020]">
-            We build them.
+            Marketing Agencies
           </span>
         </h1>
 
@@ -77,7 +101,7 @@ export default function ForAgenciesPage() {
         </p>
 
         <p className="text-base md:text-lg text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
-          Join 10+ marketing agencies across India who use Build Beyond Studio as their invisible tech team. You bring the clients — we handle 100% of the technical work.
+          Join 10+ marketing agencies across India who use Build Beyond Studio as their white-label web development partner. You bring the clients — we handle 100% of the technical work. As the leading outsource web development agency India has to offer, we act as the invisible web team marketing agency owners trust to scale effortlessly.
         </p>
 
         {/* CTA Buttons */}
@@ -177,9 +201,9 @@ export default function ForAgenciesPage() {
 
       {/* Trust Block Section */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center">How We Keep Your Partnership Invisible</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center">How Our White-Label Web Development Model Works</h2>
         <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
-          Confidentiality is non-negotiable. Your partnership with BBS stays between us and you.
+          Confidentiality is non-negotiable. As a trusted web development partner for agencies India relies on, your partnership with BBS stays between us and you.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

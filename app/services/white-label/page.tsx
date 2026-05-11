@@ -5,7 +5,7 @@ import RevenueMath from '@/components/revenue-math'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
+  title: 'White-Label Web Development for Marketing Agencies India | BBS',
   description:
     'Marketing agencies: offer web development without hiring a developer. BBS builds everything under your brand — NDA-first, full IP yours. Start with one pilot project.',
   keywords: [
@@ -102,11 +102,11 @@ export default function WhiteLabelPage() {
         </div>
 
         <h1 className="text-5xl font-bold text-black mb-6">
-          White-Label Web Development for Agencies
+          White-Label Web Development for Agencies Across India
         </h1>
 
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-          Build custom web applications under your brand. Your reputation, our
+          Build custom web applications under your brand with a top white label web development agency India. Your reputation, our
           expertise. Full IP rights included — your clients never know we exist.
         </p>
 
@@ -140,7 +140,7 @@ export default function WhiteLabelPage() {
 
           <div>
             <h2 className="text-2xl font-semibold text-black mb-4">
-              How It Works
+              Our White-Label Web Development Process for Indian Agencies
             </h2>
             <div className="space-y-4">
               {[
