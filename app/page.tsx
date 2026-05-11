@@ -64,6 +64,30 @@ const faqSchema = {
         text: "Simply reach out via our contact form or WhatsApp. Share your project requirements or your client's brief. We'll respond within 24 hours with a clear estimate and timeline.",
       },
     },
+    {
+      "@type": "Question",
+      name: "How does the revenue split work with BBS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You agree a project price with BBS privately. Whatever you charge your client is your decision. BBS takes 50% of the agreed amount — 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh project, you net ₹50K with zero developer overhead.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Will BBS ever contact my client directly?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Never. No direct client contact is a non-negotiable commitment. An NDA is signed before every project. Your clients never know BBS was involved.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can marketing agencies start with just one project?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Share one live client requirement, get a firm estimate within 24 hours, and decide whether to proceed. No retainer or long-term commitment required.",
+      },
+    },
   ],
 }
 
