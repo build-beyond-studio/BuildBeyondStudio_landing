@@ -37,6 +37,22 @@ const services = [
     link: "/services/consulting",
     color: "#B87800",
   },
+  {
+    num: "05",
+    title: "SEO\nOptimization",
+    desc: "Improve search rankings, website visibility, and organic traffic with modern SEO strategies.",
+    features: ["Technical SEO", "On-Page SEO", "Organic Growth"],
+    link: "/services/seo-optimization",
+    color: "#C8860A",
+  },
+  {
+    num: "06",
+    title: "Dynamic\nSEO",
+    desc: "Advanced SEO solutions for scalable web applications with dynamic metadata, indexing, and search visibility optimization.",
+    features: ["Dynamic Metadata", "Schema Markup", "Search Visibility"],
+    link: "/services/dynamic-seo",
+    color: "#A06A00",
+  },
 ];
 
 export default function Services() {
@@ -57,16 +73,16 @@ export default function Services() {
     restDelta: 0.001,
   });
 
-  // Slide left by ~120vw to reveal the 4 cards. 
-  // Container logic: 40vw intro + (35vw * 4 cards) = 180vw content + gaps
-  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-140vw"]);
+  // Slide left by ~210vw to reveal the 6 cards. 
+  // Container logic: 40vw intro + (35vw * 6 cards) = 250vw content + gaps
+  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-210vw"]);
 
   return (
     <div id="services">
       {/* ── Desktop Horizontal Scroll Layer ── */}
       <section
         ref={targetRef}
-        className="relative hidden lg:block h-[400vh] bg-[#F5F2EC] text-black"
+        className="relative hidden lg:block h-[500vh] bg-[#F5F2EC] text-black"
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
 
