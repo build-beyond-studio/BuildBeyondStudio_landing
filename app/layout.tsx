@@ -137,7 +137,7 @@ const structuredData = {
         longitude: "83.1961",
       },
       areaServed: { "@type": "Country", "name": "India" },
-      priceRange: "₹₹",
+      priceRange: "$$ / ₹₹",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

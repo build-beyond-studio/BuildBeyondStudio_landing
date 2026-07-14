@@ -71,7 +71,7 @@ export default function Footer() {
               {/* Photo Placeholder */}
               <div className="w-24 h-24 rounded-lg bg-gradient-to-br from-[#C8860A] to-[#A06A00] flex-shrink-0 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/ankush.png"
+                  src="/founder.jpeg"
                   alt="Ankush Kumar Gupta — Founder, BBS"
                   className="w-full h-full object-cover"
                 />

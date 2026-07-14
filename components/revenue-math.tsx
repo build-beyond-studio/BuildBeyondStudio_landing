@@ -69,8 +69,11 @@ export default function RevenueMath() {
     setTimeout(() => requestAnimationFrame(tick), 600);
   }, [visible, counted]);
 
-  const fmtINR = (n: number) =>
-    "₹" + n.toLocaleString("en-IN");
+  const fmtCurrency = (n: number) => {
+    const inr = "₹" + n.toLocaleString("en-IN");
+    const usd = "$" + Math.round(n / 80).toLocaleString("en-US");
+    return `${inr} (${usd})`;
+  };
 
   return (
     <>
@@ -241,7 +244,7 @@ export default function RevenueMath() {
         /* Decorative "bg word" */
         .rm-card-bg-word {
           position: absolute; bottom: -20px; right: 20px;
-          font-size: 120px; font-weight: 900; letter-spacing: -0.06em;
+          font-size: 80px; font-weight: 900; letter-spacing: -0.06em;
           color: rgba(201,168,76,0.04); line-height: 1;
           pointer-events: none; user-select: none;
           animation: rmWordFloat 6s ease-in-out infinite;
@@ -303,7 +306,7 @@ export default function RevenueMath() {
           .rm-connector { display: none; }
           .rm-example-card { padding: 26px 22px; }
           .rm-profit-val { font-size: 2.4rem; }
-          .rm-card-bg-word { font-size: 80px; }
+          .rm-card-bg-word { font-size: 55px; }
         }
       `}</style>
 
@@ -356,7 +359,7 @@ export default function RevenueMath() {
           {/* Example Card */}
           <div className={`rm-fade rm-d3 ${visible ? "rm-on" : ""}`}>
             <div className="rm-example-card">
-              <span className="rm-card-bg-word">₹60K</span>
+              <span className="rm-card-bg-word">₹60K / $750</span>
 
               <div className="grid sm:grid-cols-2 gap-8">
                 {/* Left: breakdown */}
@@ -365,12 +368,12 @@ export default function RevenueMath() {
                     <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }}>Live Example</p>
                     <div className="rm-row">
                       <span className="rm-row-label">BBS Price to You</span>
-                      <span className="rm-row-val">₹40,000</span>
+                      <span className="rm-row-val">₹40,000 ($500)</span>
                     </div>
                     <div className="rm-divider mt-3 mb-3" />
                     <div className="rm-row">
                       <span className="rm-row-label">You Charge Client</span>
-                      <span className="rm-row-val">₹1,00,000</span>
+                      <span className="rm-row-val">₹1,00,000 ($1,250)</span>
                     </div>
                   </div>
                 </div>
@@ -383,7 +386,7 @@ export default function RevenueMath() {
                   <div className="rm-profit-row w-full sm:flex-col sm:items-end gap-3">
                     <div>
                       <div className="rm-profit-label">Your Profit</div>
-                      <div className="rm-profit-val">{fmtINR(profit)}</div>
+                      <div className="rm-profit-val">{fmtCurrency(profit)}</div>
                     </div>
                     <span className="rm-yours-badge self-start sm:self-auto">
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="#C9A84C"><circle cx="4" cy="4" r="4"/></svg>
