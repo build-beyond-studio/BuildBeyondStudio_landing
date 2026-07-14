@@ -69,7 +69,7 @@ const faqSchema = {
       name: "How does the revenue split work with BBS?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You agree a project price with BBS privately. Whatever you charge your client is your decision. BBS takes 50% of the agreed amount — 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh project, you net ₹50K with zero developer overhead.",
+        text: "You agree a project price with BBS privately. Whatever you charge your client is your decision. BBS takes 50% of the agreed amount — 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh ($1,250) project, you net ₹50K ($625) with zero developer overhead.",
       },
     },
     {

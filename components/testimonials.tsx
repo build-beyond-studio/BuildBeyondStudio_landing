@@ -16,7 +16,7 @@ const testimonials = [
     client: 'Agency owner, Bangalore',
   },
   {
-    quote: '3 projects delivered, ₹1.5L earned in 60 days',
+    quote: '3 projects delivered, ₹1.5L ($1,875) earned in 60 days',
     client: 'Growth agency, Pune',
   }
 ];
