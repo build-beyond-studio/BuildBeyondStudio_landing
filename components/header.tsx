@@ -4,14 +4,25 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/for-agencies", label: "For Agencies" },
-  { href: "/#services", label: "Services" },
-  { href: "/#revenue", label: "Revenue Model" },
-  { href: "/blog", label: "Blog" },
-];
+type NavLink = {
+  label: string;
+  href?: string;
+  dropdown?: { href: string; label: string }[];
+};
 
+const NAV_LINKS: NavLink[] = [
+  { 
+    label: "Services", 
+    dropdown: [
+      { href: "/services/custom-web-applications", label: "Custom Web Applications" },
+      { href: "/services/devops-infrastructure", label: "DevOps & Infrastructure" },
+      { href: "/services/technical-consulting", label: "Technical Consulting" },
+    ]
+  },
+  { href: "/how-we-partner", label: "How We Partner" },
+  { href: "/#revenue", label: "Revenue Model" },
+  { href: "/success-stories", label: "Success Stories" },
+];
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -179,7 +190,7 @@ export default function Header() {
         <div className={`nav-morph ${scrolled ? "scrolled" : ""}`}>
           <div className="flex items-center justify-between px-5 sm:px-6">
             {/* Logo — slides from LEFT */}
-            <div className="anim-from-left flex items-center gap-2.5">
+            <a href="/" className="anim-from-left flex items-center gap-2.5 outline-none">
               <Image
                 src="/logo.png"
                 alt="Build Beyond Studio - Web Development & DevOps Agency"
@@ -190,18 +201,40 @@ export default function Header() {
               <span className="font-semibold text-black text-sm sm:text-[15px] tracking-tight">
                 Build Beyond Studio
               </span>
-            </div>
+            </a>
 
             {/* Desktop Nav — each link drops from TOP */}
             <nav className="hidden md:flex items-center gap-7">
-              {NAV_LINKS.map(({ href, label }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="nav-item nav-link text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200"
-                >
-                  {label}
-                </a>
+              {NAV_LINKS.map((item, idx) => (
+                item.dropdown ? (
+                  <div key={item.label} className="relative group nav-item" style={{ animationDelay: `${0.20 + (idx * 0.06)}s` }}>
+                    <span className="nav-link cursor-pointer text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200 flex items-center gap-1">
+                      {item.label}
+                      <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                    </span>
+                    <div className="absolute top-full left-0 mt-4 w-56 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0">
+                      <div className="py-2">
+                        {item.dropdown.map(subItem => (
+                          <a
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="block px-4 py-2.5 text-[13px] text-gray-600 hover:text-black hover:bg-gray-50 transition-colors"
+                          >
+                            {subItem.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href!}
+                    className="nav-item nav-link text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200"
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </nav>
 
@@ -214,7 +247,7 @@ export default function Header() {
                 boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
               }}
             >
-              Start a Project →
+              Book a Strategy Call →
             </a>
 
             {/* Hamburger — slides from RIGHT */}
@@ -235,15 +268,33 @@ export default function Header() {
           <div className={`mobile-menu md:hidden ${isMenuOpen ? "open" : ""}`}>
             <div className="mobile-menu-inner">
               <nav className="flex flex-col px-5 pb-4 pt-3 gap-0.5 border-t border-black/5 mt-2 bg-white/90 rounded-b-2xl backdrop-blur-md">
-                {NAV_LINKS.map(({ href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="mob-link text-gray-600 hover:text-black text-sm font-medium py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200"
-                  >
-                    {label}
-                  </a>
+                {NAV_LINKS.map((item, idx) => (
+                  item.dropdown ? (
+                    <div key={item.label} className="mob-link py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200" style={{ transitionDelay: `${0.05 + (idx * 0.05)}s` }}>
+                      <div className="text-gray-600 font-medium text-sm mb-2">{item.label}</div>
+                      <div className="flex flex-col pl-4 gap-2 border-l border-gray-200 ml-2">
+                        {item.dropdown.map(subItem => (
+                          <a
+                            key={subItem.href}
+                            href={subItem.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-gray-500 hover:text-black text-sm"
+                          >
+                            {subItem.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <a
+                      key={item.href}
+                      href={item.href!}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="mob-link text-gray-600 hover:text-black text-sm font-medium py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200"
+                    >
+                      {item.label}
+                    </a>
+                  )
                 ))}
                 <a
                   href="/#contact"
@@ -254,7 +305,7 @@ export default function Header() {
                     boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
                   }}
                 >
-                  Start a Project →
+                  Book a Strategy Call →
                 </a>
               </nav>
             </div>

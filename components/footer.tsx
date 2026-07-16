@@ -12,6 +12,20 @@ export default function Footer() {
             BBS is the invisible web team behind marketing agencies across India. You bring the clients — we build, deploy, and maintain. Your brand. Your margins. Our expertise.
           </p>
 
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {[
+              { label: "100% White-Label", icon: "✓" },
+              { label: "Strict NDA Enforced", icon: "✓" },
+              { label: "Zero Direct Client Contact", icon: "✓" },
+            ].map((badge) => (
+              <div key={badge.label} className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-gray-300 text-sm">
+                <span className="text-[#E8A020] font-bold">{badge.icon}</span>
+                <span>{badge.label}</span>
+              </div>
+            ))}
+          </div>
+
           {/* Social Handles */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <a
@@ -71,7 +85,7 @@ export default function Footer() {
               {/* Photo Placeholder */}
               <div className="w-24 h-24 rounded-lg bg-gradient-to-br from-[#C8860A] to-[#A06A00] flex-shrink-0 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/ankush.png"
+                  src="/founder.jpeg"
                   alt="Ankush Kumar Gupta — Founder, BBS"
                   className="w-full h-full object-cover"
                 />
@@ -108,25 +122,27 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm text-gray-500">
-            {/* Left Text */}
-            <div className="text-center md:text-left">
-              <p>Let's build something great together</p>
-              <p className="mt-2">
-                &copy; {new Date().getFullYear()} Build Beyond Studio. All
-                rights reserved. |{' '}
-                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </a>{' '}
-                |{' '}
-                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </a>
-              </p>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-500 mb-8">
+             <div className="text-center md:text-left">
+                <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
+                <div className="flex flex-col gap-2">
+                  <a href="/services/custom-web-applications" className="hover:text-white transition-colors">Custom Web Applications</a>
+                  <a href="/services/devops-infrastructure" className="hover:text-white transition-colors">DevOps & Infrastructure</a>
+                  <a href="/services/technical-consulting" className="hover:text-white transition-colors">Technical Consulting</a>
+                </div>
+             </div>
+             <div className="text-center md:text-left">
+                <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
+                <div className="flex flex-col gap-2">
+                  <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
+                  <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
+                  <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
+                  <a href="/blog" className="hover:text-white transition-colors">Blog</a>
+                </div>
+             </div>
             {/* Contact + Address */}
             <div className="text-center md:text-right text-gray-300 font-light tracking-wide leading-relaxed">
+              <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
               <p>
                 <a
                   href="mailto:buildbeyondstudio@gmail.com"
@@ -138,6 +154,12 @@ export default function Footer() {
               <p>Ambikapur, Surguja</p>
               <p>Chhattisgarh 497001</p>
             </div>
+          </div>
+          <div className="flex flex-col md:flex-row md:items-center justify-between text-sm text-gray-500 border-t border-white/5 pt-6">
+            <p>&copy; {new Date().getFullYear()} Build Beyond Studio. All rights reserved.</p>
+            <p className="mt-2 md:mt-0">
+               <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a> | <a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            </p>
           </div>
         </div>
       </div>

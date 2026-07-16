@@ -1,4 +1,4 @@
-const faqs = [
+export const faqs = [
   {
     question: "What is white-label web development?",
     answer:
@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "How does the revenue split work?",
     answer:
-      "Simple — you agree a price with us privately. Whatever you charge your client is entirely your decision. We take 50% of the agreed amount: 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh project, you net ₹50K with zero developer overhead.",
+      "Simple — you agree a price with us privately. Whatever you charge your client is entirely your decision. We take 50% of the agreed amount: 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh ($1,250) project, you net ₹50K ($625) with zero developer overhead.",
   },
   {
     question: "What is your typical project timeline?",

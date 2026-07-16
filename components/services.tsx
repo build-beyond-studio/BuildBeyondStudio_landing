@@ -7,52 +7,44 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 const services = [
   {
     num: "01",
-    title: "Web Application\nDevelopment",
-    desc: "Production-ready MERN stack applications built to scale from day one.",
-    features: ["MERN Stack", "Scalable Architecture", "Production-Ready"],
-    link: "/services/web-applications",
+    title: "Custom Web\nApplications",
+    desc: "Build highly-customized, high-retention web assets that keep your clients engaged.",
+    features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
+    link: "/services/custom-web-applications",
     color: "#C8860A",
   },
   {
     num: "02",
-    title: "DevOps &\nDeployment",
-    desc: "Docker, CI/CD, cloud deployment, and infrastructure that handles growth.",
-    features: ["Docker Setup", "CI/CD Pipeline", "Cloud Deployment"],
-    link: "/services/devops",
+    title: "DevOps &\nInfrastructure",
+    desc: "Campaign-proof infrastructure. Make sure your clients' sites never crash during high-traffic ad launches.",
+    features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
+    link: "/services/devops-infrastructure",
     color: "#A06A00",
   },
   {
     num: "03",
-    title: "White-Label\nSolutions",
-    desc: "Build custom applications under your brand. Your reputation, our expertise.",
-    features: ["Full IP Rights", "Your Branding", "Complete Ownership"],
-    link: "/services/white-label",
+    title: "Technical\nConsulting",
+    desc: "Act as a Fractional CTO for your clients, bringing strategic tech planning that demands a premium retainer.",
+    features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
+    link: "/services/technical-consulting",
     color: "#E8A020",
   },
   {
     num: "04",
-    title: "Technical\nConsulting",
-    desc: "Strategic guidance on architecture, technology selection, and scalability.",
-    features: ["Tech Strategy", "Architecture Review", "Best Practices"],
-    link: "/services/consulting",
-    color: "#B87800",
-  },
-  {
-    num: "05",
     title: "SEO\nOptimization",
     desc: "Improve search rankings, website visibility, and organic traffic with modern SEO strategies.",
     features: ["Technical SEO", "On-Page SEO", "Organic Growth"],
     link: "/services/seo-optimization",
-    color: "#C8860A",
+    color: "#B87800",
   },
   {
-    num: "06",
+    num: "05",
     title: "Dynamic\nSEO",
     desc: "Advanced SEO solutions for scalable web applications with dynamic metadata, indexing, and search visibility optimization.",
     features: ["Dynamic Metadata", "Schema Markup", "Search Visibility"],
     link: "/services/dynamic-seo",
-    color: "#A06A00",
-  },
+    color: "#C8860A",
+  }
 ];
 
 export default function Services() {
@@ -73,16 +65,16 @@ export default function Services() {
     restDelta: 0.001,
   });
 
-  // Slide left by ~210vw to reveal the 6 cards. 
-  // Container logic: 40vw intro + (35vw * 6 cards) = 250vw content + gaps
-  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-210vw"]);
+  // Slide left by ~170vw to reveal the 5 cards. 
+  // Container logic: 40vw intro + (35vw * 5 cards) = 215vw content + gaps
+  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-170vw"]);
 
   return (
     <div id="services">
       {/* ── Desktop Horizontal Scroll Layer ── */}
       <section
         ref={targetRef}
-        className="relative hidden lg:block h-[500vh] bg-[#F5F2EC] text-black"
+        className="relative hidden lg:block h-[450vh] bg-[#F5F2EC] text-black"
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
 
@@ -101,14 +93,14 @@ export default function Services() {
             <div className="w-[45vw] flex-shrink-0 flex flex-col justify-center translate-y-[-5%]">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-8 self-start">
                 <span className="w-2 h-2 rounded-full bg-[#C8860A] animate-pulse" />
-                <span className="text-[12px] font-bold tracking-[0.15em] text-gray-600 uppercase">What we deliver for your agency</span>
+                <span className="text-[12px] font-bold tracking-[0.15em] text-gray-600 uppercase">High-Ticket Technical Solutions</span>
               </div>
 
               <h2 className="text-[4.5rem] xl:text-[5.5rem] leading-[0.95] font-black tracking-[-0.04em] text-black mb-8">
-                Everything your agency<br />needs to <span className="text-gray-400">deliver web projects.</span>
+                Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
               </h2>
               <p className="text-xl xl:text-2xl text-gray-600 max-w-lg leading-relaxed font-light tracking-wide">
-                We handle 100% of the technical work — design, development, DevOps, and maintenance — so you can focus on closing clients and growing your agency.
+                We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
               </p>
             </div>
 
@@ -181,14 +173,14 @@ export default function Services() {
         <div className="relative z-10 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C8860A] animate-pulse" />
-            <span className="text-[11px] font-bold tracking-widest text-gray-600 uppercase">Capabilities</span>
+            <span className="text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
           </div>
 
-          <h2 className="text-[2.8rem] sm:text-[3.5rem] leading-[1] font-black tracking-[-0.04em] text-black mb-5">
-            Elite tech for <br /><span className="text-gray-400">elite brands.</span>
+          <h2 className="text-[2.2rem] sm:text-[2.8rem] font-black leading-[1.05] tracking-[-0.03em] text-black mb-4">
+            Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
           </h2>
-          <p className="text-[17px] text-gray-600 max-w-md leading-relaxed font-light">
-            We don't just write code. We architect scalable systems that power your business forward.
+          <p className="text-[14.5px] sm:text-[16px] text-gray-600 leading-[1.7] max-w-[480px] mx-auto font-light">
+            We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
           </p>
         </div>
 

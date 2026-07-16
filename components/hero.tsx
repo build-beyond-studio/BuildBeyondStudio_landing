@@ -424,13 +424,13 @@ export default function Hero() {
               className="hero-pre text-[2.2rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem]
                          font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
-              The invisible web team for{" "}
+              Scale Your Marketing Agency with{" "}
               <span
                 ref={line2Ref}
                 className="hero-pre gradient-text"
                 style={{ display: "inline" }}
               >
-                marketing agencies.
+                High-Ticket Technical Solutions.
               </span>
             </h1>
             <p
@@ -442,7 +442,7 @@ export default function Hero() {
                 transitionDelay: '260ms',
               }}
             >
-              Built Exclusively for Marketing Agencies
+              Strategic Technical Growth Partner for Marketing Agencies
             </p>
           </div>
 
@@ -456,14 +456,10 @@ export default function Hero() {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-400
-                       max-w-[480px] leading-[1.75]"
+            className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-500
+                       max-w-[580px] leading-[1.75]"
           >
-            Your clients bring you web projects. We build them — fully under your brand.{" "}
-            <span className="font-semibold text-gray-900">
-              No developer salaries. No team management.
-            </span>{" "}
-            Just pure margin.
+            Expand your service offerings, deliver high-performance web applications, and add pure profit to your bottom line—<span className="font-semibold text-gray-900">without hiring a single developer</span>. Build Beyond Studio is a white-label web development and technical growth partner exclusively for marketing agencies.
           </p>
 
           {/* Service highlights */}
@@ -556,7 +552,7 @@ export default function Hero() {
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
                          hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
             >
-              Book a Call
+              Book a Strategy Call
             </button>
           </div>
 

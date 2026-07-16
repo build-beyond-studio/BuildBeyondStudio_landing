@@ -39,34 +39,34 @@ const IconDollar = () => (
 const STEPS = [
   {
     num: "01",
-    title: "Partner With Us",
-    body: "Join our white-label program — completely free. You stay the face of everything. We stay completely invisible.",
+    title: "Turning Down Projects",
+    body: "Stop saying 'no' to custom app requests because you lack in-house technical capacity.",
     Icon: IconHandshake,
-    cta: "Free to start",
+    cta: "Capture lost revenue",
     revenueBtn: false,
   },
   {
     num: "02",
-    title: "Give Us the Project",
-    body: "Share your client's brief, scope, or just a voice note. We ask the right questions and send you a firm proposal within 24h.",
+    title: "Unreliable Freelancers",
+    body: "Tired of missed deadlines and buggy code from unvetted contractors? We provide agency-grade reliability.",
     Icon: IconSend,
-    cta: "5-min handoff",
+    cta: "Dependable execution",
     revenueBtn: false,
   },
   {
     num: "03",
-    title: "You Set the Price. You Keep the Margin.",
-    body: "Invoice your client at your rate. We charge you our fixed cost. The difference is 100% yours — we never see your client's number.",
+    title: "Margin Compression",
+    body: "Hiring full-time developers kills your margins. Partnering with us gives you high-ticket capabilities with zero overhead.",
     Icon: IconDollar,
-    cta: "Your pricing, always",
+    cta: "Keep the profit",
     revenueBtn: true,
   },
   {
     num: "04",
-    title: "We Build & Maintain",
-    body: "Design, development, QA, deployment — we handle it all under your brand. You deliver, invoice, and keep every rupee of margin.",
+    title: "Infrastructure Failures",
+    body: "Sites crashing during your most expensive ad campaigns? We build campaign-proof infrastructure.",
     Icon: IconRocket,
-    cta: "Full ownership",
+    cta: "Zero downtime",
     revenueBtn: false,
   },
 ];
@@ -74,7 +74,7 @@ const STEPS = [
 export default function Workflow() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const stepsRef = useRef<(HTMLElement | null)[]>([]);
   const [activeStep, setActiveStep] = useState(-1);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
@@ -87,7 +87,7 @@ export default function Workflow() {
           if (entry.target === headerRef.current) {
             setHeaderVisible(true);
           } else {
-            const idx = stepsRef.current.indexOf(entry.target as HTMLDivElement);
+            const idx = stepsRef.current.indexOf(entry.target as HTMLElement);
             if (idx >= 0) {
               setVisibleSteps((prev) => new Set([...prev, idx]));
             }
@@ -392,14 +392,14 @@ export default function Workflow() {
             <div className="mb-4">
               <span className="wf-pill">
                 <span className="wf-dot" />
-                How it works
+                The Agency Bottleneck
               </span>
             </div>
             <h2 className="text-[1.75rem] sm:text-[2.1rem] font-black text-black leading-[1.08] tracking-[-0.032em] mb-3">
-              Four steps. Zero complexity.
+              You Built a Marketing Agency.<br/>Don't Let Tech Bottlenecks Slow Your Growth.
             </h2>
-            <p className="text-[13.5px] text-gray-500 max-w-[380px] mx-auto leading-[1.75]">
-              From first hello to delivered product — your clients never know we were involved.
+            <p className="text-[13.5px] text-gray-500 max-w-[480px] mx-auto leading-[1.75]">
+              Scaling an agency is hard enough. Dealing with technical hurdles, unreliable contractors, and crashed campaigns shouldn't be part of the job.
             </p>
           </div>
 
@@ -411,7 +411,7 @@ export default function Workflow() {
               return (
                 <CardEl
                   key={step.num}
-                  ref={(el: HTMLDivElement | null) => { stepsRef.current[i] = el; }}
+                  ref={(el: HTMLElement | null) => { stepsRef.current[i] = el; }}
                   className={`wf-fade wf-step-${i} wf-card ${isGold ? 'wf-card-gold' : ''} ${visibleSteps.has(i) ? 'wf-visible' : ''} ${activeStep === i ? 'is-active' : ''}`}
                   onMouseEnter={() => setActiveStep(i)}
                   onMouseLeave={() => setActiveStep(-1)}
