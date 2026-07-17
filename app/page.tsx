@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Workflow from "@/components/Workflow";
 import Services from "@/components/services";
+import InternshipProgramsSection from "@/components/internship-programs";
 import RevenueMath from "@/components/revenue-math";
 import WhyUs from "@/components/why-us";
 import Testimonials from "@/components/testimonials";
@@ -37,6 +38,7 @@ export default function Home() {
       <Testimonials />
       <Workflow />
       <Services />
+      <InternshipProgramsSection />
       <RevenueMath />
       <WhyUs />
       <FounderNote />

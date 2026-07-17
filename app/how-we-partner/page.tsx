@@ -386,7 +386,9 @@ export default function HowWePartnerPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a 
-              href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio." 
+              href="https://wa.me/919301579493?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio." 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-white px-8 py-3.5 rounded-lg transition-all font-semibold shadow-md hover:shadow-lg"
               style={{ 
                 background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', 
