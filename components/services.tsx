@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 const services = [
   {
     num: "01",
-    title: "Custom Web\nApplications",
+    title: "Custom Web &\nPortal Development",
     desc: "Build highly-customized, high-retention web assets that keep your clients engaged.",
     features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
     link: "/services/custom-web-applications",
@@ -15,7 +15,7 @@ const services = [
   },
   {
     num: "02",
-    title: "DevOps &\nInfrastructure",
+    title: "Auto-Scaling\nCloud & DevOps",
     desc: "Campaign-proof infrastructure. Make sure your clients' sites never crash during high-traffic ad launches.",
     features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
     link: "/services/devops-infrastructure",
@@ -23,7 +23,7 @@ const services = [
   },
   {
     num: "03",
-    title: "Technical\nConsulting",
+    title: "Fractional CTO &\nTech Roadmap",
     desc: "Act as a Fractional CTO for your clients, bringing strategic tech planning that demands a premium retainer.",
     features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
     link: "/services/technical-consulting",
@@ -31,19 +31,35 @@ const services = [
   },
   {
     num: "04",
-    title: "SEO\nOptimization",
-    desc: "Improve search rankings, website visibility, and organic traffic with modern SEO strategies.",
-    features: ["Technical SEO", "On-Page SEO", "Organic Growth"],
-    link: "/services/seo-optimization",
+    title: "AI-Era Search\nVisibility (SEO/AEO/GEO)",
+    desc: "Optimize web code and contents so they rank in traditional engines and are cited as top-tier sources by AI engines (ChatGPT Search, Perplexity, Gemini, Claude).",
+    features: ["Answer Engine Optimization (AEO)", "Schema Injecting", "LLM Context Citations"],
+    link: "/services/aeo-geo",
     color: "#B87800",
   },
   {
     num: "05",
-    title: "Dynamic\nSEO",
-    desc: "Advanced SEO solutions for scalable web applications with dynamic metadata, indexing, and search visibility optimization.",
-    features: ["Dynamic Metadata", "Schema Markup", "Search Visibility"],
-    link: "/services/dynamic-seo",
+    title: "Meta & Google\nPerformance Ads",
+    desc: "Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI.",
+    features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low Cost-Per-Acquisition"],
+    link: "/services/performance-ads",
     color: "#C8860A",
+  },
+  {
+    num: "06",
+    title: "E-Comm Funnel Audits\n& Conversion Tracking",
+    desc: "End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs.",
+    features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics Reports"],
+    link: "/services/tracking-funnels",
+    color: "#A06A00",
+  },
+  {
+    num: "07",
+    title: "AI-Powered\nVisual Production",
+    desc: "Cost-effective, studio-grade product photo and video assets generated via advanced AI models.",
+    features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less Production"],
+    link: "/services/ai-visuals",
+    color: "#E8A020",
   }
 ];
 
@@ -65,16 +81,16 @@ export default function Services() {
     restDelta: 0.001,
   });
 
-  // Slide left by ~170vw to reveal the 5 cards. 
-  // Container logic: 40vw intro + (35vw * 5 cards) = 215vw content + gaps
-  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-170vw"]);
+  // Slide left by ~250vw to reveal the 7 cards. 
+  // Container logic: 45vw intro + (34vw * 7 cards) = 283vw content + gaps
+  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-250vw"]);
 
   return (
     <div id="services">
       {/* ── Desktop Horizontal Scroll Layer ── */}
       <section
         ref={targetRef}
-        className="relative hidden lg:block h-[450vh] bg-[#F5F2EC] text-black"
+        className="relative hidden lg:block h-[600vh] bg-[#F5F2EC] text-black"
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
 
@@ -170,7 +186,7 @@ export default function Services() {
         {/* Glow */}
         <div className="absolute top-20 left-0 w-full h-[60vh] rounded-full blur-[100px] pointer-events-none -translate-x-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
 
-        <div className="relative z-10 mb-16">
+        <div className="relative z-10 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C8860A] animate-pulse" />
             <span className="text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
@@ -217,7 +233,7 @@ export default function Services() {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {svc.features.slice(0, 2).map((feat) => (
+                    {svc.features.slice(0, 3).map((feat) => (
                       <span key={feat} className="px-3 py-1.5 rounded-full bg-black/[0.02] border border-black/5 text-[12px] font-medium text-gray-600">
                         {feat}
                       </span>

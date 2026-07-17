@@ -3,8 +3,8 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'Technical Consulting | Build Beyond Studio',
-  description: 'Technical Consulting for Marketing Agencies. We act as your Fractional CTO to help you sell high-ticket retainers.',
+  title: 'Fractional CTO & Tech Roadmap | Build Beyond Studio',
+  description: 'Fractional CTO & Tech Roadmap for Marketing Agencies. We act as your Fractional CTO to help you sell high-ticket retainers.',
 }
 
 export default function TechnicalConsultingPage() {
@@ -12,17 +12,17 @@ export default function TechnicalConsultingPage() {
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
-        <div className="mb-4 text-sm text-gray-500">Home → Services → Technical Consulting</div>
+        <div className="mb-4 text-sm text-gray-500">Home → Services → Fractional CTO & Tech Roadmap</div>
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-5xl font-bold text-black mb-6">
-          Act as a Fractional CTO. Sell High-Ticket Retainers.
+          Fractional CTO & Tech Roadmap. Sell High-Ticket Retainers.
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Bring executive-level tech strategy to your clients without hiring a full-time CTO. 
           We provide the roadmap, you bill for the strategy.
         </p>
-        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
+        <a href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Fractional%20CTO%20%26%20Tech%20Roadmap%20brief%20with%20Build%20Beyond%20Studio." className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
           Partner With Us
         </a>
 

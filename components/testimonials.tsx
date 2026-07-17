@@ -27,8 +27,20 @@ const testimonials = [
     initials: "AY",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111690/WhatsApp_Image_2026-07-15_at_3.52.05_PM_mpolbe.jpg",
   },
-  {
+    {
     id: "agency-owner-3",
+    name: "Sarthak",
+    role: "Founder",
+    agency: "FranFirst",
+    city: "New Delhi",
+    quote: "BBS became our reliable technical partner from day one. Their team consistently delivers high-quality work on time, allowing us to focus on client acquisition and scaling our business with confidence.",
+    resultStat: "+₹75K/mo Profit",
+    type: "both",
+    initials: "ST",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
+  },
+  {
+    id: "agency-owner-4",
     name: "Mahi",
     role: "Founder",
     agency: "Shivora Media",
@@ -40,7 +52,7 @@ const testimonials = [
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111688/WhatsApp_Image_2026-07-15_at_3.52.05_PM_2_dakvlf.jpg",
   },
   {
-    id: "agency-owner-4",
+    id: "agency-owner-5",
     name: "Aastha",
     role: "Founder",
     agency: "Clocked Agency",
@@ -51,18 +63,7 @@ const testimonials = [
     initials: "AS",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.05_PM_1_p0hpg2.jpg",
   },
-  {
-    id: "agency-owner-5",
-    name: "Sarthak",
-    role: "Founder",
-    agency: "FranFirst",
-    city: "New Delhi",
-    quote: "BBS became our reliable technical partner from day one. Their team consistently delivers high-quality work on time, allowing us to focus on client acquisition and scaling our business with confidence.",
-    resultStat: "+₹75K/mo Profit",
-    type: "both",
-    initials: "ST",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
-  }
+
 ];
 
 export default function Testimonials() {
