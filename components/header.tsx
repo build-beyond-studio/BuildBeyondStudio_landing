@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa";
 
 type NavLink = {
@@ -23,19 +24,26 @@ const NAV_LINKS: NavLink[] = [
       { href: "/services/ai-visuals", label: "AI-Powered Visual Production" },
     ]
   },
+  { href: "/training-programs", label: "Internship Programs" },
   { href: "/how-we-partner", label: "How We Partner" },
   { href: "/#revenue", label: "Revenue Model" },
   { href: "/success-stories", label: "Success Stories" },
 ];
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isHomePage = pathname === "/";
+  const contactHref = isHomePage ? "/#contact" : "https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency.";
+  const contactProps = isHomePage ? {} : { target: "_blank", rel: "noopener noreferrer" };
 
   return (
     <>
@@ -81,6 +89,13 @@ export default function Header() {
           padding-top: 10px;
           padding-bottom: 10px;
           max-width: 64rem; /* 1024px ≈ max-w-4xl */
+        }
+
+        .nav-morph.menu-open {
+          border-radius: 16px !important;
+          background: #F5F2EC !important;
+          outline: 1px solid rgba(0, 0, 0, 0.05) !important;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.06) !important;
         }
 
         /* ── Logo: slide in from left ─────────────────────── */
@@ -179,7 +194,8 @@ export default function Header() {
         .mobile-menu.open .mob-link:nth-child(7) { transition-delay: 0.35s; }
 
         /* ── Mobile: round the menu bottom too when scrolled ─  */
-        .nav-morph.scrolled .mobile-menu.open {
+        .nav-morph.scrolled .mobile-menu.open,
+        .nav-morph.menu-open .mobile-menu.open {
           border-bottom-left-radius: 16px;
           border-bottom-right-radius: 16px;
           overflow: hidden;
@@ -191,7 +207,7 @@ export default function Header() {
         The inner .nav-morph handles the morphing width + shape.
       */}
       <header className="navbar-capsule fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4">
-        <div className={`nav-morph ${scrolled ? "scrolled" : ""}`}>
+        <div className={`nav-morph ${scrolled ? "scrolled" : ""} ${isMenuOpen ? "menu-open" : ""}`}>
           <div className="flex items-center justify-between px-5 sm:px-6">
             {/* Logo — slides from LEFT */}
             <a href="/" className="anim-from-left flex items-center gap-2.5 outline-none">
@@ -244,7 +260,8 @@ export default function Header() {
 
             {/* Desktop CTA Button */}
             <a
-              href="/#contact"
+              href={contactHref}
+              {...contactProps}
               className="hidden md:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right"
               style={{
                 background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
@@ -271,18 +288,18 @@ export default function Header() {
           {/* Mobile Dropdown */}
           <div className={`mobile-menu md:hidden ${isMenuOpen ? "open" : ""}`}>
             <div className="mobile-menu-inner">
-              <nav className="flex flex-col px-5 pb-4 pt-3 gap-0.5 border-t border-black/5 mt-2 bg-white/90 rounded-b-2xl backdrop-blur-md">
+              <nav className="flex flex-col px-5 pb-3 pt-2 gap-0 border-t border-black/5 mt-2 bg-white/90 rounded-b-2xl backdrop-blur-md">
                 {NAV_LINKS.map((item, idx) => (
                   item.dropdown ? (
-                    <div key={item.label} className="mob-link py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200" style={{ transitionDelay: `${0.05 + (idx * 0.05)}s` }}>
-                      <div className="text-gray-600 font-medium text-sm mb-2">{item.label}</div>
-                      <div className="flex flex-col pl-4 gap-2 border-l border-gray-200 ml-2">
+                    <div key={item.label} className="mob-link py-2 border-b border-black/5 last:border-0 transition-colors duration-200" style={{ transitionDelay: `${0.05 + (idx * 0.05)}s` }}>
+                      <div className="text-gray-600 font-medium text-[13px] mb-1.5">{item.label}</div>
+                      <div className="flex flex-col pl-3 gap-1.5 border-l border-gray-200 ml-1.5">
                         {item.dropdown.map(subItem => (
                           <a
                             key={subItem.href}
                             href={subItem.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="text-gray-500 hover:text-black text-sm"
+                            className="text-gray-500 hover:text-black text-[12px] py-0.5"
                           >
                             {subItem.label}
                           </a>
@@ -294,16 +311,17 @@ export default function Header() {
                       key={item.href}
                       href={item.href!}
                       onClick={() => setIsMenuOpen(false)}
-                      className="mob-link text-gray-600 hover:text-black text-sm font-medium py-2.5 border-b border-black/5 last:border-0 transition-colors duration-200"
+                      className="mob-link text-gray-600 hover:text-black text-[13px] font-medium py-2 border-b border-black/5 last:border-0 transition-colors duration-200"
                     >
                       {item.label}
                     </a>
                   )
                 ))}
                 <a
-                  href="/#contact"
+                  href={contactHref}
+                  {...contactProps}
                   onClick={() => setIsMenuOpen(false)}
-                  className="mob-link text-white text-sm font-medium py-2.5 px-4 rounded-lg mt-2 text-center transition-all"
+                  className="mob-link text-white text-[12px] font-semibold py-2 px-4 rounded-lg mt-2 text-center transition-all"
                   style={{
                     background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
                     boxShadow: '0 4px 12px rgba(200,134,10,0.25)',

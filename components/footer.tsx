@@ -135,15 +135,16 @@ export default function Footer() {
                   <a href="/services/ai-visuals" className="hover:text-white transition-colors">AI-Powered Visual Production</a>
                 </div>
              </div>
-             <div className="text-center md:text-left">
+              <div className="text-center md:text-left">
                 <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
                 <div className="flex flex-col gap-2">
                   <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
                   <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
                   <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
+                  <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
                   <a href="/blog" className="hover:text-white transition-colors">Blog</a>
                 </div>
-             </div>
+              </div>
             {/* Contact + Address */}
             <div className="text-center md:text-right text-gray-300 font-light tracking-wide leading-relaxed">
               <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>

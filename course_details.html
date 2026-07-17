@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBS Course Catalogue 2025 — Learn Only What Matters</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #FDF6E3; --gold-dim: rgba(201,168,76,0.15);
+  --dark: #111318; --dark2: #1C1F27; --mid: #2A2D38;
+  --text: #1A1D24; --muted: #6B7280; --border: #E5E7EB; --border-dark: rgba(255,255,255,0.07);
+  --bg: #FAFAF8; --white: #FFFFFF;
+  --green: #0F7B5A; --green-bg: #E6F4EE;
+  --blue: #1A56DB; --blue-bg: #EBF2FF;
+  --purple: #6B4FBB; --purple-bg: #F0EDFF;
+  --orange: #C05621; --orange-bg: #FEF0E7;
+}
+html { font-size: 16px; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { max-width: 920px; margin: 0 auto; }
+
+/* ── COVER ── */
+.cover {
+  background: var(--dark);
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+.cover-stripe { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%); }
+.cover-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(201,168,76,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.cover-radial { position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%); top: -150px; right: -150px; }
+.cover-radial2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); bottom: -100px; left: -100px; }
+.cover-inner { position: relative; z-index: 2; padding: 48px 60px; display: flex; flex-direction: column; min-height: 100vh; }
+.cover-nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.logo span { color: rgba(201,168,76,0.4); font-weight: 300; }
+.cover-tag { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; }
+.cover-center { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 0 40px; }
+.cover-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.cover-pill::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.cover-h1 { font-family: 'Sora', sans-serif; font-size: 58px; font-weight: 800; color: var(--white); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 10px; }
+.cover-h1 .g { color: var(--gold); }
+.cover-motto { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; margin-bottom: 36px; font-style: italic; }
+.cover-desc { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 500px; line-height: 1.75; margin-bottom: 56px; }
+.cover-courses-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.12); border-radius: 14px; overflow: hidden; }
+.cp { background: rgba(255,255,255,0.025); padding: 22px 24px; }
+.cp-num { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.cp-name { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 8px; }
+.cp-days { font-size: 12px; color: rgba(255,255,255,0.35); }
+.cp-price { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: var(--gold); margin-top: 10px; }
+.cover-footer { padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+.cover-footer-l { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.6; }
+.cover-footer-r { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,168,76,0.25); padding: 4px 12px; border-radius: 20px; }
+
+/* ── SECTION SHELLS ── */
+.sec { padding: 64px 60px; }
+.sec-white { background: var(--white); }
+.sec-bg { background: var(--bg); }
+.sec-dark { background: var(--dark); }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.sh { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); margin-bottom: 10px; }
+.sec-dark .sh { color: var(--white); }
+.ssub { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 44px; max-width: 600px; }
+.sec-dark .ssub { color: rgba(255,255,255,0.4); }
+
+/* ── PHILOSOPHY ── */
+.phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.phil-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.phil-icon { font-size: 24px; margin-bottom: 12px; }
+.phil-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.phil-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── COURSE PAGE WRAPPER ── */
+.course-page { page-break-before: always; }
+
+/* COURSE HERO BANDS */
+.c-hero { padding: 52px 60px 40px; position: relative; overflow: hidden; }
+.c1-hero { background: linear-gradient(135deg, #111318 0%, #1a1d27 100%); border-bottom: 1px solid rgba(201,168,76,0.15); }
+.c2-hero { background: linear-gradient(135deg, #0f1620 0%, #162035 100%); border-bottom: 1px solid rgba(26,86,219,0.2); }
+.c3-hero { background: linear-gradient(135deg, #150f20 0%, #1e1530 100%); border-bottom: 1px solid rgba(107,79,187,0.2); }
+.c-hero-glow-gold { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%); top: -150px; right: -100px; pointer-events: none; }
+.c-hero-glow-blue { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,86,219,0.12) 0%, transparent 70%); top: -150px; right: -100px; pointer-events: none; }
+.c-hero-glow-purple { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(107,79,187,0.12) 0%, transparent 70%); top: -150px; right: -100px; pointer-events: none; }
+.c-hero-inner { position: relative; z-index: 1; }
+.c-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 18px; }
+.c-badge-gold { color: var(--gold); background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25); }
+.c-badge-blue { color: #93B8FA; background: rgba(26,86,219,0.15); border: 1px solid rgba(26,86,219,0.25); }
+.c-badge-purple { color: #B49EF4; background: rgba(107,79,187,0.15); border: 1px solid rgba(107,79,187,0.25); }
+.c-hero-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.c-title { font-family: 'Sora', sans-serif; font-size: 38px; font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 10px; }
+.c-title .hl-gold { color: var(--gold); }
+.c-title .hl-blue { color: #93B8FA; }
+.c-title .hl-purple { color: #B49EF4; }
+.c-tagline { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; font-style: italic; }
+.c-meta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.c-chip { font-size: 12px; padding: 5px 14px; border-radius: 20px; font-weight: 500; }
+.chip-gold { background: rgba(201,168,76,0.12); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.2); }
+.chip-blue { background: rgba(26,86,219,0.12); color: #93B8FA; border: 1px solid rgba(26,86,219,0.2); }
+.chip-purple { background: rgba(107,79,187,0.12); color: #B49EF4; border: 1px solid rgba(107,79,187,0.2); }
+.c-price-box { text-align: right; flex-shrink: 0; }
+.c-price-was { font-size: 13px; color: rgba(255,255,255,0.25); text-decoration: line-through; margin-bottom: 2px; }
+.c-price-now { font-family: 'Sora', sans-serif; font-size: 44px; font-weight: 800; line-height: 1; }
+.price-gold { color: var(--gold); }
+.price-blue { color: #93B8FA; }
+.price-purple { color: #B49EF4; }
+.c-price-emi { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+
+/* COURSE STAT ROW */
+.c-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+.c-stat { padding: 18px 20px; background: rgba(255,255,255,0.025); }
+.c-stat-v { font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.c-stat-l { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+
+/* COURSE BODY SECTIONS */
+.c-body { padding: 0 60px 56px; }
+.c1-body { background: var(--white); }
+.c2-body { background: var(--white); }
+.c3-body { background: var(--white); }
+
+/* PHASE TIMELINE */
+.phase-section { margin-top: 44px; }
+.phase-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.phases { display: flex; flex-direction: column; gap: 0; }
+.phase-row { display: grid; grid-template-columns: 140px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.phase-row:last-child { border-bottom: none; }
+.phase-left { padding: 16px 20px 16px 0; border-right: 1px solid var(--border); }
+.phase-num { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.phase-days-label { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 3px; }
+.phase-days-sub { font-size: 11px; color: var(--muted); }
+.phase-right { padding: 16px 0 16px 20px; }
+.phase-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.phase-topics { display: flex; flex-wrap: wrap; gap: 5px; }
+.ptopic { font-size: 11px; padding: 3px 10px; border-radius: 20px; background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+.phase-build { margin-top: 8px; font-size: 12px; color: var(--muted); }
+.phase-build strong { font-weight: 600; }
+
+.pnum-gold { color: var(--gold); }
+.pnum-blue { color: var(--blue); }
+.pnum-purple { color: var(--purple); }
+
+/* WHAT YOU GET */
+.get-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 44px; }
+.get-card { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; }
+.get-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.gi-gold { background: var(--gold-pale); }
+.gi-blue { background: var(--blue-bg); }
+.gi-purple { background: var(--purple-bg); }
+.get-text-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.get-text-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CAPSTONE */
+.capstone-block { margin-top: 44px; border-radius: 14px; overflow: hidden; }
+.cap1 { border: 1px solid rgba(201,168,76,0.3); background: linear-gradient(135deg, #FDF6E3 0%, #FFFBF0 100%); }
+.cap2 { border: 1px solid rgba(26,86,219,0.2); background: linear-gradient(135deg, #EBF2FF 0%, #F5F8FF 100%); }
+.cap3 { border: 1px solid rgba(107,79,187,0.2); background: linear-gradient(135deg, #F0EDFF 0%, #F8F6FF 100%); }
+.cap-head { padding: 24px 28px 16px; display: flex; justify-content: space-between; align-items: flex-start; }
+.cap-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; margin-bottom: 8px; display: inline-block; }
+.capb-gold { background: rgba(201,168,76,0.15); color: #7A5C10; }
+.capb-blue { background: rgba(26,86,219,0.12); color: #1A3DB5; }
+.capb-purple { background: rgba(107,79,187,0.12); color: #4A2EA5; }
+.cap-title { font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.cap-desc { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 480px; }
+.cap-tech { display: flex; flex-wrap: wrap; gap: 6px; padding: 16px 28px; border-top: 1px solid rgba(0,0,0,0.06); }
+.cap-tag { font-size: 11px; padding: 3px 10px; border-radius: 10px; }
+.ct-gold { background: rgba(201,168,76,0.1); color: #7A5C10; }
+.ct-blue { background: rgba(26,86,219,0.08); color: #1A3DB5; }
+.ct-purple { background: rgba(107,79,187,0.08); color: #4A2EA5; }
+.cap-deploy { font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; }
+.cd-gold { color: var(--gold); background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); }
+.cd-blue { color: #1A56DB; background: rgba(26,86,219,0.08); border: 1px solid rgba(26,86,219,0.15); }
+.cd-purple { color: var(--purple); background: rgba(107,79,187,0.08); border: 1px solid rgba(107,79,187,0.15); }
+
+/* ── COMPARE TABLE ── */
+.compare-section { page-break-before: always; }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 36px; }
+.compare-table th { padding: 14px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-align: left; background: var(--dark); color: rgba(255,255,255,0.4); }
+.compare-table th:first-child { color: rgba(255,255,255,0.3); }
+.compare-table th.col-gold { color: var(--gold); }
+.compare-table th.col-blue { color: #93B8FA; }
+.compare-table th.col-purple { color: #B49EF4; }
+.compare-table td { padding: 13px 16px; font-size: 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: var(--bg); }
+.compare-table td:first-child { color: var(--muted); font-size: 12px; font-weight: 500; }
+.check-gold { color: var(--gold); font-weight: 700; }
+.check-blue { color: var(--blue); font-weight: 700; }
+.check-purple { color: var(--purple); font-weight: 700; }
+.check-no { color: #D1D5DB; }
+.price-row td { background: var(--dark) !important; color: var(--white) !important; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; }
+.price-row td:first-child { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.4) !important; font-family: 'Inter', sans-serif; }
+.price-row td.pg { color: var(--gold) !important; }
+.price-row td.pb { color: #93B8FA !important; }
+.price-row td.pp { color: #B49EF4 !important; }
+
+/* ── CTA FINAL ── */
+.cta-final { background: var(--dark); padding: 80px 60px; text-align: center; position: relative; overflow: hidden; }
+.cta-final-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.cta-final-inner { position: relative; z-index: 1; }
+.cta-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.cta-pill::before, .cta-pill::after { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.cta-h { font-family: 'Sora', sans-serif; font-size: 44px; font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+.cta-h .g { color: var(--gold); }
+.cta-p { font-size: 15px; color: rgba(255,255,255,0.4); max-width: 460px; margin: 0 auto 44px; line-height: 1.7; }
+.cta-contact { display: inline-grid; grid-template-columns: repeat(3, auto); gap: 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.18); border-radius: 14px; padding: 22px 36px; margin-bottom: 44px; }
+.cc-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 5px; }
+.cc-val { font-size: 14px; font-weight: 500; color: var(--white); }
+.cta-fine { font-size: 11px; color: rgba(255,255,255,0.18); line-height: 1.8; }
+
+@media print {
+  body { background: white; }
+  .cover, .course-page, .compare-section { page-break-after: always; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════ COVER ═══════════ -->
+<div class="cover">
+  <div class="cover-stripe"></div>
+  <div class="cover-dots"></div>
+  <div class="cover-radial"></div>
+  <div class="cover-radial2"></div>
+  <div class="cover-inner">
+    <div class="cover-nav">
+      <div class="logo">Build Beyond <span>&middot;</span> Studio</div>
+      <div class="cover-tag">Education Division &middot; 2025&ndash;26</div>
+    </div>
+    <div class="cover-center">
+      <div class="cover-pill">Course Catalogue</div>
+      <h1 class="cover-h1">
+        Learn Only,<br>
+        <span class="g">What Matters!</span>
+      </h1>
+      <div class="cover-motto">&ldquo;Build on Day 1. Ship on the Last Day.&rdquo;</div>
+      <p class="cover-desc">
+        Three structured, practical-first courses covering HTML, CSS, JavaScript, and the full MERN stack.
+        No filler. No theory without a use-case. Every session ends with something built.
+      </p>
+      <div class="cover-courses-preview">
+        <div class="cp">
+          <div class="cp-num">Course 01</div>
+          <div class="cp-name">HTML + CSS + JS in 28 Days</div>
+          <div class="cp-days">28 days &middot; 1 hr/day &middot; Beginner</div>
+          <div class="cp-price">&#8377;3,999</div>
+        </div>
+        <div class="cp">
+          <div class="cp-num">Course 02</div>
+          <div class="cp-name">MERN Stack in 45 Days</div>
+          <div class="cp-days">45 days &middot; 1.5 hrs/day &middot; Intermediate</div>
+          <div class="cp-price">&#8377;8,999</div>
+        </div>
+        <div class="cp">
+          <div class="cp-num">Course 03</div>
+          <div class="cp-name">Zero to MERN in 65 Days</div>
+          <div class="cp-days">65 days &middot; 2 hrs/day &middot; Absolute Beginner</div>
+          <div class="cp-price">&#8377;11,999</div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-footer">
+      <div class="cover-footer-l">
+        Build Beyond Studio &middot; Ambikapur, Chhattisgarh, India<br>
+        buildbeyondstudio.com &middot; hello@buildbeyondstudio.com
+      </div>
+      <div class="cover-footer-r">ISO Certified</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PHILOSOPHY ═══════════ -->
+<div class="sec sec-white">
+  <div class="eyebrow">Our Approach</div>
+  <h2 class="sh">Built different.<br>On purpose.</h2>
+  <p class="ssub">Every course in this catalogue was designed with a single filter: if a topic is not used to build something in this course, it is not taught. The result is a curriculum that moves fast, builds confidence early, and produces developers who can actually ship.</p>
+  <div class="phil-grid">
+    <div class="phil-card">
+      <div class="phil-icon">&#9881;</div>
+      <div class="phil-title">Practical-First, Always</div>
+      <div class="phil-desc">Every concept is introduced through something you immediately build. There are no standalone theory lessons. If you can't use it right now, it's not in the course.</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-icon">&#128197;</div>
+      <div class="phil-title">One Hour. One Outcome.</div>
+      <div class="phil-desc">Each class is exactly one hour and ends with one visible result — a working piece of code in the browser. Students never leave a session without having built something.</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-icon">&#128640;</div>
+      <div class="phil-title">Ship a Real Project</div>
+      <div class="phil-desc">Every course ends with a capstone project deployed live on the internet — not a local prototype, not a demo. A real URL you can share with anyone on the last day.</div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-icon">&#9999;</div>
+      <div class="phil-title">Zero Filler</div>
+      <div class="phil-desc">CSS floats, jQuery, JavaScript's <code>var</code>, XML, and dozens of other topics are deliberately excluded. Everything taught is used. Everything unused is cut.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COURSE 1 ═══════════ -->
+<div class="course-page">
+  <div class="c-hero c1-hero">
+    <div class="c-hero-glow-gold"></div>
+    <div class="c-hero-inner">
+      <div class="c-hero-top">
+        <div>
+          <div class="c-badge c-badge-gold">Course 01 &middot; Beginner</div>
+          <h2 class="c-title">HTML + CSS +<br><span class="hl-gold">JavaScript</span><br>in 28 Days</h2>
+          <div class="c-tagline">&ldquo;From zero to a live website in four weeks.&rdquo;</div>
+          <div class="c-meta-row">
+            <span class="c-chip chip-gold">&#128197; 28 Days</span>
+            <span class="c-chip chip-gold">&#9201; 1 Hour / Day</span>
+            <span class="c-chip chip-gold">&#128100; No Prior Experience</span>
+            <span class="c-chip chip-gold">&#127959; 1 Live Project</span>
+          </div>
+        </div>
+        <div class="c-price-box">
+          <div class="c-price-was">&#8377;5,999</div>
+          <div class="c-price-now price-gold">&#8377;3,999</div>
+          <div class="c-price-emi">or &#8377;1,400/mo &times; 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-stats c1-hero" style="border-top: 1px solid rgba(201,168,76,0.12);">
+    <div class="c-stat"><div class="c-stat-v">28</div><div class="c-stat-l">Total days of learning</div></div>
+    <div class="c-stat"><div class="c-stat-v">4</div><div class="c-stat-l">Learning phases</div></div>
+    <div class="c-stat"><div class="c-stat-v">28</div><div class="c-stat-l">Recorded sessions lifetime</div></div>
+    <div class="c-stat"><div class="c-stat-v">1</div><div class="c-stat-l">Live deployed project</div></div>
+  </div>
+
+  <div class="c-body c1-body">
+    <div class="phase-section">
+      <div class="phase-section-title">Day-by-Day Curriculum</div>
+      <div class="phases">
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-gold">Phase 01</div>
+            <div class="phase-days-label">Days 1&ndash;7</div>
+            <div class="phase-days-sub">7 hours total</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">HTML &mdash; Structure First</div>
+            <div class="phase-topics">
+              <span class="ptopic">HTML boilerplate</span>
+              <span class="ptopic">h1&ndash;h6, p, br, strong, em</span>
+              <span class="ptopic">Links &amp; images</span>
+              <span class="ptopic">Lists &amp; navigation</span>
+              <span class="ptopic">Divs &amp; containers</span>
+              <span class="ptopic">Semantic tags: header, main, footer, section</span>
+              <span class="ptopic">Forms, inputs, buttons</span>
+            </div>
+            <div class="phase-build" style="margin-top:8px;"><strong>Built:</strong> A fully semantic static profile page with contact form</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-gold">Phase 02</div>
+            <div class="phase-days-label">Days 8&ndash;14</div>
+            <div class="phase-days-sub">7 hours total</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">CSS &mdash; Make It Look Real</div>
+            <div class="phase-topics">
+              <span class="ptopic">Box model</span>
+              <span class="ptopic">Colors &amp; Google Fonts</span>
+              <span class="ptopic">Selectors &amp; specificity</span>
+              <span class="ptopic">Flexbox (full)</span>
+              <span class="ptopic">CSS Grid</span>
+              <span class="ptopic">Media queries &amp; responsive design</span>
+              <span class="ptopic">CSS custom properties &amp; transitions</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> A responsive styled landing page — hero, cards, footer</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-gold">Phase 03</div>
+            <div class="phase-days-label">Days 15&ndash;21</div>
+            <div class="phase-days-sub">7 hours total</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">JavaScript &mdash; Make It Respond</div>
+            <div class="phase-topics">
+              <span class="ptopic">let &amp; const</span>
+              <span class="ptopic">Functions &amp; logic</span>
+              <span class="ptopic">DOM manipulation</span>
+              <span class="ptopic">Events (click, input, keydown)</span>
+              <span class="ptopic">Arrays &amp; loops</span>
+              <span class="ptopic">Objects &amp; JSON</span>
+              <span class="ptopic">Fetch API &amp; async/await</span>
+              <span class="ptopic">localStorage</span>
+              <span class="ptopic">ES6 modules</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Interactive to-do list with persistence across refresh</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-gold">Phase 04</div>
+            <div class="phase-days-label">Days 22&ndash;28</div>
+            <div class="phase-days-sub">7 hours total</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Capstone Build &mdash; DevLinks</div>
+            <div class="phase-topics">
+              <span class="ptopic">Semantic HTML scaffold</span>
+              <span class="ptopic">CSS variables theme</span>
+              <span class="ptopic">Responsive layout</span>
+              <span class="ptopic">Dark/light mode toggle</span>
+              <span class="ptopic">Copy-link button (JS)</span>
+              <span class="ptopic">Visit counter (localStorage)</span>
+              <span class="ptopic">GitHub Pages deployment</span>
+            </div>
+            <div class="phase-build"><strong>Built &amp; Deployed:</strong> DevLinks — a personal link-in-bio page live on the internet</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="get-grid">
+      <div class="get-card"><div class="get-icon gi-gold">&#127891;</div><div><div class="get-text-title">ISO Certified Certificate</div><div class="get-text-desc">Internationally recognised certificate for private-sector employment across India.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-gold">&#128196;</div><div><div class="get-text-title">Interview Prep PDF</div><div class="get-text-desc">Front-end focused question bank curated from real interviews — with answers.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-gold">&#127909;</div><div><div class="get-text-title">28 Recorded Lectures</div><div class="get-text-desc">Lifetime access to all sessions. Rewatch any lesson at any time on the BBS portal.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-gold">&#128187;</div><div><div class="get-text-title">Dedicated Learning Portal</div><div class="get-text-desc">Personal login, progress tracking, materials &amp; assignments in one place.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-gold">&#128640;</div><div><div class="get-text-title">DevLinks — Live Project</div><div class="get-text-desc">A real deployed website on the internet. Shareable URL from Day 28.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-gold">&#128101;</div><div><div class="get-text-title">BBS Community Access</div><div class="get-text-desc">Doubt support, peer group, and access to BBS developer network.</div></div></div>
+    </div>
+
+    <div class="capstone-block cap1">
+      <div class="cap-head">
+        <div>
+          <div class="cap-badge capb-gold">Capstone Project &middot; Days 22&ndash;28</div>
+          <div class="cap-title">DevLinks &mdash; Personal Link-in-Bio Page</div>
+          <div class="cap-desc">A fully functional, mobile-responsive personal page where students showcase their profile, social links, and bio. Students walk away with a real URL they can share with anyone — a portfolio piece from Day 28.</div>
+        </div>
+        <div class="cap-deploy cd-gold">&#127760; GitHub Pages</div>
+      </div>
+      <div class="cap-tech">
+        <span class="cap-tag ct-gold">Semantic HTML5</span>
+        <span class="cap-tag ct-gold">CSS Custom Properties</span>
+        <span class="cap-tag ct-gold">Flexbox Layout</span>
+        <span class="cap-tag ct-gold">Responsive Design</span>
+        <span class="cap-tag ct-gold">Dark / Light Mode Toggle</span>
+        <span class="cap-tag ct-gold">JavaScript DOM</span>
+        <span class="cap-tag ct-gold">localStorage</span>
+        <span class="cap-tag ct-gold">Copy-Link Button</span>
+        <span class="cap-tag ct-gold">Free Hosting — GitHub Pages</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COURSE 2 ═══════════ -->
+<div class="course-page">
+  <div class="c-hero c2-hero">
+    <div class="c-hero-glow-blue"></div>
+    <div class="c-hero-inner">
+      <div class="c-hero-top">
+        <div>
+          <div class="c-badge c-badge-blue">Course 02 &middot; Intermediate &middot; Highly Recommended</div>
+          <h2 class="c-title">MERN Stack<br>in <span class="hl-blue">45 Days</span></h2>
+          <div class="c-tagline">&ldquo;Full-stack developer. 45 days. Deployed on Day 45.&rdquo;</div>
+          <div class="c-meta-row">
+            <span class="c-chip chip-blue">&#128197; 45 Days</span>
+            <span class="c-chip chip-blue">&#9201; 1.5 Hours / Day</span>
+            <span class="c-chip chip-blue">&#128100; Knows HTML CSS JS</span>
+            <span class="c-chip chip-blue">&#128640; Full Stack Live App</span>
+          </div>
+        </div>
+        <div class="c-price-box">
+          <div class="c-price-was">&#8377;14,999</div>
+          <div class="c-price-now price-blue">&#8377;8,999</div>
+          <div class="c-price-emi">or &#8377;2,000/mo &times; 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-stats c2-hero" style="border-top: 1px solid rgba(26,86,219,0.15);">
+    <div class="c-stat"><div class="c-stat-v">45</div><div class="c-stat-l">Total learning days</div></div>
+    <div class="c-stat"><div class="c-stat-v">6</div><div class="c-stat-l">Technology phases</div></div>
+    <div class="c-stat"><div class="c-stat-v">45</div><div class="c-stat-l">Recorded sessions lifetime</div></div>
+    <div class="c-stat"><div class="c-stat-v">1</div><div class="c-stat-l">Full-stack app, live deployed</div></div>
+  </div>
+
+  <div class="c-body c2-body">
+    <div class="phase-section">
+      <div class="phase-section-title">Day-by-Day Curriculum &mdash; 6 Phases</div>
+      <div class="phases">
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 01</div>
+            <div class="phase-days-label">Days 1&ndash;8</div>
+            <div class="phase-days-sub">Node.js</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Node.js &mdash; JS Outside the Browser</div>
+            <div class="phase-topics">
+              <span class="ptopic">Node runtime vs browser</span>
+              <span class="ptopic">CommonJS modules</span>
+              <span class="ptopic">npm &amp; package.json</span>
+              <span class="ptopic">fs &amp; path modules</span>
+              <span class="ptopic">Raw http server</span>
+              <span class="ptopic">async/await in Node</span>
+              <span class="ptopic">dotenv &amp; config</span>
+              <span class="ptopic">Error handling</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Raw Node HTTP server handling 3 routes + .env config</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 02</div>
+            <div class="phase-days-label">Days 9&ndash;18</div>
+            <div class="phase-days-sub">Express.js</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Express.js &mdash; Real API Architecture</div>
+            <div class="phase-topics">
+              <span class="ptopic">Express setup &amp; routing</span>
+              <span class="ptopic">req.params / query / body</span>
+              <span class="ptopic">Middleware &amp; next()</span>
+              <span class="ptopic">Router files</span>
+              <span class="ptopic">REST API design</span>
+              <span class="ptopic">Error handling middleware</span>
+              <span class="ptopic">CORS</span>
+              <span class="ptopic">File uploads (Multer)</span>
+              <span class="ptopic">Request validation</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Complete REST API for Users + Products — 10 endpoints</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 03</div>
+            <div class="phase-days-label">Days 19&ndash;26</div>
+            <div class="phase-days-sub">MongoDB</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">MongoDB + Mongoose &mdash; Persistent Data</div>
+            <div class="phase-topics">
+              <span class="ptopic">MongoDB Atlas setup</span>
+              <span class="ptopic">mongoose.connect()</span>
+              <span class="ptopic">Schema &amp; Model</span>
+              <span class="ptopic">CRUD with Mongoose</span>
+              <span class="ptopic">Schema validation</span>
+              <span class="ptopic">populate() for relations</span>
+              <span class="ptopic">Filter / sort / paginate</span>
+              <span class="ptopic">Aggregation basics</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> API now persists to MongoDB Atlas — real data, real cloud</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 04</div>
+            <div class="phase-days-label">Days 27&ndash;32</div>
+            <div class="phase-days-sub">Auth / JWT</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Authentication &mdash; JWT + bcrypt</div>
+            <div class="phase-topics">
+              <span class="ptopic">Sessions vs JWT</span>
+              <span class="ptopic">bcrypt hashing</span>
+              <span class="ptopic">Register &amp; login endpoints</span>
+              <span class="ptopic">jwt.sign() &amp; verify()</span>
+              <span class="ptopic">Auth middleware</span>
+              <span class="ptopic">User-owned resources</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Full auth system — register, login, JWT, protected routes</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 05</div>
+            <div class="phase-days-label">Days 33&ndash;40</div>
+            <div class="phase-days-sub">React</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">React &mdash; Frontend That Talks to Your API</div>
+            <div class="phase-topics">
+              <span class="ptopic">Vite setup (not CRA)</span>
+              <span class="ptopic">Components &amp; props</span>
+              <span class="ptopic">useState &amp; useEffect</span>
+              <span class="ptopic">React Router v6</span>
+              <span class="ptopic">Context API (AuthContext)</span>
+              <span class="ptopic">Axios + interceptors</span>
+              <span class="ptopic">Form handling</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> React frontend fetching from your own Express API with auth</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-blue">Phase 06</div>
+            <div class="phase-days-label">Days 41&ndash;45</div>
+            <div class="phase-days-sub">Deploy</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Capstone Build + Deploy &mdash; Ship It</div>
+            <div class="phase-topics">
+              <span class="ptopic">Auth UI end-to-end</span>
+              <span class="ptopic">Task CRUD frontend</span>
+              <span class="ptopic">API integration</span>
+              <span class="ptopic">Deploy backend to Render</span>
+              <span class="ptopic">Deploy frontend to Vercel</span>
+              <span class="ptopic">CORS for production</span>
+              <span class="ptopic">Env vars in production</span>
+            </div>
+            <div class="phase-build"><strong>Built &amp; Deployed:</strong> TaskFlow — live full-stack app, shareable URL on Day 45</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="get-grid">
+      <div class="get-card"><div class="get-icon gi-blue">&#127891;</div><div><div class="get-text-title">ISO Certified Certificate</div><div class="get-text-desc">Internationally recognised completion certificate for employment across India.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128196;</div><div><div class="get-text-title">MERN Interview Prep PDF</div><div class="get-text-desc">90% accuracy question bank from real MERN stack interviews — with answers.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#127909;</div><div><div class="get-text-title">45 Recorded Sessions</div><div class="get-text-desc">Lifetime access to all sessions. Never lose access to course material.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128187;</div><div><div class="get-text-title">Dedicated Learning Portal</div><div class="get-text-desc">Progress tracking, materials, and assignments — all in one login.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128640;</div><div><div class="get-text-title">TaskFlow — Live App</div><div class="get-text-desc">Full-stack app with real auth, MongoDB, and React — deployed on Render + Vercel.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128203;</div><div><div class="get-text-title">Resume + LinkedIn Review</div><div class="get-text-desc">1 round of resume review + LinkedIn profile tips from BBS developers.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128269;</div><div><div class="get-text-title">Project Code Review</div><div class="get-text-desc">Capstone reviewed by a BBS developer — real feedback on real code.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-blue">&#128188;</div><div><div class="get-text-title">Placement Support</div><div class="get-text-desc">Job-readiness mentoring and placement assistance from BBS team.</div></div></div>
+    </div>
+
+    <div class="capstone-block cap2">
+      <div class="cap-head">
+        <div>
+          <div class="cap-badge capb-blue">Capstone Project &middot; Days 41&ndash;45</div>
+          <div class="cap-title">TaskFlow &mdash; Full Stack Task Manager</div>
+          <div class="cap-desc">A production-style task management app with JWT authentication, MongoDB persistence, protected React routes, and full CRUD. Backend on Render, frontend on Vercel. A real full-stack application students can add to their portfolio immediately.</div>
+        </div>
+        <div class="cap-deploy cd-blue">&#127760; Render + Vercel</div>
+      </div>
+      <div class="cap-tech">
+        <span class="cap-tag ct-blue">Node.js</span>
+        <span class="cap-tag ct-blue">Express REST API</span>
+        <span class="cap-tag ct-blue">MongoDB Atlas</span>
+        <span class="cap-tag ct-blue">Mongoose</span>
+        <span class="cap-tag ct-blue">JWT Auth</span>
+        <span class="cap-tag ct-blue">bcrypt</span>
+        <span class="cap-tag ct-blue">React + Vite</span>
+        <span class="cap-tag ct-blue">React Router v6</span>
+        <span class="cap-tag ct-blue">Axios</span>
+        <span class="cap-tag ct-blue">Context API</span>
+        <span class="cap-tag ct-blue">Render (backend)</span>
+        <span class="cap-tag ct-blue">Vercel (frontend)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COURSE 3 ═══════════ -->
+<div class="course-page">
+  <div class="c-hero c3-hero">
+    <div class="c-hero-glow-purple"></div>
+    <div class="c-hero-inner">
+      <div class="c-hero-top">
+        <div>
+          <div class="c-badge c-badge-purple">Course 03 &middot; Absolute Beginner &middot; Highest Commission</div>
+          <h2 class="c-title">Zero to MERN<br>in <span class="hl-purple">65 Days</span></h2>
+          <div class="c-tagline">&ldquo;No experience needed. Full-stack developer by Day 65.&rdquo;</div>
+          <div class="c-meta-row">
+            <span class="c-chip chip-purple">&#128197; 65 Days</span>
+            <span class="c-chip chip-purple">&#9201; 2 Hours / Day</span>
+            <span class="c-chip chip-purple">&#128100; No Prior Experience</span>
+            <span class="c-chip chip-purple">&#128640; Full Stack + Deployed</span>
+          </div>
+        </div>
+        <div class="c-price-box">
+          <div class="c-price-was">&#8377;19,999</div>
+          <div class="c-price-now price-purple">&#8377;11,999</div>
+          <div class="c-price-emi">or &#8377;2,400/mo &times; 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-stats c3-hero" style="border-top: 1px solid rgba(107,79,187,0.15);">
+    <div class="c-stat"><div class="c-stat-v">65</div><div class="c-stat-l">Total learning days</div></div>
+    <div class="c-stat"><div class="c-stat-v">9</div><div class="c-stat-l">Distinct learning phases</div></div>
+    <div class="c-stat"><div class="c-stat-v">65</div><div class="c-stat-l">Recorded sessions lifetime</div></div>
+    <div class="c-stat"><div class="c-stat-v">1</div><div class="c-stat-l">Full-stack app, live deployed</div></div>
+  </div>
+
+  <div class="c-body c3-body">
+    <div class="phase-section">
+      <div class="phase-section-title">Day-by-Day Curriculum &mdash; 9 Phases</div>
+      <div class="phases">
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 01</div>
+            <div class="phase-days-label">Days 1&ndash;7</div>
+            <div class="phase-days-sub">HTML</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">HTML &mdash; Building the Skeleton</div>
+            <div class="phase-topics">
+              <span class="ptopic">Boilerplate &amp; browser</span>
+              <span class="ptopic">Text &amp; headings</span>
+              <span class="ptopic">Links &amp; images</span>
+              <span class="ptopic">Lists &amp; nav</span>
+              <span class="ptopic">Divs &amp; semantic HTML</span>
+              <span class="ptopic">Forms &amp; inputs</span>
+              <span class="ptopic">Tables (data only)</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Semantic static recipe page — all HTML, no styling yet</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 02</div>
+            <div class="phase-days-label">Days 8&ndash;16</div>
+            <div class="phase-days-sub">CSS</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">CSS &mdash; Styling, Layout, Responsive</div>
+            <div class="phase-topics">
+              <span class="ptopic">Box model</span>
+              <span class="ptopic">Typography &amp; Google Fonts</span>
+              <span class="ptopic">Selectors &amp; specificity</span>
+              <span class="ptopic">Flexbox</span>
+              <span class="ptopic">CSS Grid</span>
+              <span class="ptopic">Media queries</span>
+              <span class="ptopic">CSS variables</span>
+              <span class="ptopic">Transitions</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Responsive landing page — hero, 3 feature cards, fully mobile ready</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 03</div>
+            <div class="phase-days-label">Days 17&ndash;27</div>
+            <div class="phase-days-sub">JavaScript</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">JavaScript &mdash; Logic, DOM, APIs</div>
+            <div class="phase-topics">
+              <span class="ptopic">Variables &amp; types</span>
+              <span class="ptopic">Functions &amp; arrow fns</span>
+              <span class="ptopic">DOM manipulation</span>
+              <span class="ptopic">Events</span>
+              <span class="ptopic">Arrays &amp; loops</span>
+              <span class="ptopic">Objects &amp; JSON</span>
+              <span class="ptopic">Fetch &amp; async/await</span>
+              <span class="ptopic">localStorage</span>
+              <span class="ptopic">ES6 modules</span>
+              <span class="ptopic">Classes</span>
+              <span class="ptopic">Git &amp; GitHub basics</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Persistent to-do list + public GitHub repos pushed</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 04</div>
+            <div class="phase-days-label">Days 28&ndash;34</div>
+            <div class="phase-days-sub">Node.js</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Node.js &mdash; Servers and Modules</div>
+            <div class="phase-topics">
+              <span class="ptopic">Node runtime</span>
+              <span class="ptopic">require &amp; module.exports</span>
+              <span class="ptopic">npm &amp; nodemon</span>
+              <span class="ptopic">fs module</span>
+              <span class="ptopic">Raw http server</span>
+              <span class="ptopic">dotenv</span>
+              <span class="ptopic">Error handling</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> CLI tool + raw Node server with .env config</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 05</div>
+            <div class="phase-days-label">Days 35&ndash;44</div>
+            <div class="phase-days-sub">Express.js</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Express.js &mdash; Full REST API</div>
+            <div class="phase-topics">
+              <span class="ptopic">Express routing</span>
+              <span class="ptopic">Middleware</span>
+              <span class="ptopic">Router files</span>
+              <span class="ptopic">REST API design</span>
+              <span class="ptopic">Error middleware</span>
+              <span class="ptopic">CORS</span>
+              <span class="ptopic">Validation</span>
+              <span class="ptopic">Multer uploads</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> 10-endpoint REST API for Users + Products</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 06</div>
+            <div class="phase-days-label">Days 45&ndash;52</div>
+            <div class="phase-days-sub">MongoDB</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">MongoDB + Mongoose &mdash; Cloud Database</div>
+            <div class="phase-topics">
+              <span class="ptopic">Atlas free cluster</span>
+              <span class="ptopic">Mongoose connect</span>
+              <span class="ptopic">Schema &amp; Model</span>
+              <span class="ptopic">CRUD operations</span>
+              <span class="ptopic">Validation &amp; defaults</span>
+              <span class="ptopic">populate()</span>
+              <span class="ptopic">Filter / sort / paginate</span>
+              <span class="ptopic">Aggregation basics</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> API now persists to MongoDB Atlas — no more in-memory data</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 07</div>
+            <div class="phase-days-label">Days 53&ndash;57</div>
+            <div class="phase-days-sub">Auth / JWT</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">JWT Authentication &mdash; Real Login System</div>
+            <div class="phase-topics">
+              <span class="ptopic">Sessions vs JWT</span>
+              <span class="ptopic">bcrypt hashing</span>
+              <span class="ptopic">Register &amp; login endpoints</span>
+              <span class="ptopic">jwt.sign() &amp; verify()</span>
+              <span class="ptopic">Auth middleware</span>
+              <span class="ptopic">User-owned resources</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> Complete register/login system with protected note routes</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 08</div>
+            <div class="phase-days-label">Days 58&ndash;63</div>
+            <div class="phase-days-sub">React</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">React &mdash; Frontend Connected to Your API</div>
+            <div class="phase-topics">
+              <span class="ptopic">Vite setup</span>
+              <span class="ptopic">Components &amp; props</span>
+              <span class="ptopic">useState &amp; useEffect</span>
+              <span class="ptopic">React Router v6</span>
+              <span class="ptopic">AuthContext</span>
+              <span class="ptopic">Axios + token interceptor</span>
+              <span class="ptopic">Form submission</span>
+            </div>
+            <div class="phase-build"><strong>Built:</strong> React frontend wired to Express API — login &amp; notes working</div>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="phase-left">
+            <div class="phase-num pnum-purple">Phase 09</div>
+            <div class="phase-days-label">Days 64&ndash;65</div>
+            <div class="phase-days-sub">Deploy</div>
+          </div>
+          <div class="phase-right">
+            <div class="phase-name">Deploy &mdash; Put It on the Internet</div>
+            <div class="phase-topics">
+              <span class="ptopic">Push to GitHub</span>
+              <span class="ptopic">Deploy backend to Render</span>
+              <span class="ptopic">Deploy frontend to Vercel</span>
+              <span class="ptopic">CORS in production</span>
+              <span class="ptopic">Environment variables</span>
+            </div>
+            <div class="phase-build"><strong>Built &amp; Deployed:</strong> NoteNest — live full-stack app on the internet, Day 65</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="get-grid">
+      <div class="get-card"><div class="get-icon gi-purple">&#127891;</div><div><div class="get-text-title">ISO Certified Certificate</div><div class="get-text-desc">Internationally recognised certificate for private-sector employment across India.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128196;</div><div><div class="get-text-title">MERN Interview Prep PDF</div><div class="get-text-desc">90% accuracy question bank from real MERN stack interviews — with full answers.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#127909;</div><div><div class="get-text-title">65 Recorded Sessions</div><div class="get-text-desc">Lifetime access to all 65 sessions. Revisit any topic at any time.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128187;</div><div><div class="get-text-title">Dedicated Learning Portal</div><div class="get-text-desc">Personal login, progress tracking, materials &amp; assignments.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128640;</div><div><div class="get-text-title">NoteNest — Live App</div><div class="get-text-desc">Complete full-stack notes app — live on Render + Vercel from Day 65.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128203;</div><div><div class="get-text-title">Resume + LinkedIn Review</div><div class="get-text-desc">Resume review and LinkedIn profile guidance from BBS developers.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128269;</div><div><div class="get-text-title">Project Code Review</div><div class="get-text-desc">Capstone reviewed by a BBS developer — real feedback on real code.</div></div></div>
+      <div class="get-card"><div class="get-icon gi-purple">&#128188;</div><div><div class="get-text-title">Placement Support</div><div class="get-text-desc">Job-readiness mentoring and placement assistance from BBS team.</div></div></div>
+    </div>
+
+    <div class="capstone-block cap3">
+      <div class="cap-head">
+        <div>
+          <div class="cap-badge capb-purple">Capstone Project &middot; Days 64&ndash;65</div>
+          <div class="cap-title">NoteNest &mdash; Full Stack Notes App</div>
+          <div class="cap-desc">A complete full-stack notes application. Users register, log in, and manage their own personal notes. JWT protects all routes. MongoDB stores all data. React handles the frontend. Deployed live and fully functional by Day 65 — a real portfolio piece.</div>
+        </div>
+        <div class="cap-deploy cd-purple">&#127760; Render + Vercel</div>
+      </div>
+      <div class="cap-tech">
+        <span class="cap-tag ct-purple">HTML + CSS + JS</span>
+        <span class="cap-tag ct-purple">Node.js</span>
+        <span class="cap-tag ct-purple">Express REST API</span>
+        <span class="cap-tag ct-purple">MongoDB Atlas</span>
+        <span class="cap-tag ct-purple">Mongoose</span>
+        <span class="cap-tag ct-purple">JWT Auth</span>
+        <span class="cap-tag ct-purple">bcrypt</span>
+        <span class="cap-tag ct-purple">React + Vite</span>
+        <span class="cap-tag ct-purple">React Router v6</span>
+        <span class="cap-tag ct-purple">Axios</span>
+        <span class="cap-tag ct-purple">Context API</span>
+        <span class="cap-tag ct-purple">Render + Vercel</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ COMPARISON TABLE ═══════════ -->
+<div class="compare-section">
+  <div class="sec sec-white">
+    <div class="eyebrow">At a Glance</div>
+    <h2 class="sh">Which course is right for you?</h2>
+    <p class="ssub" style="margin-bottom:0;">A side-by-side comparison of all three courses. Course 02 and Course 03 are our most recommended for students who want to work as developers.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-gold">Course 01<br>HTML/CSS/JS &middot; 28 Days</th>
+          <th class="col-blue">Course 02<br>MERN 45 Days &#11088;</th>
+          <th class="col-purple">Course 03<br>Zero to MERN 65 Days &#11088;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Prior experience required</td><td>None</td><td>HTML, CSS, JavaScript</td><td>None</td></tr>
+        <tr><td>Duration</td><td>28 days</td><td>45 days</td><td>65 days</td></tr>
+        <tr><td>Hours per day</td><td>1 hour</td><td>1.5 hours</td><td>2 hours</td></tr>
+        <tr><td>Total hours</td><td>28 hours</td><td>67.5 hours</td><td>130 hours</td></tr>
+        <tr><td>Technologies covered</td><td>HTML · CSS · JS</td><td>Node · Express · MongoDB · React</td><td>HTML · CSS · JS · Node · Express · MongoDB · React</td></tr>
+        <tr><td>Capstone project</td><td>DevLinks (link-in-bio page)</td><td>TaskFlow (task manager)</td><td>NoteNest (notes app)</td></tr>
+        <tr><td>Project deployed live</td><td><span class="check-gold">&#10003; GitHub Pages</span></td><td><span class="check-blue">&#10003; Render + Vercel</span></td><td><span class="check-purple">&#10003; Render + Vercel</span></td></tr>
+        <tr><td>Recorded lectures (lifetime)</td><td><span class="check-gold">&#10003; 28 sessions</span></td><td><span class="check-blue">&#10003; 45 sessions</span></td><td><span class="check-purple">&#10003; 65 sessions</span></td></tr>
+        <tr><td>ISO certified certificate</td><td><span class="check-gold">&#10003;</span></td><td><span class="check-blue">&#10003;</span></td><td><span class="check-purple">&#10003;</span></td></tr>
+        <tr><td>Interview prep PDF</td><td><span class="check-gold">&#10003; Front-end</span></td><td><span class="check-blue">&#10003; MERN · 90% accuracy</span></td><td><span class="check-purple">&#10003; MERN · 90% accuracy</span></td></tr>
+        <tr><td>Dedicated learning portal</td><td><span class="check-gold">&#10003;</span></td><td><span class="check-blue">&#10003;</span></td><td><span class="check-purple">&#10003;</span></td></tr>
+        <tr><td>Resume + LinkedIn review</td><td><span class="check-no">&mdash;</span></td><td><span class="check-blue">&#10003;</span></td><td><span class="check-purple">&#10003;</span></td></tr>
+        <tr><td>Project code review</td><td><span class="check-no">&mdash;</span></td><td><span class="check-blue">&#10003;</span></td><td><span class="check-purple">&#10003;</span></td></tr>
+        <tr><td>Placement support</td><td><span class="check-no">&mdash;</span></td><td><span class="check-blue">&#10003;</span></td><td><span class="check-purple">&#10003;</span></td></tr>
+        <tr><td>EMI option</td><td>&#8377;1,400 &times; 3</td><td>&#8377;2,000 &times; 5</td><td>&#8377;2,400 &times; 5</td></tr>
+      </tbody>
+      <tfoot>
+        <tr class="price-row">
+          <td>Enrollment Fee</td>
+          <td class="pg">&#8377;3,999</td>
+          <td class="pb">&#8377;8,999</td>
+          <td class="pp">&#8377;11,999</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════ CTA ═══════════ -->
+<div class="cta-final">
+  <div class="cta-final-glow"></div>
+  <div class="cta-final-inner">
+    <div class="cta-pill">Start Your Journey</div>
+    <h2 class="cta-h">Build something real.<br><span class="g">Starting Day 1.</span></h2>
+    <p class="cta-p">Enrol in any course and build a live, deployed project by the last day. No experience needed for Course 01 and Course 03. The only requirement is showing up.</p>
+    <div class="cta-contact">
+      <div>
+        <div class="cc-label">Email</div>
+        <div class="cc-val">hello@buildbeyondstudio.com</div>
+      </div>
+      <div>
+        <div class="cc-label">WhatsApp / Call</div>
+        <div class="cc-val">+91 XXXXX XXXXX</div>
+      </div>
+      <div>
+        <div class="cc-label">Website</div>
+        <div class="cc-val">buildbeyondstudio.com</div>
+      </div>
+    </div>
+    <div class="cta-fine">
+      Build Beyond Studio &middot; Ambikapur, Chhattisgarh, India<br>
+      All courses are ISO certified. Prices include lifetime access to recorded lectures and all course materials.<br>
+      EMI options available. Batch sizes and schedules communicated on enrollment.
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
