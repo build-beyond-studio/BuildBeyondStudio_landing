@@ -126,9 +126,13 @@ export default function Footer() {
              <div className="text-center md:text-left">
                 <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
                 <div className="flex flex-col gap-2">
-                  <a href="/services/custom-web-applications" className="hover:text-white transition-colors">Custom Web Applications</a>
-                  <a href="/services/devops-infrastructure" className="hover:text-white transition-colors">DevOps & Infrastructure</a>
-                  <a href="/services/technical-consulting" className="hover:text-white transition-colors">Technical Consulting</a>
+                  <a href="/services/custom-web-applications" className="hover:text-white transition-colors">Custom Web & Portal Development</a>
+                  <a href="/services/devops-infrastructure" className="hover:text-white transition-colors">Auto-Scaling Cloud & DevOps</a>
+                  <a href="/services/technical-consulting" className="hover:text-white transition-colors">Fractional CTO & Tech Roadmap</a>
+                  <a href="/services/aeo-geo" className="hover:text-white transition-colors">AI-Era Search Visibility (SEO/AEO/GEO)</a>
+                  <a href="/services/performance-ads" className="hover:text-white transition-colors">Meta & Google Performance Ads</a>
+                  <a href="/services/tracking-funnels" className="hover:text-white transition-colors">E-Comm Funnel Audits & Tracking</a>
+                  <a href="/services/ai-visuals" className="hover:text-white transition-colors">AI-Powered Visual Production</a>
                 </div>
              </div>
              <div className="text-center md:text-left">

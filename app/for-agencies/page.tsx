@@ -106,8 +106,8 @@ export default function ForAgenciesPage() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <Link
-            href="/#contact"
+          <a
+            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio."
             className="inline-block text-white px-8 py-4 rounded-lg transition-all font-semibold text-base"
             style={{
               background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
@@ -115,7 +115,7 @@ export default function ForAgenciesPage() {
             }}
           >
             Start your first pilot project →
-          </Link>
+          </a>
 
           <RevenueScrollBtn label="Revenue Model" />
         </div>
@@ -307,8 +307,8 @@ export default function ForAgenciesPage() {
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Share one live client requirement. We'll send you a firm estimate within 24 hours. No strings attached. No long-term commitment.
         </p>
-        <Link
-          href="/#contact"
+        <a
+          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio."
           className="inline-block text-white px-8 py-4 rounded-lg transition-all font-semibold text-lg"
           style={{
             background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
@@ -316,7 +316,7 @@ export default function ForAgenciesPage() {
           }}
         >
           Get Started →
-        </Link>
+        </a>
       </section>
 
       <Footer />

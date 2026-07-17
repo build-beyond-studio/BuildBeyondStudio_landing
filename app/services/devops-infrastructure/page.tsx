@@ -3,8 +3,8 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'DevOps & Infrastructure | Build Beyond Studio',
-  description: 'DevOps & Infrastructure for Marketing Agencies. Campaign-proof your clients’ sites.',
+  title: 'Auto-Scaling Cloud & DevOps | Build Beyond Studio',
+  description: 'Auto-Scaling Cloud & DevOps for Marketing Agencies. Campaign-proof your clients’ sites.',
 }
 
 export default function DevOpsInfrastructurePage() {
@@ -12,17 +12,17 @@ export default function DevOpsInfrastructurePage() {
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
-        <div className="mb-4 text-sm text-gray-500">Home → Services → DevOps & Infrastructure</div>
+        <div className="mb-4 text-sm text-gray-500">Home → Services → Auto-Scaling Cloud & DevOps</div>
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-5xl font-bold text-black mb-6">
-          Campaign-Proof Architecture. Zero Downtime.
+          Auto-Scaling Cloud & DevOps. Campaign-Proof Architecture.
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Ensure your clients' sites never crash during high-traffic ad launches. 
           Protect their ad spend and your reputation.
         </p>
-        <a href="/#contact" className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
+        <a href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20an%20Auto-Scaling%20Cloud%20%26%20DevOps%20brief%20with%20Build%20Beyond%20Studio." className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
           Partner With Us
         </a>
 

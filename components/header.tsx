@@ -14,9 +14,13 @@ const NAV_LINKS: NavLink[] = [
   { 
     label: "Services", 
     dropdown: [
-      { href: "/services/custom-web-applications", label: "Custom Web Applications" },
-      { href: "/services/devops-infrastructure", label: "DevOps & Infrastructure" },
-      { href: "/services/technical-consulting", label: "Technical Consulting" },
+      { href: "/services/custom-web-applications", label: "Custom Web & Portal Development" },
+      { href: "/services/devops-infrastructure", label: "Auto-Scaling Cloud & DevOps" },
+      { href: "/services/technical-consulting", label: "Fractional CTO & Tech Roadmap" },
+      { href: "/services/aeo-geo", label: "AI-Era Search Visibility (SEO/AEO/GEO)" },
+      { href: "/services/performance-ads", label: "Meta & Google Performance Ads" },
+      { href: "/services/tracking-funnels", label: "E-Comm Funnel Audits & Tracking" },
+      { href: "/services/ai-visuals", label: "AI-Powered Visual Production" },
     ]
   },
   { href: "/how-we-partner", label: "How We Partner" },
