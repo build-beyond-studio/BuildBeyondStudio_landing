@@ -1,4 +1,4 @@
-const faqs = [
+export const faqs = [
   {
     question: "What is white-label web development?",
     answer:

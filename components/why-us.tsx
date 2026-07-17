@@ -73,10 +73,10 @@ export default function WhyUs() {
       <div className="max-w-6xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Why marketing agencies choose BBS
+            The Invisible Partner Guarantee
           </h2>
           <p className="text-lg text-gray-600">
-            We're not a subcontractor. We're your silent tech partner — invested in your growth.
+            We're your silent tech partner. You own the brand, the clients, and the profits.
           </p>
         </div>
 

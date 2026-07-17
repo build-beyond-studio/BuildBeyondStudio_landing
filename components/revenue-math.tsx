@@ -321,15 +321,15 @@ export default function RevenueMath() {
             <div className="mb-5">
               <span className="rm-eyebrow">
                 <span className="rm-eyebrow-dot" />
-                Revenue Model
+                Revenue Engine
               </span>
             </div>
             <h2 className="text-[1.65rem] sm:text-[2.1rem] font-black text-white leading-[1.1] tracking-[-0.032em] mb-4">
-              You Set the Price.{" "}
-              <span style={{ color: "#C9A84C" }}>You Keep the Margin.</span>
+              Turn Complex Tech into<br/>
+              <span style={{ color: "#C9A84C" }}>Your Biggest Profit Center.</span>
             </h2>
-            <p className="text-[12.5px] text-white/35 max-w-[340px] mx-auto leading-[1.8]">
-              We quote you. You quote them. We never discuss pricing with your client — ever.
+            <p className="text-[12.5px] text-white/35 max-w-[380px] mx-auto leading-[1.8]">
+              You set the price. You keep 100% of the margin. We handle the heavy lifting while you scale your bottom line.
             </p>
           </div>
 
