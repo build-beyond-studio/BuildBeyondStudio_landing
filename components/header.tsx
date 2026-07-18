@@ -24,8 +24,8 @@ const NAV_LINKS: NavLink[] = [
       { href: "/services/ai-visuals", label: "AI-Powered Visual Production" },
     ]
   },
-  { href: "/training-programs", label: "Internship Programs" },
   { href: "/how-we-partner", label: "How We Partner" },
+  { href: "/training-programs", label: "Internship Programs" },
   { href: "/#revenue", label: "Revenue Model" },
   { href: "/success-stories", label: "Success Stories" },
 ];
