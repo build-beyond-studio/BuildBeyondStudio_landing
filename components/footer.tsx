@@ -1,3 +1,5 @@
+import TrackedLink from "@/components/TrackedLink";
+
 export default function Footer() {
   return (
     <footer className="bg-[#050505] text-white py-16 md:py-20 px-6 relative">
@@ -102,12 +104,14 @@ export default function Footer() {
                   I personally oversee every agency partnership. Reach me directly on WhatsApp.
                 </p>
                 <div className="flex gap-4 text-sm">
-                  <a
+                  <TrackedLink
                     href="https://wa.me/917697339962"
+                    eventName="whatsapp_click"
+                    eventParams={{ button_location: 'footer' }}
                     className="text-[#E8A020] hover:text-white transition-colors font-semibold"
                   >
                     WhatsApp: +91 76973 39962
-                  </a>
+                  </TrackedLink>
                   <a
                     href="https://www.linkedin.com/in/ankush-kumar-gupta-191b923b1/"
                     target="_blank"

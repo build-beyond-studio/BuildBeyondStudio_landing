@@ -263,6 +263,9 @@ export default function Header() {
             <a
               href={contactHref}
               {...contactProps}
+              onClick={() => {
+                window.gtag?.('event', 'whatsapp_click', { button_location: 'navbar' });
+              }}
               className="hidden lg:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right whitespace-nowrap"
               style={{
                 background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
@@ -321,7 +324,10 @@ export default function Header() {
                 <a
                   href={contactHref}
                   {...contactProps}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    window.gtag?.('event', 'whatsapp_click', { button_location: 'navbar' });
+                    setIsMenuOpen(false);
+                  }}
                   className="mob-link text-white text-[12px] font-semibold py-2 px-4 rounded-lg mt-2 text-center transition-all"
                   style={{
                     background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',

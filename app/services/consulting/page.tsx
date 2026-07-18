@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata } from '@/lib/metadata'
 
@@ -81,9 +82,15 @@ export default function ConsultingPage() {
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Strategic guidance on architecture, technology selection, and scalability. Make the right technical decisions before they become expensive mistakes.
         </p>
-        <a href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Technical%20Consulting%20brief%20with%20Build%20Beyond%20Studio." className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
+        <TrackedLink
+          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Technical%20Consulting%20brief%20with%20Build%20Beyond%20Studio."
+          eventName="whatsapp_click"
+          eventParams={{ button_location: 'service_page_consulting' }}
+          className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
+          style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+        >
           Book a Consulting Call
-        </a>
+        </TrackedLink>
 
         <div className="space-y-12 text-gray-700">
           <div>
@@ -142,9 +149,15 @@ export default function ConsultingPage() {
         <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">Need a technical second opinion?</h2>
           <p className="text-gray-600 mb-6">Book a free 30-minute discovery call. No commitment, no sales pitch.</p>
-          <a href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Technical%20Consulting%20brief%20with%20Build%20Beyond%20Studio." className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
+          <TrackedLink
+            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Technical%20Consulting%20brief%20with%20Build%20Beyond%20Studio."
+            eventName="whatsapp_click"
+            eventParams={{ button_location: 'service_page_consulting' }}
+            className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
+            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+          >
             Book Free Discovery Call
-          </a>
+          </TrackedLink>
         </div>
       </section>
       <Footer />

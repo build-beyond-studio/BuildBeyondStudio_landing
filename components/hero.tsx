@@ -541,11 +541,12 @@ export default function Hero() {
               ref={mag1.ref}
               onMouseMove={mag1.onMove}
               onMouseLeave={mag1.onLeave}
-              onClick={() =>
+              onClick={() => {
+                window.gtag?.('event', 'whatsapp_click', { button_location: 'hero' });
                 document
                   .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="mag-btn border border-black/12 text-gray-800 px-9 py-3.5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-white hover:border-black/20 hover:bg-gray-50

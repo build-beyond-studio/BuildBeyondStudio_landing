@@ -158,7 +158,16 @@ export default function WebApplicationsService() {
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-8">
-                <a href="https://wa.me/919301579493" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg cursor-pointer" style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 20px rgba(200,134,10,0.35)'}}>
+                <a
+                  href="https://wa.me/919301579493"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    window.gtag?.('event', 'whatsapp_click', { button_location: 'service_page_webdev' });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg cursor-pointer"
+                  style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 20px rgba(200,134,10,0.35)'}}
+                >
                   Start Your Project <ArrowRight className="w-5 h-5" />
                 </a>
                 <a href="#process" className="inline-flex items-center justify-center bg-[#0c0c0e] border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-all cursor-pointer">
@@ -298,6 +307,9 @@ export default function WebApplicationsService() {
             <a
               href="https://wa.me/919301579493"
               target="_blank" rel="noopener noreferrer"
+              onClick={() => {
+                window.gtag?.('event', 'whatsapp_click', { button_location: 'service_page_webdev' });
+              }}
               className="inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 relative z-10 shadow-lg cursor-pointer"
               style={{background:'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow:'0 4px 20px rgba(200,134,10,0.35)'}}
             >

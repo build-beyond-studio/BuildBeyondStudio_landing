@@ -3,6 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import RevenueMath from '@/components/revenue-math'
 import Link from 'next/link'
+import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata } from '@/lib/metadata'
 
@@ -98,15 +99,17 @@ export default function WhiteLabelPage() {
           expertise. Full IP rights included — your clients never know we exist.
         </p>
 
-        <a
+        <TrackedLink
           href="https://wa.me/919301579493?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
           target="_blank"
           rel="noopener noreferrer"
+          eventName="whatsapp_click"
+          eventParams={{ button_location: 'service_page_white_label' }}
           className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
           style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
         >
           Start a White-Label Project
-        </a>
+        </TrackedLink>
 
         <div className="space-y-12 text-gray-700">
           <div>
@@ -225,15 +228,17 @@ export default function WhiteLabelPage() {
             Join agencies across India who use Build Beyond Studio as their
             silent technical partner.
           </p>
-          <a
+          <TrackedLink
             href="https://wa.me/919301579493?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
             target="_blank"
             rel="noopener noreferrer"
+            eventName="whatsapp_click"
+            eventParams={{ button_location: 'service_page_white_label' }}
             className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
             style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
           >
             Book a Free Consultation
-          </a>
+          </TrackedLink>
         </div>
       </section>
       <Footer />
