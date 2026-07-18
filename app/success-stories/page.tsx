@@ -1,62 +1,16 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Success Stories | Build Beyond Studio',
-  description: 'See how elite marketing agencies across India scale operations, expand margins, and eliminate tech overhead with our white-label engineering division.',
-}
+import { buildMetadata } from '@/lib/metadata'
+import { CASE_STUDIES } from '../case-studies/data'
 
-const CASE_STUDIES = [
-  {
-    id: 1,
-    client: 'Clocked Agency',
-    founder: 'Aastha',
-    city: 'Delhi',
-    resultStat: '+₹90,000/mo Revenue',
-    title: 'Scaling Premium Web Development Without Expanding Internal Headcount',
-    challenge: 'Clocked Agency was turning away high-paying web development requests due to the risk, time, and overhead of recruiting in-house engineers.',
-    solution: 'BBS stepped in as an invisible white-label engineering extension, building custom, responsive websites with absolute QA.',
-    quote: 'BBS has been instrumental in helping us deliver premium websites without expanding our internal team. Their professionalism, timely communication, and consistent quality have strengthened both our operations and client trust.',
-    photo: 'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.05_PM_1_p0hpg2.jpg',
-  },
-  {
-    id: 2,
-    client: 'BVFX Digify',
-    founder: 'Aayushman',
-    city: 'Bhilai',
-    resultStat: '3× Faster Project Delivery',
-    title: 'Crushing Launch Deadlines with Coordinated White-Label Sprint Teams',
-    challenge: 'BVFX Digify faced bottlenecked development cycles, causing launch delays and risking client satisfaction.',
-    solution: 'BBS provided dedicated, agile developers integrated directly into BVFX\'s Slack, enabling rapid two-week sprint execution.',
-    quote: 'Working with BBS has significantly improved our project delivery speed. Their development team feels like an extension of our own, helping us deliver quality work faster while maintaining excellent client satisfaction.',
-    photo: 'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111690/WhatsApp_Image_2026-07-15_at_3.52.05_PM_mpolbe.jpg',
-  },
-  {
-    id: 3,
-    client: 'Shivora Media',
-    founder: 'Mahi',
-    city: 'Bhopal',
-    resultStat: '+40% Client Capacity',
-    title: 'Eliminating the Tech Overhead to Focus Entirely on Acquisition',
-    challenge: 'Shivora Media\'s leadership was bogged down in technical debugging and deployment management, capping their agency\'s growth.',
-    solution: 'BBS took 100% ownership of project execution, DevOps, and post-launch maintenance under strict NDA.',
-    quote: 'BBS has helped us scale without the hassle of building an in-house development team. Their consistency, communication, and technical expertise have made them a trusted long-term partner for our agency.',
-    photo: 'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111688/WhatsApp_Image_2026-07-15_at_3.52.05_PM_2_dakvlf.jpg',
-  },
-  {
-    id: 4,
-    client: 'TechTasteFood & FranFirst',
-    founder: 'Sarthak',
-    city: 'New Delhi',
-    resultStat: '+₹75,000/mo Net Profit',
-    title: 'Securing High-Ticket Client Retainers with Premium Engineering Quality',
-    challenge: 'Needed a reliable partner to deliver enterprise-grade performance that commands and retains high-ticket monthly fees.',
-    solution: 'Built scalable web assets and custom client dashboards, establishing consistent, transparent project delivery.',
-    quote: 'BBS became our reliable technical partner from day one. Their team consistently delivers high-quality work on time, allowing us to focus on client acquisition and scaling our business with confidence.',
-    photo: 'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg',
-  }
-];
+export const metadata: Metadata = buildMetadata(
+  '/success-stories',
+  'Success Stories',
+  'See how elite marketing agencies across India scale operations, expand margins, and eliminate tech overhead with our white-label engineering division.'
+)
 
 export default function SuccessStoriesPage() {
   return (
@@ -84,8 +38,8 @@ export default function SuccessStoriesPage() {
         <div className="grid grid-cols-1 gap-12">
           {CASE_STUDIES.map((study, idx) => (
             <div 
-              key={study.id} 
-              className="bg-white border border-[rgba(200,134,10,0.15)] rounded-2xl p-6 md:p-10 relative overflow-hidden transition-all duration-500 hover:shadow-[0_12px_40px_rgba(200,134,10,0.1)]"
+              key={study.slug} 
+              className="bg-white border border-[rgba(200,134,10,0.15)] rounded-2xl p-6 md:p-10 relative overflow-hidden transition-all duration-500 hover:shadow-[0_12px_40px_rgba(200,134,10,0.1)] group"
               style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.03)' }}
             >
               {/* Top accent line */}
@@ -133,6 +87,19 @@ export default function SuccessStoriesPage() {
                         </p>
                       </div>
                     </div>
+
+                    {/* Read full case study link */}
+                    <div className="mt-8">
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="inline-flex items-center gap-2 text-sm text-[#C8860A] font-semibold hover:underline group-hover:gap-3 transition-all"
+                      >
+                        Read full case study
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
                 </div>
 
@@ -146,20 +113,22 @@ export default function SuccessStoriesPage() {
                       <path d="M10.667 14.667c0-4.418 3.582-8 8-8v-4c-6.627 0-12 5.373-12 12v14.667h12v-14.667h-8zM26.667 14.667c0-4.418 3.582-8 8-8v-4c-6.627 0-12 5.373-12 12v14.667h12v-14.667h-8z"></path>
                     </svg>
                     <p className="text-gray-700 text-sm sm:text-base leading-relaxed pl-4 pt-2 italic font-light relative z-10">
-                      "{study.quote}"
+                      &ldquo;{study.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Author Meta */}
                   <div className="border-t border-[rgba(200,134,10,0.15)] pt-6 mt-6 flex items-center gap-4 relative z-10">
                     <img 
-                      src={study.photo} 
-                      alt={study.founder} 
+                      src={study.photoPath} 
+                      alt={`${study.founder}, ${study.founderRole} of ${study.client}`}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-full object-cover shadow-sm ring-2 ring-white" 
                     />
                     <div>
                       <div className="font-bold text-sm text-black">{study.founder}</div>
-                      <div className="text-xs text-gray-500 font-medium">{study.client === 'TechTasteFood & FranFirst' ? 'Founder' : `Founder, ${study.client}`}</div>
+                      <div className="text-xs text-gray-500 font-medium">{study.founderRole}, {study.client}</div>
                     </div>
                   </div>
                 </div>

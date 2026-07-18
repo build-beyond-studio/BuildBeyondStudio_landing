@@ -87,6 +87,8 @@ export default function Footer() {
                 <img
                   src="/founder.jpeg"
                   alt="Ankush Kumar Gupta — Founder, BBS"
+                  width={96}
+                  height={96}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -125,7 +127,8 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-500 mb-8">
              <div className="text-center md:text-left">
                 <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
-                <div className="flex flex-col gap-2">
+                 <div className="flex flex-col gap-2">
+                  <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
                   <a href="/services/custom-web-applications" className="hover:text-white transition-colors">Custom Web & Portal Development</a>
                   <a href="/services/devops-infrastructure" className="hover:text-white transition-colors">Auto-Scaling Cloud & DevOps</a>
                   <a href="/services/technical-consulting" className="hover:text-white transition-colors">Fractional CTO & Tech Roadmap</a>
@@ -142,6 +145,7 @@ export default function Footer() {
                   <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
                   <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
                   <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
+                  <a href="/ambikapur" className="hover:text-white transition-colors">Ambikapur Office</a>
                   <a href="/blog" className="hover:text-white transition-colors">Blog</a>
                 </div>
               </div>

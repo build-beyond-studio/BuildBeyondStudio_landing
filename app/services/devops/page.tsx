@@ -2,40 +2,39 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'DevOps & Cloud Deployment Services | Build Beyond Studio',
-  description:
-    'DevOps consulting and cloud deployment in Ambikapur, India. Docker, CI/CD pipelines, AWS, Vercel deployment. We handle infrastructure so your team can focus on building.',
-  keywords: [
-    'DevOps services India',
-    'cloud deployment agency India',
-    'Docker CI/CD setup',
-    'DevOps consulting India',
-    'Vercel deployment service',
-    'AWS deployment India',
-    'CI/CD pipeline setup',
-  ],
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/services/devops',
-  },
-  openGraph: {
-    title: 'DevOps & Cloud Deployment Services | Build Beyond Studio',
-    description:
-      'Docker, CI/CD, cloud deployment, and infrastructure that handles growth. Full DevOps setup for agencies and startups.',
-    url: 'https://buildbeyondstudio.com/services/devops',
-    siteName: 'Build Beyond Studio',
-    images: [
-      {
-        url: 'https://buildbeyondstudio.com/og-devops.png',
-        width: 1200,
-        height: 630,
-        alt: 'DevOps Services | Build Beyond Studio',
-      },
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/devops',
+  'DevOps & Infrastructure Services',
+  'DevOps and cloud infrastructure consulting in India. AWS, GCP, Docker, Kubernetes, and CI/CD setup for secure, auto-scaling systems.',
+  {
+    keywords: [
+      'DevOps consulting India',
+      'cloud infrastructure agency India',
+      'AWS consulting India',
+      'Kubernetes setup India',
+      'CI/CD pipeline consulting',
+      'DevOps services Chhattisgarh',
     ],
-    type: 'website',
-    locale: 'en_IN',
-  },
-}
+    openGraph: {
+      title: 'DevOps & Infrastructure Services | Build Beyond Studio',
+      description:
+        'Scale your applications securely with expert DevOps and cloud infrastructure services in India.',
+      siteName: 'Build Beyond Studio',
+      images: [
+        {
+          url: 'https://buildbeyondstudio.com/og-devops.png',
+          width: 1200,
+          height: 630,
+          alt: 'DevOps Services | Build Beyond Studio',
+        },
+      ],
+      type: 'website',
+      locale: 'en_IN',
+    },
+  }
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',

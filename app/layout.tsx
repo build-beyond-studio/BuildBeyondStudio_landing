@@ -51,10 +51,6 @@ export const metadata: Metadata = {
     },
   },
 
-  alternates: {
-    canonical: "https://buildbeyondstudio.com",
-  },
-
   openGraph: {
     type: "website",
     url: "https://buildbeyondstudio.com",

@@ -2,38 +2,49 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'E-Comm Funnel Audits & Conversion Tracking | Build Beyond Studio',
-  description: 'End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs.',
-  keywords: [
-    'GA4 Event Mapping',
-    'Meta Conversions API',
-    'Conversions API (CAPI)',
-    'Server-side tracking',
-    'Funnel Audits',
-    'E-Comm Analytics',
-    'Attribution setup',
-  ],
-}
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/tracking-funnels',
+  'E-Comm Funnel Audits & Conversion Tracking',
+  'Resolve checkout drop-offs and track attribution with server-side Meta Conversions API (CAPI) and GA4 custom event tracking setup.',
+  {
+    keywords: [
+      'GA4 Event Mapping',
+      'Meta Conversions API',
+      'Conversions API (CAPI)',
+      'Server-side tracking',
+      'Funnel Audits',
+      'E-Comm Analytics',
+      'Attribution setup',
+    ],
+  }
+)
 
 const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'E-Comm Funnel Audits & Conversion Tracking',
-  serviceType: 'Analytics & Funnel Optimization',
-  provider: {
-    '@type': 'Organization',
-    name: 'Build Beyond Studio',
-    url: 'https://buildbeyondstudio.com',
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "E-Comm Funnel Audits & Conversion Tracking",
+  "serviceType": "E-Comm Funnel Audits & Conversion Tracking",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
   },
-  areaServed: 'Global',
-  description: 'End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs.',
+  "areaServed": "IN",
+  "description": "End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'E-Comm Funnel Audits & Conversion Tracking', path: '/services/tracking-funnels' },
+]);
 
 export default function TrackingFunnelsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → E-Comm Funnel Audits & Conversion Tracking</div>

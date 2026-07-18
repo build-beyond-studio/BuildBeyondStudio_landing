@@ -3,19 +3,18 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Build Beyond Studio',
-  description: 'Privacy policy for Build Beyond Studio. Learn how we collect and protect your data.',
-  openGraph: {
-    title: 'Privacy Policy | Build Beyond Studio',
-    description: 'Privacy policy for Build Beyond Studio.',
-    type: 'website',
-    url: 'https://buildbeyondstudio.com/privacy',
-  },
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/privacy',
-  },
-}
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/privacy',
+  'Privacy Policy',
+  'Privacy policy for Build Beyond Studio. Learn how we collect and protect your data.',
+  {
+    openGraph: {
+      type: 'website',
+    },
+  }
+)
 
 export default function PrivacyPage() {
   return (

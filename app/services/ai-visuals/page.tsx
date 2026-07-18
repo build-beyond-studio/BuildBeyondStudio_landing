@@ -2,38 +2,49 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'AI-Powered Visual Production | Build Beyond Studio',
-  description: 'Cost-effective, studio-grade product photo and video assets generated via advanced AI models.',
-  keywords: [
-    'AI visual production',
-    'AI product shoots',
-    'generative AI photography',
-    'AI video ads',
-    'cost-effective visual assets',
-    'high-converting video assets',
-    'studio-less visual production',
-  ],
-}
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/ai-visuals',
+  'AI-Powered Visual Production',
+  'Generate high-converting, studio-grade product photos and marketing video assets dynamically using state-of-the-art generative AI.',
+  {
+    keywords: [
+      'AI visual production',
+      'AI product shoots',
+      'generative AI photography',
+      'AI video ads',
+      'cost-effective visual assets',
+      'high-converting video assets',
+      'studio-less visual production',
+    ],
+  }
+)
 
 const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'AI-Powered Visual Production',
-  serviceType: 'Generative AI Production',
-  provider: {
-    '@type': 'Organization',
-    name: 'Build Beyond Studio',
-    url: 'https://buildbeyondstudio.com',
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI-Powered Visual Production",
+  "serviceType": "AI-Powered Visual Production",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
   },
-  areaServed: 'Global',
-  description: 'Cost-effective, studio-grade product photo and video assets generated via advanced AI models.',
+  "areaServed": "IN",
+  "description": "Cost-effective, studio-grade product photo and video assets generated via advanced AI models. Refresh your marketing creatives instantly."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'AI-Powered Visual Production', path: '/services/ai-visuals' },
+]);
 
 export default function AiVisualsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → AI-Powered Visual Production</div>

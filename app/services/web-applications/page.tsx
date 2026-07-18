@@ -2,40 +2,39 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'Web Application Development | Build Beyond Studio',
-  description:
-    'Production-ready MERN stack web application development in Ambikapur, India. React, Next.js, Node.js, MongoDB. Built to scale from day one for agencies and businesses.',
-  keywords: [
-    'web application development India',
-    'MERN stack development',
-    'Next.js development agency',
-    'React development agency India',
-    'Node.js development India',
-    'web app development Ambikapur',
-    'production web applications',
-  ],
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/services/web-applications',
-  },
-  openGraph: {
-    title: 'Web Application Development | Build Beyond Studio',
-    description:
-      'Production-ready MERN stack web applications built to scale. React, Next.js, Node.js, MongoDB.',
-    url: 'https://buildbeyondstudio.com/services/web-applications',
-    siteName: 'Build Beyond Studio',
-    images: [
-      {
-        url: 'https://buildbeyondstudio.com/og-web-apps.png',
-        width: 1200,
-        height: 630,
-        alt: 'Web Applications | Build Beyond Studio',
-      },
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/web-applications',
+  'React & Next.js Web Application Development',
+  'Custom React and Next.js web application development. We build high-performance, scalable portals, dashboards, and SaaS platforms.',
+  {
+    keywords: [
+      'React development India',
+      'Next.js development agency',
+      'web application development India',
+      'custom SaaS portal builder',
+      'MERN stack development India',
+      'Build Beyond Studio services',
     ],
-    type: 'website',
-    locale: 'en_IN',
-  },
-}
+    openGraph: {
+      title: 'React & Next.js Web Application Development | Build Beyond Studio',
+      description:
+        'High-performance React & Next.js custom web applications, SaaS platforms, and digital products built by BBS.',
+      siteName: 'Build Beyond Studio',
+      images: [
+        {
+          url: 'https://buildbeyondstudio.com/og-web-apps.png',
+          width: 1200,
+          height: 630,
+          alt: 'Web Application Development | Build Beyond Studio',
+        },
+      ],
+      type: 'website',
+      locale: 'en_IN',
+    },
+  }
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',

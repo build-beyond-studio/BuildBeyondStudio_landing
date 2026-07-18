@@ -2,38 +2,49 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'Meta & Google Performance Ads | Build Beyond Studio',
-  description: 'Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI and low Cost-Per-Acquisition.',
-  keywords: [
-    'Meta Ads',
-    'Google Ads',
-    'Performance Ads',
-    'Paid Traffic',
-    'Conversion Copywriting',
-    'Low Cost-Per-Acquisition',
-    'ROI Bidding Optimization',
-  ],
-}
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/performance-ads',
+  'Meta & Google Performance Ads',
+  'Maximize advertising margins with direct-response paid traffic setup, high-intent keywords, high-converting copy, and bidding optimization.',
+  {
+    keywords: [
+      'Meta Ads',
+      'Google Ads',
+      'Performance Ads',
+      'Paid Traffic',
+      'Conversion Copywriting',
+      'Low Cost-Per-Acquisition',
+      'ROI Bidding Optimization',
+    ],
+  }
+)
 
 const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Meta & Google Performance Ads',
-  serviceType: 'Performance Advertising',
-  provider: {
-    '@type': 'Organization',
-    name: 'Build Beyond Studio',
-    url: 'https://buildbeyondstudio.com',
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Meta & Google Performance Ads",
+  "serviceType": "Meta & Google Performance Ads",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
   },
-  areaServed: 'Global',
-  description: 'Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI.',
+  "areaServed": "IN",
+  "description": "Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI and maximum lead/sales volume."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'Meta & Google Performance Ads', path: '/services/performance-ads' },
+]);
 
 export default function PerformanceAdsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Meta & Google Performance Ads</div>

@@ -3,19 +3,18 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Terms of Service | Build Beyond Studio',
-  description: 'Terms of service for Build Beyond Studio. Understand our IP ownership, revenue split, and service terms.',
-  openGraph: {
-    title: 'Terms of Service | Build Beyond Studio',
-    description: 'Terms of service for Build Beyond Studio.',
-    type: 'website',
-    url: 'https://buildbeyondstudio.com/terms',
-  },
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/terms',
-  },
-}
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/terms',
+  'Terms of Service',
+  'Terms of service for Build Beyond Studio. Understand our IP ownership, revenue split, and service terms.',
+  {
+    openGraph: {
+      type: 'website',
+    },
+  }
+)
 
 export default function TermsPage() {
   return (

@@ -2,39 +2,39 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'Technical Consulting Services | Build Beyond Studio',
-  description:
-    'Technical consulting for agencies and startups in India. Architecture review, tech stack selection, scalability planning. Based in Ambikapur, Chhattisgarh.',
-  keywords: [
-    'technical consulting India',
-    'tech architecture consulting',
-    'software consulting agency India',
-    'technology consulting Ambikapur',
-    'startup technical consulting India',
-    'web architecture review',
-  ],
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/services/consulting',
-  },
-  openGraph: {
-    title: 'Technical Consulting Services | Build Beyond Studio',
-    description:
-      'Strategic guidance on architecture, technology selection, and scalability for agencies and startups across India.',
-    url: 'https://buildbeyondstudio.com/services/consulting',
-    siteName: 'Build Beyond Studio',
-    images: [
-      {
-        url: 'https://buildbeyondstudio.com/og-consulting.png',
-        width: 1200,
-        height: 630,
-        alt: 'Technical Consulting | Build Beyond Studio',
-      },
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/consulting',
+  'Technical Consulting Services',
+  'Technical consulting for agencies and startups. We provide software architecture review, tech stack selection, and scalability planning.',
+  {
+    keywords: [
+      'technical consulting India',
+      'tech architecture consulting',
+      'software consulting agency India',
+      'technology consulting Ambikapur',
+      'startup technical consulting India',
+      'web architecture review',
     ],
-    type: 'website',
-    locale: 'en_IN',
-  },
-}
+    openGraph: {
+      title: 'Technical Consulting Services | Build Beyond Studio',
+      description:
+        'Strategic guidance on architecture, technology selection, and scalability for agencies and startups across India.',
+      siteName: 'Build Beyond Studio',
+      images: [
+        {
+          url: 'https://buildbeyondstudio.com/og-consulting.png',
+          width: 1200,
+          height: 630,
+          alt: 'Technical Consulting | Build Beyond Studio',
+        },
+      ],
+      type: 'website',
+      locale: 'en_IN',
+    },
+  }
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',

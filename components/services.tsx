@@ -115,9 +115,12 @@ export default function Services() {
               <h2 className="text-[4.5rem] xl:text-[5.5rem] leading-[0.95] font-black tracking-[-0.04em] text-black mb-8">
                 Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
               </h2>
-              <p className="text-xl xl:text-2xl text-gray-600 max-w-lg leading-relaxed font-light tracking-wide">
+              <p className="text-xl xl:text-2xl text-gray-600 max-w-lg leading-relaxed font-light tracking-wide mb-6">
                 We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
               </p>
+              <div className="text-sm font-semibold mb-6">
+                Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline">white label web development</Link> services.
+              </div>
             </div>
 
             {/* Service Cards Track */}
@@ -195,9 +198,12 @@ export default function Services() {
           <h2 className="text-[2.2rem] sm:text-[2.8rem] font-black leading-[1.05] tracking-[-0.03em] text-black mb-4">
             Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
           </h2>
-          <p className="text-[14.5px] sm:text-[16px] text-gray-600 leading-[1.7] max-w-[480px] mx-auto font-light">
+          <p className="text-[14.5px] sm:text-[16px] text-gray-600 leading-[1.7] max-w-[480px] mx-auto font-light mb-4">
             We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
           </p>
+          <div className="text-sm font-semibold text-center">
+            Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline">white label web development</Link> services.
+          </div>
         </div>
 
         <div className="flex flex-col gap-6 relative z-10">
