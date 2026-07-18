@@ -19,6 +19,8 @@ export default function FounderNote() {
               <img
                 src="/founder.jpeg"
                 alt="Ankush Kumar Gupta — Founder, BBS"
+                width={260}
+                height={325}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>

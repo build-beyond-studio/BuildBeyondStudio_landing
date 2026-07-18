@@ -106,7 +106,9 @@ export default function Team() {
                   {/* Avatar Image */}
                   <img
                     src={member.avatar}
-                    alt={member.name}
+                    alt={`${member.name} - ${member.role} at Build Beyond Studio`}
+                    width={128}
+                    height={128}
                     className="w-32 h-32 rounded-full border-4 border-white shadow-lg shadow-black/10 object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>

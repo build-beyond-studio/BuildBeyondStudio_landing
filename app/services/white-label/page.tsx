@@ -4,40 +4,28 @@ import Footer from '@/components/footer'
 import RevenueMath from '@/components/revenue-math'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'White-Label Web Development for Marketing Agencies India | BBS',
-  description:
-    'Marketing agencies: offer web development without hiring a developer. BBS builds everything under your brand — NDA-first, full IP yours. Start with one pilot project.',
-  keywords: [
-    'white label web development',
-    'white label web development India',
-    'white label MERN stack',
-    'web development for marketing agencies',
-    'agency development partner India',
-    'outsource web development agency',
-    'Build Beyond Studio white label',
-  ],
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/services/white-label',
-  },
-  openGraph: {
-    title: 'White-Label Web Development for Agencies | Build Beyond Studio',
-    description:
-      'We build production-ready web applications under your brand. Your clients never know we exist. Full IP rights, complete ownership.',
-    url: 'https://buildbeyondstudio.com/services/white-label',
-    siteName: 'Build Beyond Studio',
-    images: [
-      {
-        url: 'https://buildbeyondstudio.com/og-white-label.png',
-        width: 1200,
-        height: 630,
-        alt: 'White-Label Web Development for Agencies | Build Beyond Studio',
-      },
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/white-label',
+  'White-Label Web Development for Marketing Agencies India',
+  'Offer premium web development without hiring developers. BBS builds everything under your agency brand — NDA-first with full IP ownership.',
+  {
+    keywords: [
+      'white label web development',
+      'white label web development India',
+      'white label MERN stack',
+      'web development for marketing agencies',
+      'agency development partner India',
+      'outsource web development agency',
+      'Build Beyond Studio white label',
     ],
-    type: 'website',
-    locale: 'en_IN',
-  },
-}
+    openGraph: {
+      type: 'website',
+      locale: 'en_IN',
+    },
+  }
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',

@@ -2,39 +2,50 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'AI-Era Search Visibility (SEO, AEO & GEO) | Build Beyond Studio',
-  description: 'Optimize web code and contents so they rank in traditional search engines and are cited as top-tier sources by AI-powered search engines like ChatGPT, Perplexity, Gemini, and Claude.',
-  keywords: [
-    'AEO optimization',
-    'GEO optimization',
-    'Answer Engine Optimization',
-    'Generative Engine Optimization',
-    'AI search visibility',
-    'ChatGPT Search citations',
-    'Perplexity SEO',
-    'LLM citations',
-  ],
-}
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/aeo-geo',
+  'AI-Era Search Visibility (SEO, AEO & GEO)',
+  "Optimize your client's code to rank on Google and get cited as a top authority in AI answers like ChatGPT Search, Claude, and Perplexity.",
+  {
+    keywords: [
+      'AEO optimization',
+      'GEO optimization',
+      'Answer Engine Optimization',
+      'Generative Engine Optimization',
+      'AI search visibility',
+      'ChatGPT Search citations',
+      'Perplexity SEO',
+      'LLM citations',
+    ],
+  }
+)
 
 const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'AI-Era Search Visibility (SEO, AEO & GEO)',
-  serviceType: 'Search Engine Optimization',
-  provider: {
-    '@type': 'Organization',
-    name: 'Build Beyond Studio',
-    url: 'https://buildbeyondstudio.com',
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI-Era Search Visibility (SEO, AEO & GEO)",
+  "serviceType": "AI-Era Search Visibility (SEO, AEO & GEO)",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
   },
-  areaServed: 'Global',
-  description: 'Optimize web code and contents so they rank in traditional search engines and are cited as top-tier sources by AI-powered search engines.',
+  "areaServed": "IN",
+  "description": "Optimize your web code and content to rank in traditional search engines (Google) and be cited as a top-tier source by AI-powered search engines (ChatGPT Search, Perplexity, Google Gemini, Claude)."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'AI-Era Search Visibility (SEO, AEO & GEO)', path: '/services/aeo-geo' },
+]);
 
 export default function AeoGeoPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → AI-Era Search Visibility (SEO, AEO & GEO)</div>

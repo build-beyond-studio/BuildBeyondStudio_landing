@@ -1,8 +1,41 @@
+import type { Metadata } from 'next';
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata';
 import { COURSES } from "../data";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const course = COURSES.find((c) => c.id === resolvedParams.slug);
+
+  if (!course) {
+    return buildMetadata(
+      '/training-programs',
+      'Training Program Not Found',
+      'The requested training program does not exist.'
+    );
+  }
+
+  return buildMetadata(
+    `/training-programs/${course.id}`,
+    course.title,
+    course.tagline,
+    {
+      openGraph: {
+        title: course.title,
+        description: course.tagline,
+        type: 'website',
+      },
+    }
+  );
+}
+
 
 export default async function CourseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
@@ -12,8 +45,47 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
     notFound();
   }
 
+  const priceNumber = parseInt(activeCourse.price.replace(/[^\d]/g, ''));
+  const durationISO = `P${activeCourse.duration.replace(/[^\d]/g, '')}D`;
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": activeCourse.title,
+    "description": activeCourse.tagline,
+    "provider": {
+      "@type": "Organization",
+      "name": "Build Beyond Studio",
+      "url": "https://buildbeyondstudio.com"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Online",
+      "duration": durationISO
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": priceNumber,
+      "priceCurrency": "INR"
+    }
+  };
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Training & Internship Programs', path: '/training-programs' },
+    { name: activeCourse.title, path: `/training-programs/${activeCourse.id}` },
+  ]);
+
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       
       <div className="bg-[#FAF8F5] pt-12 pb-24">

@@ -7,29 +7,23 @@ import Workflow from '@/components/Workflow';
 import FAQ from '@/components/faq';
 import Link from 'next/link';
 import RevenueScrollBtn from '@/components/revenue-scroll-btn';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
-  description:
-    'BBS is your invisible web development team. We build under your brand — NDA-first, full IP ownership, 50/50 revenue split. Web development partner for agencies across India.',
-  keywords: [
-    'white label web development for marketing agencies',
-    'web development partner for agencies India',
-    'outsource web development agency India',
-  ],
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/for-agencies',
-  },
-  openGraph: {
-    title: 'White-Label Web Development for Marketing Agencies | Build Beyond Studio',
-    description:
-      'BBS is your invisible web development team. We build under your brand — NDA-first, full IP ownership, 50/50 revenue split. Web development partner for agencies across India.',
-    url: 'https://buildbeyondstudio.com/for-agencies',
-    siteName: 'Build Beyond Studio',
-    type: 'website',
-    locale: 'en_IN',
-  },
-};
+export const metadata: Metadata = buildMetadata(
+  '/for-agencies',
+  'White-Label Web Development for Marketing Agencies',
+  'BBS is your invisible web development team. We build MERN websites under your brand — NDA-first, full IP ownership, and 50/50 revenue split.',
+  {
+    keywords: [
+      'white label web development for marketing agencies',
+      'web development partner for agencies India',
+      'outsource web development agency India',
+    ],
+    openGraph: {
+      locale: 'en_IN',
+    },
+  }
+);
 
 export default function ForAgenciesPage() {
   const serviceSchema = {

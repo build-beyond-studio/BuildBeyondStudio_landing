@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/metadata';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,54 +37,52 @@ export async function generateMetadata({
   const blog = blogs.find((b) => b.slug === slug) as BlogPost | undefined;
 
   if (!blog) {
-    return {
-      title: 'Blog Post Not Found',
-      description: 'The blog post you are looking for does not exist.',
-    };
+    return buildMetadata(
+      '/blog',
+      'Blog Post Not Found',
+      'The blog post you are looking for does not exist.'
+    );
   }
 
-  const canonicalUrl = `https://buildbeyondstudio.com/blog/${blog.slug}`;
-
-  return {
-    title: blog.title,
-    description: blog.description,
-    keywords: blog.keywords.join(', '),
-    authors: [
-      {
-        name: 'Build Beyond Studio',
-        url: 'https://buildbeyondstudio.com',
-      },
-    ],
-    openGraph: {
-      title: blog.title,
-      description: blog.description,
-      type: 'article',
-      url: canonicalUrl,
-      images: [
+  return buildMetadata(
+    `/blog/${blog.slug}`,
+    blog.title,
+    blog.description,
+    {
+      keywords: blog.keywords.join(', '),
+      authors: [
         {
-          url: blog.featuredImage,
-          width: 1200,
-          height: 600,
-          alt: blog.title,
+          name: 'Build Beyond Studio',
+          url: 'https://buildbeyondstudio.com',
         },
       ],
-      publishedTime: blog.date,
-      authors: ['Build Beyond Studio'],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: blog.title,
-      description: blog.description,
-      images: [blog.featuredImage],
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+      openGraph: {
+        title: blog.title,
+        description: blog.description,
+        type: 'article',
+        images: [
+          {
+            url: blog.featuredImage,
+            width: 1200,
+            height: 600,
+            alt: blog.title,
+          },
+        ],
+        publishedTime: blog.date,
+        authors: ['Build Beyond Studio'],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: blog.title,
+        description: blog.description,
+        images: [blog.featuredImage],
+      },
+      robots: {
+        index: true,
+        follow: true,
+      },
+    }
+  );
 }
 
 function formatDate(dateString: string): string {

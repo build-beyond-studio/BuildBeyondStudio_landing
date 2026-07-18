@@ -1,15 +1,46 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Auto-Scaling Cloud & DevOps | Build Beyond Studio',
-  description: 'Auto-Scaling Cloud & DevOps for Marketing Agencies. Campaign-proof your clients’ sites.',
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/devops-infrastructure',
+  'Auto-Scaling Cloud & DevOps',
+  "Protect your client's ad spend. We setup auto-scaling AWS/GCP pipelines and Docker setups to campaign-proof high-traffic launches."
+)
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Auto-Scaling Cloud & DevOps",
+  "serviceType": "Auto-Scaling Cloud & DevOps",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
+  },
+  "areaServed": "IN",
+  "description": "Ensure your clients' sites never crash during high-traffic ad launches. Protect their ad spend and your reputation."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'Auto-Scaling Cloud & DevOps', path: '/services/devops-infrastructure' },
+]);
 
 export default function DevOpsInfrastructurePage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Auto-Scaling Cloud & DevOps</div>
@@ -73,6 +104,22 @@ export default function DevOpsInfrastructurePage() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* 5. Client Success Stories */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black mb-4">Client Results</h2>
+            <Link
+              href="/case-studies/shivora-media"
+              className="flex items-center justify-between gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)] hover:border-[#C8860A] transition-colors group"
+              style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}
+            >
+              <div>
+                <div className="font-semibold text-black text-sm group-hover:text-[#C8860A] transition-colors">Shivora Media</div>
+                <div className="text-xs text-gray-400">Bhopal</div>
+              </div>
+              <span className="text-[#C8860A] text-sm font-bold whitespace-nowrap">+40% Capacity →</span>
+            </Link>
           </div>
 
         </div>

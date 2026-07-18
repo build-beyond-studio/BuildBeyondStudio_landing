@@ -13,7 +13,7 @@ const testimonials = [
     resultStat: "+₹75K/mo Profit",
     type: "both",
     initials: "ST",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
   },
   {
     id: "agency-owner-2",
@@ -25,7 +25,7 @@ const testimonials = [
     resultStat: "3× Faster Delivery",
     type: "both",
     initials: "AY",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111690/WhatsApp_Image_2026-07-15_at_3.52.05_PM_mpolbe.jpg",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111690/WhatsApp_Image_2026-07-15_at_3.52.05_PM_mpolbe.jpg",
   },
     {
     id: "agency-owner-3",
@@ -37,7 +37,7 @@ const testimonials = [
     resultStat: "+₹75K/mo Profit",
     type: "both",
     initials: "ST",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
   },
   {
     id: "agency-owner-4",
@@ -49,7 +49,7 @@ const testimonials = [
     resultStat: "+40% Client Capacity",
     type: "both",
     initials: "MH",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111688/WhatsApp_Image_2026-07-15_at_3.52.05_PM_2_dakvlf.jpg",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111688/WhatsApp_Image_2026-07-15_at_3.52.05_PM_2_dakvlf.jpg",
   },
   {
     id: "agency-owner-5",
@@ -61,7 +61,7 @@ const testimonials = [
     resultStat: "+₹90K/mo Revenue",
     type: "both",
     initials: "AS",
-    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.05_PM_1_p0hpg2.jpg",
+    photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.05_PM_1_p0hpg2.jpg",
   },
 
 ];
@@ -83,10 +83,13 @@ export default function Testimonials() {
       `}</style>
       <div className="max-w-[100vw] overflow-hidden mx-auto">
         <div className="text-center mb-16">
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#C8860A] bg-[#FDF8F0] px-4 py-1.5 rounded-full border border-[rgba(200,134,10,0.15)] inline-block mb-4 shadow-sm">
+            Agency Proof
+          </span>
           <h2 className="text-3xl md:text-5xl font-black text-black tracking-[-0.03em] mb-4">
-            Trusted by India's Fastest-Growing Agencies
+            Partnering with Growing Agencies
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-lg mx-auto font-light text-base md:text-lg">
             Real margins. Zero hiring. Complete confidentiality.
           </p>
         </div>
@@ -103,7 +106,13 @@ export default function Testimonials() {
 
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <img src={testimonial.photoPath} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover shadow-sm ring-2 ring-[#FDF8F0]" />
+                  <img 
+                    src={testimonial.photoPath} 
+                    alt={`${testimonial.name}, ${testimonial.role} at ${testimonial.agency}`} 
+                    width={56} 
+                    height={56} 
+                    className="w-14 h-14 rounded-full object-cover shadow-sm ring-2 ring-[#FDF8F0]" 
+                  />
                   <div>
                     <p className="text-black font-bold text-[15px]">{testimonial.name}</p>
                     <p className="text-gray-600 font-medium text-xs mb-0.5">{testimonial.role}, <span className="text-black">{testimonial.agency}</span></p>

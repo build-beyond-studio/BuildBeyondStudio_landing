@@ -5,28 +5,27 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import blogs from '@/data/blogs.json';
 
-export const metadata: Metadata = {
-  title: 'Insights & Growth Strategies | Build Beyond Studio',
-  description: 'Read expert insights on branding, web development, SEO strategies, and startup growth. Discover practical strategies for your business.',
-  keywords: 'blog, insights, growth strategies, SEO, web development, branding, startup tips',
-  openGraph: {
-    title: 'Insights & Growth Strategies | Build Beyond Studio',
-    description: 'Expert insights on branding, web development, and startup growth strategies.',
-    type: 'website',
-    url: 'https://buildbeyondstudio.com/blog',
-    images: [
-      {
-        url: 'https://buildbeyondstudio.com/og-blog.png',
-        width: 1200,
-        height: 630,
-        alt: 'BBS Blog — Insights for Marketing Agencies',
-      },
-    ],
-  },
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/blog',
-  },
-};
+import { buildMetadata } from '@/lib/metadata';
+
+export const metadata: Metadata = buildMetadata(
+  '/blog',
+  'Insights & Growth Strategies',
+  'Read expert insights on branding, web development, SEO strategies, and startup growth. Discover practical strategies for your business.',
+  {
+    keywords: 'blog, insights, growth strategies, SEO, web development, branding, startup tips',
+    openGraph: {
+      type: 'website',
+      images: [
+        {
+          url: 'https://buildbeyondstudio.com/og-blog.png',
+          width: 1200,
+          height: 630,
+          alt: 'BBS Blog — Insights for Marketing Agencies',
+        },
+      ],
+    },
+  }
+);
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);

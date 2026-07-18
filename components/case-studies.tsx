@@ -16,9 +16,9 @@ const caseStudies = [
       'Enabled online sales channel, streamlined inventory management, improved brand visibility, and reduced manual product handling efforts.',
     liveUrl: 'https://tipsybombs.com/',
     screenshots: [
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080030_cwoegj.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468852/Screenshot_2026-02-19_080039_ujlwtx.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468852/Screenshot_2026-02-19_080047_hpeotz.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468854/Screenshot_2026-02-19_080030_cwoegj.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468852/Screenshot_2026-02-19_080039_ujlwtx.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468852/Screenshot_2026-02-19_080047_hpeotz.png?w=1200&h=800&fit=crop&q=100&dpr=2',
     ],
   },
 
@@ -35,9 +35,9 @@ const caseStudies = [
       'Strengthened brand credibility, improved online visibility, and provided customers with a clear understanding of the restaurant’s offerings.',
     liveUrl: 'https://www.cocconcurry.com/',
     screenshots: [
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468859/Screenshot_2026-02-19_080136_iyow84.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468857/Screenshot_2026-02-19_080154_ihqlkf.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080223_pjaipj.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468859/Screenshot_2026-02-19_080136_iyow84.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468857/Screenshot_2026-02-19_080154_ihqlkf.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468854/Screenshot_2026-02-19_080223_pjaipj.png?w=1200&h=800&fit=crop&q=100&dpr=2',
     ],
   },
 
@@ -54,9 +54,9 @@ const caseStudies = [
       'Expanded global reach, improved conversion rates for international customers, and delivered a premium online shopping experience.',
     liveUrl: 'https://www.tranquilitylux.com/',
     screenshots: [
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080245_lvtxs4.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080250_anuy3g.png?w=1200&h=800&fit=crop&q=100&dpr=2',
-      'https://res.cloudinary.com/dnnsjmrku/image/upload/v1771468854/Screenshot_2026-02-19_080305_sn5c77.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468854/Screenshot_2026-02-19_080245_lvtxs4.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468854/Screenshot_2026-02-19_080250_anuy3g.png?w=1200&h=800&fit=crop&q=100&dpr=2',
+      'https://res.cloudinary.com/dnnsjmrku/image/upload/f_auto,q_auto/v1771468854/Screenshot_2026-02-19_080305_sn5c77.png?w=1200&h=800&fit=crop&q=100&dpr=2',
     ],
   },
   {
@@ -72,9 +72,9 @@ const caseStudies = [
       'Established a credible online identity for the clinic, improved patient enquiry rates, and made it easier for couples to learn about high-success-rate IVF programs running since 2015.',
     liveUrl: 'https://www.srijjanivfbhilai.com/',
     screenshots: [
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905740/Screenshot_2026-05-04_200945_etjkty.png',
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905692/Screenshot_2026-05-04_201025_iwjx2a.png',
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905693/Screenshot_2026-05-04_201052_myqm1p.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905740/Screenshot_2026-05-04_200945_etjkty.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905692/Screenshot_2026-05-04_201025_iwjx2a.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905693/Screenshot_2026-05-04_201052_myqm1p.png',
     ],
   },
   {
@@ -90,9 +90,9 @@ const caseStudies = [
       'Gave DOZZED a digital home that mirrors its real-world energy — building brand credibility, driving café footfall, and amplifying Ashwin\'s vision of a homegrown Indian coffee movement.',
     liveUrl: 'https://www.getdozzed.com/',
     screenshots: [
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905373/Screenshot_2026-05-04_200455_pfsolm.png',
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905372/Screenshot_2026-05-04_200515_ujeqqn.png',
-      'https://res.cloudinary.com/ds6jbzjy0/image/upload/v1777905370/Screenshot_2026-05-04_200539_ohmvzn.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905373/Screenshot_2026-05-04_200455_pfsolm.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905372/Screenshot_2026-05-04_200515_ujeqqn.png',
+      'https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1777905370/Screenshot_2026-05-04_200539_ohmvzn.png',
     ],
   },
 ];
@@ -167,7 +167,9 @@ export default function CaseStudies() {
                 <div className="relative h-40 sm:h-48 md:h-56 bg-gray-50 overflow-hidden shrink-0 group">
                   <img
                     src={study.screenshots[currentScreenshots[index] || 0]}
-                    alt={`${study.title} screenshot`}
+                    alt={`${study.title} digital interface showcase`}
+                    width={600}
+                    height={400}
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 filter"
                     style={{
                       filter: 'brightness(1.02) contrast(1.08)',
@@ -277,7 +279,9 @@ export default function CaseStudies() {
                     <div key={idx} className="relative group overflow-hidden rounded-xl border border-[rgba(200,134,10,0.12)] group-hover:border-[rgba(200,134,10,0.35)] transition-all">
                       <img
                         src={screenshot}
-                        alt={`Screenshot ${idx + 1}`}
+                        alt={`${caseStudies[selectedStudy].title} project interface screenshot ${idx + 1}`}
+                        width={800}
+                        height={533}
                         className="w-full h-auto object-contain bg-gray-50 transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>

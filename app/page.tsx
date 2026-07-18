@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/metadata';
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Workflow from "@/components/Workflow";
@@ -12,6 +14,13 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingAIAssistant from "@/components/FloatingAIAssistant";
+
+export const metadata: Metadata = buildMetadata(
+  '/',
+  undefined,
+  "Marketing agency? We're your invisible web dev team. You bring the clients, we build and deliver — fully under your brand. Zero overhead, full IP."
+);
+
 
 const faqSchema = {
   "@context": "https://schema.org",

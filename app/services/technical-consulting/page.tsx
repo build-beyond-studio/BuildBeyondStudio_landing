@@ -2,14 +2,44 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-export const metadata: Metadata = {
-  title: 'Fractional CTO & Tech Roadmap | Build Beyond Studio',
-  description: 'Fractional CTO & Tech Roadmap for Marketing Agencies. We act as your Fractional CTO to help you sell high-ticket retainers.',
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/services/technical-consulting',
+  'Fractional CTO & Tech Roadmap',
+  "Close high-ticket strategic client retainers. We act as your agency's white-label fractional CTO, mapping out systems architecture."
+)
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Fractional CTO & Tech Roadmap",
+  "serviceType": "Fractional CTO & Tech Roadmap",
+  "provider": {
+    "@type": "Organization",
+    "name": "Build Beyond Studio"
+  },
+  "areaServed": "IN",
+  "description": "Bring executive-level tech strategy to your clients without hiring a full-time CTO. We provide the roadmap, you bill for the strategy."
 }
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/#services' },
+  { name: 'Fractional CTO & Tech Roadmap', path: '/services/technical-consulting' },
+]);
 
 export default function TechnicalConsultingPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Fractional CTO & Tech Roadmap</div>

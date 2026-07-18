@@ -1,96 +1,76 @@
 import { MetadataRoute } from 'next'
 
+import blogs from '@/data/blogs.json'
+import { COURSES } from './training-programs/data'
+import { CASE_STUDIES } from './case-studies/data'
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://buildbeyondstudio.com';
+
+  const staticPages = [
+    { url: '', priority: 1.0, changeFrequency: 'weekly' as const },
+    { url: '/for-agencies', priority: 1.0, changeFrequency: 'weekly' as const },
+    { url: '/white-label-web-development', priority: 1.0, changeFrequency: 'weekly' as const },
+    { url: '/ambikapur', priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: '/how-we-partner', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/success-stories', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/case-studies', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/training-programs', priority: 0.9, changeFrequency: 'weekly' as const },
+    { url: '/blog', priority: 0.8, changeFrequency: 'weekly' as const },
+    { url: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { url: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
+  ].map(page => ({
+    url: `${baseUrl}${page.url}`,
+    lastModified: new Date('2026-07-18'),
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
+
+  const servicePages = [
+    '/services/custom-web-applications',
+    '/services/devops-infrastructure',
+    '/services/technical-consulting',
+    '/services/aeo-geo',
+    '/services/performance-ads',
+    '/services/tracking-funnels',
+    '/services/ai-visuals',
+    '/services/white-label',
+    '/services/web-applications',
+    '/services/devops',
+    '/services/consulting',
+  ].map(path => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date('2026-07-18'),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const blogPages = blogs.map(blog => ({
+    url: `${baseUrl}/blog/${blog.slug}`,
+    lastModified: new Date(blog.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const coursePages = COURSES.map(course => ({
+    url: `${baseUrl}/training-programs/${course.id}`,
+    lastModified: new Date('2026-07-18'),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const caseStudyPages = CASE_STUDIES.map(cs => ({
+    url: `${baseUrl}/case-studies/${cs.slug}`,
+    lastModified: new Date('2026-07-18'),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
-    {
-      url: 'https://buildbeyondstudio.com',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/for-agencies',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/services/white-label',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/services/web-applications',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/services/devops',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/services/consulting',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/how-marketing-agencies-offer-web-development-without-hiring-developers',
-      lastModified: new Date('2026-05-10'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/why-marketing-agencies-lose-clients-to-full-service-competitors',
-      lastModified: new Date('2026-05-10'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/real-cost-hiring-web-developer-vs-white-label',
-      lastModified: new Date('2026-05-08'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/how-to-price-web-projects-marketing-agency',
-      lastModified: new Date('2026-05-06'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/high-converting-website-increases-revenue',
-      lastModified: new Date('2026-02-12'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/why-branding-critical-startup-growth',
-      lastModified: new Date('2026-02-15'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/blog/seo-strategies-modern-businesses',
-      lastModified: new Date('2026-02-10'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://buildbeyondstudio.com/privacy',
-      lastModified: new Date('2026-05-11'),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+    ...staticPages,
+    ...servicePages,
+    ...blogPages,
+    ...coursePages,
+    ...caseStudyPages,
+  ];
 }

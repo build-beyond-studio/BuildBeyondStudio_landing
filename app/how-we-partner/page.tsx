@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'How We Partner | Build Beyond Studio',
-  description: 'Visual breakdown of our integration models, agile delivery process, and communication standards for marketing agencies.',
-}
+import { buildMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = buildMetadata(
+  '/how-we-partner',
+  'How We Partner',
+  'Visual breakdown of our integration models, agile delivery process, and communication standards for marketing agencies.'
+)
 
 export default function HowWePartnerPage() {
   return (
@@ -23,7 +27,7 @@ export default function HowWePartnerPage() {
             Seamless Integration.<br />Guaranteed Execution.
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-8">
-            We operate as your agency's white-label engineering extension. Zero hiring friction, full security, and complete transparency.
+            We operate as your agency's <Link href="/white-label-web-development" className="text-[#C8860A] font-medium hover:underline">white-label web development</Link> engineering extension. Zero hiring friction, full security, and complete transparency.
           </p>
 
           {/* Quick TL;DR Visual Badge Row */}
