@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
@@ -56,9 +57,15 @@ export default function AiVisualsPage() {
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Cost-effective, studio-grade product photo and video assets generated via advanced AI models. Refresh your marketing creatives instantly.
         </p>
-        <a href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20an%20AI%20Visual%20Production%20brief%20with%20Build%20Beyond%20Studio." className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}>
+        <TrackedLink
+          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20an%20AI%20Visual%20Production%20brief%20with%20Build%20Beyond%20Studio."
+          eventName="whatsapp_click"
+          eventParams={{ button_location: 'service_page_ai_visuals' }}
+          className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
+          style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+        >
           Launch Your AI Visual Project
-        </a>
+        </TrackedLink>
 
         <div className="space-y-12 text-gray-700">
           

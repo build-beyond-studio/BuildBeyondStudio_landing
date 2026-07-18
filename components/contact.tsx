@@ -56,6 +56,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
+        window.gtag?.('event', 'contact_form_submit', { form_location: 'contact_page' });
         setStatus("Thank you! We'll be in touch shortly.");
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatus(""), 5000);
@@ -181,6 +182,9 @@ export default function Contact() {
                 href={`https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  window.gtag?.('event', 'whatsapp_click', { button_location: 'contact_page' });
+                }}
                 className="inline-block cursor-pointer bg-green-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-green-700 transition-all font-semibold text-base mb-6"
               >
                 Start WhatsApp Chat

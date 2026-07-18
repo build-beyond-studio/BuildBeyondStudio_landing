@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import { ArrowRight } from "lucide-react";
 
 import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import { GENERAL_BENEFITS, COURSES } from "./data";
 
 export const metadata: Metadata = buildMetadata(
@@ -110,13 +111,15 @@ export default function InternshipProgramsPage() {
                       <span className="text-[10px] text-gray-500 font-medium">{course.emi}</span>
                     </div>
 
-                    <Link
+                    <TrackedLink
                       href={`/training-programs/${course.id}`}
+                      eventName="view_curriculum_details"
+                      eventParams={{ course_name: course.title }}
                       className="w-full py-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 bg-[#F5F2EC] text-[#C8860A] hover:bg-[#C8860A] hover:text-white"
                     >
                       View Curriculum Details
                       <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                    </TrackedLink>
                   </div>
                 </div>
               );
@@ -196,10 +199,12 @@ export default function InternshipProgramsPage() {
             Enroll in any course and build a live, deployed project by the last day. No experience needed for Course 01 and Course 03. The only requirement is showing up.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
-            <a
+            <TrackedLink
               href="https://wa.me/919301579493?text=Hi%21%20I%20have%20questions%20about%20the%20Internship%20Programs%20at%20Build%20Beyond%20Studio."
               target="_blank"
               rel="noopener noreferrer"
+              eventName="whatsapp_click"
+              eventParams={{ button_location: 'training_programs_list' }}
               className="inline-block text-white px-8 py-3.5 rounded-lg transition-all font-semibold shadow-md hover:shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)",
@@ -207,7 +212,7 @@ export default function InternshipProgramsPage() {
               }}
             >
               Chat With Us on WhatsApp
-            </a>
+            </TrackedLink>
           </div>
           <div className="text-xs text-gray-500 max-w-lg mx-auto leading-relaxed">
             Ambikapur, Chhattisgarh, India &middot; buildbeyondstudio.com &middot; hello@buildbeyondstudio.com<br />

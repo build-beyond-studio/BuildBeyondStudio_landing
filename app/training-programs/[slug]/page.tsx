@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
+import TrackedLink from "@/components/TrackedLink";
 
 export async function generateMetadata({
   params,
@@ -108,14 +109,16 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 <p className="mt-2 text-gray-500 italic">"{activeCourse.tagline}"</p>
               </div>
               <div className="flex gap-3 shrink-0">
-                <a
+                <TrackedLink
                   href={`https://wa.me/919301579493?text=${encodeURIComponent(activeCourse.waMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  eventName="whatsapp_click"
+                  eventParams={{ button_location: `training_program_${activeCourse.id}` }}
                   className="bg-gradient-to-r from-[#A06A00] to-[#C8860A] text-white px-6 py-3 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all flex items-center gap-2"
                 >
                   Enroll via WhatsApp <ArrowRight className="w-4 h-4" />
-                </a>
+                </TrackedLink>
               </div>
             </div>
 
