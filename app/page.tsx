@@ -11,6 +11,7 @@ import FAQ, { faqs } from "@/components/faq";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import FloatingAIAssistant from "@/components/FloatingAIAssistant";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -33,6 +34,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FloatingWhatsApp />
+      <FloatingAIAssistant />
       <Header />
       <Hero />
       <Testimonials />

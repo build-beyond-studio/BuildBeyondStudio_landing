@@ -16,6 +16,7 @@ interface BlogPost {
   featuredImage: string;
   keywords: string[];
   content: string;
+  featured?: boolean;
 }
 
 // Generate static params for all blog posts
