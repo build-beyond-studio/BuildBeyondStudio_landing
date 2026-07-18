@@ -88,7 +88,7 @@ export default function Header() {
           outline: 1px solid rgba(0, 0, 0, 0.05);
           padding-top: 10px;
           padding-bottom: 10px;
-          max-width: 64rem; /* 1024px ≈ max-w-4xl */
+          max-width: 82rem; /* Increased from 64rem to fit new items */
         }
 
         .nav-morph.menu-open {
@@ -138,6 +138,7 @@ export default function Header() {
         .nav-link {
           position: relative;
           letter-spacing: 0.03em;
+          white-space: nowrap;
         }
         .nav-link::after {
           content: '';
@@ -218,13 +219,13 @@ export default function Header() {
                 height={40}
                 className="w-8 sm:w-9 h-8 sm:h-9 shrink-0 bg-white rounded-full"
               />
-              <span className="font-semibold text-black text-sm sm:text-[15px] tracking-tight">
+              <span className="font-semibold text-black text-sm sm:text-[15px] tracking-tight whitespace-nowrap">
                 Build Beyond Studio
               </span>
             </a>
 
             {/* Desktop Nav — each link drops from TOP */}
-            <nav className="hidden md:flex items-center gap-7">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
               {NAV_LINKS.map((item, idx) => (
                 item.dropdown ? (
                   <div key={item.label} className="relative group nav-item" style={{ animationDelay: `${0.20 + (idx * 0.06)}s` }}>
@@ -262,7 +263,7 @@ export default function Header() {
             <a
               href={contactHref}
               {...contactProps}
-              className="hidden md:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right"
+              className="hidden lg:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right whitespace-nowrap"
               style={{
                 background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
                 boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
@@ -273,7 +274,7 @@ export default function Header() {
 
             {/* Hamburger — slides from RIGHT */}
             <button
-              className={`anim-from-right md:hidden flex flex-col justify-center items-center gap-[5.5px] w-9 h-9 rounded-xl hover:bg-black/5 transition-colors duration-200 cursor-pointer ${isMenuOpen ? "ham-open" : ""
+              className={`anim-from-right lg:hidden flex flex-col justify-center items-center gap-[5.5px] w-9 h-9 rounded-xl hover:bg-black/5 transition-colors duration-200 cursor-pointer ${isMenuOpen ? "ham-open" : ""
                 }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Open navigation menu"
@@ -286,7 +287,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Dropdown */}
-          <div className={`mobile-menu md:hidden ${isMenuOpen ? "open" : ""}`}>
+          <div className={`mobile-menu lg:hidden ${isMenuOpen ? "open" : ""}`}>
             <div className="mobile-menu-inner">
               <nav className="flex flex-col px-5 pb-3 pt-2 gap-0 border-t border-black/5 mt-2 bg-white/90 rounded-b-2xl backdrop-blur-md">
                 {NAV_LINKS.map((item, idx) => (

@@ -116,14 +116,18 @@ export default function InternshipProgramsSection() {
           {BENEFITS.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-[rgba(200,134,10,0.13)] hover:border-[rgba(200,134,10,0.35)] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(200,134,10,0.12)] hover:-translate-y-1"
-              style={{ boxShadow: '0 4px 14px rgba(200,134,10,0.06)' }}
+              className="group relative bg-white px-6 py-6 rounded-[24px] border border-black/5 transition-all duration-300 hover:border-[#C8860A]/30 hover:shadow-[0_16px_40px_rgba(200,134,10,0.08)] overflow-hidden hover:-translate-y-1"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-[#FDF8F0] rounded-xl border border-[rgba(200,134,10,0.15)] mb-4 shadow-sm">
-                {item.icon}
+              {/* Premium corner accent */}
+              <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-[#C8860A]/[0.08] to-transparent rounded-bl-full transition-transform duration-500 group-hover:scale-110 pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#FFFDF8] to-[#FDF4E5] rounded-xl border border-[#C8860A]/10 mb-4 shadow-[0_4px_12px_rgba(200,134,10,0.05)] group-hover:shadow-[0_4px_16px_rgba(200,134,10,0.12)] transition-shadow duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-black text-[17px] tracking-tight mb-1.5">{item.title}</h3>
+                <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="font-bold text-black text-[16px] mb-2">{item.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
