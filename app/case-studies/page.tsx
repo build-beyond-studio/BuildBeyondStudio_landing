@@ -36,10 +36,10 @@ export default function CaseStudiesIndexPage() {
             <Link href="/" className="hover:underline">Home</Link> {' \u2192 '} Case Studies
           </div>
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Case Studies</div>
-          <h1 className="text-4xl sm:text-6xl font-black text-black tracking-[-0.03em] mb-6 leading-[1.1]">
+          <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
             Proven Results. Silent Execution.
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             We operate behind the scenes under strict NDA. Your clients see a premium, flawless build; you capture the expanded margins without the operational liability of local hiring.
           </p>
         </div>

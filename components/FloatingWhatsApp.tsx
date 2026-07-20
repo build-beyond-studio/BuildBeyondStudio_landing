@@ -9,8 +9,7 @@ const FloatingWhatsApp: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[999] flex items-center">
-
+    <div className="fixed bottom-6 right-6 z-[999] hidden md:flex items-center">
       {/* Message Card */}
       <a
         href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
@@ -19,15 +18,12 @@ const FloatingWhatsApp: React.FC = () => {
         onClick={handleClick}
         className="relative mr-3 bg-green-500 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 animate-[bounce_2s_infinite] hover:scale-105 transition-transform"
       >
-
         {/* Notification Ripple */}
         <span className="relative flex h-3 w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
         </span>
-
         Chat with us
-
         {/* Arrow Pointer */}
         <span className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-green-500 rotate-45"></span>
       </a>
@@ -46,7 +42,6 @@ const FloatingWhatsApp: React.FC = () => {
 
         <FaWhatsapp className="w-7 h-7 relative z-10" />
       </a>
-
     </div>
   );
 };

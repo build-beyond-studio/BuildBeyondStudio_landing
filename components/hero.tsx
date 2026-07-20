@@ -275,6 +275,9 @@ export default function Hero() {
           pointer-events: none; user-select: none;
           will-change: transform;
         }
+        @media (max-width: 767px) {
+          .orb-ball { display: none !important; }
+        }
 
         /* ── entrance ──────────────────────────────────────── */
         .hero-pre {
@@ -407,7 +410,7 @@ export default function Hero() {
           ref={contentRef}
           className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10
                      flex flex-col items-center text-center gap-5 sm:gap-5
-                     will-change-[transform,opacity] pt-2 pb-40"
+                     will-change-[transform,opacity] pt-12 sm:pt-16 pb-40"
         >
           {/* Eyebrow */}
           <div ref={eyebrowRef} className="hero-pre">
@@ -421,7 +424,7 @@ export default function Hero() {
           <div className="flex flex-col items-center gap-3">
             <h1
               ref={titleRef}
-              className="hero-pre text-[2.2rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem]
+              className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem]
                          font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
               Scale Your Marketing Agency with{" "}
@@ -435,7 +438,7 @@ export default function Hero() {
             </h1>
             <p
               ref={subheadRef}
-              className="hero-pre text-[15px] sm:text-[17px] font-semibold"
+              className="hero-pre text-[17px] sm:text-[19px] font-semibold"
               style={{
                 color: '#C8860A',
                 letterSpacing: '0.01em',

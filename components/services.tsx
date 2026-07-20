@@ -185,7 +185,7 @@ export default function Services() {
       </section>
 
       {/* ── Mobile Vertical Scroll Layer ── */}
-      <section id="services-mobile" className="lg:hidden bg-[#F5F2EC] text-black pt-24 pb-20 px-5 sm:px-8 overflow-hidden relative border-t border-black/5">
+      <section id="services-mobile" className="lg:hidden bg-[#F5F2EC] text-black pt-12 pb-12 px-5 sm:px-8 overflow-hidden relative border-t border-black/5">
         {/* Glow */}
         <div className="absolute top-20 left-0 w-full h-[60vh] rounded-full blur-[100px] pointer-events-none -translate-x-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
 
@@ -195,60 +195,42 @@ export default function Services() {
             <span className="text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
           </div>
 
-          <h2 className="text-[2.2rem] sm:text-[2.8rem] font-black leading-[1.05] tracking-[-0.03em] text-black mb-4">
+          <h2 className="text-2xl sm:text-[2.1rem] font-black leading-[1.08] tracking-[-0.032em] text-black mb-4">
             Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
           </h2>
-          <p className="text-[14.5px] sm:text-[16px] text-gray-600 leading-[1.7] max-w-[480px] mx-auto font-light mb-4">
+          <p className="text-[13.5px] sm:text-[14.5px] text-gray-500 leading-[1.7] max-w-[480px] mx-auto mb-4">
             We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
           </p>
-          <div className="text-sm font-semibold text-center">
+          <div className="text-[13px] font-semibold text-center">
             Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline">white label web development</Link> services.
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 relative z-10">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
           {services.map((svc, i) => (
             <motion.div
               key={svc.num}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              className="h-full"
             >
               <Link
                 href={svc.link}
-                className="block group relative bg-white border border-[rgba(200,134,10,0.12)] rounded-[24px] overflow-hidden p-8 transition-colors hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_12px_36px_rgba(200,134,10,0.14)]" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.08)' }}
+                className="block group relative bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl overflow-hidden p-4 sm:p-5 h-full flex flex-col transition-colors hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_8px_24px_rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.04)' }}
               >
                 {/* Mobile top gradient */}
-                <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />
+                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />
 
-                {/* Watermark */}
-                <div className="absolute -bottom-8 -right-4 text-[10rem] font-black tracking-tighter text-black/[0.015] select-none pointer-events-none">
-                  {svc.num}
-                </div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <h3 className="text-[14px] sm:text-[16px] font-bold tracking-tight text-black/90 mb-4 leading-snug">
+                    {svc.title.replace('\n', ' ')}
+                  </h3>
 
-                <div className="relative z-10">
-                  <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-black/90">
-                      {svc.title.replace('\n', ' ')}
-                    </h3>
-                  </div>
-
-                  <p className="text-gray-600 text-base leading-relaxed mb-8">
-                    {svc.desc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {svc.features.slice(0, 3).map((feat) => (
-                      <span key={feat} className="px-3 py-1.5 rounded-full bg-black/[0.02] border border-black/5 text-[12px] font-medium text-gray-600">
-                        {feat}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-black/70 group-hover:text-black transition-colors">
-                    Explore Service
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#C8860A] uppercase tracking-wide group-hover:text-[#A06A00] transition-colors mt-auto">
+                    Explore
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </div>
