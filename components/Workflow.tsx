@@ -107,14 +107,14 @@ export default function Workflow() {
       <style>{`
         .wf-section {
           background: #F5F2EC;
-          padding: 88px 0 100px;
+          padding: 88px 0 60px;
           position: relative;
           z-index: 20;
           margin-top: -80px;
           overflow: hidden;
         }
         @media (max-width: 767px) {
-          .wf-section { padding: 64px 0 72px; margin-top: -40px; }
+          .wf-section { padding: 64px 0 40px; margin-top: -40px; }
         }
 
         /* Noise texture overlay */
@@ -324,11 +324,11 @@ export default function Workflow() {
         .wf-rev-btn:hover svg { transform: translateX(3px); }
 
         .wf-cta-badge {
-          display: inline-flex; align-items: center; gap: 5px;
-          font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+          display: inline-flex; align-items: center; gap: 4px;
+          font-size: 8.5px; font-weight: 800; letter-spacing: 0.04em;
           text-transform: uppercase;
           color: #C8860A;
-          padding: 4px 10px;
+          padding: 3px 8px;
           background: rgba(200,134,10,0.07);
           border: 1px solid rgba(200,134,10,0.14);
           border-radius: 999px;
@@ -344,6 +344,8 @@ export default function Workflow() {
           display: flex;
           gap: 16px;
           align-items: stretch;
+          padding-top: 12px;
+          padding-bottom: 12px;
         }
         .wf-card {
           flex: 1;
@@ -353,31 +355,40 @@ export default function Workflow() {
         @media (max-width: 767px) {
           .wf-steps-row {
             overflow-x: auto;
+            overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding-bottom: 8px;
           }
           .wf-steps-row::-webkit-scrollbar { display: none; }
-          .wf-card { min-width: 230px; flex-shrink: 0; }
+          .wf-card { 
+            min-width: 190px; 
+            flex-shrink: 0; 
+            padding: 18px 16px 14px; 
+          }
+          .wf-icon-wrap { margin-bottom: 10px; width: 36px; height: 36px; }
+          .wf-step-num-label { margin-bottom: 6px; }
+          .wf-card-title { margin-bottom: 6px; font-size: 13.5px; }
+          .wf-card-body { margin-bottom: 10px; font-size: 11px; line-height: 1.5; }
         }
 
-        /* Bottom link */
+        /* Bottom CTA Button */
         .wf-cta-link {
-          display: inline-flex; align-items: center; gap: 6px;
-          font-size: 13px; font-weight: 700; color: #C8860A;
-          text-decoration: none; letter-spacing: -0.01em;
-          position: relative; padding-bottom: 2px;
+          display: inline-flex; align-items: center; gap: 8px;
+          font-size: 14px; font-weight: 700; color: #ffffff;
+          background: #C8860A;
+          padding: 12px 28px;
+          border-radius: 8px;
+          text-decoration: none; letter-spacing: 0.02em;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 14px rgba(200,134,10,0.25);
         }
-        .wf-cta-link::after {
-          content: '';
-          position: absolute; bottom: 0; left: 0;
-          width: 0; height: 1.5px;
-          background: #C8860A; border-radius: 99px;
-          transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+        .wf-cta-link:hover { 
+          background: #A06A00;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(200,134,10,0.35);
         }
-        .wf-cta-link:hover::after { width: 100%; }
         .wf-cta-link svg { transition: transform 0.25s ease; }
-        .wf-cta-link:hover svg { transform: translateX(3px); }
+        .wf-cta-link:hover svg { transform: translateX(4px); }
       `}</style>
 
       <section ref={sectionRef} id="how-we-work" className="wf-section">
@@ -395,7 +406,7 @@ export default function Workflow() {
                 The Agency Bottleneck
               </span>
             </div>
-            <h2 className="text-[1.75rem] sm:text-[2.1rem] font-black text-black leading-[1.08] tracking-[-0.032em] mb-3">
+            <h2 className="text-2xl sm:text-[2.1rem] font-black text-black leading-[1.08] tracking-[-0.032em] mb-3">
               You Built a Marketing Agency.<br/>Don't Let Tech Bottlenecks Slow Your Growth.
             </h2>
             <p className="text-[13.5px] text-gray-500 max-w-[480px] mx-auto leading-[1.75]">
@@ -431,7 +442,7 @@ export default function Workflow() {
                   <h3 className="wf-card-title">{step.title}</h3>
                   <p className="wf-card-body">{step.body}</p>
                   <span className="wf-cta-badge">
-                    <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg>
+                    <svg width="6" height="6" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg>
                     {step.cta}
                   </span>
                   {step.revenueBtn && (

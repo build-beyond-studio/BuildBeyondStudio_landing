@@ -46,28 +46,30 @@ export default function TechnicalConsultingPage() {
         <div className="mb-4 text-sm text-gray-500">Home → Services → Fractional CTO & Tech Roadmap</div>
 
         {/* 1. Hero Section (Business Outcome) */}
-        <h1 className="text-5xl font-bold text-black mb-6">
+        <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
           Fractional CTO & Tech Roadmap. Sell High-Ticket Retainers.
         </h1>
-        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
           Bring executive-level tech strategy to your clients without hiring a full-time CTO. 
           We provide the roadmap, you bill for the strategy.
         </p>
-        <TrackedLink
-          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Fractional%20CTO%20%26%20Tech%20Roadmap%20brief%20with%20Build%20Beyond%20Studio."
-          eventName="whatsapp_click"
-          eventParams={{ button_location: 'service_page_technical_consulting' }}
-          className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
-          style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-        >
-          Partner With Us
-        </TrackedLink>
+        <div className="text-center sm:text-left mb-16">
+          <TrackedLink
+            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Fractional%20CTO%20%26%20Tech%20Roadmap%20brief%20with%20Build%20Beyond%20Studio."
+            eventName="whatsapp_click"
+            eventParams={{ button_location: 'service_page_technical_consulting' }}
+            className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
+            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+          >
+            Partner With Us
+          </TrackedLink>
+        </div>
 
         <div className="space-y-12 text-gray-700">
           
           {/* 2. Why Pitch This? */}
           <div>
-            <h2 className="text-2xl font-semibold text-black mb-4">Why Pitch This?</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Why Pitch This?</h2>
             <p className="leading-relaxed mb-4">
               Strategic consulting elevates your agency from a vendor to an indispensable partner. By offering CTO-level guidance, you unlock premium retainers and gain deeper integration into your client's business.
             </p>
@@ -75,7 +77,7 @@ export default function TechnicalConsultingPage() {
 
           {/* 3. The Invisible Process */}
           <div>
-            <h2 className="text-2xl font-semibold text-black mb-4">The Invisible Process</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">The Invisible Process</h2>
             <div className="space-y-4">
               {[
                 { step: '01', title: 'Audit & Analysis', desc: 'We review the client\'s current tech stack and architecture behind the scenes.' },
@@ -83,11 +85,11 @@ export default function TechnicalConsultingPage() {
                 { step: '03', title: 'White-Label Presentation', desc: 'We provide you with the documentation and insights to present to the client.' },
                 { step: '04', title: 'Ongoing Advisory', desc: 'We remain available for continuous technical support and adjustments.' },
               ].map((item) => (
-                <div key={item.step} className="flex gap-4 p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <span className="text-[#C8860A] font-mono text-sm pt-1">{item.step}</span>
+                <div key={item.step} className="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
+                  <span className="text-[#C8860A] font-mono text-[13px] sm:text-sm pt-0.5 sm:pt-1">{item.step}</span>
                   <div>
-                    <div className="font-semibold text-black mb-1">{item.title}</div>
-                    <div className="text-gray-600 text-sm leading-relaxed">{item.desc}</div>
+                    <div className="font-semibold text-black mb-1 text-sm sm:text-base">{item.title}</div>
+                    <div className="text-gray-600 text-[13px] sm:text-sm leading-relaxed">{item.desc}</div>
                   </div>
                 </div>
               ))}
@@ -96,7 +98,7 @@ export default function TechnicalConsultingPage() {
 
           {/* 4. The Tech Stack (Translated) */}
           <div>
-            <h2 className="text-2xl font-semibold text-black mb-4">The Tech Stack</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">The Tech Stack</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 { tech: 'Architecture Review', benefit: 'Ensures stability and scalable foundations.' },

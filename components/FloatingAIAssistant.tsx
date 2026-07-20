@@ -30,17 +30,17 @@ export default function FloatingAIAssistant() {
   }, [isFlagHovered]);
 
   return (
-    <div className="fixed bottom-[136px] right-6 z-[998] flex flex-col items-end pointer-events-none">
+    <div className="fixed bottom-[90px] md:bottom-[186px] right-6 md:right-8 z-[998] flex flex-col items-end pointer-events-none">
 
       {/* Floating Container (The whole mascot floats infinitely) */}
       <motion.div
-        animate={{ y: [-24, 24, -24] }}
+        animate={{ y: [-12, 12, -12] }}
         transition={{
           duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="relative flex items-end justify-end pointer-events-auto scale-[0.75] sm:scale-[0.85] md:scale-100 origin-bottom-right transition-transform"
+        className="relative flex items-end justify-end pointer-events-auto scale-[0.65] sm:scale-[0.85] md:scale-100 origin-bottom-right transition-transform"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

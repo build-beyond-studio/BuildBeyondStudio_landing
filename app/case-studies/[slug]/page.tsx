@@ -82,7 +82,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
+        <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6 tracking-tight leading-tight">
           {study.title}
         </h1>
 
@@ -133,13 +133,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               {study.outcome}
             </p>
             {/* Result highlight card */}
-            <div className="mt-6 ml-8 bg-white p-6 rounded-2xl border border-[rgba(200,134,10,0.12)] inline-flex items-center gap-4" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}>
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#A06A00] to-[#E8A020] flex items-center justify-center text-white text-lg font-bold shadow-md">
+            <div className="mt-6 ml-0 sm:ml-8 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[rgba(200,134,10,0.12)] flex items-center gap-3 sm:gap-4 w-fit mx-auto sm:mx-0" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#A06A00] to-[#E8A020] flex items-center justify-center text-white text-base sm:text-lg font-bold shadow-md">
                 ↑
               </div>
               <div>
-                <div className="text-2xl font-black text-black">{study.resultStat}</div>
-                <div className="text-xs text-gray-500 font-medium uppercase tracking-wider">Verified result</div>
+                <div className="text-xl sm:text-2xl font-black text-black">{study.resultStat}</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 font-medium uppercase tracking-wider">Verified result</div>
               </div>
             </div>
           </div>
@@ -174,25 +174,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
 
         {/* CTA Banner */}
-        <div className="bg-[#0A0A0A] rounded-[32px] p-8 md:p-12 text-white relative overflow-hidden mt-20 shadow-2xl border border-white/5">
+        <div className="bg-[#0A0A0A] rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden mt-12 sm:mt-20 shadow-2xl border border-white/5">
           <div className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#C8860A] rounded-full mix-blend-screen filter blur-[100px] opacity-[0.10] pointer-events-none" />
-          <h2 className="text-2xl sm:text-3xl font-black mb-4 text-white tracking-tight relative z-10">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 sm:mb-4 text-white tracking-tight relative z-10 text-center sm:text-left">
             Want Results Like {study.client}?
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base mb-8 leading-relaxed font-light relative z-10">
+          <p className="text-gray-400 text-[13px] sm:text-sm md:text-base mb-6 sm:mb-8 leading-[1.6] sm:leading-relaxed font-light relative z-10 text-center sm:text-left">
             Let&apos;s discuss how Build Beyond Studio can integrate as your invisible development partner. Reach our founder Ankush Kumar Gupta directly.
           </p>
-          <div className="flex flex-wrap gap-4 relative z-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 relative z-10 w-full sm:w-auto mx-auto justify-center sm:justify-start">
             <a
               href={`https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20read%20the%20${encodeURIComponent(study.client)}%20case%20study.%20I%20would%20like%20to%20discuss%20a%20partnership%20with%20Build%20Beyond%20Studio.`}
-              className="inline-block bg-[#C8860A] text-white px-8 py-3 rounded-lg hover:bg-[#A06A00] transition-all font-semibold"
+              className="flex justify-center bg-[#C8860A] text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-[#A06A00] transition-all font-semibold text-sm sm:text-base"
               style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.25)' }}
             >
               Start a Partnership
             </a>
             <Link
               href="/success-stories"
-              className="inline-block bg-white/10 text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-all font-semibold border border-white/10"
+              className="flex justify-center bg-white/10 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-white/20 transition-all font-semibold border border-white/10 text-sm sm:text-base"
             >
               View All Case Studies
             </Link>

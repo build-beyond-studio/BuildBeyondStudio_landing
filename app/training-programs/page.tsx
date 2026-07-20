@@ -32,29 +32,31 @@ export default function InternshipProgramsPage() {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/5 bg-black/[0.02] text-xs font-bold tracking-widest text-[#C8860A] uppercase mb-4">
               BBS Academy
             </span>
-            <h1 className="text-3xl md:text-5xl font-black text-black tracking-tight mb-4">
+            <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
               What You Get
             </h1>
-            <p className="text-gray-500 max-w-xl mx-auto font-light">
+            <p className="text-base sm:text-lg text-gray-700 max-w-xl mx-auto leading-relaxed">
               Every internship program is loaded with professional benefits, industry-standard certificates, and placement support.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {GENERAL_BENEFITS.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white px-6 py-6 rounded-[24px] border border-black/5 transition-all duration-300 hover:border-[#C8860A]/30 hover:shadow-[0_16px_40px_rgba(200,134,10,0.08)] overflow-hidden"
+                className="group relative bg-white p-4 sm:px-6 sm:py-6 rounded-2xl sm:rounded-[24px] border border-black/5 transition-all duration-300 hover:border-[#C8860A]/30 hover:shadow-[0_16px_40px_rgba(200,134,10,0.08)] overflow-hidden flex flex-col h-full justify-between"
               >
                 {/* Premium corner accent */}
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-[#C8860A]/[0.08] to-transparent rounded-bl-full transition-transform duration-500 group-hover:scale-110 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-bl from-[#C8860A]/[0.08] to-transparent rounded-bl-full transition-transform duration-500 group-hover:scale-110 pointer-events-none" />
                 
-                <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#FFFDF8] to-[#FDF4E5] rounded-xl border border-[#C8860A]/10 mb-4 shadow-[0_4px_12px_rgba(200,134,10,0.05)] group-hover:shadow-[0_4px_16px_rgba(200,134,10,0.12)] transition-shadow duration-300">
-                    {item.icon}
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="inline-flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FFFDF8] to-[#FDF4E5] rounded-lg sm:rounded-xl border border-[#C8860A]/10 mb-3 sm:mb-4 shadow-[0_4px_12px_rgba(200,134,10,0.05)] group-hover:shadow-[0_4px_16px_rgba(200,134,10,0.12)] transition-shadow duration-300">
+                    <div className="scale-75 sm:scale-100 flex items-center justify-center">
+                      {item.icon}
+                    </div>
                   </div>
-                  <h3 className="font-bold text-black text-[17px] tracking-tight mb-1.5">{item.title}</h3>
-                  <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-black text-[13px] sm:text-[17px] tracking-tight mb-1.5 leading-snug">{item.title}</h3>
+                  <p className="text-gray-500 text-[10px] sm:text-[13px] leading-relaxed mt-auto hidden sm:block">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -141,14 +143,14 @@ export default function InternshipProgramsPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-left text-sm text-gray-600">
+          <div className="w-full pb-4">
+            <table className="w-full border-collapse text-left text-[10px] sm:text-sm text-gray-600">
               <thead>
-                <tr className="border-b border-black/5 text-xs text-black font-bold uppercase tracking-wider bg-[#FAF8F5]">
-                  <th className="p-4 w-1/4">Feature</th>
-                  <th className="p-4 text-[#C8860A]">Course 01</th>
-                  <th className="p-4 text-[#C8860A]">Course 02</th>
-                  <th className="p-4 text-[#C8860A]">Course 03</th>
+                <tr className="border-b border-black/5 text-[9px] sm:text-xs text-black font-bold uppercase tracking-wider bg-[#FAF8F5]">
+                  <th className="p-2 sm:p-4 w-1/4">Feature</th>
+                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 01</th>
+                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 02</th>
+                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 03</th>
                 </tr>
               </thead>
               <tbody>
@@ -167,19 +169,19 @@ export default function InternshipProgramsPage() {
                   { name: "EMI Options", c1: "₹1,400 × 3", c2: "₹2,000 × 5", c3: "₹2,400 × 5" },
                 ].map((row, rIdx) => (
                   <tr key={rIdx} className="border-b border-black/5 hover:bg-gray-50/50">
-                    <td className="p-4 font-semibold text-black">{row.name}</td>
-                    <td className="p-4">{row.c1}</td>
-                    <td className="p-4">{row.c2}</td>
-                    <td className="p-4">{row.c3}</td>
+                    <td className="p-2 sm:p-4 font-semibold text-black bg-white group-hover:bg-gray-50/50 transition-colors">{row.name}</td>
+                    <td className="p-2 sm:p-4">{row.c1}</td>
+                    <td className="p-2 sm:p-4">{row.c2}</td>
+                    <td className="p-2 sm:p-4">{row.c3}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
-                <tr className="bg-[#FAF8F5] text-black font-extrabold text-[15px]">
-                  <td className="p-4">Enrollment Fee</td>
-                  <td className="p-4 text-[#C8860A]">₹3,999</td>
-                  <td className="p-4 text-[#C8860A]">₹8,999</td>
-                  <td className="p-4 text-[#C8860A]">₹11,999</td>
+                <tr className="bg-[#FAF8F5] text-black font-extrabold text-[11px] sm:text-[15px]">
+                  <td className="p-2 sm:p-4 bg-[#FAF8F5]">Enrollment Fee</td>
+                  <td className="p-2 sm:p-4 text-[#C8860A]">₹3,999</td>
+                  <td className="p-2 sm:p-4 text-[#C8860A]">₹8,999</td>
+                  <td className="p-2 sm:p-4 text-[#C8860A]">₹11,999</td>
                 </tr>
               </tfoot>
             </table>

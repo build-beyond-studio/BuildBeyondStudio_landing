@@ -72,7 +72,12 @@ export default function RevenueMath() {
   const fmtCurrency = (n: number) => {
     const inr = "₹" + n.toLocaleString("en-IN");
     const usd = "$" + Math.round(n / 80).toLocaleString("en-US");
-    return `${inr} (${usd})`;
+    return (
+      <span className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+        <span>{inr}</span>
+        <span className="text-[0.65em] opacity-75 leading-none">({usd})</span>
+      </span>
+    );
   };
 
   return (
@@ -83,6 +88,9 @@ export default function RevenueMath() {
           padding: 80px 24px 88px;
           position: relative;
           overflow: hidden;
+        }
+        @media (max-width: 767px) {
+          .rm-section { padding: 50px 20px 48px; }
         }
 
         /* Animated grid */
@@ -226,8 +234,8 @@ export default function RevenueMath() {
         .rm-example-card {
           background: rgba(255,255,255,0.03);
           border: 1px solid rgba(201,168,76,0.15);
-          border-radius: 22px;
-          padding: 36px 40px;
+          border-radius: 16px;
+          padding: 24px 28px;
           position: relative; overflow: hidden;
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -243,8 +251,8 @@ export default function RevenueMath() {
 
         /* Decorative "bg word" */
         .rm-card-bg-word {
-          position: absolute; bottom: -20px; right: 20px;
-          font-size: 80px; font-weight: 900; letter-spacing: -0.06em;
+          position: absolute; bottom: -16px; right: 20px;
+          font-size: 60px; font-weight: 900; letter-spacing: -0.06em;
           color: rgba(201,168,76,0.04); line-height: 1;
           pointer-events: none; user-select: none;
           animation: rmWordFloat 6s ease-in-out infinite;
@@ -257,10 +265,10 @@ export default function RevenueMath() {
         /* Row items in card */
         .rm-row {
           display: flex; align-items: center; justify-content: space-between;
-          gap: 16px;
+          gap: 12px;
         }
-        .rm-row-label { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 500; }
-        .rm-row-val   { font-size: 15px; font-weight: 700; color: #fff; }
+        .rm-row-label { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; }
+        .rm-row-val   { font-size: 14px; font-weight: 700; color: #fff; }
         .rm-divider   { height: 1px; background: rgba(255,255,255,0.05); margin: 4px 0; }
 
         .rm-profit-row {
@@ -272,7 +280,7 @@ export default function RevenueMath() {
           text-transform: uppercase; color: rgba(201,168,76,0.55); margin-bottom: 6px;
         }
         .rm-profit-val {
-          font-size: 3rem; font-weight: 900; letter-spacing: -0.05em;
+          font-size: 2rem; font-weight: 900; letter-spacing: -0.04em;
           color: #C9A84C; line-height: 1;
           animation: rmGlowPulse 3s ease-in-out infinite;
         }
@@ -281,12 +289,13 @@ export default function RevenueMath() {
           50%      { text-shadow: 0 0 40px rgba(201,168,76,0.6), 0 0 80px rgba(201,168,76,0.2); }
         }
         .rm-yours-badge {
-          display: inline-flex; align-items: center; gap: 5px;
-          font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+          display: inline-flex; align-items: center; gap: 4px;
+          font-size: 8.5px; font-weight: 800; letter-spacing: 0.08em;
           text-transform: uppercase; color: #C9A84C;
-          padding: 7px 14px; border-radius: 999px;
+          padding: 4px 10px; border-radius: 999px;
           background: rgba(201,168,76,0.1);
           border: 1px solid rgba(201,168,76,0.22);
+          white-space: nowrap;
           animation: rmBadgePulse 3s ease-in-out infinite;
         }
         @keyframes rmBadgePulse {
@@ -302,11 +311,20 @@ export default function RevenueMath() {
         }
 
         @media (max-width: 640px) {
-          .rm-flow { flex-direction: column; }
+          .rm-flow { flex-direction: row; gap: 8px; }
+          .rm-step { padding: 12px 8px 10px; border-radius: 12px; }
+          .rm-step-icon { width: 32px; height: 32px; margin-bottom: 8px; border-radius: 8px; }
+          .rm-step-icon svg { width: 16px; height: 16px; }
+          .rm-step-label { font-size: 11px; margin-bottom: 2px; }
+          .rm-step-sub { font-size: 9px; line-height: 1.2; }
+          .rm-step-num { font-size: 8px; margin-bottom: 8px; }
           .rm-connector { display: none; }
-          .rm-example-card { padding: 26px 22px; }
-          .rm-profit-val { font-size: 2.4rem; }
-          .rm-card-bg-word { font-size: 55px; }
+          .rm-example-card { padding: 12px 12px; border-radius: 12px; }
+          .rm-profit-val { font-size: 1.4rem; }
+          .rm-card-bg-word { font-size: 32px; bottom: -10px; right: 10px; }
+          .rm-row-label { font-size: 10px; }
+          .rm-row-val { font-size: 11px; }
+          .rm-profit-row { gap: 6px; }
         }
       `}</style>
 
@@ -324,7 +342,7 @@ export default function RevenueMath() {
                 Revenue Engine
               </span>
             </div>
-            <h2 className="text-[1.65rem] sm:text-[2.1rem] font-black text-white leading-[1.1] tracking-[-0.032em] mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-[-0.032em] mb-4">
               Turn Complex Tech into<br/>
               <span style={{ color: "#C9A84C" }}>Your Biggest Profit Center.</span>
             </h2>
@@ -335,7 +353,7 @@ export default function RevenueMath() {
 
           {/* 3-Step Flow */}
           <div className={`rm-fade rm-d2 ${visible ? "rm-on" : ""} mb-12`}>
-            <div className="rm-flow grid md:grid-cols-3 gap-4">
+            <div className="rm-flow gap-2 sm:gap-4">
               {FLOW.map((s, i) => (
                 <div
                   key={s.num}
@@ -361,9 +379,9 @@ export default function RevenueMath() {
             <div className="rm-example-card">
               <span className="rm-card-bg-word">₹60K / $750</span>
 
-              <div className="grid sm:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Left: breakdown */}
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-4">
                   <div>
                     <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }}>Live Example</p>
                     <div className="rm-row">
@@ -389,7 +407,7 @@ export default function RevenueMath() {
                       <div className="rm-profit-val">{fmtCurrency(profit)}</div>
                     </div>
                     <span className="rm-yours-badge self-start sm:self-auto">
-                      <svg width="8" height="8" viewBox="0 0 8 8" fill="#C9A84C"><circle cx="4" cy="4" r="4"/></svg>
+                      <svg width="6" height="6" viewBox="0 0 8 8" fill="#C9A84C"><circle cx="4" cy="4" r="3"/></svg>
                       fully yours
                     </span>
                   </div>
