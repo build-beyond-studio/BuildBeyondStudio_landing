@@ -14,19 +14,6 @@ export default function Footer() {
             BBS is the invisible web team behind marketing agencies across India. You bring the clients — we build, deploy, and maintain. Your brand. Your margins. Our expertise.
           </p>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {[
-              { label: "100% White-Label", icon: "✓" },
-              { label: "Strict NDA Enforced", icon: "✓" },
-              { label: "Zero Direct Client Contact", icon: "✓" },
-            ].map((badge) => (
-              <div key={badge.label} className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-gray-300 text-sm">
-                <span className="text-[#E8A020] font-bold">{badge.icon}</span>
-                <span>{badge.label}</span>
-              </div>
-            ))}
-          </div>
 
           {/* Social Handles */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
@@ -80,51 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Founder Profile Block */}
-        <div className="border-t border-white/10 pt-12 mb-12">
-          <div className="bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] border border-white/5 rounded-xl p-8 max-w-2xl mx-auto">
-            <div className="flex gap-6 items-start">
-              {/* Photo Placeholder */}
-              <div className="w-24 h-24 rounded-lg bg-gradient-to-br from-[#C8860A] to-[#A06A00] flex-shrink-0 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/founder.jpeg"
-                  alt="Ankush Kumar Gupta — Founder, BBS"
-                  width={96}
-                  height={96}
-                  className="w-full h-full object-cover"
-                />
-              </div>
 
-              {/* Content */}
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Ankush Kumar Gupta — Founder & CEO
-                </h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  I personally oversee every agency partnership. Reach me directly on WhatsApp.
-                </p>
-                <div className="flex gap-4 text-sm">
-                  <TrackedLink
-                    href="https://wa.me/917697339962"
-                    eventName="whatsapp_click"
-                    eventParams={{ button_location: 'footer' }}
-                    className="text-[#E8A020] hover:text-white transition-colors font-semibold"
-                  >
-                    WhatsApp: +91 76973 39962
-                  </TrackedLink>
-                  <a
-                    href="https://www.linkedin.com/in/ankush-kumar-gupta-191b923b1/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#E8A020] hover:text-white transition-colors font-semibold"
-                  >
-                    LinkedIn Profile
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">

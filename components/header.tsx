@@ -14,6 +14,7 @@ type NavLink = {
 const NAV_LINKS: NavLink[] = [
   { 
     label: "Services", 
+    href: "/services",
     dropdown: [
       { href: "/services/custom-web-applications", label: "Custom Web & Portal Development" },
       { href: "/services/devops-infrastructure", label: "Auto-Scaling Cloud & DevOps" },
@@ -229,10 +230,17 @@ export default function Header() {
               {NAV_LINKS.map((item, idx) => (
                 item.dropdown ? (
                   <div key={item.label} className="relative group nav-item" style={{ animationDelay: `${0.20 + (idx * 0.06)}s` }}>
-                    <span className="nav-link cursor-pointer text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200 flex items-center gap-1">
-                      {item.label}
-                      <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                    </span>
+                    {item.href ? (
+                      <a href={item.href} className="nav-link cursor-pointer text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200 flex items-center gap-1">
+                        {item.label}
+                        <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                      </a>
+                    ) : (
+                      <span className="nav-link cursor-pointer text-gray-600 hover:text-black text-[13px] font-medium transition-colors duration-200 flex items-center gap-1">
+                        {item.label}
+                        <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                      </span>
+                    )}
                     <div className="absolute top-full left-0 mt-4 w-56 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0">
                       <div className="py-2">
                         {item.dropdown.map(subItem => (
@@ -296,7 +304,11 @@ export default function Header() {
                 {NAV_LINKS.map((item, idx) => (
                   item.dropdown ? (
                     <div key={item.label} className="mob-link py-2 border-b border-black/5 last:border-0 transition-colors duration-200" style={{ transitionDelay: `${0.05 + (idx * 0.05)}s` }}>
-                      <div className="text-gray-600 font-medium text-[13px] mb-1.5">{item.label}</div>
+                      {item.href ? (
+                        <a href={item.href} onClick={() => setIsMenuOpen(false)} className="block text-gray-600 hover:text-black font-medium text-[13px] mb-1.5">{item.label}</a>
+                      ) : (
+                        <div className="text-gray-600 font-medium text-[13px] mb-1.5">{item.label}</div>
+                      )}
                       <div className="flex flex-col pl-3 gap-1.5 border-l border-gray-200 ml-1.5">
                         {item.dropdown.map(subItem => (
                           <a

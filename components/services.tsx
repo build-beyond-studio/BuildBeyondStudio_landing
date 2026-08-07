@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -12,6 +11,7 @@ const services = [
     features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
     link: "/services/custom-web-applications",
     color: "#C8860A",
+    image: "/services_images/ser_one.png"
   },
   {
     num: "02",
@@ -20,6 +20,7 @@ const services = [
     features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
     link: "/services/devops-infrastructure",
     color: "#A06A00",
+    image: "/services_images/ser_two.png"
   },
   {
     num: "03",
@@ -28,218 +29,164 @@ const services = [
     features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
     link: "/services/technical-consulting",
     color: "#E8A020",
+    image: "/services_images/ser_three.png"
   },
   {
     num: "04",
-    title: "AI-Era Search\nVisibility (SEO/AEO/GEO)",
-    desc: "Optimize web code and contents so they rank in traditional engines and are cited as top-tier sources by AI engines (ChatGPT Search, Perplexity, Gemini, Claude).",
-    features: ["Answer Engine Optimization (AEO)", "Schema Injecting", "LLM Context Citations"],
+    title: "AI-Era Search\nVisibility (SEO/AEO)",
+    desc: "Optimize web code and contents so they rank in traditional engines and are cited as top-tier sources by AI engines.",
+    features: ["Answer Engine Optimization", "Schema Injecting", "LLM Context Citations"],
     link: "/services/aeo-geo",
     color: "#B87800",
+    image: "/services_images/ser_four.png"
   },
   {
     num: "05",
     title: "Meta & Google\nPerformance Ads",
     desc: "Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI.",
-    features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low Cost-Per-Acquisition"],
+    features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low CPA"],
     link: "/services/performance-ads",
     color: "#C8860A",
+    image: "/services_images/ser_five.png"
   },
   {
     num: "06",
-    title: "E-Comm Funnel Audits\n& Conversion Tracking",
+    title: "E-Comm Funnel Audits\n& Tracking",
     desc: "End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs.",
-    features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics Reports"],
+    features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics"],
     link: "/services/tracking-funnels",
     color: "#A06A00",
+    image: "/services_images/ser_six.png"
   },
   {
     num: "07",
     title: "AI-Powered\nVisual Production",
     desc: "Cost-effective, studio-grade product photo and video assets generated via advanced AI models.",
-    features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less Production"],
+    features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less"],
     link: "/services/ai-visuals",
     color: "#E8A020",
+    image: "/services_images/ser_seven.png"
   }
 ];
 
-export default function Services() {
-  const targetRef = useRef<HTMLDivElement>(null);
+const ServiceCard = ({ svc }: { svc: any }) => {
+  return (
+    <Link href={svc.link} className="block shrink-0 focus:outline-none group/card">
+      <div className="flex flex-col items-center w-[220px] sm:w-[260px] lg:w-[320px] xl:w-[360px]">
+        
+        {/* Top: Circular Image */}
+        <div className="relative w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] lg:w-[220px] lg:h-[220px] xl:w-[260px] xl:h-[260px] rounded-full overflow-hidden mb-4 lg:mb-6 shadow-md border-2 border-white/50 transition-transform duration-500 shrink-0 z-10 bg-gray-100 flex items-center justify-center">
+          <img 
+            src={svc.image} 
+            alt={svc.title.replace('\n', ' ')}
+            className={`w-full h-full object-center transition-transform duration-700 ${svc.imageClass || 'object-cover'}`}
+          />
+        </div>
 
-  // Desktop horizontal scroll progress
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    // By tracking "start start", the scroll value begins exactly when the section touches the top
-    offset: ["start start", "end end"]
-  });
+        {/* Bottom: Content Box */}
+        <div className="w-full flex flex-col items-center text-center">
+          
+          <h3 className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-bold text-gray-900 tracking-tight whitespace-pre-line leading-tight mb-2 sm:mb-3 transition-colors duration-300 group-hover/card:text-[#C8860A]">
+            {svc.title}
+          </h3>
 
-  // The buttery-smooth spring physics, matching How It Works section
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 40,
-    damping: 18,
-    mass: 1.2,
-    restDelta: 0.001,
-  });
+          <p className="text-gray-500 text-[11px] sm:text-[12px] lg:text-[13.5px] xl:text-[14.5px] leading-[1.6] mb-4 sm:mb-5 lg:mb-6 line-clamp-3">
+            {svc.desc}
+          </p>
 
-  // Slide left by ~250vw to reveal the 7 cards. 
-  // Container logic: 45vw intro + (34vw * 7 cards) = 283vw content + gaps
-  const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-250vw"]);
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+            {svc.features.slice(0, 2).map((feat: string) => (
+              <span key={feat} className="px-2.5 sm:px-3 lg:px-4 py-1 lg:py-1.5 rounded-full bg-gray-50 border border-gray-200 text-[9px] sm:text-[10px] lg:text-[11px] font-medium text-gray-600 truncate max-w-full">
+                {feat}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+const MarqueeRow = ({ items, direction = "left", speed = "35s" }: { items: any[], direction?: "left" | "right", speed?: string }) => {
+  // Multiply items to ensure seamless infinite scroll on ultra-wide screens
+  const baseItems = [...items, ...items, ...items, ...items];
+  const animationClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
 
   return (
-    <div id="services">
-      {/* ── Desktop Horizontal Scroll Layer ── */}
-      <section
-        ref={targetRef}
-        className="relative hidden lg:block h-[600vh] bg-[#F5F2EC] text-black"
+    <div className="flex overflow-hidden w-full group/row py-4 md:py-6">
+      <div 
+        className={`flex w-max ${animationClass} group-hover/row:[animation-play-state:paused]`}
+        style={{ animationDuration: speed }}
       >
-        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-
-          {/* Ambient Glows */}
-          <div className="absolute top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none z-0">
-            <div className="absolute top-1/2 left-[15%] w-[40vw] h-[40vw] rounded-full blur-[140px] -translate-y-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
-            <div className="absolute top-1/2 right-[10%] w-[35vw] h-[35vw] bg-indigo-900/10 rounded-full blur-[140px] -translate-y-1/2" />
-          </div>
-
-          <motion.div
-            style={{ x: xDesktop }}
-            className="flex gap-16 px-[10vw] relative z-10 items-center h-full pt-10"
-          >
-
-            {/* Intro Block (Sticky to left briefly as we scroll) */}
-            <div className="w-[45vw] flex-shrink-0 flex flex-col justify-center translate-y-[-5%]">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-8 self-start">
-                <span className="w-2 h-2 rounded-full bg-[#C8860A] animate-pulse" />
-                <span className="text-[12px] font-bold tracking-[0.15em] text-gray-600 uppercase">High-Ticket Technical Solutions</span>
-              </div>
-
-              <h2 className="text-[4.5rem] xl:text-[5.5rem] leading-[0.95] font-black tracking-[-0.04em] text-black mb-8">
-                Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
-              </h2>
-              <p className="text-xl xl:text-2xl text-gray-600 max-w-lg leading-relaxed font-light tracking-wide mb-6">
-                We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
-              </p>
-              <div className="text-sm font-semibold mb-6">
-                Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline">white label web development</Link> services.
-              </div>
-            </div>
-
-            {/* Service Cards Track */}
-            <div className="flex gap-8 items-center h-[65vh] pb-10">
-              {services.map((svc, i) => {
-                // To add organic depth, we give alternating cards a slight Y offset
-                const yOffset = i % 2 === 1 ? '40px' : '0px';
-
-                return (
-                  <Link
-                    key={svc.num}
-                    href={svc.link}
-                    className="block group w-[34vw] h-full flex-shrink-0 relative outline-none"
-                    style={{ transform: `translateY(${yOffset})` }}
-                  >
-                    <div className="absolute inset-0 bg-white border border-[rgba(200,134,10,0.12)] rounded-[32px] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_20px_80px_-20px_rgba(200,134,10,0.18)] hover:-translate-y-2" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.08)' }}>
-
-                      {/* Top Accent Gradient */}
-                      <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />
-
-                      {/* Giant Number Watermark layout */}
-                      <div className="absolute -bottom-6 -right-8 text-[14rem] xl:text-[18rem] font-black tracking-tighter text-black/[0.02] group-hover:text-black/[0.04] transition-colors duration-700 select-none pointer-events-none z-0">
-                        {svc.num}
-                      </div>
-
-                      {/* Content Layout */}
-                      <div className="relative z-10 p-10 xl:p-12 h-full flex flex-col">
-                        <div className="flex justify-between items-start mb-auto">
-                          <h3 className="text-3xl xl:text-4xl font-bold tracking-tight text-black/90 whitespace-pre-line group-hover:text-black transition-colors duration-500 leading-tight">
-                            {svc.title}
-                          </h3>
-                          <div className="w-14 h-14 rounded-full bg-black/[0.02] border border-black/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-black/[0.05] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] backdrop-blur-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 group-hover:text-black transition-all duration-500 group-hover:rotate-45">
-                              <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-
-                        <div className="mt-auto">
-                          <p className="text-gray-600 text-lg xl:text-xl leading-[1.6] mb-8 group-hover:text-gray-800 transition-colors duration-500 font-light">
-                            {svc.desc}
-                          </p>
-
-                          <div className="flex flex-wrap gap-2">
-                            {svc.features.map((feat) => (
-                              <span key={feat} className="px-4 py-2 rounded-full bg-black/[0.02] border border-black/5 text-[13px] font-medium text-gray-600 group-hover:bg-black/5 group-hover:border-black/10 group-hover:text-black transition-all duration-500">
-                                {feat}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Mobile Vertical Scroll Layer ── */}
-      <section id="services-mobile" className="lg:hidden bg-[#F5F2EC] text-black pt-12 pb-12 px-5 sm:px-8 overflow-hidden relative border-t border-black/5">
-        {/* Glow */}
-        <div className="absolute top-20 left-0 w-full h-[60vh] rounded-full blur-[100px] pointer-events-none -translate-x-1/2" style={{ background: 'rgba(200,134,10,0.06)' }} />
-
-        <div className="relative z-10 mb-16 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/[0.02] backdrop-blur-md mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8860A] animate-pulse" />
-            <span className="text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-[2.1rem] font-black leading-[1.08] tracking-[-0.032em] text-black mb-4">
-            Elite Technical Execution.<br /> <span className="text-gray-400">Pure Agency Profit.</span>
-          </h2>
-          <p className="text-[13.5px] sm:text-[14.5px] text-gray-500 leading-[1.7] max-w-[480px] mx-auto mb-4">
-            We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
-          </p>
-          <div className="text-[13px] font-semibold text-center">
-            Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline">white label web development</Link> services.
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
-          {services.map((svc, i) => (
-            <motion.div
-              key={svc.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="h-full"
-            >
-              <Link
-                href={svc.link}
-                className="block group relative bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl overflow-hidden p-4 sm:p-5 h-full flex flex-col transition-colors hover:border-[rgba(200,134,10,0.30)] hover:shadow-[0_8px_24px_rgba(200,134,10,0.12)]" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.04)' }}
-              >
-                {/* Mobile top gradient */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(90deg, #A06A00, #C8860A, #E8A020, transparent)" }} />
-
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <h3 className="text-[14px] sm:text-[16px] font-bold tracking-tight text-black/90 mb-4 leading-snug">
-                    {svc.title.replace('\n', ' ')}
-                  </h3>
-
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#C8860A] uppercase tracking-wide group-hover:text-[#A06A00] transition-colors mt-auto">
-                    Explore
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+        {/* Set 1 */}
+        <div className="flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 pr-4 sm:pr-6 lg:pr-8 xl:pr-10 shrink-0">
+          {baseItems.map((svc, i) => (
+             <ServiceCard key={i} svc={svc} />
           ))}
         </div>
-      </section>
+        {/* Set 2 */}
+        <div className="flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 pr-4 sm:pr-6 lg:pr-8 xl:pr-10 shrink-0">
+          {baseItems.map((svc, i) => (
+             <ServiceCard key={`dup-${i}`} svc={svc} />
+          ))}
+        </div>
+      </div>
     </div>
+  );
+};
+
+export default function Services() {
+  const upperServices = services.slice(0, 4);
+  const lowerServices = services.slice(4, 7);
+
+  return (
+    <section id="services" className="bg-[#F5F2EC] text-black py-24 relative overflow-hidden border-t border-black/5">
+      <style>{`
+        @keyframes marquee-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .animate-marquee-left {
+          animation: marquee-left linear infinite;
+        }
+        .animate-marquee-right {
+          animation: marquee-right linear infinite;
+        }
+      `}</style>
+      
+      {/* Ambient Glows */}
+      <div className="absolute top-0 left-[15%] w-[40vw] h-[40vw] rounded-full blur-[140px] pointer-events-none z-0" style={{ background: 'rgba(200,134,10,0.06)' }} />
+      
+      <div className="max-w-7xl mx-auto relative z-10 w-full px-4 sm:px-8">
+        <div className="flex flex-col items-center text-center mx-auto max-w-4xl mb-12 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-6">
+            <span className="text-[12px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-4 md:mb-6">
+            Elite Technical Execution.<br className="hidden md:block"/> <span className="text-gray-400">Pure Agency Profit.</span>
+          </h2>
+          <p className="text-[14.5px] md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
+            We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
+          </p>
+          <div className="text-sm md:text-base font-semibold text-gray-600">
+            Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline hover:text-[#A06A00]">white label web development</Link> services.
+          </div>
+        </div>
+
+        {/* Marquee Carousels */}
+        <div className="w-full flex flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
+          {/* Upper Row (Scrolls Right) */}
+          <MarqueeRow items={upperServices} direction="right" speed="95s" />
+          
+          {/* Lower Row (Scrolls Left) */}
+          <MarqueeRow items={lowerServices} direction="left" speed="90s" />
+        </div>
+      </div>
+    </section>
   );
 }

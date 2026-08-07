@@ -162,6 +162,7 @@ export default async function BlogPostPage({
             src={blog.featuredImage}
             alt={blog.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -218,9 +219,13 @@ export default async function BlogPostPage({
           {/* Author Info */}
           <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-8 mb-12" style={{ boxShadow: '0 2px 10px rgba(200,134,10,0.07)' }}>
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)' }}>
-                B
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Build Beyond Studio Logo"
+                width={64}
+                height={64}
+                className="rounded-full flex-shrink-0 object-cover border border-[rgba(200,134,10,0.2)]"
+              />
               <div>
                 <h3 className="font-bold text-black">Build Beyond Studio</h3>
                 <p className="text-gray-600 text-sm mt-1">

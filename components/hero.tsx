@@ -414,9 +414,16 @@ export default function Hero() {
         >
           {/* Eyebrow */}
           <div ref={eyebrowRef} className="hero-pre">
-            <div className="eyebrow-pill">
-              <span className="live-dot" />
-              Trusted by Agencies Worldwide
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              <div className="eyebrow-pill">
+                <span className="text-[#C8860A] font-bold">✓</span> 100% White-Label
+              </div>
+              <div className="eyebrow-pill">
+                <span className="text-[#C8860A] font-bold">✓</span> Strict NDA Enforced
+              </div>
+              <div className="eyebrow-pill">
+                <span className="text-[#C8860A] font-bold">✓</span> Zero Direct Client Contact
+              </div>
             </div>
           </div>
 
@@ -522,7 +529,7 @@ export default function Hero() {
             className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3
                        w-full sm:w-auto"
           >
-        
+
 
             {/* Revenue Model — highlighted primary with pulse */}
             <button
@@ -539,7 +546,7 @@ export default function Hero() {
               Revenue Model →
             </button>
 
-                {/* Book a Call — plain secondary */}
+            {/* Book a Call — plain secondary */}
             <button
               ref={mag1.ref}
               onMouseMove={mag1.onMove}
