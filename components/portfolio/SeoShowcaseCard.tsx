@@ -87,7 +87,7 @@ export function SeoShowcaseCard({
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${!isHovered ? 'scale-[1.4]' : 'scale-100'}`}
                 />
               </div>
             </motion.div>
