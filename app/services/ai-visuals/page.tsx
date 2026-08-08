@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
+import AIShowcaseSection from '@/components/portfolio/AIShowcaseSection'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
@@ -47,15 +48,22 @@ export default function AiVisualsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
-      <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
+      <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → AI-Powered Visual Production</div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
           AI Visual Production. Studio-Grade Content.
         </h1>
-        <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
           Cost-effective, studio-grade product photo and video assets generated via advanced AI models. Refresh your marketing creatives instantly.
         </p>
+      </section>
+
+      <div className="mb-16">
+        <AIShowcaseSection hideHeader className="py-8 bg-transparent" />
+      </div>
+
+      <section className="max-w-4xl mx-auto pb-24 px-4 sm:px-6">
         <div className="text-center sm:text-left mb-16">
           <TrackedLink
             href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20an%20AI%20Visual%20Production%20brief%20with%20Build%20Beyond%20Studio."

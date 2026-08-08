@@ -3,6 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
+import PortfolioSection from '@/components/portfolio/PortfolioSection'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
@@ -43,16 +44,23 @@ export default function CustomWebApplicationsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Header />
-      <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
+      <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Custom Web & Portal Development</div>
 
-        {/* 1. Hero Section (Business Outcome) */}
-        <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
+
+        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-6">
           High-Retention Web & Portal Development. Seamless Delivery.
-        </h1>
-        <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
+        </h2>
+        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
           Build highly-customized, high-retention web platforms and portals that keep your clients engaged and loyal.
         </p>
+      </section>
+
+      <div className="mb-16">
+        <PortfolioSection hideHeader columns={3} />
+      </div>
+
+      <section className="max-w-4xl mx-auto pb-24 px-4 sm:px-6">
         <div className="text-center sm:text-left mb-16">
           <TrackedLink
             href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Web%20%26%20Portal%20Development%20brief%20with%20Build%20Beyond%20Studio."
@@ -66,7 +74,7 @@ export default function CustomWebApplicationsPage() {
         </div>
 
         <div className="space-y-12 text-gray-700">
-          
+
           {/* 2. Why Pitch This? */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Why Pitch This?</h2>
