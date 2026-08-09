@@ -11,7 +11,7 @@ const services = [
     features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
     link: "/services/custom-web-applications",
     color: "#C8860A",
-    image: "/services_images/ser_one.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_53_13_AM_jkn4vm.png"
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const services = [
     features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
     link: "/services/devops-infrastructure",
     color: "#A06A00",
-    image: "/services_images/ser_two.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_04_28_AM_j6agkq.png"
   },
   {
     num: "03",
@@ -29,7 +29,7 @@ const services = [
     features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
     link: "/services/technical-consulting",
     color: "#E8A020",
-    image: "/services_images/ser_three.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_01_54_AM_sdkhxf.png"
   },
   {
     num: "04",
@@ -38,7 +38,7 @@ const services = [
     features: ["Answer Engine Optimization", "Schema Injecting", "LLM Context Citations"],
     link: "/services/aeo-geo",
     color: "#B87800",
-    image: "/services_images/ser_four.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_57_45_AM_djqp1f.png"
   },
   {
     num: "05",
@@ -47,7 +47,7 @@ const services = [
     features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low CPA"],
     link: "/services/performance-ads",
     color: "#C8860A",
-    image: "/services_images/ser_five.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252138/ChatGPT_Image_Aug_7_2026_09_06_40_AM_ovf5qh.png"
   },
   {
     num: "06",
@@ -56,7 +56,7 @@ const services = [
     features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics"],
     link: "/services/tracking-funnels",
     color: "#A06A00",
-    image: "/services_images/ser_six.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252141/ChatGPT_Image_Aug_7_2026_09_11_08_AM_ddmga0.png"
   },
   {
     num: "07",
@@ -65,7 +65,7 @@ const services = [
     features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less"],
     link: "/services/ai-visuals",
     color: "#E8A020",
-    image: "/services_images/ser_seven.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252142/ChatGPT_Image_Aug_7_2026_09_09_04_AM_ysy10q.png"
   }
 ];
 

@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const MEDIA_ITEMS = [
-  '/our_work_ai/ai_one.png',
-  '/our_work_ai/ai.mp4',
-  '/our_work_ai/ai_three.png',
-  '/our_work_ai/ai_four.png',
-  '/our_work_ai/ai_five.png',
+  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_one_fuz1vl.webp',
+  'https://res.cloudinary.com/duokr6znr/video/upload/v1786250737/WhatsApp_Video_2026-08-06_at_1.25.12_PM_xdcjb7.mp4',
+  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_three_qyeoji.jpg',
+  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250555/ai_four_cess7p.webp',
+  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_five_v6wbwp.jpg',
 ];
 
 export default function AIShowcaseCarousel() {
@@ -229,8 +229,8 @@ export default function AIShowcaseCarousel() {
             key={index}
             onClick={() => setActiveIndex(index)}
             className={`h-2 rounded-full transition-all duration-500 ${activeIndex === index
-                ? 'w-8 bg-[#C8860A]'
-                : 'w-2 bg-gray-300 hover:bg-gray-400'
+              ? 'w-8 bg-[#C8860A]'
+              : 'w-2 bg-gray-300 hover:bg-gray-400'
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />

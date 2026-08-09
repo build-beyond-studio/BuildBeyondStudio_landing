@@ -15,14 +15,14 @@ export default function TrackingShowcaseSection({
     {
       title: 'Funnel Audit Walkthrough',
       description: 'Traffic → Product View → Add to Cart → Checkout → Purchase with clear drop-off detection and recovery opportunities.',
-      imageSrc: '/our_work_tracking/funnel-audit.png',
+      imageSrc: 'https://res.cloudinary.com/duokr6znr/image/upload/v1786251058/0yKKhGBj1RTOjdN5zF4vfxdbU-LJGwPo75c8-q5paeG9syOR7S0Jta-ON6ywbs_H0kJ1-gUR-gn0R87zRVtNeMD-FeXFd2aFvQgUVeMNRCNjiebctmu1E0Hn_eRwAl6aVd8TOxYBLX80dwM_m1lFrlIgEM6t7YvHnwShbURfAWjn9WyiWsVt4p642bdAzzeC_nmarfv.jpg',
       icon: <BarChart3 className="w-5 h-5 text-gray-700" />,
       delay: 0,
     },
     {
       title: 'Conversion Tracking Setup',
       description: 'GA4, Meta Pixel, server-side CAPI, deduplication, and attribution health checks configured for reliable reporting and performance optimization.',
-      imageSrc: '/our_work_tracking/conversion-tracking.png',
+      imageSrc: 'https://res.cloudinary.com/duokr6znr/image/upload/v1786251038/n7iuU5L_3H6eapJac-YxNTSS8-R6MOcnS099n5SdFJ03lCQh5KyaAfgJV9unHbsu2bNK1a10F0wp-KL7QJWhqg1mwvTVzpvmn3BroCpXlPbak16nqmkhdFLR4OekpT-yFJrjs6ZvSy8GDPh2dL2kyTboauU906kz1N7ctI3Paf9kDp6aMrf1uanVdWZvYCoW_dncgka.jpg',
       icon: <ShieldCheck className="w-5 h-5 text-gray-700" />,
       delay: 0.12,
     }
@@ -72,7 +72,7 @@ export default function TrackingShowcaseSection({
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: card.delay }}
           >
-            <TrackingShowcaseCard 
+            <TrackingShowcaseCard
               title={card.title}
               description={card.description}
               imageSrc={card.imageSrc}
