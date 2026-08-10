@@ -178,13 +178,50 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Marquee Carousels */}
-        <div className="w-full flex flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
+        {/* Marquee Carousels - Desktop/Tablet Only */}
+        <div className="hidden md:flex w-full flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
           {/* Upper Row (Scrolls Right) */}
           <MarqueeRow items={upperServices} direction="right" speed="95s" />
           
           {/* Lower Row (Scrolls Left) */}
           <MarqueeRow items={lowerServices} direction="left" speed="90s" />
+        </div>
+
+        {/* WhatsApp-Style Services List - Mobile Only */}
+        <div className="block md:hidden px-4 py-6 relative z-10">
+          {services.map((svc, i) => (
+            <Link 
+              key={i} 
+              href={svc.link} 
+              className={`flex items-start w-full gap-[14px] py-[12px] focus:outline-none ${i !== services.length - 1 ? 'border-b border-[rgba(15,23,42,0.08)]' : ''}`}
+            >
+              {/* Left Side Image */}
+              <div className="w-[88px] h-[88px] rounded-full shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden">
+                <img 
+                  src={svc.image} 
+                  alt={svc.title.replace('\n', ' ')}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Right Side Content */}
+              <div className="flex-1 min-w-0 flex flex-col justify-start">
+                <h3 className="text-[15px] font-[700] text-[#0B1B34] leading-[1.35] mb-1">
+                  {svc.title.replace('\n', ' ')}
+                </h3>
+                <p className="text-[13px] text-[#64748B] leading-[1.5] line-clamp-3">
+                  {svc.desc}
+                </p>
+                <div className="flex flex-wrap gap-[6px] mt-[8px]">
+                  {svc.features.slice(0, 2).map((feat: string) => (
+                    <span key={feat} className="px-[10px] py-[4px] rounded-full bg-[rgba(212,148,13,0.08)] text-[#D4940D] text-[11px] font-[600]">
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

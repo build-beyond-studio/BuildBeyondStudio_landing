@@ -523,14 +523,13 @@ export default function Hero() {
                   lineHeight: 1.3,
                   marginBottom: "5px",
                 }}>
-                  We give the{" "}
                   <span style={{
                     background: "linear-gradient(130deg,#A06A00 0%,#C8860A 45%,#E8A020 100%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
                   }}>
-                    We provide best quotation in the whole market.
+                    We provide the best quotation in the whole market.
                   </span>
                 </p>
                 <p style={{

@@ -35,7 +35,17 @@ export default function BestQuotationBadge() {
           animation: bqb-glow-pulse 2.8s ease-in-out infinite;
           cursor: default;
           user-select: none;
-          white-space: nowrap;
+          white-space: normal;
+          text-align: center;
+          line-height: 1.4;
+          max-width: 100%;
+        }
+        @media (max-width: 640px) {
+          .bqb-pill {
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 20px;
+          }
         }
         .bqb-spark {
           font-size: 15px;

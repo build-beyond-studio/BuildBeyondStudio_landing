@@ -141,6 +141,7 @@ export default function RevenueHighlightBanner() {
           .rhb-outer { padding: 20px 18px; }
           .rhb-badge { display: none; }
           .rhb-divider { display: none; }
+          .rhb-icon-wrap { display: none; }
         }
       `}</style>
 
