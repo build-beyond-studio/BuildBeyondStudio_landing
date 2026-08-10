@@ -68,7 +68,7 @@ export function TrackingShowcaseCard({
               onMouseLeave={handleMouseLeave}
               transition={{ duration: isHovered ? 0.55 : 0.4, ease: [0.22, 1, 0.36, 1] }}
               className={isHovered ?
-                "fixed inset-0 m-auto w-[90vw] md:w-[85vw] h-[70vh] md:h-[80vh] rounded-none overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] bg-gray-100 flex flex-col border border-white/10 will-change-transform pointer-events-auto" :
+                "fixed inset-0 m-auto w-[95vw] md:w-[90vw] lg:w-[85vw] aspect-video rounded-none overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] bg-gray-100 flex flex-col border border-white/10 will-change-transform pointer-events-auto" :
                 "absolute inset-0 rounded-none overflow-hidden shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] bg-gray-100 flex flex-col border border-gray-100 will-change-transform pointer-events-auto"
               }
               style={{
@@ -76,13 +76,13 @@ export function TrackingShowcaseCard({
                 transform: 'translateZ(0)'
               }}
             >
-              <div className="relative w-full h-full overflow-hidden bg-gray-50">
+              <div className="relative w-full h-full overflow-hidden bg-gray-900">
                 <Image
                   src={imageSrc}
                   alt={title}
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={isHovered ? "object-contain bg-black" : "object-cover bg-gray-50"}
+                  sizes="(max-width: 768px) 100vw, 90vw"
                 />
                 <motion.div
                   initial={false}
