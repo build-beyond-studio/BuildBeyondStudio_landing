@@ -100,7 +100,7 @@ export default function WhiteLabelPage() {
         </p>
 
         <TrackedLink
-          href="https://wa.me/919301579493?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
+          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
           target="_blank"
           rel="noopener noreferrer"
           eventName="whatsapp_click"
@@ -229,7 +229,7 @@ export default function WhiteLabelPage() {
             silent technical partner.
           </p>
           <TrackedLink
-            href="https://wa.me/919301579493?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
+            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20white-label%20partnership%20with%20Build%20Beyond%20Studio."
             target="_blank"
             rel="noopener noreferrer"
             eventName="whatsapp_click"

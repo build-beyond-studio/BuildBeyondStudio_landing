@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
+import SeoShowcaseSection from '@/components/portfolio/SeoShowcaseSection'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
@@ -48,15 +49,22 @@ export default function AeoGeoPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
-      <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
+      <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → AI-Era Search Visibility (SEO, AEO & GEO)</div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
           AI-Era Search Visibility (SEO, AEO & GEO). Future-Proof Traffic.
         </h1>
-        <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
           Optimize your web code and content to rank in traditional search engines (Google) and be cited as a top-tier source by AI-powered search engines (ChatGPT Search, Perplexity, Google Gemini, Claude).
         </p>
+      </section>
+
+      <div className="mb-16">
+        <SeoShowcaseSection hideHeader compactLayout className="!pt-8 !pb-0" />
+      </div>
+
+      <section className="max-w-4xl mx-auto pb-24 px-4 sm:px-6">
         <div className="text-center sm:text-left mb-16">
           <TrackedLink
             href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20an%20AI-Era%20Search%20Visibility%20brief%20with%20Build%20Beyond%20Studio."

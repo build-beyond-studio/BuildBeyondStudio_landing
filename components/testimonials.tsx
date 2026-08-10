@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const testimonials = [
   {
@@ -14,6 +15,8 @@ const testimonials = [
     type: "both",
     initials: "ST",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
+    socialLink: "https://www.linkedin.com/company/techtasteinternational/",
+    socialType: "linkedin"
   },
   {
     id: "agency-owner-2",
@@ -26,8 +29,10 @@ const testimonials = [
     type: "both",
     initials: "AY",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111690/WhatsApp_Image_2026-07-15_at_3.52.05_PM_mpolbe.jpg",
+    socialLink: "https://www.instagram.com/bvfx_digify/",
+    socialType: "instagram"
   },
-    {
+  {
     id: "agency-owner-3",
     name: "Sarthak",
     role: "Founder",
@@ -38,6 +43,8 @@ const testimonials = [
     type: "both",
     initials: "ST",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.04_PM_z1hve2.jpg",
+    socialLink: "https://www.linkedin.com/in/sarthak-sahni-1023ba187?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    socialType: "linkedin"
   },
   {
     id: "agency-owner-4",
@@ -50,6 +57,8 @@ const testimonials = [
     type: "both",
     initials: "MH",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111688/WhatsApp_Image_2026-07-15_at_3.52.05_PM_2_dakvlf.jpg",
+    socialLink: "https://www.instagram.com/shivora_media?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    socialType: "instagram"
   },
   {
     id: "agency-owner-5",
@@ -62,8 +71,9 @@ const testimonials = [
     type: "both",
     initials: "AS",
     photoPath: "https://res.cloudinary.com/ds6jbzjy0/image/upload/f_auto,q_auto/v1784111689/WhatsApp_Image_2026-07-15_at_3.52.05_PM_1_p0hpg2.jpg",
+    socialLink: "https://www.linkedin.com/company/clockedagency/",
+    socialType: "linkedin"
   },
-
 ];
 
 export default function Testimonials() {
@@ -161,6 +171,29 @@ export default function Testimonials() {
                   {testimonial.quote}
                 </p>
               </div>
+
+              {/* Social Icon Bottom Right */}
+              {testimonial.socialLink && (
+                <div className="mt-auto pt-4 flex justify-end relative z-20">
+                  <a
+                    href={testimonial.socialLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-all duration-300 p-1 hover:scale-110 ${
+                      testimonial.socialType === 'linkedin' 
+                        ? 'text-[#0A66C2] hover:text-[#084D93]' 
+                        : 'text-[#E1306C] hover:text-[#B92759]'
+                    }`}
+                    aria-label={`Visit ${testimonial.name}'s ${testimonial.socialType}`}
+                  >
+                    {testimonial.socialType === 'linkedin' ? (
+                      <FaLinkedin className="w-5 h-5 md:w-6 md:h-6" />
+                    ) : (
+                      <FaInstagram className="w-5 h-5 md:w-6 md:h-6" />
+                    )}
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -110,7 +110,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
               </div>
               <div className="flex gap-3 shrink-0">
                 <TrackedLink
-                  href={`https://wa.me/919301579493?text=${encodeURIComponent(activeCourse.waMessage)}`}
+                  href={`https://wa.me/917697339962?text=${encodeURIComponent(activeCourse.waMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   eventName="whatsapp_click"

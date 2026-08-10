@@ -11,7 +11,7 @@ const services = [
     features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
     link: "/services/custom-web-applications",
     color: "#C8860A",
-    image: "/services_images/ser_one.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_53_13_AM_jkn4vm.png"
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const services = [
     features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
     link: "/services/devops-infrastructure",
     color: "#A06A00",
-    image: "/services_images/ser_two.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_04_28_AM_j6agkq.png"
   },
   {
     num: "03",
@@ -29,7 +29,7 @@ const services = [
     features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
     link: "/services/technical-consulting",
     color: "#E8A020",
-    image: "/services_images/ser_three.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_01_54_AM_sdkhxf.png"
   },
   {
     num: "04",
@@ -38,7 +38,7 @@ const services = [
     features: ["Answer Engine Optimization", "Schema Injecting", "LLM Context Citations"],
     link: "/services/aeo-geo",
     color: "#B87800",
-    image: "/services_images/ser_four.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_57_45_AM_djqp1f.png"
   },
   {
     num: "05",
@@ -47,7 +47,7 @@ const services = [
     features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low CPA"],
     link: "/services/performance-ads",
     color: "#C8860A",
-    image: "/services_images/ser_five.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252138/ChatGPT_Image_Aug_7_2026_09_06_40_AM_ovf5qh.png"
   },
   {
     num: "06",
@@ -56,7 +56,7 @@ const services = [
     features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics"],
     link: "/services/tracking-funnels",
     color: "#A06A00",
-    image: "/services_images/ser_six.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252141/ChatGPT_Image_Aug_7_2026_09_11_08_AM_ddmga0.png"
   },
   {
     num: "07",
@@ -65,7 +65,7 @@ const services = [
     features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less"],
     link: "/services/ai-visuals",
     color: "#E8A020",
-    image: "/services_images/ser_seven.png"
+    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252142/ChatGPT_Image_Aug_7_2026_09_09_04_AM_ysy10q.png"
   }
 ];
 
@@ -178,13 +178,50 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Marquee Carousels */}
-        <div className="w-full flex flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
+        {/* Marquee Carousels - Desktop/Tablet Only */}
+        <div className="hidden md:flex w-full flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
           {/* Upper Row (Scrolls Right) */}
           <MarqueeRow items={upperServices} direction="right" speed="95s" />
           
           {/* Lower Row (Scrolls Left) */}
           <MarqueeRow items={lowerServices} direction="left" speed="90s" />
+        </div>
+
+        {/* WhatsApp-Style Services List - Mobile Only */}
+        <div className="block md:hidden px-4 py-6 relative z-10">
+          {services.map((svc, i) => (
+            <Link 
+              key={i} 
+              href={svc.link} 
+              className={`flex items-start w-full gap-[14px] py-[12px] focus:outline-none ${i !== services.length - 1 ? 'border-b border-[rgba(15,23,42,0.08)]' : ''}`}
+            >
+              {/* Left Side Image */}
+              <div className="w-[88px] h-[88px] rounded-full shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden">
+                <img 
+                  src={svc.image} 
+                  alt={svc.title.replace('\n', ' ')}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Right Side Content */}
+              <div className="flex-1 min-w-0 flex flex-col justify-start">
+                <h3 className="text-[15px] font-[700] text-[#0B1B34] leading-[1.35] mb-1">
+                  {svc.title.replace('\n', ' ')}
+                </h3>
+                <p className="text-[13px] text-[#64748B] leading-[1.5] line-clamp-3">
+                  {svc.desc}
+                </p>
+                <div className="flex flex-wrap gap-[6px] mt-[8px]">
+                  {svc.features.slice(0, 2).map((feat: string) => (
+                    <span key={feat} className="px-[10px] py-[4px] rounded-full bg-[rgba(212,148,13,0.08)] text-[#D4940D] text-[11px] font-[600]">
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

@@ -285,7 +285,7 @@ export default async function BlogPostPage({
                 Explore Web Development
               </Link>
               <a
-                href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20my%20project%20with%20Build%20Beyond%20Studio."
+                href="https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20my%20project%20with%20Build%20Beyond%20Studio."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block border-2 border-[#C8860A] text-[#C8860A] px-8 py-3 rounded-lg font-semibold hover:bg-[#FDF8F0] transition-colors"

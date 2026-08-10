@@ -159,7 +159,7 @@ export default function WebApplicationsService() {
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a
-                  href="https://wa.me/919301579493"
+                  href="https://wa.me/917697339962"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => {
@@ -305,7 +305,7 @@ export default function WebApplicationsService() {
               Let's build a web application that drives real business value. Schedule a no-pressure technical consultation today.
             </p>
             <a
-              href="https://wa.me/919301579493"
+              href="https://wa.me/917697339962"
               target="_blank" rel="noopener noreferrer"
               onClick={() => {
                 window.gtag?.('event', 'whatsapp_click', { button_location: 'service_page_webdev' });

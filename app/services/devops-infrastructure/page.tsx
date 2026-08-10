@@ -51,7 +51,7 @@ export default function DevOpsInfrastructurePage() {
           Auto-Scaling Cloud & DevOps. Campaign-Proof Architecture.
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
-          Ensure your clients' sites never crash during high-traffic ad launches. 
+          Ensure your clients' sites never crash during high-traffic ad launches.
           Protect their ad spend and your reputation.
         </p>
         <div className="text-center sm:text-left mb-16">
@@ -67,7 +67,7 @@ export default function DevOpsInfrastructurePage() {
         </div>
 
         <div className="space-y-12 text-gray-700">
-          
+
           {/* 2. Why Pitch This? */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Why Pitch This?</h2>

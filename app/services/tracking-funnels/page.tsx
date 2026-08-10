@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
+import TrackingShowcaseSection from '@/components/portfolio/TrackingShowcaseSection'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
@@ -43,13 +44,23 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 export default function TrackingFunnelsPage() {
   return (
-    <main className="min-h-screen bg-[#F5F2EC] text-black">
+    <main className="min-h-screen bg-[#F5F2EC] text-black overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
-      <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
-        <div className="mb-4 text-sm text-gray-500">Home → Services → E-Comm Funnel Audits & Conversion Tracking</div>
+      
+      {/* Breadcrumb */}
+      <div className="max-w-4xl mx-auto pt-24 px-4 sm:px-6 relative z-10">
+        <div className="text-sm text-gray-500">Home → Services → E-Comm Funnel Audits & Conversion Tracking</div>
+      </div>
 
+      {/* Showcase Section at Top */}
+      <div className="-mt-8 relative">
+        <TrackingShowcaseSection compactLayout={true} />
+      </div>
+
+      {/* Main Content */}
+      <section className="max-w-4xl mx-auto pb-24 px-4 sm:px-6 relative z-10">
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
           Conversion Tracking. Decrypted Funnels.
         </h1>
@@ -120,6 +131,7 @@ export default function TrackingFunnelsPage() {
 
         </div>
       </section>
+
       <Footer />
     </main>
   )

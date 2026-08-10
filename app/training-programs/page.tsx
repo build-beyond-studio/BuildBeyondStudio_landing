@@ -202,7 +202,7 @@ export default function InternshipProgramsPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
             <TrackedLink
-              href="https://wa.me/919301579493?text=Hi%21%20I%20have%20questions%20about%20the%20Internship%20Programs%20at%20Build%20Beyond%20Studio."
+              href="https://wa.me/917697339962?text=Hi%21%20I%20have%20questions%20about%20the%20Internship%20Programs%20at%20Build%20Beyond%20Studio."
               target="_blank"
               rel="noopener noreferrer"
               eventName="whatsapp_click"
