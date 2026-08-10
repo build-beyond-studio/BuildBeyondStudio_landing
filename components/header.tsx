@@ -44,7 +44,7 @@ export default function Header() {
   }, []);
 
   const isHomePage = pathname === "/";
-  const contactHref = isHomePage ? "/#contact" : "https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency.";
+  const contactHref = isHomePage ? "/#contact" : "https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency.";
   const contactProps = isHomePage ? {} : { target: "_blank", rel: "noopener noreferrer" };
 
   return (

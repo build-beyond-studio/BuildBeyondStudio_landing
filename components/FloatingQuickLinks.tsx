@@ -85,7 +85,7 @@ export default function FloatingQuickLinks() {
       <div className="relative mt-0 flex-shrink-0 z-10 mx-1">
         <div className="absolute inset-0 bg-green-500/40 rounded-full animate-ping scale-[1.2]" />
         <a
-          href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
+          href="https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleWhatsappClick}

@@ -12,7 +12,7 @@ const FloatingWhatsApp: React.FC = () => {
     <div className="fixed bottom-6 right-6 z-[999] hidden md:flex items-center">
       {/* Message Card */}
       <a
-        href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
+        href="https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
@@ -30,7 +30,7 @@ const FloatingWhatsApp: React.FC = () => {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919301579493?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
+        href="https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency."
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
