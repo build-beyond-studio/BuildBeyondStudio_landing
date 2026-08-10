@@ -71,7 +71,7 @@ export default function BestQuotationBadge() {
       `}</style>
 
       <div className="bqb-pill" role="note" aria-label="guaranteed. Quality, uncompromised.">
-        <span className="bqb-spark">✦</span>
+        <span className="bqb-spark"></span>
         {" "}
         <span className="bqb-highlight">Best pricing in the market — guaranteed. Quality, uncompromised.</span>
       </div>
