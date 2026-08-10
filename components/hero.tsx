@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import BestQuotationBadge from "@/components/BestQuotationBadge";
 
 const EMAIL = "buildbeyondstudio@gmail.com";
 const BALL_COUNT = 120;
@@ -412,8 +413,9 @@ export default function Hero() {
                      flex flex-col items-center text-center gap-5 sm:gap-5
                      will-change-[transform,opacity] pt-12 sm:pt-16 pb-40"
         >
-          {/* Eyebrow */}
-          <div ref={eyebrowRef} className="hero-pre">
+          {/* Best Quotation Badge + Eyebrow pills */}
+          <div ref={eyebrowRef} className="hero-pre flex flex-col items-center gap-3" style={{ marginTop: "-10px" }}>
+            <BestQuotationBadge />
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               <div className="eyebrow-pill">
                 <span className="text-[#C8860A] font-bold">✓</span> 100% White-Label
@@ -471,6 +473,76 @@ export default function Hero() {
           >
             Expand your service offerings, deliver high-performance web applications, and add pure profit to your bottom line—<span className="font-semibold text-gray-900">without hiring a single developer</span>. Build Beyond Studio is a white-label web development and technical growth partner exclusively for marketing agencies.
           </p>
+
+          {/* Best quotation promise — styled card */}
+          <div
+            className="hero-pre w-full max-w-[560px]"
+            style={{ transitionDelay: "310ms" }}
+          >
+            <div
+              style={{
+                background: "linear-gradient(135deg, rgba(200,134,10,0.07) 0%, rgba(232,160,32,0.04) 100%)",
+                border: "1.5px solid rgba(200,134,10,0.28)",
+                borderRadius: "16px",
+                padding: "18px 22px",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "14px",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              {/* top shimmer line */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0,
+                height: "1.5px",
+                background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.6), transparent)",
+              }} />
+
+              {/* Icon */}
+              <div style={{
+                width: 36, height: 36,
+                borderRadius: "10px",
+                background: "rgba(200,134,10,0.12)",
+                border: "1px solid rgba(200,134,10,0.3)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0,
+                color: "#C8860A",
+                fontSize: "15px",
+              }}>
+                ✦
+              </div>
+
+              {/* Text */}
+              <div style={{ flex: 1, textAlign: "left" }}>
+                <p style={{
+                  fontSize: "14.5px",
+                  fontWeight: 800,
+                  color: "#1a1209",
+                  letterSpacing: "-0.018em",
+                  lineHeight: 1.3,
+                  marginBottom: "5px",
+                }}>
+                  We give the{" "}
+                  <span style={{
+                    background: "linear-gradient(130deg,#A06A00 0%,#C8860A 45%,#E8A020 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}>
+                    We provide best quotation in the whole market.
+                  </span>
+                </p>
+                <p style={{
+                  fontSize: "12px",
+                  color: "#6B7280",
+                  lineHeight: 1.65,
+                }}>
+                  Enterprise-grade websites, AI systems, cloud infrastructure &amp; performance marketing — at the most competitive pricing available.
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Service highlights */}
           <div
@@ -565,6 +637,27 @@ export default function Hero() {
             >
               Book a Strategy Call
             </button>
+          </div>
+
+          {/* Floating trust line */}
+          <div
+            className="hero-pre"
+            style={{ transitionDelay: "620ms" }}
+          >
+            <p
+              style={{
+                fontSize: "11px",
+                color: "#9CA3AF",
+                fontWeight: 600,
+                letterSpacing: "0.025em",
+              }}
+            >
+              <span style={{ color: "#C8860A" }}>✓</span> Transparent Pricing
+              {" "}·{" "}
+              <span style={{ color: "#C8860A" }}>✓</span> Faster Delivery
+              {" "}·{" "}
+              <span style={{ color: "#C8860A" }}>✓</span> Best Market Quotation
+            </p>
           </div>
 
           {/* Stat pills */}

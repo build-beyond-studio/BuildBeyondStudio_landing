@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/metadata';
+// import ClientHomeWrapper from "@/components/ClientHomeWrapper";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Workflow from "@/components/Workflow";
@@ -13,8 +14,8 @@ import FAQ, { faqs } from "@/components/faq";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import FloatingAIAssistant from "@/components/FloatingAIAssistant";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
+
 
 export const metadata: Metadata = buildMetadata(
   '/',
@@ -38,13 +39,13 @@ const faqSchema = {
 
 export default function Home() {
   return (
+    // <ClientHomeWrapper>
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FloatingWhatsApp />
-      <FloatingAIAssistant />
       <FloatingQuickLinks />
       <Header />
       <Hero />
@@ -59,5 +60,6 @@ export default function Home() {
       <Contact />
       <Footer />
     </main>
+    // </ClientHomeWrapper>
   )
 }

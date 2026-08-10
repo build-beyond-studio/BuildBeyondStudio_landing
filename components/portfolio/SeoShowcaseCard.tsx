@@ -7,16 +7,25 @@ interface SeoShowcaseCardProps {
   title: string;
   subtitle: string;
   videoSrc: string;
+  playbackRate?: number;
 }
 
 export function SeoShowcaseCard({
   title,
   subtitle,
   videoSrc,
+  playbackRate = 1,
 }: SeoShowcaseCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [mounted, setMounted] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = playbackRate;
+    }
+  }, [playbackRate]);
 
   useEffect(() => {
     setMounted(true);
@@ -40,9 +49,7 @@ export function SeoShowcaseCard({
   };
 
   return (
-    <div
-      className={`group block relative w-full h-full rounded-[28px] bg-[#FDFDFD] border border-gray-200/60 shadow-sm ${isHovered ? 'z-[101]' : 'z-10'}`}
-    >
+    <>
       {/* 
         Fullscreen dark overlay. 
         Only mounts when isHovered is true.
@@ -60,7 +67,10 @@ export function SeoShowcaseCard({
         )}
       </AnimatePresence>
 
-      <div className="p-4 sm:p-5 flex flex-col h-full rounded-[28px] bg-[#FDFDFD]">
+      <div
+        className="group block relative w-full h-full rounded-none bg-[#FDFDFD] border border-gray-200/60 shadow-sm"
+      >
+        <div className="flex flex-col h-full rounded-none bg-[#FDFDFD]">
           {/* Video Area Container */}
           <div className="relative w-full aspect-video mb-6">
 
@@ -69,39 +79,52 @@ export function SeoShowcaseCard({
               layout
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              onClick={() => setIsHovered(!isHovered)}
               transition={{ duration: isHovered ? 0.55 : 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className={isHovered ? 
-                "fixed inset-0 m-auto w-[96vw] md:w-[80vw] lg:w-[70vw] max-w-[1150px] aspect-video z-[110] rounded-[32px] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] bg-gray-100 flex flex-col border border-white/10 will-change-transform pointer-events-auto" : 
-                "absolute inset-0 rounded-[24px] overflow-hidden shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] bg-gray-100 flex flex-col border border-gray-100 will-change-transform pointer-events-auto"
+              className={isHovered ?
+                "fixed inset-0 m-auto w-[90vw] md:w-[85vw] h-[70vh] md:h-[80vh] rounded-none overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] bg-gray-100 flex flex-col border border-white/10 will-change-transform pointer-events-auto" :
+                "absolute inset-0 rounded-none overflow-hidden shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] bg-gray-100 flex flex-col border border-gray-100 will-change-transform pointer-events-auto"
               }
               style={{
+                zIndex: isHovered ? 99999 : 1,
                 // Required to prevent click-through issues when fixed
                 transform: 'translateZ(0)'
               }}
             >
+
               <div className="relative w-full h-full overflow-hidden bg-gray-50">
                 <video
+                  ref={videoRef}
                   src={videoSrc}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className={`w-full h-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${!isHovered ? 'scale-[1.4]' : 'scale-100'}`}
+                  className="w-full h-full object-cover"
                 />
+                {/* Ambient Glow behind the expanded video */}
+                <motion.div
+                  initial={false}
+                  animate={{ opacity: isHovered ? 1 : 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0 rounded-none -z-10 blur-3xl scale-105 pointer-events-none"
+                  style={{ backgroundColor: 'rgba(232, 168, 32, 0.15)' }}
+                ></motion.div>
               </div>
             </motion.div>
 
             {/* Invisible placeholder to keep card height intact when video is fixed */}
-            <div className="absolute inset-0 rounded-[24px] bg-transparent pointer-events-none" />
+            <div className="absolute inset-0 rounded-none bg-transparent pointer-events-none" />
           </div>
 
           {/* Content Area */}
-          <div className="mt-auto px-1 pb-1 flex flex-col pointer-events-auto">
-            <h3 className="text-[22px] leading-tight font-bold text-gray-900 mb-2">{title}</h3>
-            <p className="text-[15px] font-medium text-gray-500 leading-relaxed">{subtitle}</p>
+          <div className="mt-auto px-4 sm:px-5 pb-4 sm:pb-5 flex justify-between items-end pointer-events-auto">
+            <div>
+              <h3 className="text-[22px] leading-tight font-bold text-gray-900 mb-1.5">{title}</h3>
+              <p className="text-[15px] font-medium text-gray-500">{subtitle}</p>
+            </div>
           </div>
         </div>
       </div>
+    </>
   );
 }

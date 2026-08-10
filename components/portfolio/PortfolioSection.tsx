@@ -3,10 +3,10 @@
 import React from 'react';
 import { WebsitePortfolioCard } from './WebsitePortfolioCard';
 
-export default function PortfolioSection({ 
+export default function PortfolioSection({
   hideHeader = false,
-  columns = 4 
-}: { 
+  columns = 4
+}: {
   hideHeader?: boolean;
   columns?: 3 | 4;
 }) {
@@ -50,7 +50,7 @@ export default function PortfolioSection({
   ];
 
   return (
-    <section className={`pt-4 pb-16 md:pt-8 md:pb-24 px-4 mx-auto ${columns === 3 ? 'max-w-[58rem]' : 'max-w-[82rem]'}`}>
+    <section className={`pt-4 pb-16 md:pt-8 md:pb-24 px-4 mx-auto max-w-[82rem]`}>
       {!hideHeader && (
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Websites</h2>
@@ -59,13 +59,13 @@ export default function PortfolioSection({
           </p>
         </div>
       )}
-      
+
       <div className={`grid grid-cols-1 md:grid-cols-2 ${columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-6 md:gap-8`}>
         {websites.map((site, index) => (
-          <WebsitePortfolioCard 
-            key={index} 
-            title={site.title} 
-            subtitle={site.subtitle} 
+          <WebsitePortfolioCard
+            key={index}
+            title={site.title}
+            subtitle={site.subtitle}
             videoSrc={site.videoSrc}
             link={site.link}
           />
@@ -74,3 +74,4 @@ export default function PortfolioSection({
     </section>
   );
 }
+

@@ -31,7 +31,7 @@ export default function AIShowcaseCarousel() {
   // Autoplay functionality
   useEffect(() => {
     if (!isHovered) {
-      autoplayRef.current = setInterval(nextSlide, 5000);
+      autoplayRef.current = setInterval(nextSlide, 2000);
     }
     return () => {
       if (autoplayRef.current) clearInterval(autoplayRef.current);

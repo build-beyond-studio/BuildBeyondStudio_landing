@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import RevenueHighlightBanner from "@/components/RevenueHighlightBanner";
 
 /* ── SVG Icons ── */
 const IconInbox = () => (
@@ -352,6 +353,7 @@ export default function RevenueMath() {
           </div>
 
           {/* 3-Step Flow */}
+          <RevenueHighlightBanner />
           <div className={`rm-fade rm-d2 ${visible ? "rm-on" : ""} mb-12`}>
             <div className="rm-flow gap-2 sm:gap-4">
               {FLOW.map((s, i) => (

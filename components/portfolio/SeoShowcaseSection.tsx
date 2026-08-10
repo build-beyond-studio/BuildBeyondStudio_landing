@@ -15,6 +15,7 @@ export default function SeoShowcaseSection({
       title: 'AI-Era Search Visibility',
       subtitle: 'SEO, AEO, GEO & AI search optimization strategies for modern brands.',
       videoSrc: 'https://res.cloudinary.com/duokr6znr/video/upload/v1786251469/Screen_Recording_2026-08-08_155519_vkgrh0.mp4',
+      playbackRate: 1.75,
     },
     {
       title: 'Answer Engine & GEO Optimization',
@@ -43,6 +44,7 @@ export default function SeoShowcaseSection({
             title={card.title}
             subtitle={card.subtitle}
             videoSrc={card.videoSrc}
+            playbackRate={card.playbackRate}
           />
         ))}
       </div>
