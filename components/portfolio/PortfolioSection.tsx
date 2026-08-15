@@ -12,6 +12,36 @@ export default function PortfolioSection({
 }) {
   const websites = [
     {
+      title: "Real Estate | Property in india",
+      subtitle: "Buy /Sale/Rent Properties",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786817142/Screen_Recording_2026-08-15_233439.mp4",
+      link: "https://vistaara-estate.vercel.app/"
+    },
+    {
+      title: "Cinnabon Bakery Restaurant",
+      subtitle: "Cinnabon Local Bakery Near you",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786815879/Screen_Recording_2026-08-15_231405.mp4",
+      link: "https://www.cinnabon.com/"
+    },
+    {
+      title: "Aarogyam Susperspeciality Hospital & research Center",
+      subtitle: "durg Bhilai",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814346/Screen_Recording_2026-08-15_224521.mp4",
+      link: "https://ashaarogyam.com/"
+    },
+    {
+      title: "Cocco N Curry",
+      subtitle: "Cocco N Curry",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814357/Screen_Recording_2026-08-15_224643.mp4",
+      link: "https://www.cocconcurry.com/"
+    },
+    {
+      title: "Franfirst",
+      subtitle: "Franchise Consultant",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814353/Screen_Recording_2026-08-15_224737.mp4",
+      link: "https://franfirst.vercel.app/"
+    },
+    {
       title: "Faoo",
       subtitle: "Fashion Apparel For Men and Women",
       videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786252092/Screen_Recording_2026-08-08_140416_tuovxp.mp4",
@@ -60,7 +90,7 @@ export default function PortfolioSection({
         </div>
       )}
 
-      <div className={`grid grid-cols-1 md:grid-cols-2 ${columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-6 md:gap-8`}>
+      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8`}>
         {websites.map((site, index) => (
           <WebsitePortfolioCard
             key={index}

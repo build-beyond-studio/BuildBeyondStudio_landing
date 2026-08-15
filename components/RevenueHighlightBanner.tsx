@@ -216,8 +216,8 @@ export default function RevenueHighlightBanner() {
         @media (max-width: 900px) {
           .partner-econ-container {
             flex-direction: column;
-            padding: 32px 24px;
-            gap: 32px;
+            padding: 20px 16px;
+            gap: 20px;
           }
           .pe-desc {
             max-width: 100%;

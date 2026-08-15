@@ -47,14 +47,11 @@ export default function VideoPopup() {
               </svg>
             </button>
 
-            {/* Video Player */}
-            <video
+            {/* Image Content */}
+            <img
               className="w-full max-h-[85vh] object-cover"
-              src="https://res.cloudinary.com/davycvtnr/video/upload/v1786797584/WhatsApp_Video_2026-08-15_at_4.09.12_PM.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
+              src="https://res.cloudinary.com/davycvtnr/image/upload/v1786813111/Gemini_Generated_Image_ey4unfey4unfey4u.png"
+              alt="Promotional Content"
             />
           </div>
         </div>
