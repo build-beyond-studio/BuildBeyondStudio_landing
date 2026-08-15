@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
 import { GENERAL_BENEFITS, COURSES } from "./data";
+import SkillDevelopmentFundBanner from "@/components/SkillDevelopmentFundBanner";
 
 export const metadata: Metadata = buildMetadata(
   '/training-programs',
@@ -28,16 +29,28 @@ export default function InternshipProgramsPage() {
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/5 bg-black/[0.02] text-xs font-bold tracking-widest text-[#C8860A] uppercase mb-4">
+          {/* Top Performers Banner */}
+          <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300">
+            <div className="flex-shrink-0">
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+            </div>
+            <div className="text-left">
+              <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>
+                Top Performers Get Hired
+              </h2>
+              <p className="text-[#D8CDAF] text-[12.5px] sm:text-[15px] leading-snug sm:leading-relaxed">
+                Best students from every batch are fast-tracked into paid internships with Build Beyond Studio itself.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-left mb-10">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/5 bg-black/[0.02] text-[10px] sm:text-xs font-bold tracking-widest text-[#C8860A] uppercase mb-3">
               BBS Academy
             </span>
-            <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">
               What You Get
             </h1>
-            <p className="text-base sm:text-lg text-gray-700 max-w-xl mx-auto leading-relaxed">
-              Every internship program is loaded with professional benefits, industry-standard certificates, and placement support.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
@@ -48,7 +61,7 @@ export default function InternshipProgramsPage() {
               >
                 {/* Premium corner accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-bl from-[#C8860A]/[0.08] to-transparent rounded-bl-full transition-transform duration-500 group-hover:scale-110 pointer-events-none" />
-                
+
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="inline-flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FFFDF8] to-[#FDF4E5] rounded-lg sm:rounded-xl border border-[#C8860A]/10 mb-3 sm:mb-4 shadow-[0_4px_12px_rgba(200,134,10,0.05)] group-hover:shadow-[0_4px_16px_rgba(200,134,10,0.12)] transition-shadow duration-300">
                     <div className="scale-75 sm:scale-100 flex items-center justify-center">
@@ -61,6 +74,13 @@ export default function InternshipProgramsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── SKILL DEVELOPMENT FUND BANNER ── */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 bg-[#080808]">
+        <div className="max-w-5xl mx-auto">
+          <SkillDevelopmentFundBanner />
         </div>
       </section>
 
@@ -180,8 +200,8 @@ export default function InternshipProgramsPage() {
                 <tr className="bg-[#FAF8F5] text-black font-extrabold text-[11px] sm:text-[15px]">
                   <td className="p-2 sm:p-4 bg-[#FAF8F5]">Enrollment Fee</td>
                   <td className="p-2 sm:p-4 text-[#C8860A]">₹3,999</td>
-                  <td className="p-2 sm:p-4 text-[#C8860A]">₹8,999</td>
-                  <td className="p-2 sm:p-4 text-[#C8860A]">₹11,999</td>
+                  <td className="p-2 sm:p-4 text-[#C8860A]">₹7,999</td>
+                  <td className="p-2 sm:p-4 text-[#C8860A]">₹9,999</td>
                 </tr>
               </tfoot>
             </table>

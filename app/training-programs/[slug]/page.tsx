@@ -98,6 +98,21 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             </a>
           </div>
 
+          {/* Top Performers Banner */}
+          <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300">
+            <div className="flex-shrink-0">
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+            </div>
+            <div className="text-left">
+              <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>
+                Top Performers Get Hired
+              </h2>
+              <p className="text-[#D8CDAF] text-[12.5px] sm:text-[15px] leading-snug sm:leading-relaxed">
+                Best students from every batch are fast-tracked into paid internships with Build Beyond Studio itself.
+              </p>
+            </div>
+          </div>
+
           <div className="bg-white rounded-3xl border border-[#C8860A]/20 shadow-xl overflow-hidden">
             {/* Detail Header */}
             <div className="p-8 md:p-10 bg-gradient-to-br from-[#FFFDF9] to-[#F5F2EC] border-b border-black/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

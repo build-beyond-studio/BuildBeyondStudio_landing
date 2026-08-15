@@ -82,7 +82,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     let animationFrameId: number;
-    
+
     const scroll = () => {
       if (scrollRef.current && !isPaused) {
         scrollRef.current.scrollLeft += 1;
@@ -120,9 +120,9 @@ export default function Testimonials() {
             Real margins. Zero hiring. Complete confidentiality.
           </p>
         </div>
-        
+
         {/* Scrollable Carousel */}
-        <div 
+        <div
           ref={scrollRef}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -142,12 +142,12 @@ export default function Testimonials() {
 
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 md:gap-0 mb-3 md:mb-6">
                 <div className="flex items-center gap-2 md:gap-4">
-                  <img 
-                    src={testimonial.photoPath} 
-                    alt={`${testimonial.name}, ${testimonial.role} at ${testimonial.agency}`} 
-                    width={56} 
-                    height={56} 
-                    className="w-8 h-8 md:w-14 md:h-14 rounded-full object-cover shadow-sm ring-2 ring-[#FDF8F0] shrink-0" 
+                  <img
+                    src={testimonial.photoPath}
+                    alt={`${testimonial.name}, ${testimonial.role} at ${testimonial.agency}`}
+                    width={56}
+                    height={56}
+                    className="w-8 h-8 md:w-14 md:h-14 rounded-full object-cover shadow-sm ring-2 ring-[#FDF8F0] shrink-0"
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-black font-bold text-[11px] md:text-[15px] truncate md:whitespace-normal">{testimonial.name}</p>
@@ -161,7 +161,7 @@ export default function Testimonials() {
                   </span>
                 </div>
               </div>
-              
+
               <div className="relative flex-grow">
                 {/* Subtle Quote Icon */}
                 <svg className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-10 md:h-10 text-[#C8860A] opacity-[0.07]" fill="currentColor" viewBox="0 0 32 32">
@@ -179,11 +179,10 @@ export default function Testimonials() {
                     href={testimonial.socialLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`transition-all duration-300 p-1 hover:scale-110 ${
-                      testimonial.socialType === 'linkedin' 
-                        ? 'text-[#0A66C2] hover:text-[#084D93]' 
+                    className={`transition-all duration-300 p-1 hover:scale-110 ${testimonial.socialType === 'linkedin'
+                        ? 'text-[#0A66C2] hover:text-[#084D93]'
                         : 'text-[#E1306C] hover:text-[#B92759]'
-                    }`}
+                      }`}
                     aria-label={`Visit ${testimonial.name}'s ${testimonial.socialType}`}
                   >
                     {testimonial.socialType === 'linkedin' ? (
