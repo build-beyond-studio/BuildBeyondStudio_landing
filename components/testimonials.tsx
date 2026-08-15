@@ -79,12 +79,13 @@ const testimonials = [
 export default function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isManualPaused, setIsManualPaused] = useState(false);
 
   useEffect(() => {
     let animationFrameId: number;
 
     const scroll = () => {
-      if (scrollRef.current && !isPaused) {
+      if (scrollRef.current && !isPaused && !isManualPaused) {
         scrollRef.current.scrollLeft += 1;
         if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
           scrollRef.current.scrollLeft = 0;
@@ -95,7 +96,22 @@ export default function Testimonials() {
 
     animationFrameId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused]);
+  }, [isPaused, isManualPaused]);
+
+  const handleManualScroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      setIsManualPaused(true);
+      const amount = direction === "left" ? -350 : 350;
+      scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
+      
+      setTimeout(() => {
+        setIsManualPaused(false);
+      }, 600);
+    }
+  };
+
+  const scrollLeft = () => handleManualScroll("left");
+  const scrollRight = () => handleManualScroll("right");
 
   return (
     <section className="bg-[#F5F2EC] py-16 md:py-24 px-4 sm:px-6 border-t border-black/5">
@@ -119,6 +135,14 @@ export default function Testimonials() {
           <p className="text-gray-500 max-w-lg mx-auto font-light text-sm md:text-lg">
             Real margins. Zero hiring. Complete confidentiality.
           </p>
+          <div className="flex items-center justify-end gap-4 mt-8 pr-2 sm:pr-6 md:pr-12">
+            <button onClick={scrollLeft} className="w-11 h-11 rounded-full border border-[rgba(200,134,10,0.3)] bg-white text-[#C8860A] flex items-center justify-center hover:bg-[#FDF8F0] hover:scale-105 transition-all shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button onClick={scrollRight} className="w-11 h-11 rounded-full border border-[rgba(200,134,10,0.3)] bg-white text-[#C8860A] flex items-center justify-center hover:bg-[#FDF8F0] hover:scale-105 transition-all shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
 
         {/* Scrollable Carousel */}

@@ -114,7 +114,7 @@ export default function Hero() {
 
         .hero-video-bg {
           position: absolute;
-          bottom: 17%; /* Tiny shift up */
+          bottom: 22%; /* Shifted up slightly for mobile */
           left: 0;
           width: 100%;
           height: 100%;
@@ -250,10 +250,9 @@ export default function Hero() {
           className="hero-video-bg"
           autoPlay
           muted
-          loop
           playsInline
         >
-          <source src="/hero_video.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/davycvtnr/video/upload/v1786797483/WhatsApp_Video_2026-08-15_at_3.51.37_PM_1.mp4" type="video/mp4" />
         </video>
 
         {/* ── Centered content ── */}
@@ -261,7 +260,7 @@ export default function Hero() {
           ref={contentRef}
           className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10
                      flex flex-col items-center text-center gap-5 sm:gap-5
-                     will-change-[transform,opacity] pt-12 sm:pt-16 pb-40"
+                     will-change-[transform,opacity] pt-6 sm:pt-8 pb-40"
         >
 
 
@@ -296,52 +295,63 @@ export default function Hero() {
           {/* Service highlights */}
           <div
             ref={badgesRef}
-            className="hero-pre flex items-center justify-center gap-2 flex-wrap"
+            className="hero-pre flex flex-col items-center justify-center gap-3 mt-3 md:mt-7"
           >
-            {[
-              {
-                label: "Development",
-                icon: "</>",
-                accent: "#C8860A",
-                bg: "rgba(200,134,10,0.07)",
-                border: "rgba(200,134,10,0.18)",
-              },
-              {
-                label: "Deployment",
-                icon: "⬆",
-                accent: "#A06A00",
-                bg: "rgba(160,106,0,0.07)",
-                border: "rgba(160,106,0,0.18)",
-              },
-              {
-                label: "Maintenance",
-                icon: "⚙",
-                accent: "#E8A020",
-                bg: "rgba(232,160,32,0.07)",
-                border: "rgba(232,160,32,0.18)",
-              },
-            ].map(({ label, icon, accent, bg, border }) => (
-              <span
-                key={label}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  padding: "5px 13px",
-                  borderRadius: "999px",
-                  background: bg,
-                  border: `1px solid ${border}`,
-                  fontSize: "11.5px",
-                  fontWeight: 600,
-                  color: accent,
-                  letterSpacing: ".02em",
-                  backdropFilter: "blur(6px)",
-                }}
-              >
-                <span style={{ fontSize: "11px", opacity: 0.9 }}>{icon}</span>
-                {label}
-              </span>
-            ))}
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              {[
+                {
+                  label: "Development",
+                  icon: "</>",
+                  accent: "#C8860A",
+                  bg: "rgba(200,134,10,0.07)",
+                  border: "rgba(200,134,10,0.18)",
+                },
+                {
+                  label: "Deployment",
+                  icon: "⬆",
+                  accent: "#A06A00",
+                  bg: "rgba(160,106,0,0.07)",
+                  border: "rgba(160,106,0,0.18)",
+                }
+              ].map(({ label, icon, accent, bg, border }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-[8px] px-[20px] py-[8px] rounded-full text-[14px] font-bold tracking-[.02em] backdrop-blur-md"
+                  style={{
+                    background: bg,
+                    border: `1px solid ${border}`,
+                    color: accent,
+                  }}
+                >
+                  <span className="text-[13px] opacity-90">{icon}</span>
+                  {label}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              {[
+                {
+                  label: "Maintenance",
+                  icon: "⚙",
+                  accent: "#E8A020",
+                  bg: "rgba(232,160,32,0.07)",
+                  border: "rgba(232,160,32,0.18)",
+                },
+              ].map(({ label, icon, accent, bg, border }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-[8px] px-[20px] py-[8px] rounded-full text-[14px] font-bold tracking-[.02em] backdrop-blur-md"
+                  style={{
+                    background: bg,
+                    border: `1px solid ${border}`,
+                    color: accent,
+                  }}
+                >
+                  <span className="text-[13px] opacity-90">{icon}</span>
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* CTAs */}
@@ -378,7 +388,7 @@ export default function Hero() {
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mag-btn border border-black/12 text-gray-800 px-9 py-3.5
+              className="mag-btn border border-black/12 text-gray-800 px-9 py-3.5 md:px-5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-white hover:border-black/20 hover:bg-gray-50
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
