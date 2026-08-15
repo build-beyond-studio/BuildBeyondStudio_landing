@@ -4,38 +4,8 @@ import { useEffect, useRef, useCallback } from "react";
 import BestQuotationBadge from "@/components/BestQuotationBadge";
 
 const EMAIL = "buildbeyondstudio@gmail.com";
-const BALL_COUNT = 120;
-
-/* Colorful palette with matching glow colors */
-const PALETTE = [
-  { fill: "#60a5fa", glow: "rgba(96,165,250,0.7)" },
-  { fill: "#a78bfa", glow: "rgba(167,139,250,0.7)" },
-  { fill: "#34d399", glow: "rgba(52,211,153,0.7)" },
-  { fill: "#f472b6", glow: "rgba(244,114,182,0.7)" },
-  { fill: "#38bdf8", glow: "rgba(56,189,248,0.7)" },
-  { fill: "#fb923c", glow: "rgba(251,146,60,0.7)" },
-  { fill: "#818cf8", glow: "rgba(129,140,248,0.7)" },
-  { fill: "#4ade80", glow: "rgba(74,222,128,0.7)" },
-  { fill: "#e879f9", glow: "rgba(232,121,249,0.7)" },
-  { fill: "#2dd4bf", glow: "rgba(45,212,191,0.7)" },
-  { fill: "#facc15", glow: "rgba(250,204,21,0.7)" },
-  { fill: "#f87171", glow: "rgba(248,113,113,0.7)" },
-];
 
 const CRICKET_BAT_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Crect x='11' y='2' width='10' height='18' rx='3' fill='%23c8860a' stroke='%237a4f00' stroke-width='1'/%3E%3Crect x='13' y='19' width='6' height='11' rx='1.5' fill='%23f5e6c8' stroke='%237a4f00' stroke-width='0.8'/%3E%3Crect x='14.5' y='8' width='3' height='8' rx='1' fill='%23a06a00' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E") 4 4, auto`;
-
-interface Ball {
-  x: number;
-  y: number; // 0–1 fractions of section size
-  vx: number;
-  vy: number; // current velocity px/frame
-  angle: number; // current natural flight direction (radians)
-  angleSpeed: number; // how fast direction slowly rotates
-  speed: number; // cruise speed px/frame
-  r: number; // radius px
-  fill: string;
-  glow: string;
-}
 
 /* ── Magnetic button ──────────────────────────────────────────────── */
 function useMagnetic(s = 0.38) {
@@ -58,10 +28,6 @@ function useMagnetic(s = 0.38) {
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const particleEls = useRef<(HTMLSpanElement | null)[]>([]);
-  const balls = useRef<Ball[]>([]);
-  const cursorX = useRef(-9999);
-  const cursorY = useRef(-9999);
   const mainRaf = useRef<number>(0);
 
   /* entrance refs */
@@ -110,134 +76,12 @@ export default function Hero() {
     return () => obs.disconnect();
   }, []);
 
-  /* ── Physics simulation ─────────────────────────────────────────── */
+  /* ── Parallax on scroll ─────────────────────────────────────────── */
   useEffect(() => {
-    /* 1. Initialise balls — all start at y ≈ 0 (navbar top) and fall in */
-    balls.current = Array.from({ length: BALL_COUNT }, (_, i) => {
-      const c = PALETTE[i % PALETTE.length];
-      const angle = Math.random() * Math.PI * 2; // random start direction
-      const speed = 0.15 + Math.random() * 0.2; // gentle cruise 0.15–0.35 px/frame
-      return {
-        x: 0.03 + Math.random() * 0.94, // wide horizontal spread
-        y: -0.04 - Math.random() * 0.08, // start just above navbar
-        vx: (Math.random() - 0.5) * 2.8, // wide horizontal scatter
-        vy: 3.5 + Math.random() * 3.0, // fast fall into section
-        angle,
-        angleSpeed:
-          (Math.random() < 0.5 ? 1 : -1) * // clockwise or counter
-          (0.001 + Math.random() * 0.002), //   0.001–0.003 rad/frame (slower turn)
-        speed,
-        r: 1.5 + Math.random() * 1.5,
-        fill: c.fill,
-        glow: c.glow,
-      };
-    });
-
-    /* 2. Style DOM elements */
-    balls.current.forEach((ball, i) => {
-      const el = particleEls.current[i];
-      if (!el) return;
-      const d = ball.r * 2;
-      el.style.width = `${d}px`;
-      el.style.height = `${d}px`;
-      el.style.marginLeft = `-${ball.r}px`;
-      el.style.marginTop = `-${ball.r}px`;
-      el.style.background = ball.fill;
-      el.style.boxShadow =
-        `0 0 ${ball.r * 3}px ${ball.r * 1.5}px ${ball.glow},` +
-        `0 0 ${ball.r * 7}px ${ball.r}px ${ball.glow.replace("0.7", "0.25")}`;
-    });
-
-    /* 3. Mouse tracking */
-    const onMove = (e: MouseEvent) => {
-      const rect = sectionRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      cursorX.current = e.clientX - rect.left;
-      cursorY.current = e.clientY - rect.top;
-    };
-    const onLeave = () => {
-      cursorX.current = -9999;
-      cursorY.current = -9999;
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("mouseleave", onLeave, { passive: true });
-
-    /* 4. Physics rAF loop */
-    const REPEL_R = 110; // repulsion radius px
-    const REPEL_F = 3.8; // repulsion acceleration
-    const STEER = 0.018; // how strongly ball steers toward cruise direction
-    const RESTITUT = 0.75; // wall bounce energy retention
-    const MAX_SPD = 9; // max speed during repulsion
-
     const loop = () => {
       const section = sectionRef.current;
       if (section) {
-        const { width: W, height: H } = section.getBoundingClientRect();
-        const cx = cursorX.current;
-        const cy = cursorY.current;
-
-        balls.current.forEach((ball, i) => {
-          /* ─ Slowly rotate cruise direction (bird-like drift) */
-          ball.angle += ball.angleSpeed;
-          const cruiseVx = Math.cos(ball.angle) * ball.speed;
-          const cruiseVy = Math.sin(ball.angle) * ball.speed;
-
-          /* ─ Gently steer toward cruise velocity */
-          ball.vx += (cruiseVx - ball.vx) * STEER;
-          ball.vy += (cruiseVy - ball.vy) * STEER;
-
-          /* ─ Cursor repulsion — pushes hard, then steer naturally undoes it */
-          const px = ball.x * W;
-          const py = ball.y * H;
-          const dx = px - cx;
-          const dy = py - cy;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < REPEL_R && dist > 1) {
-            const f = (1 - dist / REPEL_R) * REPEL_F;
-            ball.vx += (dx / dist) * f;
-            ball.vy += (dy / dist) * f;
-          }
-
-          /* ─ Speed cap (only clamp if exceeding max) */
-          const spd = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
-          if (spd > MAX_SPD) {
-            ball.vx = (ball.vx / spd) * MAX_SPD;
-            ball.vy = (ball.vy / spd) * MAX_SPD;
-          }
-
-          /* ─ Update position */
-          ball.x += ball.vx / W;
-          ball.y += ball.vy / H;
-
-          /* ─ Wall bounce — also reflect angle so bird turns naturally */
-          const rW = ball.r / W;
-          const rH = ball.r / H;
-          if (ball.x < rW) {
-            ball.x = rW;
-            ball.vx = Math.abs(ball.vx) * RESTITUT;
-            ball.angle = Math.PI - ball.angle;
-          }
-          if (ball.x > 1 - rW) {
-            ball.x = 1 - rW;
-            ball.vx = -Math.abs(ball.vx) * RESTITUT;
-            ball.angle = Math.PI - ball.angle;
-          }
-          if (ball.y < rH) {
-            ball.y = rH;
-            ball.vy = Math.abs(ball.vy) * RESTITUT;
-            ball.angle = -ball.angle;
-          }
-          if (ball.y > 1 - rH) {
-            ball.y = 1 - rH;
-            ball.vy = -Math.abs(ball.vy) * RESTITUT;
-            ball.angle = -ball.angle;
-          }
-
-          /* ─ Push to DOM */
-          const el = particleEls.current[i];
-          if (el)
-            el.style.transform = `translate(${ball.x * W}px,${ball.y * H}px)`;
-        });
+        const { height: H } = section.getBoundingClientRect();
 
         /* ─ Scroll parallax on content */
         const sy = window.scrollY;
@@ -253,8 +97,6 @@ export default function Hero() {
 
     return () => {
       cancelAnimationFrame(mainRaf.current);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
@@ -263,22 +105,32 @@ export default function Hero() {
       <style>{`
         /* ── section ───────────────────────────────────────── */
         .hero-section {
-          background: #F5F2EC;
+          position: relative;
+          background: #e3dbc8ff;
           overflow: hidden;
           min-height: 105vh;
-          padding-top:20px;
+          padding-top: 20px;
         }
 
-        /* ── tiny glow balls ───────────────────────────────── */
-        .orb-ball {
-          position: absolute; top: 0; left: 0;
-          border-radius: 50%;
-          pointer-events: none; user-select: none;
-          will-change: transform;
+        .hero-video-bg {
+          position: absolute;
+          bottom: 17%; /* Tiny shift up */
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center bottom;
+          z-index: 0;
+          pointer-events: none;
+          mix-blend-mode: darken; /* Blends the video background seamlessly */
         }
-        @media (max-width: 767px) {
-          .orb-ball { display: none !important; }
+        
+        @media (min-width: 1024px) {
+          .hero-video-bg {
+            bottom: 5%; /* Shift down for desktop */
+          }
         }
+
 
         /* ── entrance ──────────────────────────────────────── */
         .hero-pre {
@@ -394,17 +246,15 @@ export default function Hero() {
         className="hero-section relative flex flex-col w-screen max-w-[100%]"
         style={{ cursor: CRICKET_BAT_CURSOR }}
       >
-        {/* ── Physics balls — distributed across entire section ── */}
-        {Array.from({ length: BALL_COUNT }).map((_, i) => (
-          <span
-            key={`ball-${i}`}
-            ref={(el) => {
-              particleEls.current[i] = el;
-            }}
-            className="orb-ball"
-            aria-hidden
-          />
-        ))}
+        <video
+          className="hero-video-bg"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/hero_video.mp4" type="video/mp4" />
+        </video>
 
         {/* ── Centered content ── */}
         <div
@@ -413,36 +263,22 @@ export default function Hero() {
                      flex flex-col items-center text-center gap-5 sm:gap-5
                      will-change-[transform,opacity] pt-12 sm:pt-16 pb-40"
         >
-          {/* Best Quotation Badge + Eyebrow pills */}
-          <div ref={eyebrowRef} className="hero-pre flex flex-col items-center gap-3" style={{ marginTop: "-10px" }}>
-            <BestQuotationBadge />
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-              <div className="eyebrow-pill">
-                <span className="text-[#C8860A] font-bold">✓</span> 100% White-Label
-              </div>
-              <div className="eyebrow-pill">
-                <span className="text-[#C8860A] font-bold">✓</span> Strict NDA Enforced
-              </div>
-              <div className="eyebrow-pill">
-                <span className="text-[#C8860A] font-bold">✓</span> Zero Direct Client Contact
-              </div>
-            </div>
-          </div>
+
 
           {/* Headline */}
           <div className="flex flex-col items-center gap-3">
             <h1
               ref={titleRef}
-              className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem]
+              className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.1rem] lg:text-[3.4rem]
                          font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
-              Scale Your Marketing Agency with{" "}
+              Outsource High-Ticket Services With Us —{" "}
               <span
                 ref={line2Ref}
                 className="hero-pre gradient-text"
                 style={{ display: "inline" }}
               >
-                High-Ticket Technical Solutions.
+                and Expand Your Client Base at Zero Additional Cost.
               </span>
             </h1>
             <p
@@ -457,92 +293,6 @@ export default function Hero() {
               Strategic Technical Growth Partner for Marketing Agencies
             </p>
           </div>
-
-
-          {/* Divider */}
-          <div
-            className="hero-pre hero-divider"
-            style={{ transitionDelay: "300ms" }}
-          />
-
-          {/* Subtitle */}
-          <p
-            ref={subtitleRef}
-            className="hero-pre text-[13.5px] sm:text-[14.5px] text-gray-500
-                       max-w-[580px] leading-[1.75]"
-          >
-            Expand your service offerings, deliver high-performance web applications, and add pure profit to your bottom line—<span className="font-semibold text-gray-900">without hiring a single developer</span>. Build Beyond Studio is a white-label web development and technical growth partner exclusively for marketing agencies.
-          </p>
-
-          {/* Best quotation promise — styled card */}
-          <div
-            className="hero-pre w-full max-w-[560px]"
-            style={{ transitionDelay: "310ms" }}
-          >
-            <div
-              style={{
-                background: "linear-gradient(135deg, rgba(200,134,10,0.07) 0%, rgba(232,160,32,0.04) 100%)",
-                border: "1.5px solid rgba(200,134,10,0.28)",
-                borderRadius: "16px",
-                padding: "18px 22px",
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "14px",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              {/* top shimmer line */}
-              <div style={{
-                position: "absolute", top: 0, left: 0, right: 0,
-                height: "1.5px",
-                background: "linear-gradient(90deg, transparent, rgba(200,134,10,0.6), transparent)",
-              }} />
-
-              {/* Icon */}
-              <div style={{
-                width: 36, height: 36,
-                borderRadius: "10px",
-                background: "rgba(200,134,10,0.12)",
-                border: "1px solid rgba(200,134,10,0.3)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0,
-                color: "#C8860A",
-                fontSize: "15px",
-              }}>
-                ✦
-              </div>
-
-              {/* Text */}
-              <div style={{ flex: 1, textAlign: "left" }}>
-                <p style={{
-                  fontSize: "14.5px",
-                  fontWeight: 800,
-                  color: "#1a1209",
-                  letterSpacing: "-0.018em",
-                  lineHeight: 1.3,
-                  marginBottom: "5px",
-                }}>
-                  <span style={{
-                    background: "linear-gradient(130deg,#A06A00 0%,#C8860A 45%,#E8A020 100%)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}>
-                    We provide the best quotation in the whole market.
-                  </span>
-                </p>
-                <p style={{
-                  fontSize: "12px",
-                  color: "#6B7280",
-                  lineHeight: 1.65,
-                }}>
-                  Enterprise-grade websites, AI systems, cloud infrastructure &amp; performance marketing — at the most competitive pricing available.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Service highlights */}
           <div
             ref={badgesRef}
@@ -638,46 +388,8 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Floating trust line */}
-          <div
-            className="hero-pre"
-            style={{ transitionDelay: "620ms" }}
-          >
-            <p
-              style={{
-                fontSize: "11px",
-                color: "#9CA3AF",
-                fontWeight: 600,
-                letterSpacing: "0.025em",
-              }}
-            >
-              <span style={{ color: "#C8860A" }}>✓</span> Transparent Pricing
-              {" "}·{" "}
-              <span style={{ color: "#C8860A" }}>✓</span> Faster Delivery
-              {" "}·{" "}
-              <span style={{ color: "#C8860A" }}>✓</span> Best Market Quotation
-            </p>
-          </div>
-
-          {/* Stat pills */}
-          <div
-            className="hero-pre flex items-center flex-wrap justify-center gap-2"
-            style={{ transitionDelay: "610ms" }}
-          >
-            {[
-              { icon: "⚡", label: "Fast Delivery" },
-              { icon: "🔒", label: "100% Ownership" },
-              { icon: "♾️", label: "Ongoing Support" },
-            ].map((s) => (
-              <span key={s.label} className="stat-pill">
-                <span>{s.icon}</span>
-                {s.label}
-              </span>
-            ))}
-          </div>
-
           {/* Email */}
-          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400">
+          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400 !mt-2 md:!mt-7">
             Prefer email?{" "}
             <a
               href={`mailto:${EMAIL}`}

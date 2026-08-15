@@ -12,8 +12,8 @@ type NavLink = {
 };
 
 const NAV_LINKS: NavLink[] = [
-  { 
-    label: "Services", 
+  {
+    label: "Services",
     href: "/services",
     dropdown: [
       { href: "/services/custom-web-applications", label: "Custom Web & Portal Development" },
@@ -65,7 +65,7 @@ export default function Header() {
         .nav-morph {
           width: 100%;
           border-radius: 0px;
-          background: transparent;
+          background: #e6dfcf; /* Match hero section background when at rest */
           box-shadow: none;
           outline: 1px solid transparent;
           padding-top: 14px;
@@ -209,7 +209,7 @@ export default function Header() {
         Outer header: full-width fixed strip — gives the "part of hero" illusion.
         The inner .nav-morph handles the morphing width + shape.
       */}
-      <header className="navbar-capsule fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4">
+      <header className="navbar-capsule fixed top-0 left-0 right-0 z-50 flex justify-center">
         <div className={`nav-morph ${scrolled ? "scrolled" : ""} ${isMenuOpen ? "menu-open" : ""}`}>
           <div className="flex items-center justify-between px-5 sm:px-6">
             {/* Logo — slides from LEFT */}
@@ -356,7 +356,7 @@ export default function Header() {
       </header>
 
       {/* Spacer — only needed for the non-hero case; hero itself is min-h-screen */}
-      <div className="h-[64px]" />
+      <div className="h-[64px] bg-[#e6dfcf] lg:bg-transparent" />
     </>
   );
 }

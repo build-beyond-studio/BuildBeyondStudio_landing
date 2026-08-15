@@ -271,11 +271,11 @@ export default function AmbikapurPage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#C8860A] font-bold">→</span>
-                  <span><strong className="text-black">MERN Stack in 45 Days</strong> — ₹8,999. Build production-ready full-stack applications.</span>
+                  <span><strong className="text-black">MERN Stack in 45 Days</strong> — ₹7,999. Build production-ready full-stack applications.</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-[#C8860A] font-bold">→</span>
-                  <span><strong className="text-black">Zero to MERN in 65 Days</strong> — ₹11,999. The complete journey from HTML basics to deploying MERN apps.</span>
+                  <span><strong className="text-black">Zero to MERN in 65 Days</strong> — ₹9,999. The complete journey from HTML basics to deploying MERN apps.</span>
                 </li>
               </ul>
             </div>
