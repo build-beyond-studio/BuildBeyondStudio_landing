@@ -295,9 +295,9 @@ export default function Hero() {
           {/* Service highlights */}
           <div
             ref={badgesRef}
-            className="hero-pre flex flex-col items-center justify-center gap-3 mt-3 md:mt-7"
+            className="hero-pre flex flex-row md:flex-col items-center justify-center gap-2 md:gap-3 mt-3 md:mt-7 flex-wrap md:flex-nowrap"
           >
-            <div className="flex items-center justify-center gap-2 flex-wrap">
+            <div className="flex items-center justify-center gap-2 flex-wrap md:flex-nowrap">
               {[
                 {
                   label: "Development",
@@ -316,19 +316,19 @@ export default function Hero() {
               ].map(({ label, icon, accent, bg, border }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-[8px] px-[20px] py-[8px] rounded-full text-[14px] font-bold tracking-[.02em] backdrop-blur-md"
+                  className="inline-flex items-center gap-[4px] md:gap-[8px] px-[10px] md:px-[20px] py-[4px] md:py-[8px] rounded-full text-[10px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
                   style={{
                     background: bg,
                     border: `1px solid ${border}`,
                     color: accent,
                   }}
                 >
-                  <span className="text-[13px] opacity-90">{icon}</span>
+                  <span className="text-[9px] md:text-[13px] opacity-90">{icon}</span>
                   {label}
                 </span>
               ))}
             </div>
-            <div className="flex items-center justify-center gap-2 flex-wrap">
+            <div className="flex items-center justify-center gap-2 flex-wrap md:flex-nowrap">
               {[
                 {
                   label: "Maintenance",
@@ -340,14 +340,14 @@ export default function Hero() {
               ].map(({ label, icon, accent, bg, border }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-[8px] px-[20px] py-[8px] rounded-full text-[14px] font-bold tracking-[.02em] backdrop-blur-md"
+                  className="inline-flex items-center gap-[4px] md:gap-[8px] px-[10px] md:px-[20px] py-[4px] md:py-[8px] rounded-full text-[10px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
                   style={{
                     background: bg,
                     border: `1px solid ${border}`,
                     color: accent,
                   }}
                 >
-                  <span className="text-[13px] opacity-90">{icon}</span>
+                  <span className="text-[9px] md:text-[13px] opacity-90">{icon}</span>
                   {label}
                 </span>
               ))}
