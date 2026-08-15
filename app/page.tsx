@@ -15,6 +15,7 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
+import VideoPopup from "@/components/VideoPopup";
 
 
 export const metadata: Metadata = buildMetadata(
@@ -47,6 +48,7 @@ export default function Home() {
       />
       <FloatingWhatsApp />
       <FloatingQuickLinks />
+      <VideoPopup />
       <Header />
       <Hero />
       <Testimonials />

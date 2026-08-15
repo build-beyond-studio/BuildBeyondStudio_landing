@@ -101,9 +101,20 @@ export default function InternshipProgramsSection() {
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black mb-3 md:mb-4">
             Internship & Training Programs
           </h2>
-          <p className="text-[13.5px] sm:text-[14.5px] md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Learn only what matters through practical-first training. Build a live, deployed capstone project on the internet, secure ISO certified credentials, and jumpstart your developer career.
-          </p>
+          {/* Top Performers Banner */}
+          <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300 mx-auto max-w-4xl w-full">
+            <div className="flex-shrink-0">
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+            </div>
+            <div className="text-left">
+              <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>
+                Top Performers Get Hired
+              </h2>
+              <p className="text-[#D8CDAF] text-[12.5px] sm:text-[15px] leading-snug sm:leading-relaxed">
+                Best students from every batch are fast-tracked into paid internships with Build Beyond Studio itself.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Benefits Grid */}
