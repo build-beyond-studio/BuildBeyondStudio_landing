@@ -1,228 +1,276 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 
-const services = [
-  {
-    num: "01",
-    title: "Custom Web &\nPortal Development",
-    desc: "Build highly-customized, high-retention web assets that keep your clients engaged.",
-    features: ["Sticky Client Portals", "High-Retention Dashboards", "Flawless Performance"],
-    link: "/services/custom-web-applications",
-    color: "#C8860A",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_53_13_AM_jkn4vm.png"
-  },
-  {
-    num: "02",
-    title: "Auto-Scaling\nCloud & DevOps",
-    desc: "Campaign-proof infrastructure. Make sure your clients' sites never crash during high-traffic ad launches.",
-    features: ["Zero Downtime", "Campaign-Proof Architecture", "Auto-Scaling"],
-    link: "/services/devops-infrastructure",
-    color: "#A06A00",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_04_28_AM_j6agkq.png"
-  },
-  {
-    num: "03",
-    title: "Fractional CTO &\nTech Roadmap",
-    desc: "Act as a Fractional CTO for your clients, bringing strategic tech planning that demands a premium retainer.",
-    features: ["Fractional CTO Value", "Tech Roadmapping", "Premium Retainers"],
-    link: "/services/technical-consulting",
-    color: "#E8A020",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252139/ChatGPT_Image_Aug_7_2026_09_01_54_AM_sdkhxf.png"
-  },
-  {
-    num: "04",
-    title: "AI-Era Search\nVisibility (SEO/AEO)",
-    desc: "Optimize web code and contents so they rank in traditional engines and are cited as top-tier sources by AI engines.",
-    features: ["Answer Engine Optimization", "Schema Injecting", "LLM Context Citations"],
-    link: "/services/aeo-geo",
-    color: "#B87800",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252140/ChatGPT_Image_Aug_7_2026_08_57_45_AM_djqp1f.png"
-  },
-  {
-    num: "05",
-    title: "Meta & Google\nPerformance Ads",
-    desc: "Direct-response paid traffic setup, conversion copywriting, and bidding optimization geared for high-margin ROI.",
-    features: ["Hyper-Targeted Ads", "Ad Copy Optimization", "Low CPA"],
-    link: "/services/performance-ads",
-    color: "#C8860A",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252138/ChatGPT_Image_Aug_7_2026_09_06_40_AM_ovf5qh.png"
-  },
-  {
-    num: "06",
-    title: "E-Comm Funnel Audits\n& Tracking",
-    desc: "End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits to isolate and resolve drop-offs.",
-    features: ["GA4 Custom Events", "Meta Pixel Server API", "Funnel Analytics"],
-    link: "/services/tracking-funnels",
-    color: "#A06A00",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252141/ChatGPT_Image_Aug_7_2026_09_11_08_AM_ddmga0.png"
-  },
-  {
-    num: "07",
-    title: "AI-Powered\nVisual Production",
-    desc: "Cost-effective, studio-grade product photo and video assets generated via advanced AI models.",
-    features: ["Generative AI Shoots", "High-Conversion Videos", "Studio-less"],
-    link: "/services/ai-visuals",
-    color: "#E8A020",
-    image: "https://res.cloudinary.com/duokr6znr/image/upload/v1786252142/ChatGPT_Image_Aug_7_2026_09_09_04_AM_ysy10q.png"
-  }
-];
+// ─────────────────────────────────────────────────────────────────────────────
+// Icons — 24px outline, Tabler-style
+// ─────────────────────────────────────────────────────────────────────────────
+const Icons = {
+  web: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="13" rx="2"/>
+      <path d="M8 21h8M12 17v4"/>
+      <path d="M7 9l2 2-2 2M11 13h6"/>
+    </svg>
+  ),
+  mobile: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="6" y="2" width="12" height="20" rx="2"/>
+      <circle cx="12" cy="17" r="0.8" fill="currentColor" stroke="none"/>
+      <path d="M10 6h4"/>
+    </svg>
+  ),
+  seo: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="m21 21-4.35-4.35"/>
+      <path d="M11 8v6M8 11h6"/>
+    </svg>
+  ),
+  ads: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3v18h18"/>
+      <path d="m20 8-4 4-3-3-4 4"/>
+    </svg>
+  ),
+  social: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="17" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="19" r="2.5"/>
+      <path d="m8.59 13.5 6.83 3.98M15.41 6.5 8.58 10.48"/>
+    </svg>
+  ),
+  video: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m15 10 4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14"/>
+      <rect x="3" y="6" width="12" height="12" rx="2"/>
+    </svg>
+  ),
+  analytics: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3v18h18"/>
+      <rect x="7" y="12" width="3" height="6" rx="1"/>
+      <rect x="12" y="8" width="3" height="10" rx="1"/>
+      <rect x="17" y="5" width="3" height="13" rx="1"/>
+    </svg>
+  ),
+  arrow: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 5l7 7-7 7"/>
+    </svg>
+  ),
+};
 
-const ServiceCard = ({ svc }: { svc: any }) => {
+// ─────────────────────────────────────────────────────────────────────────────
+// Service data
+// ─────────────────────────────────────────────────────────────────────────────
+const SERVICES = [
+  {
+    title: "Website Development",
+    desc: "Custom-built on React and Next.js — not templates. Fast, SEO-structured, and designed to convert visitors into clients.",
+    href: "/services/website-development",
+    icon: Icons.web,
+  },
+  {
+    title: "Mobile App Development",
+    desc: "iOS and Android from a single codebase. From MVP scoping to App Store submission — one team handles it all.",
+    href: "/services/mobile-app-development",
+    icon: Icons.mobile,
+  },
+  {
+    title: "SEO, AEO & GEO",
+    desc: "Rank on Google and get cited inside ChatGPT, Perplexity, and AI Overviews. One strategy for all three search surfaces.",
+    href: "/services/seo-aeo-geo",
+    icon: Icons.seo,
+  },
+  {
+    title: "Google & Meta Ads",
+    desc: "Performance campaigns tracked to the rupee. Search, Shopping, Reels, and Carousels — managed and optimised weekly.",
+    href: "/services/google-meta-ads",
+    icon: Icons.ads,
+  },
+  {
+    title: "Social Media Management",
+    desc: "Full calendar, design, captions, scheduling, and community management across Instagram, LinkedIn, and Facebook.",
+    href: "/services/social-media-management",
+    icon: Icons.social,
+  },
+  {
+    title: "AI Content & Video",
+    desc: "Studio-quality product photography and ad videos — generated with AI. Days, not weeks. A fraction of shoot cost.",
+    href: "/services/ai-content-video-production",
+    icon: Icons.video,
+  },
+  {
+    title: "Analytics & Tracking",
+    desc: "GA4, Meta Pixel, and server-side Conversions API — set up correctly, audited for gaps, and reported in clear dashboards.",
+    href: "/services/analytics-tracking",
+    icon: Icons.analytics,
+  },
+] as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Service card
+// ─────────────────────────────────────────────────────────────────────────────
+function ServiceCard({
+  title,
+  desc,
+  href,
+  icon,
+}: {
+  title: string;
+  desc: string;
+  href: string;
+  icon: React.ReactNode;
+}) {
   return (
-    <Link href={svc.link} className="block shrink-0 focus:outline-none group/card">
-      <div className="flex flex-col items-center w-[220px] sm:w-[260px] lg:w-[320px] xl:w-[360px]">
-        
-        {/* Top: Circular Image */}
-        <div className="relative w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] lg:w-[220px] lg:h-[220px] xl:w-[260px] xl:h-[260px] rounded-full overflow-hidden mb-4 lg:mb-6 shadow-md border-2 border-white/50 transition-transform duration-500 shrink-0 z-10 bg-gray-100 flex items-center justify-center">
-          <img 
-            src={svc.image} 
-            alt={svc.title.replace('\n', ' ')}
-            className={`w-full h-full object-center transition-transform duration-700 ${svc.imageClass || 'object-cover'}`}
-          />
-        </div>
+    <Link
+      href={href}
+      className="group relative flex flex-col bg-white rounded-2xl border border-[#EDEAE3] overflow-hidden
+        shadow-[0_2px_8px_rgba(0,0,0,0.05)]
+        hover:shadow-[0_20px_48px_rgba(0,0,0,0.11)]
+        hover:-translate-y-2
+        hover:border-[rgba(200,134,10,0.28)]
+        transition-all duration-300 ease-out
+        p-7 sm:p-8
+        min-h-[220px]
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8860A]"
+    >
+      {/* Amber accent bar — slides down from above on hover */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl
+          bg-gradient-to-r from-[#A06A00] via-[#C8860A] to-[#E8A020]
+          -translate-y-full group-hover:translate-y-0
+          transition-transform duration-300 ease-out"
+        aria-hidden="true"
+      />
 
-        {/* Bottom: Content Box */}
-        <div className="w-full flex flex-col items-center text-center">
-          
-          <h3 className="text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[20px] font-bold text-gray-900 tracking-tight whitespace-pre-line leading-tight mb-2 sm:mb-3 transition-colors duration-300 group-hover/card:text-[#C8860A]">
-            {svc.title}
-          </h3>
+      {/* Icon container */}
+      <div
+        className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 flex-shrink-0
+          bg-[#F5F1EA] text-[#8C8680]
+          group-hover:bg-[rgba(200,134,10,0.1)] group-hover:text-[#C8860A]
+          transition-all duration-300 ease-out"
+      >
+        {icon}
+      </div>
 
-          <p className="text-gray-500 text-[11px] sm:text-[12px] lg:text-[13.5px] xl:text-[14.5px] leading-[1.6] mb-4 sm:mb-5 lg:mb-6 line-clamp-3">
-            {svc.desc}
-          </p>
+      {/* Title */}
+      <h3
+        className="text-[16px] sm:text-[17px] font-bold text-[#111111] leading-snug tracking-tight mb-3"
+      >
+        {title}
+      </h3>
 
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
-            {svc.features.slice(0, 2).map((feat: string) => (
-              <span key={feat} className="px-2.5 sm:px-3 lg:px-4 py-1 lg:py-1.5 rounded-full bg-gray-50 border border-gray-200 text-[9px] sm:text-[10px] lg:text-[11px] font-medium text-gray-600 truncate max-w-full">
-                {feat}
-              </span>
-            ))}
-          </div>
-        </div>
+      {/* Description */}
+      <p
+        className="text-[13px] sm:text-[13.5px] text-[#6B6560] leading-[1.7] flex-1"
+      >
+        {desc}
+      </p>
+
+      {/* CTA row — slides up and fades in on hover */}
+      <div
+        className="mt-6 flex items-center gap-1.5
+          text-[12px] font-semibold tracking-wide text-[#C8860A] uppercase
+          opacity-0 translate-y-2
+          group-hover:opacity-100 group-hover:translate-y-0
+          transition-all duration-300 ease-out delay-75"
+        aria-hidden="true"
+      >
+        View service
+        {Icons.arrow}
       </div>
     </Link>
   );
-};
+}
 
-const MarqueeRow = ({ items, direction = "left", speed = "35s" }: { items: any[], direction?: "left" | "right", speed?: string }) => {
-  // Multiply items to ensure seamless infinite scroll on ultra-wide screens
-  const baseItems = [...items, ...items, ...items, ...items];
-  const animationClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
-
+// ─────────────────────────────────────────────────────────────────────────────
+// CTA card (8th cell)
+// ─────────────────────────────────────────────────────────────────────────────
+function CtaCard() {
   return (
-    <div className="flex overflow-hidden w-full group/row py-4 md:py-6">
-      <div 
-        className={`flex w-max ${animationClass} group-hover/row:[animation-play-state:paused]`}
-        style={{ animationDuration: speed }}
-      >
-        {/* Set 1 */}
-        <div className="flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 pr-4 sm:pr-6 lg:pr-8 xl:pr-10 shrink-0">
-          {baseItems.map((svc, i) => (
-             <ServiceCard key={i} svc={svc} />
-          ))}
-        </div>
-        {/* Set 2 */}
-        <div className="flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 pr-4 sm:pr-6 lg:pr-8 xl:pr-10 shrink-0">
-          {baseItems.map((svc, i) => (
-             <ServiceCard key={`dup-${i}`} svc={svc} />
-          ))}
-        </div>
+    <div
+      className="group relative flex flex-col justify-between
+        rounded-2xl border border-dashed border-[#D8D4CC]
+        bg-[#FAF8F4]
+        p-7 sm:p-8
+        min-h-[220px]"
+    >
+      {/* Dot grid ornament */}
+      <div className="grid grid-cols-5 gap-[7px] w-fit mb-auto" aria-hidden="true">
+        {Array.from({ length: 15 }).map((_, i) => (
+          <div
+            key={i}
+            className="w-1 h-1 rounded-full bg-[#C8C3BB]"
+          />
+        ))}
+      </div>
+
+      {/* Body */}
+      <div>
+        <p className="text-[13px] text-[#8C8680] leading-relaxed mb-4">
+          Explore the full scope of what Build Beyond Studio delivers — seven services, one accountable team.
+        </p>
+        <Link
+          href="/services"
+          className="inline-flex items-center gap-2 text-[14px] font-bold text-[#C8860A] hover:text-[#A06A00] transition-colors duration-200 group/link"
+        >
+          View all services
+          <span
+            className="transition-transform duration-200 group-hover/link:translate-x-1"
+            aria-hidden="true"
+          >
+            {Icons.arrow}
+          </span>
+        </Link>
       </div>
     </div>
   );
-};
+}
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Main export
+// ─────────────────────────────────────────────────────────────────────────────
 export default function Services() {
-  const upperServices = services.slice(0, 4);
-  const lowerServices = services.slice(4, 7);
-
   return (
-    <section id="services" className="bg-[#F5F2EC] text-black py-24 relative overflow-hidden border-t border-black/5">
-      <style>{`
-        @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee-left {
-          animation: marquee-left linear infinite;
-        }
-        .animate-marquee-right {
-          animation: marquee-right linear infinite;
-        }
-      `}</style>
-      
-      {/* Ambient Glows */}
-      <div className="absolute top-0 left-[15%] w-[40vw] h-[40vw] rounded-full blur-[140px] pointer-events-none z-0" style={{ background: 'rgba(200,134,10,0.06)' }} />
-      
-      <div className="max-w-7xl mx-auto relative z-10 w-full px-4 sm:px-8">
-        <div className="flex flex-col items-center text-center mx-auto max-w-4xl mb-12 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-6">
-            <span className="text-[12px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">High-Ticket Technical Solutions</span>
+    <section
+      id="services"
+      className="bg-[#FAF9F6] border-t border-[#E8E4DC] py-20 sm:py-24 lg:py-28"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+
+        {/* ── Header ── */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 sm:mb-14">
+          <div>
+            <span className="inline-block text-[11px] font-bold tracking-[0.22em] text-[#C8860A] uppercase mb-3">
+              Services
+            </span>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold text-[#0D0D0D] leading-[1.08] tracking-tight">
+              What we build<span className="text-[#D4CEBC]">.</span>
+            </h2>
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black mb-4 md:mb-6">
-            Elite Technical Execution.<br className="hidden md:block"/> <span className="text-gray-400">Pure Agency Profit.</span>
-          </h2>
-          <p className="text-[14.5px] md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            We translate complex technology into business outcomes you can sell. High-retention web assets, campaign-proof infrastructure, and CTO-level guidance.
-          </p>
-          <div className="text-sm md:text-base font-semibold text-gray-600">
-            Looking for an outsourcing partner? Learn about our <Link href="/white-label-web-development" className="text-[#C8860A] hover:underline hover:text-[#A06A00]">white label web development</Link> services.
-          </div>
-        </div>
-
-        {/* Marquee Carousels - Desktop/Tablet Only */}
-        <div className="hidden md:flex w-full flex-col gap-2 md:gap-4 relative z-10 overflow-hidden">
-          {/* Upper Row (Scrolls Right) */}
-          <MarqueeRow items={upperServices} direction="right" speed="95s" />
-          
-          {/* Lower Row (Scrolls Left) */}
-          <MarqueeRow items={lowerServices} direction="left" speed="90s" />
-        </div>
-
-        {/* WhatsApp-Style Services List - Mobile Only */}
-        <div className="block md:hidden px-4 py-6 relative z-10">
-          {services.map((svc, i) => (
-            <Link 
-              key={i} 
-              href={svc.link} 
-              className={`flex items-start w-full gap-[14px] py-[12px] focus:outline-none ${i !== services.length - 1 ? 'border-b border-[rgba(15,23,42,0.08)]' : ''}`}
+          <div className="lg:max-w-xs lg:text-right">
+            <p className="text-[14px] text-[#6B6560] leading-relaxed mb-2">
+              From code to campaigns — every service delivered under your brand.
+            </p>
+            <Link
+              href="/white-label-web-development"
+              className="text-[13px] font-semibold text-[#C8860A] hover:text-[#A06A00] hover:underline transition-colors duration-200"
             >
-              {/* Left Side Image */}
-              <div className="w-[88px] h-[88px] rounded-full shrink-0 shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden">
-                <img 
-                  src={svc.image} 
-                  alt={svc.title.replace('\n', ' ')}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Right Side Content */}
-              <div className="flex-1 min-w-0 flex flex-col justify-start">
-                <h3 className="text-[15px] font-[700] text-[#0B1B34] leading-[1.35] mb-1">
-                  {svc.title.replace('\n', ' ')}
-                </h3>
-                <p className="text-[13px] text-[#64748B] leading-[1.5] line-clamp-3">
-                  {svc.desc}
-                </p>
-                <div className="flex flex-wrap gap-[6px] mt-[8px]">
-                  {svc.features.slice(0, 2).map((feat: string) => (
-                    <span key={feat} className="px-[10px] py-[4px] rounded-full bg-[rgba(212,148,13,0.08)] text-[#D4940D] text-[11px] font-[600]">
-                      {feat}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              White-label available →
             </Link>
-          ))}
+          </div>
         </div>
+
+        {/* ── Service grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {SERVICES.map((svc) => (
+            <ServiceCard key={svc.href} {...svc} />
+          ))}
+          <CtaCard />
+        </div>
+
       </div>
     </section>
   );

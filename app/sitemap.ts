@@ -27,20 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const servicePages = [
-    '/services/custom-web-applications',
-    '/services/devops-infrastructure',
-    '/services/technical-consulting',
-    '/services/aeo-geo',
-    '/services/performance-ads',
-    '/services/tracking-funnels',
-    '/services/ai-visuals',
+    '/services',
+    '/services/website-development',
+    '/services/mobile-app-development',
+    '/services/seo-aeo-geo',
+    '/services/google-meta-ads',
+    '/services/social-media-management',
+    '/services/ai-content-video-production',
+    '/services/analytics-tracking',
     '/services/white-label',
-    '/services/web-applications',
-    '/services/devops',
-    '/services/consulting',
   ].map(path => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date('2026-07-18'),
+    lastModified: new Date('2026-08-19'),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
