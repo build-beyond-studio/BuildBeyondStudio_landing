@@ -94,7 +94,7 @@ export default function InternshipProgramsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {COURSES.map((course) => {
               return (
                 <div
@@ -154,12 +154,12 @@ export default function InternshipProgramsPage() {
 
       {/* ── 4. COMPARISON TABLE ── */}
       <section className="py-16 md:py-24 bg-white border-b border-black/5 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#C8860A] text-xs font-bold uppercase tracking-widest block mb-2">At a Glance</span>
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">Which course is right for you?</h2>
             <p className="text-gray-500 max-w-xl mx-auto font-light text-sm md:text-base">
-              A side-by-side comparison of the three internship tracks.
+              A side-by-side comparison of the two internship tracks.
             </p>
           </div>
 
@@ -167,32 +167,30 @@ export default function InternshipProgramsPage() {
             <table className="w-full border-collapse text-left text-[10px] sm:text-sm text-gray-600">
               <thead>
                 <tr className="border-b border-black/5 text-[9px] sm:text-xs text-black font-bold uppercase tracking-wider bg-[#FAF8F5]">
-                  <th className="p-2 sm:p-4 w-1/4">Feature</th>
-                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 01</th>
-                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 02</th>
-                  <th className="p-2 sm:p-4 text-[#C8860A]">Course 03</th>
+                  <th className="p-2 sm:p-4 w-1/3">Feature</th>
+                  <th className="p-2 sm:p-4 w-1/3 text-[#C8860A]">Course 01</th>
+                  <th className="p-2 sm:p-4 w-1/3 text-[#C8860A]">Course 02</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { name: "Prior experience", c1: "None", c2: "HTML, CSS, JS", c3: "None" },
-                  { name: "Duration", c1: "28 Days", c2: "45 Days", c3: "65 Days" },
-                  { name: "Hours per day", c1: "1 Hour", c2: "1.5 Hours", c3: "2 Hours" },
-                  { name: "Total Hours", c1: "28 Hours", c2: "67.5 Hours", c3: "130 Hours" },
-                  { name: "Tech Covered", c1: "HTML, CSS, JS", c2: "Node, Express, MongoDB, React", c3: "HTML, CSS, JS, Node, Express, MongoDB, React" },
-                  { name: "Capstone Project", c1: "DevLinks", c2: "TaskFlow", c3: "NoteNest" },
-                  { name: "Live Deployed", c1: "✓ GitHub Pages", c2: "✓ Render + Vercel", c3: "✓ Render + Vercel" },
-                  { name: "ISO Certified Certificate", c1: "✓ Yes", c2: "✓ Yes", c3: "✓ Yes" },
-                  { name: "Interview Prep PDF", c1: "✓ Front-end", c2: "✓ MERN", c3: "✓ MERN" },
-                  { name: "Resume & LinkedIn Review", c1: "—", c2: "✓ Yes", c3: "✓ Yes" },
-                  { name: "Placement Support", c1: "—", c2: "✓ Yes", c3: "✓ Yes" },
-                  { name: "EMI Options", c1: "₹1,400 × 3", c2: "₹2,000 × 5", c3: "₹2,400 × 5" },
+                  { name: "Prior experience", c1: "None", c2: "None" },
+                  { name: "Duration", c1: "28 Days", c2: "65 Days" },
+                  { name: "Hours per day", c1: "1 Hour", c2: "2 Hours" },
+                  { name: "Total Hours", c1: "28 Hours", c2: "130 Hours" },
+                  { name: "Tech Covered", c1: "HTML, CSS, JS", c2: "HTML, CSS, JS, Node, Express, MongoDB, React" },
+                  { name: "Capstone Project", c1: "DevLinks", c2: "NoteNest" },
+                  { name: "Live Deployed", c1: "✓ GitHub Pages", c2: "✓ Render + Vercel" },
+                  { name: "ISO Certified Certificate", c1: "✓ Yes", c2: "✓ Yes" },
+                  { name: "Interview Prep PDF", c1: "✓ Front-end", c2: "✓ MERN" },
+                  { name: "Resume & LinkedIn Review", c1: "—", c2: "✓ Yes" },
+                  { name: "Placement Support", c1: "—", c2: "✓ Yes" },
+                  { name: "EMI Options", c1: "₹1,400 × 3", c2: "₹1,600 × 5" },
                 ].map((row, rIdx) => (
                   <tr key={rIdx} className="border-b border-black/5 hover:bg-gray-50/50">
                     <td className="p-2 sm:p-4 font-semibold text-black bg-white group-hover:bg-gray-50/50 transition-colors">{row.name}</td>
                     <td className="p-2 sm:p-4">{row.c1}</td>
                     <td className="p-2 sm:p-4">{row.c2}</td>
-                    <td className="p-2 sm:p-4">{row.c3}</td>
                   </tr>
                 ))}
               </tbody>
@@ -201,7 +199,6 @@ export default function InternshipProgramsPage() {
                   <td className="p-2 sm:p-4 bg-[#FAF8F5]">Enrollment Fee</td>
                   <td className="p-2 sm:p-4 text-[#C8860A]">₹3,999</td>
                   <td className="p-2 sm:p-4 text-[#C8860A]">₹7,999</td>
-                  <td className="p-2 sm:p-4 text-[#C8860A]">₹9,999</td>
                 </tr>
               </tfoot>
             </table>
@@ -218,7 +215,7 @@ export default function InternshipProgramsPage() {
             Build something real.<br /><span className="text-[#C8860A]">Starting Day 1.</span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base mb-8 max-w-xl mx-auto font-light leading-relaxed">
-            Enroll in any course and build a live, deployed project by the last day. No experience needed for Course 01 and Course 03. The only requirement is showing up.
+            Enroll in any course and build a live, deployed project by the last day. No experience needed for Course 01 and Course 02. The only requirement is showing up.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
             <TrackedLink

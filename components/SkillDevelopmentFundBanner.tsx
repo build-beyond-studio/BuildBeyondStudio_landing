@@ -191,7 +191,7 @@ export default function SkillDevelopmentFundBanner() {
         <div className="rhb-grid">
           <div className="rhb-circle-wrap">
             <div className="rhb-circle">
-              <div className="rhb-circle-num">30%</div>
+              <div className="rhb-circle-num">25%</div>
               <div className="rhb-circle-text">OF REVENUE</div>
             </div>
           </div>
