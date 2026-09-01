@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const MEDIA_ITEMS = [
-  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_one_fuz1vl.webp',
-  'https://res.cloudinary.com/duokr6znr/video/upload/v1786250737/WhatsApp_Video_2026-08-06_at_1.25.12_PM_xdcjb7.mp4',
-  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_three_qyeoji.jpg',
-  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250555/ai_four_cess7p.webp',
-  'https://res.cloudinary.com/duokr6znr/image/upload/v1786250556/ai_five_v6wbwp.jpg',
+  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253084/WhatsApp_Image_2026-07-21_at_12.43.36_PM_1.jpg',
+  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253486/5_1_1.webp',
+  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253086/WhatsApp_Image_2026-07-21_at_12.43.36_PM_2.jpg',
+  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253086/930C65B6-DA07-43F3-B9EF-87C86EF4B5902_1.webp',
+  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253316/main.avif',
 ];
 
 export default function AIShowcaseCarousel() {
