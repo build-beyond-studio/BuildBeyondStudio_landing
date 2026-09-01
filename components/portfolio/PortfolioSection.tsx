@@ -14,37 +14,37 @@ export default function PortfolioSection({
     {
       title: "Faoo",
       subtitle: "Fashion Apparel For Men and Women",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786252092/Screen_Recording_2026-08-08_140416_tuovxp.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179380/Screen_Recording_2026-08-31_160506.mp4",
       link: "https://www.shopfaoo.com/"
     },
     {
       title: "Ilha",
       subtitle: "Resort & Occasion Wear",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786251748/Screen_Recording_2026-08-08_140635_rqmkvh.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179430/Screen_Recording_2026-08-31_160703.mp4",
       link: "https://www.ilha.co.in/"
     },
     {
       title: "Waffelsom",
       subtitle: "Gourmet Waffles & Coffee",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786253607/Screen_Recording_2026-08-08_140935_b6vfyg.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179358/Screen_Recording_2026-08-31_160846.mp4",
       link: "https://www.wafflesome.com/"
     },
     {
       title: "The Bakistry",
       subtitle: "Cakes For Kids & Celebrations",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786251982/Screen_Recording_2026-08-08_140806_kgjpjy.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179403/Screen_Recording_2026-08-31_162656.mp4",
       link: "https://www.thebakistry.com/category/cake-for-kids?utm_source=google&utm_medium=cpc&utm_campaign=PMAX&utm_source=Google&utm_medium=cpc&utm_campaign=23879582126--&utm_adgroup=&utm_keyword=&searchterm={searchterm}&utm_device=c&utm_placement=&utm_network=x&gad_source=1&gad_campaignid=23883970735&gbraid=0AAAAAqJcjPMxlf5MUSRAq_ubiesTcgoic&gclid=Cj0KCQjwp9vTBhCWARIsANaUrjucwmNGXh_DX4_MTLcrw4p5fbqD0KkRqpqgDMXGzUZr6YV7fnJQg_4aAmYnEALw_wcB"
     },
     {
       title: "Dozzed",
       subtitle: "REDEFINING INDIA'S COFFEE CULTURE",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786252133/Screen_Recording_2026-08-08_145930_kz0nti.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179344/Screen_Recording_2026-08-31_162753.mp4",
       link: "https://www.getdozzed.com/"
     },
     {
       title: "OffMenu",
       subtitle: "Skin Hydration drink",
-      videoSrc: "https://res.cloudinary.com/duokr6znr/video/upload/v1786253532/Screen_Recording_2026-08-08_150102_np7lus.mp4",
+      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788253030/Screen_Recording_2026-09-01_141917.mp4",
       link: "https://off-menu-delta.vercel.app/power"
     },
     {
