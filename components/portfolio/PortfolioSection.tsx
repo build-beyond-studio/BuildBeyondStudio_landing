@@ -14,73 +14,73 @@ export default function PortfolioSection({
     {
       title: "Faoo",
       subtitle: "Fashion Apparel For Men and Women",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179380/Screen_Recording_2026-08-31_160506.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-05%20at%2011.43.14%20PM.mp4",
       link: "https://www.shopfaoo.com/"
     },
     {
       title: "Ilha",
       subtitle: "Resort & Occasion Wear",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179430/Screen_Recording_2026-08-31_160703.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-05%20at%2011.46.02%20PM.mp4",
       link: "https://www.ilha.co.in/"
     },
     {
       title: "Waffelsom",
       subtitle: "Gourmet Waffles & Coffee",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179358/Screen_Recording_2026-08-31_160846.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.02.38%20AM.mp4",
       link: "https://www.wafflesome.com/"
     },
     {
       title: "The Bakistry",
       subtitle: "Cakes For Kids & Celebrations",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179403/Screen_Recording_2026-08-31_162656.mp4",
-      link: "https://www.thebakistry.com/category/cake-for-kids?utm_source=google&utm_medium=cpc&utm_campaign=PMAX&utm_source=Google&utm_medium=cpc&utm_campaign=23879582126--&utm_adgroup=&utm_keyword=&searchterm={searchterm}&utm_device=c&utm_placement=&utm_network=x&gad_source=1&gad_campaignid=23883970735&gbraid=0AAAAAqJcjPMxlf5MUSRAq_ubiesTcgoic&gclid=Cj0KCQjwp9vTBhCWARIsANaUrjucwmNGXh_DX4_MTLcrw4p5fbqD0KkRqpqgDMXGzUZr6YV7fnJQg_4aAmYnEALw_wcB"
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.07.54%20AM.mp4",
+      link: "https://www.thebakistry.com"
     },
     {
       title: "Dozzed",
       subtitle: "REDEFINING INDIA'S COFFEE CULTURE",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788179344/Screen_Recording_2026-08-31_162753.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.07.53%20AM.mp4",
       link: "https://www.getdozzed.com/"
     },
     {
       title: "OffMenu",
       subtitle: "Skin Hydration drink",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1788253030/Screen_Recording_2026-09-01_141917.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.14.28%20AM.mp4",
       link: "https://off-menu-delta.vercel.app/power"
     },
     {
       title: "Story driven",
       subtitle: "Ads | marketing",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786819451/Screen_Recording_2026-08-16_001329.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.12.50%20AM.mp4",
       link: "https://story-driven-client.vercel.app/"
     },
     {
       title: "Real Estate | Property in india",
       subtitle: "Buy /Sale/Rent Properties",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786817142/Screen_Recording_2026-08-15_233439.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.21.06%20AM.mp4",
       link: "https://vistaara-estate.vercel.app/"
     },
     {
       title: "Cinnabon Bakery Restaurant",
       subtitle: "Cinnabon Local Bakery Near you",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786815879/Screen_Recording_2026-08-15_231405.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.27.37%20AM%20(1).mp4",
       link: "https://www.cinnabon.com/"
     },
     {
       title: "Aarogyam Susperspeciality Hospital & research Center",
       subtitle: "durg Bhilai",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814346/Screen_Recording_2026-08-15_224521.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.39.05%20AM.mp4",
       link: "https://ashaarogyam.com/"
     },
     {
       title: "Cocco N Curry",
       subtitle: "Cocco N Curry",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814357/Screen_Recording_2026-08-15_224643.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%2012.24.36%20AM%20(1).mp4",
       link: "https://www.cocconcurry.com/"
     },
     {
       title: "Franfirst",
       subtitle: "Franchise Consultant",
-      videoSrc: "https://res.cloudinary.com/davycvtnr/video/upload/v1786814353/Screen_Recording_2026-08-15_224737.mp4",
+      videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.21.36%20AM.mp4",
       link: "https://franfirst.vercel.app/"
     }
   ];

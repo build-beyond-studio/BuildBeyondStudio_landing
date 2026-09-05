@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const MEDIA_ITEMS = [
-  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253084/WhatsApp_Image_2026-07-21_at_12.43.36_PM_1.jpg',
-  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253486/5_1_1.webp',
-  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253086/WhatsApp_Image_2026-07-21_at_12.43.36_PM_2.jpg',
-  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253086/930C65B6-DA07-43F3-B9EF-87C86EF4B5902_1.webp',
-  'https://res.cloudinary.com/davycvtnr/image/upload/v1788253316/main.avif',
+  'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-08-06%20at%2012.24.59%20PM.mp4',
+  'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/930C65B6-DA07-43F3-B9EF-87C86EF4B5902%20(1).webp',
+  'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/4_1.webp',
+  'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Image%202026-09-06%20at%2012.27.38%20AM.jpeg',
+  'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Image%202026-09-06%20at%2012.28.35%20AM.jpeg',
 ];
 
 export default function AIShowcaseCarousel() {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(true); // default true for safe SSR
   const [isTablet, setIsTablet] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
