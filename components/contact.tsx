@@ -7,7 +7,7 @@ const WHATSAPP_NUMBER = "+917697339962";
 const WHATSAPP_MESSAGE =
   "Hi! I run a marketing agency and I'd like to discuss a white-label web project with BBS.";
 
-const EMAIL = "buildbeyondstudio@gmail.com";
+const EMAIL = "admin@buildbeyondstudio.com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({

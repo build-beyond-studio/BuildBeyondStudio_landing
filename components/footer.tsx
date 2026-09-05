@@ -101,10 +101,10 @@ export default function Footer() {
               <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
               <p>
                 <a
-                  href="mailto:buildbeyondstudio@gmail.com"
+                  href="mailto:admin@buildbeyondstudio.com"
                   className="hover:text-white transition-colors"
                 >
-                  buildbeyondstudio@gmail.com
+                  admin@buildbeyondstudio.com
                 </a>
               </p>
               <p>Ambikapur, Surguja</p>

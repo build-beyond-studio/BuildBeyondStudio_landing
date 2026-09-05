@@ -94,10 +94,10 @@ export default function PrivacyPage() {
                   <li>
                     <strong>Email:</strong>{' '}
                     <a
-                      href="mailto:buildbeyondstudio@gmail.com"
+                      href="mailto:admin@buildbeyondstudio.com"
                       className="text-[#C8860A] hover:text-[#A06A00]"
                     >
-                      buildbeyondstudio@gmail.com
+                      admin@buildbeyondstudio.com
                     </a>
                   </li>
                   <li>

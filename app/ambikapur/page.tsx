@@ -20,7 +20,7 @@ const localBusinessSchema = {
   "alternateName": "BBS",
   "url": "https://buildbeyondstudio.com/ambikapur",
   "telephone": "+917697339962",
-  "email": "buildbeyondstudio@gmail.com",
+  "email": "admin@buildbeyondstudio.com",
   "image": "https://buildbeyondstudio.com/logo.png",
   "priceRange": "₹₹",
   "address": {
@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: "How do I get a quote for a website or application?",
-    answer: "You can reach our founder Ankush Kumar Gupta directly via WhatsApp at +91 76973 39962 or email buildbeyondstudio@gmail.com. We typically respond within a few hours with an initial consultation."
+    answer: "You can reach our founder Ankush Kumar Gupta directly via WhatsApp at +91 76973 39962 or email admin@buildbeyondstudio.com. We typically respond within a few hours with an initial consultation."
   }
 ];
 
@@ -183,7 +183,7 @@ export default function AmbikapurPage() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">Email</div>
-                    <a href="mailto:buildbeyondstudio@gmail.com" className="text-[#C8860A] font-semibold hover:underline">buildbeyondstudio@gmail.com</a>
+                    <a href="mailto:admin@buildbeyondstudio.com" className="text-[#C8860A] font-semibold hover:underline">admin@buildbeyondstudio.com</a>
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">Hours</div>
@@ -319,7 +319,7 @@ export default function AmbikapurPage() {
               WhatsApp Us
             </a>
             <a
-              href="mailto:buildbeyondstudio@gmail.com"
+              href="mailto:admin@buildbeyondstudio.com"
               className="inline-block bg-white/10 text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-all font-semibold border border-white/10"
             >
               Email Us

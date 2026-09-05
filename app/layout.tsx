@@ -119,7 +119,7 @@ const structuredData = {
         "White-label web development partner for marketing agencies across India. We build under your brand — NDA-first, full IP ownership.",
       foundingDate: "2023",
       telephone: "+917697339962",
-      email: "buildbeyondstudio@gmail.com",
+      email: "admin@buildbeyondstudio.com",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Ambikapur",
