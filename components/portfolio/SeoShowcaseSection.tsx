@@ -14,13 +14,13 @@ export default function SeoShowcaseSection({
     {
       title: 'AI-Era Search Visibility',
       subtitle: 'SEO, AEO, GEO & AI search optimization strategies for modern brands.',
-      videoSrc: 'https://res.cloudinary.com/davycvtnr/video/upload/v1788254010/Screen_Recording_2026-09-01_144248.mp4',
+      videoSrc: 'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/Screen%20Recording%202026-09-06%20002850.mp4',
       playbackRate: 1.75,
     },
     {
       title: 'Answer Engine & GEO Optimization',
       subtitle: 'Structured visibility systems designed for answer engines, generative search, and discovery platforms.',
-      videoSrc: 'https://res.cloudinary.com/davycvtnr/video/upload/v1788254077/Screen_Recording_2026-09-01_144351.mp4',
+      videoSrc: 'https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/Screen%20Recording%202026-09-06%20003214%20(1)%20(1).mp4',
     },
   ];
 

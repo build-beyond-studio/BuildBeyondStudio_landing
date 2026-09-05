@@ -252,7 +252,7 @@ export default function Hero() {
           muted
           playsInline
         >
-          <source src="https://res.cloudinary.com/davycvtnr/video/upload/v1786797483/WhatsApp_Video_2026-08-15_at_3.51.37_PM_1.mp4" type="video/mp4" />
+          <source src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%201.16.14%20AM.mp4"/>
         </video>
 
         {/* ── Centered content ── */}

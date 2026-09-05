@@ -81,7 +81,7 @@ export function TrackingShowcaseCard({
                   src={imageSrc}
                   alt={title}
                   fill
-                  className={isHovered ? "object-contain bg-black" : "object-cover bg-gray-50"}
+                  className={isHovered ? "object-contain bg-black" : "object-contain bg-gray-50"}
                   sizes="(max-width: 768px) 100vw, 90vw"
                 />
                 <motion.div
