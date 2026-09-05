@@ -11,6 +11,30 @@ interface WebsitePortfolioCardProps {
   link?: string;
 }
 
+/**
+ * Converts a raw Cloudinary video URL into an optimized streaming URL
+ * with quality auto, format auto, and reduced bitrate for faster loading.
+ */
+function getOptimizedVideoUrl(url: string): string {
+  // Transform: .../upload/v123/file.mp4 → .../upload/q_auto,f_auto,br_2m/v123/file.mp4
+  return url.replace(
+    '/upload/',
+    '/upload/q_auto,f_auto,br_2m/'
+  );
+}
+
+/**
+ * Generates a poster thumbnail from a Cloudinary video URL.
+ * Extracts the first frame as a low-quality JPEG for instant preview.
+ */
+function getPosterFromVideo(url: string): string {
+  // Transform video URL to image thumbnail:
+  // .../video/upload/v123/file.mp4 → .../video/upload/so_0,w_600,q_auto,f_auto/v123/file.jpg
+  return url
+    .replace('/upload/', '/upload/so_0,w_600,q_auto,f_auto/')
+    .replace(/\.mp4$/, '.jpg');
+}
+
 export function WebsitePortfolioCard({
   title,
   subtitle,
@@ -19,7 +43,43 @@ export function WebsitePortfolioCard({
   link,
 }: WebsitePortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const [hasStartedLoading, setHasStartedLoading] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Lazy load: only start loading the video when the card enters the viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' } // Start loading 200px before visible
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // When in view, set the video source and play
+  useEffect(() => {
+    if (isInView && videoRef.current && videoSrc && !hasStartedLoading) {
+      const optimizedUrl = getOptimizedVideoUrl(videoSrc);
+      videoRef.current.src = optimizedUrl;
+      videoRef.current.load();
+      videoRef.current.play().catch(() => {
+        // Autoplay might be blocked — that's fine, the poster is showing
+      });
+      setHasStartedLoading(true);
+    }
+  }, [isInView, videoSrc, hasStartedLoading]);
 
   useEffect(() => {
     return () => {
@@ -41,6 +101,9 @@ export function WebsitePortfolioCard({
     }, 150);
   };
 
+  // Auto-generate poster from Cloudinary video if no posterSrc provided
+  const poster = posterSrc || (videoSrc ? getPosterFromVideo(videoSrc) : undefined);
+
   return (
     <>
       {/* Background dark overlay for expanded state */}
@@ -58,6 +121,7 @@ export function WebsitePortfolioCard({
 
       {/* The placeholder element that keeps the grid structure intact */}
       <div
+        ref={containerRef}
         className="group block relative w-full aspect-video"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -136,8 +200,9 @@ export function WebsitePortfolioCard({
             {/* Video Container */}
             <div className="relative w-full flex-grow overflow-hidden">
               <video
-                src={videoSrc || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"}
-                poster={posterSrc}
+                ref={videoRef}
+                poster={poster}
+                preload="none"
                 autoPlay
                 muted
                 playsInline
@@ -152,4 +217,3 @@ export function WebsitePortfolioCard({
     </>
   );
 }
-
