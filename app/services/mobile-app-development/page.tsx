@@ -1,16 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/mobile-app-development',
-  'Mobile App Development Services | Build Beyond Studio',
-  'Native and cross-platform mobile app development — iOS, Android, and React Native. From MVP to full launch, built and deployed by BBS.'
-)
+export const metadata = {
+  title: "White Label Mobile App Development for Agencies",
+  description: "Outsource mobile app development to BBS and deliver scalable iOS and Android apps under your agency brand with development, QA, launch and support.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -131,7 +129,7 @@ export default function MobileAppDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Mobile App Development — From MVP to App Store Launch
+          White Label Mobile App Development for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">One codebase, both platforms. Built to scale.</p>
 

@@ -1,25 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/ai-content-video-production',
-  'AI Content & Video Production Services | Build Beyond Studio',
-  'Studio-grade product photos, videos, and marketing content generated with advanced AI models — faster and cheaper than traditional shoots.',
-  {
-    keywords: [
-      'AI content and video production',
-      'AI video production services',
-      'AI product photography',
-      'generative AI marketing content',
-      'AI content creation agency',
-    ],
-  }
-)
+export const metadata = {
+  title: "White Label Content Marketing Services | Build Beyond Studio",
+  description: "Outsource content marketing and AI content production to BBS. Get content, creative assets and video delivered under your agency brand, with reliable turnaround.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -139,7 +128,7 @@ export default function AiContentVideoProductionPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Studio-Grade Content, Generated — Not Shot
+          White Label AI Content & Video Production for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Product photos, marketing videos, and ad creatives, built with AI models.</p>
 

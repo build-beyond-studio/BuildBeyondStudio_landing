@@ -1,25 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/google-meta-ads',
-  'Google & Meta Ads Management Services | Build Beyond Studio',
-  'Performance-driven Google Ads and Meta (Facebook/Instagram) Ads management. Conversion-focused campaigns, tracked and optimized for ROI.',
-  {
-    keywords: [
-      'Google and Meta Ads management',
-      'Facebook Instagram ads management',
-      'Google Ads agency',
-      'performance marketing services',
-      'PPC management India',
-    ],
-  }
-)
+export const metadata = {
+  title: "White Label PPC Management for Agencies | Build Beyond Studio",
+  description: "Outsource Google and Meta PPC management to BBS. We handle setup, tracking, optimization and reporting while your agency owns the client relationship.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -147,7 +136,7 @@ export default function GoogleMetaAdsPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Google & Meta Ads That Are Built to Convert, Not Just Spend
+          White Label Google & Meta Ads Management for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Direct-response ad campaigns, tracked to the rupee.</p>
 

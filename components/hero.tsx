@@ -271,14 +271,7 @@ export default function Hero() {
               className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.1rem] lg:text-[3.4rem]
                          font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
-              Outsource High-Ticket Services With Us —{" "}
-              <span
-                ref={line2Ref}
-                className="hero-pre gradient-text"
-                style={{ display: "inline" }}
-              >
-                and Expand Your Client Base at Zero Additional Cost.
-              </span>
+              Your White Label Delivery Partner for Agency Growth
             </h1>
             <p
               ref={subheadRef}

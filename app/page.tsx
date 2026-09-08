@@ -1,5 +1,3 @@
-import type { Metadata } from 'next';
-import { buildMetadata } from '@/lib/metadata';
 // import ClientHomeWrapper from "@/components/ClientHomeWrapper";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -18,11 +16,10 @@ import FloatingQuickLinks from "@/components/FloatingQuickLinks";
 import VideoPopup from "@/components/VideoPopup";
 
 
-export const metadata: Metadata = buildMetadata(
-  '/',
-  undefined,
-  "Marketing agency? We're your invisible web dev team. You bring the clients, we build and deliver — fully under your brand. Zero overhead, full IP."
-);
+export const metadata = {
+  title: "White Label Digital Marketing Services for Agencies | BBS",
+  description: "Scale your agency with White Label digital marketing services. BBS handles SEO, PPC, web, social, content and analytics under your brand, without hiring.",
+};
 
 
 const faqSchema = {
