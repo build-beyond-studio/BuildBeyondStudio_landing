@@ -1,16 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/website-development',
-  'Website Development Services | Build Beyond Studio',
-  'Custom, high-converting website development for businesses and agencies. Fast, SEO-ready, mobile-first builds delivered on fixed timelines.'
-)
+export const metadata = {
+  title: "White Label Website Development Services for Agencies",
+  description: "Outsource website development to BBS and deliver fast, SEO-ready websites under your agency brand, from development and QA through launch and support.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -132,7 +130,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Website Development That Converts Visitors Into Clients
+          White Label Website Development for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Fast, custom-built, SEO-ready websites — not templates.</p>
 

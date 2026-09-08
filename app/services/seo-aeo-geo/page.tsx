@@ -1,26 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/seo-aeo-geo',
-  'SEO, AEO & GEO Services | AI Search Visibility | BBS',
-  'Rank on Google and get cited by ChatGPT, Perplexity & AI Overviews. Full-stack SEO, Answer Engine Optimization, and Generative Engine Optimization.',
-  {
-    keywords: [
-      'SEO AEO GEO services',
-      'answer engine optimization',
-      'generative engine optimization',
-      'AI search visibility',
-      'get cited by ChatGPT',
-      'AI Overviews optimization',
-    ],
-  }
-)
+export const metadata = {
+  title: "White Label SEO, AEO & GEO Services | Build Beyond Studio",
+  description: "Outsource SEO, AEO and GEO to BBS. Deliver technical SEO, content, schema and AI search optimization under your agency brand with expert support.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -142,7 +130,7 @@ export default function SeoAeoGeoPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          SEO, AEO & GEO — Get Found on Google. Get Cited by AI.
+          White Label SEO, AEO & GEO Services for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">One strategy for three search surfaces: Google, AI answer engines, and generative search.</p>
 

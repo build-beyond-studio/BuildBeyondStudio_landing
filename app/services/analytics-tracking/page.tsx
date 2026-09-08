@@ -1,25 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/analytics-tracking',
-  'Analytics & Tracking Setup Services | Build Beyond Studio',
-  'GA4, Meta Pixel & Conversions API setup, funnel audits, and dashboard reporting — accurate tracking so every marketing rupee is measurable.',
-  {
-    keywords: [
-      'analytics and tracking setup services',
-      'GA4 setup agency',
-      'Meta Pixel Conversions API setup',
-      'marketing funnel audit',
-      'e-commerce tracking setup',
-    ],
-  }
-)
+export const metadata = {
+  title: "White Label Analytics & Tracking | Build Beyond Studio",
+  description: "Outsource analytics and tracking to BBS for GA4, pixels, conversions and reporting. Get reliable data and implementation under your agency brand with expert setup.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -140,7 +129,7 @@ export default function AnalyticsTrackingPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Analytics & Tracking — Know Exactly What's Working
+          White Label Analytics & Tracking Services for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">GA4, Meta Pixel, and funnel audits done right, the first time.</p>
 

@@ -1,25 +1,14 @@
-import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata: Metadata = buildMetadata(
-  '/services/social-media-management',
-  'Social Media Management Services | Build Beyond Studio',
-  'Full social media management — content calendars, posting, community management, and growth strategy for Instagram, LinkedIn & Facebook.',
-  {
-    keywords: [
-      'social media management services',
-      'Instagram management agency',
-      'LinkedIn content management',
-      'social media marketing India',
-      'content calendar management',
-    ],
-  }
-)
+export const metadata = {
+  title: "White Label Social Media Management | Build Beyond Studio",
+  description: "Outsource social media management to BBS for Instagram, LinkedIn and Facebook. Get strategy, content and publishing delivered under your brand with reliable results.",
+}
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -141,7 +130,7 @@ export default function SocialMediaManagementPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          Social Media Management That Builds an Audience, Not Just a Feed
+          White Label Social Media Management for Agencies
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Strategy, content, posting, and community — fully managed.</p>
 

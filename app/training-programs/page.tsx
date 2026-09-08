@@ -1,5 +1,3 @@
-import type { Metadata } from 'next';
-import { buildMetadata } from '@/lib/metadata';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ArrowRight } from "lucide-react";
@@ -9,11 +7,10 @@ import TrackedLink from "@/components/TrackedLink";
 import { GENERAL_BENEFITS, COURSES } from "./data";
 import SkillDevelopmentFundBanner from "@/components/SkillDevelopmentFundBanner";
 
-export const metadata: Metadata = buildMetadata(
-  '/training-programs',
-  'Training & Internship Programs',
-  'Kickstart your software engineering career with ISO Certified courses in HTML, CSS, JavaScript, React, Next.js, and DevOps from BBS Academy.'
-);
+export const metadata = {
+  title: "Software Development Training & Internship Programs | BBS",
+  description: "Learn software development through BBS training and internship programs with practical projects, structured learning, certificates and career support for students.",
+};
 
 
 export default function InternshipProgramsPage() {
@@ -49,7 +46,7 @@ export default function InternshipProgramsPage() {
               BBS Academy
             </span>
             <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">
-              What You Get
+              Software Development Training and Internship Programs
             </h1>
           </div>
 
