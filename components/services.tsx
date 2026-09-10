@@ -20,6 +20,12 @@ const Icons = {
       <path d="M10 6h4"/>
     </svg>
   ),
+  ux: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2"/>
+      <path d="M8 8h8M8 12h8M8 16h5"/>
+    </svg>
+  ),
   seo: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="11" cy="11" r="6"/>
@@ -79,6 +85,12 @@ const SERVICES = [
     desc: "Custom-built on React and Next.js — not templates. Fast, SEO-structured, and designed to convert visitors into clients.",
     href: "/services/website-development",
     icon: Icons.web,
+  },
+  {
+    title: "UI / UX Design",
+    desc: "Interface strategy, wireframes, and conversion-focused UX flows that make products easier to use and easier to trust.",
+    href: "/services/ui-ux-design",
+    icon: Icons.ux,
   },
   {
     title: "Mobile App Development",
