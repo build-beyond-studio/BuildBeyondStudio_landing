@@ -93,6 +93,7 @@ export default function Footer() {
                  <div className="flex flex-col gap-2">
                   <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
                   <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
+                  <a href="/services/ui-ux-design" className="hover:text-white transition-colors">UI / UX Design</a>
                   <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
                   <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
                   <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>

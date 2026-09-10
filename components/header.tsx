@@ -17,6 +17,7 @@ const NAV_LINKS: NavLink[] = [
     href: "/services",
     dropdown: [
       { href: "/services/website-development", label: "Website Development" },
+      { href: "/services/ui-ux-design", label: "UI / UX Design" },
       { href: "/services/mobile-app-development", label: "Mobile App Development" },
       { href: "/services/seo-aeo-geo", label: "SEO, AEO & GEO" },
       { href: "/services/custom-software-development", label: "Custom Software Development" },
