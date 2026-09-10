@@ -27,7 +27,7 @@ export function buildMetadata(
   const canonicalUrl = cleanPath === '/' ? baseUrl : `${baseUrl}${cleanPath}`;
   const fullTitle = title 
     ? `${title} | Build Beyond Studio` 
-    : 'Build Beyond Studio | White-Label Web Dev Partner for Marketing Agencies';
+    : 'Build Beyond Studio | Website, App & Software Development';
 
   const mergedOpenGraph = {
     title: fullTitle,

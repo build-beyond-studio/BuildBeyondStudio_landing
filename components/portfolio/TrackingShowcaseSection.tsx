@@ -56,7 +56,7 @@ export default function TrackingShowcaseSection({
         className="mb-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-          Funnels That Stop Leaking Revenue
+          Tracking & Conversion Insights
         </h2>
         <p className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed">
           End-to-end GA4 event mapping, Meta Pixel server-side API setups, and funnel audits that isolate exactly where customers drop off and recover lost revenue.

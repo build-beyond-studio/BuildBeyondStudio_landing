@@ -203,7 +203,7 @@ export default function WebsiteDevelopmentPage() {
           {/* Internal links */}
           <div className="flex flex-wrap gap-3">
             <Link href="/services/mobile-app-development" className="text-[13px] text-[#C8860A] hover:underline">Mobile App Development →</Link>
-            <Link href="/services/seo-aeo-geo" className="text-[13px] text-[#C8860A] hover:underline">SEO, AEO & GEO →</Link>
+            <Link href="/services/custom-software-development" className="text-[13px] text-[#C8860A] hover:underline">Custom Software Development →</Link>
           </div>
 
           {/* FAQ */}

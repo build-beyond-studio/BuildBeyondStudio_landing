@@ -19,10 +19,12 @@ const NAV_LINKS: NavLink[] = [
       { href: "/services/website-development", label: "Website Development" },
       { href: "/services/mobile-app-development", label: "Mobile App Development" },
       { href: "/services/seo-aeo-geo", label: "SEO, AEO & GEO" },
-      { href: "/services/google-meta-ads", label: "Google & Meta Ads" },
-      { href: "/services/social-media-management", label: "Social Media Management" },
-      { href: "/services/ai-content-video-production", label: "AI Content & Video Production" },
-      { href: "/services/analytics-tracking", label: "Analytics & Tracking" },
+      { href: "/services/custom-software-development", label: "Custom Software Development" },
+      { href: "/services/ai-chatbots-assistants", label: "AI Chatbots & Assistants" },
+      { href: "/services/linkedin-lead-generation-automation", label: "LinkedIn Lead Generation & Automation" },
+      { href: "/services/online-store-development", label: "Online Store Development" },
+      { href: "/services/app-integrations", label: "App Integrations" },
+      { href: "/services/website-app-maintenance", label: "Website & App Maintenance" },
     ]
   },
   { href: "/our-work", label: "Our Work" },
@@ -195,6 +197,7 @@ export default function Header() {
         .mobile-menu.open .mob-link:nth-child(5) { transition-delay: 0.25s; }
         .mobile-menu.open .mob-link:nth-child(6) { transition-delay: 0.30s; }
         .mobile-menu.open .mob-link:nth-child(7) { transition-delay: 0.35s; }
+        .mobile-menu.open .mob-link:nth-child(8) { transition-delay: 0.40s; }
 
         /* ── Mobile: round the menu bottom too when scrolled ─  */
         .nav-morph.scrolled .mobile-menu.open,

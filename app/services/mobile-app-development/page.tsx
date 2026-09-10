@@ -225,7 +225,7 @@ export default function MobileAppDevelopmentPage() {
           {/* Internal links */}
           <div className="flex flex-wrap gap-3">
             <Link href="/services/website-development" className="text-[13px] text-[#C8860A] hover:underline">Website Development →</Link>
-            <Link href="/services/analytics-tracking" className="text-[13px] text-[#C8860A] hover:underline">Analytics & Tracking →</Link>
+            <Link href="/services/app-integrations" className="text-[13px] text-[#C8860A] hover:underline">App Integrations →</Link>
           </div>
 
           {/* FAQ */}

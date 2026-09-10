@@ -22,35 +22,45 @@ const Icons = {
   ),
   seo: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="7"/>
-      <path d="m21 21-4.35-4.35"/>
+      <circle cx="11" cy="11" r="6"/>
+      <path d="m16 16 5 5"/>
       <path d="M11 8v6M8 11h6"/>
     </svg>
   ),
-  ads: (
+  custom: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 3v18h18"/>
-      <path d="m20 8-4 4-3-3-4 4"/>
+      <path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/>
+      <path d="M8 8h8M8 12h8M8 16h5"/>
     </svg>
   ),
-  social: (
+  chatbot: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="17" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="19" r="2.5"/>
-      <path d="m8.59 13.5 6.83 3.98M15.41 6.5 8.58 10.48"/>
+      <path d="M8 10h8M8 14h5"/>
+      <rect x="3" y="5" width="18" height="12" rx="3"/>
+      <path d="M8 19l-2 2 1-3"/>
     </svg>
   ),
-  video: (
+  leadgen: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m15 10 4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14"/>
-      <rect x="3" y="6" width="12" height="12" rx="2"/>
+      <path d="M7 18V8l5-4 5 4v10"/>
+      <path d="M10 12h4M12 10v4"/>
     </svg>
   ),
-  analytics: (
+  store: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 3v18h18"/>
-      <rect x="7" y="12" width="3" height="6" rx="1"/>
-      <rect x="12" y="8" width="3" height="10" rx="1"/>
-      <rect x="17" y="5" width="3" height="13" rx="1"/>
+      <path d="M4 9h16l-1.5 10.5A2 2 0 0 1 16.5 21h-9a2 2 0 0 1-2-1.5L4 9Z"/>
+      <path d="M7 9V7a5 5 0 0 1 10 0v2"/>
+    </svg>
+  ),
+  integrations: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 7h8v10H8z"/>
+      <path d="M4 12h4M16 12h4M12 4v4M12 16v4"/>
+    </svg>
+  ),
+  maintenance: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
     </svg>
   ),
   arrow: (
@@ -78,33 +88,45 @@ const SERVICES = [
   },
   {
     title: "SEO, AEO & GEO",
-    desc: "Rank on Google and get cited inside ChatGPT, Perplexity, and AI Overviews. One strategy for all three search surfaces.",
+    desc: "Technical visibility and AI search optimization so your brand gets found, cited, and trusted across search surfaces.",
     href: "/services/seo-aeo-geo",
     icon: Icons.seo,
   },
   {
-    title: "Google & Meta Ads",
-    desc: "Performance campaigns tracked to the rupee. Search, Shopping, Reels, and Carousels — managed and optimised weekly.",
-    href: "/services/google-meta-ads",
-    icon: Icons.ads,
+    title: "Custom Software Development",
+    desc: "Business tools, dashboards, and web apps built around how you work.",
+    href: "/services/custom-software-development",
+    icon: Icons.custom,
   },
   {
-    title: "Social Media Management",
-    desc: "Full calendar, design, captions, scheduling, and community management across Instagram, LinkedIn, and Facebook.",
-    href: "/services/social-media-management",
-    icon: Icons.social,
+    title: "AI Chatbots & Assistants",
+    desc: "Smart chat and WhatsApp bots that answer customers and capture leads 24/7.",
+    href: "/services/ai-chatbots-assistants",
+    icon: Icons.chatbot,
   },
   {
-    title: "AI Content & Video",
-    desc: "Studio-quality product photography and ad videos — generated with AI. Days, not weeks. A fraction of shoot cost.",
-    href: "/services/ai-content-video-production",
-    icon: Icons.video,
+    title: "LinkedIn Lead Generation & Automation",
+    desc: "Automated outreach, connection requests, and follow-ups that fill your pipeline while you sleep.",
+    href: "/services/linkedin-lead-generation-automation",
+    icon: Icons.leadgen,
   },
   {
-    title: "Analytics & Tracking",
-    desc: "GA4, Meta Pixel, and server-side Conversions API — set up correctly, audited for gaps, and reported in clear dashboards.",
-    href: "/services/analytics-tracking",
-    icon: Icons.analytics,
+    title: "Online Store Development",
+    desc: "Custom e-commerce stores built to sell, not just look good.",
+    href: "/services/online-store-development",
+    icon: Icons.store,
+  },
+  {
+    title: "App Integrations",
+    desc: "Connect your website or software to payment gateways, CRMs, and other tools you already use.",
+    href: "/services/app-integrations",
+    icon: Icons.integrations,
+  },
+  {
+    title: "Website & App Maintenance",
+    desc: "Ongoing fixes, updates, and hosting care so nothing breaks.",
+    href: "/services/website-app-maintenance",
+    icon: Icons.maintenance,
   },
 ] as const;
 
@@ -209,7 +231,7 @@ function CtaCard() {
       {/* Body */}
       <div>
         <p className="text-[13px] text-[#8C8680] leading-relaxed mb-4">
-          Explore the full scope of what Build Beyond Studio delivers — seven services, one accountable team.
+          Explore the full scope of what Build Beyond Studio delivers — eight services, one accountable team.
         </p>
         <Link
           href="/services"
