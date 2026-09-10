@@ -94,11 +94,12 @@ export default function Footer() {
                   <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
                   <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
                   <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
-                  <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
-                  <a href="/services/google-meta-ads" className="hover:text-white transition-colors">Google & Meta Ads</a>
-                  <a href="/services/social-media-management" className="hover:text-white transition-colors">Social Media Management</a>
-                  <a href="/services/ai-content-video-production" className="hover:text-white transition-colors">AI Content & Video Production</a>
-                  <a href="/services/analytics-tracking" className="hover:text-white transition-colors">Analytics & Tracking</a>
+                  <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>
+                  <a href="/services/ai-chatbots-assistants" className="hover:text-white transition-colors">AI Chatbots & Assistants</a>
+                  <a href="/services/linkedin-lead-generation-automation" className="hover:text-white transition-colors">LinkedIn Lead Generation & Automation</a>
+                  <a href="/services/online-store-development" className="hover:text-white transition-colors">Online Store Development</a>
+                  <a href="/services/app-integrations" className="hover:text-white transition-colors">App Integrations</a>
+                  <a href="/services/website-app-maintenance" className="hover:text-white transition-colors">Website & App Maintenance</a>
                 </div>
              </div>
               <div className="text-center md:text-left">

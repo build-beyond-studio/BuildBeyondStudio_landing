@@ -17,8 +17,8 @@ import VideoPopup from "@/components/VideoPopup";
 
 
 export const metadata = {
-  title: "White Label Digital Marketing Services for Agencies | BBS",
-  description: "Scale your agency with White Label digital marketing services. BBS handles SEO, PPC, web, social, content and analytics under your brand, without hiring.",
+  title: "Website Development, Mobile Apps & AI Automation | Build Beyond Studio",
+  description: "Build custom websites, mobile apps, AI chatbots, business software, and automation that help teams sell, automate, and grow.",
 };
 
 

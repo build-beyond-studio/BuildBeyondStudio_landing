@@ -19,20 +19,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://buildbeyondstudio.com"),
 
   title: {
-    default: "Build Beyond Studio | White-Label Web Dev Partner for Marketing Agencies",
+    default: "Build Beyond Studio | Website, App & Software Development",
     template: "%s | Build Beyond Studio",
   },
 
   description:
-    "Marketing agency? We're your invisible web dev team. You bring the clients, we build and deliver — fully under your brand. Zero overhead, full IP ownership, NDA-first.",
+    "Custom websites, mobile apps, AI chatbots, and software products built for businesses that need fast, reliable execution without the overhead.",
 
   keywords: [
-    "white label web development for marketing agencies",
-    "web development partner for agencies India",
-    "invisible web team for agencies",
-    "agency web dev outsourcing India",
-    "white label MERN stack India",
-    "web development without hiring developers",
+    "website development company",
+    "mobile app development India",
+    "custom software development",
+    "AI chatbot development",
+    "business automation services",
+    "web app development",
   ],
 
   authors: [{ name: "Build Beyond Studio" }],
@@ -55,16 +55,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://buildbeyondstudio.com",
-    title: "Build Beyond Studio | Web Development & DevOps Agency",
+    title: "Build Beyond Studio | Website, App & AI Software Solutions",
     description:
-      "Your clients need websites. You don't have developers. We fix that — invisibly. BBS is the white-label web team marketing agencies across India trust.",
+      "Custom website development, mobile apps, AI chatbots, and business systems built to help teams launch faster and work smarter.",
     siteName: "Build Beyond Studio",
     images: [
       {
         url: "https://buildbeyondstudio.com/logo.png",
         width: 1200,
         height: 630,
-        alt: "Build Beyond Studio – Web Development Partner",
+        alt: "Build Beyond Studio – Web, App & Software Partner",
         type: "image/png",
       },
     ],
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@buildbeyondstudio",
     creator: "@buildbeyondstudio",
-    title: "Build Beyond Studio | Web Development & DevOps Agency",
+    title: "Build Beyond Studio | Website, App & AI Software Solutions",
     description:
-      "White-label web development agency in Ambikapur. MERN stack, DevOps, and technical consulting for marketing agencies.",
+      "Custom websites, mobile apps, AI chatbots, and software built for business growth, automation, and smoother operations.",
     images: {
       url: "https://buildbeyondstudio.com/logo.png",
       alt: "Build Beyond Studio Logo",
@@ -116,7 +116,7 @@ const structuredData = {
         caption: "Build Beyond Studio Logo",
       },
       description:
-        "White-label web development partner for marketing agencies across India. We build under your brand — NDA-first, full IP ownership.",
+        "Build Beyond Studio creates custom websites, mobile apps, AI chatbots, dashboards, and software systems for businesses that need practical technical execution.",
       foundingDate: "2023",
       telephone: "+917697339962",
       email: "admin@buildbeyondstudio.com",
@@ -149,12 +149,12 @@ const structuredData = {
         availableLanguage: ["en", "hi"],
       },
       knowsAbout: [
-        "Web Application Development",
-        "MERN Stack",
-        "DevOps",
-        "Cloud Deployment",
-        "White-Label Solutions",
-        "Technical Consulting",
+        "Website Development",
+        "Mobile App Development",
+        "Custom Software Development",
+        "AI Chatbots and Assistants",
+        "Business Automation",
+        "Web App Development",
       ],
       sameAs: [
         "https://www.linkedin.com/company/buildbeyondstudio",
