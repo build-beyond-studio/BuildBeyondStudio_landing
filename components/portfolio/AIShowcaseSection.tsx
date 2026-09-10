@@ -16,7 +16,7 @@ export default function AIShowcaseSection({
         {!hideHeader && (
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              AI visuals that feel crafted, not generated.
+              AI Visuals Showcase
             </h2>
             <p className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl">
               Cinematic AI photography, branded compositions, and production-ready visual assets created for modern digital brands.

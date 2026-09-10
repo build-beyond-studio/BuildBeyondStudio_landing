@@ -30,6 +30,14 @@ const servicesList = [
   },
   {
     num: "03",
+    title: "SEO, AEO\n& GEO",
+    desc: "Technical visibility and AI search optimization so your brand gets found, cited, and trusted across search surfaces.",
+    features: ["Search Visibility", "AEO", "GEO"],
+    link: "/services/seo-aeo-geo",
+    color: "#E8A020",
+  },
+  {
+    num: "04",
     title: "Custom Software\nDevelopment",
     desc: "Business tools, dashboards, and web apps built around how you work.",
     features: ["Workflow Design", "Dashboard UX", "System Integration"],
@@ -37,7 +45,7 @@ const servicesList = [
     color: "#E8A020",
   },
   {
-    num: "04",
+    num: "05",
     title: "AI Chatbots\n& Assistants",
     desc: "Smart chat and WhatsApp bots that answer customers and capture leads 24/7.",
     features: ["Lead Capture", "Bot Flows", "WhatsApp"],
@@ -45,7 +53,7 @@ const servicesList = [
     color: "#B87800",
   },
   {
-    num: "05",
+    num: "06",
     title: "LinkedIn Lead\nGeneration",
     desc: "Automated outreach, connection requests, and follow-ups that fill your pipeline while you sleep.",
     features: ["CRM Sync", "Automations", "Pipeline Growth"],
@@ -53,7 +61,7 @@ const servicesList = [
     color: "#C8860A",
   },
   {
-    num: "06",
+    num: "07",
     title: "Online Store\nDevelopment",
     desc: "Custom e-commerce stores built to sell, not just look good.",
     features: ["Custom Checkout", "Catalog UX", "Conversion Focused"],
@@ -61,7 +69,7 @@ const servicesList = [
     color: "#A06A00",
   },
   {
-    num: "07",
+    num: "08",
     title: "App\nIntegrations",
     desc: "Connect your website or software to payment gateways, CRMs, and other tools you already use.",
     features: ["Payments", "CRM", "Tool Connectors"],
@@ -69,7 +77,7 @@ const servicesList = [
     color: "#E8A020",
   },
   {
-    num: "08",
+    num: "09",
     title: "Website & App\nMaintenance",
     desc: "Ongoing fixes, updates, and hosting care so nothing breaks.",
     features: ["Hosting Care", "Bug Fixes", "Updates"],

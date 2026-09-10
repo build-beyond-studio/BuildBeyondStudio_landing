@@ -20,11 +20,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/services/seo-aeo-geo',
-        destination: '/services',
-        permanent: true,
-      },
-      {
         source: '/services/google-meta-ads',
         destination: '/services',
         permanent: true,

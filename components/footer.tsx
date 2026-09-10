@@ -94,6 +94,7 @@ export default function Footer() {
                   <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
                   <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
                   <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
+                  <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
                   <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>
                   <a href="/services/ai-chatbots-assistants" className="hover:text-white transition-colors">AI Chatbots & Assistants</a>
                   <a href="/services/linkedin-lead-generation-automation" className="hover:text-white transition-colors">LinkedIn Lead Generation & Automation</a>
