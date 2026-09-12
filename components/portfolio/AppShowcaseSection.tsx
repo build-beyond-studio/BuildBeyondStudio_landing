@@ -55,8 +55,13 @@ export default function AppShowcaseSection() {
           return (
             <div
               key={index}
-              className="group relative md:flex-1 md:min-w-0"
+              className="group relative md:flex-1 md:min-w-0 cursor-pointer"
               onMouseEnter={() => openPreview(index)}
+              onClick={() => {
+                if (window.innerWidth < 768) {
+                  setActiveIndex(index);
+                }
+              }}
             >
               <div className="relative overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out md:min-h-[420px] md:hover:-translate-y-1">
                 <div className="relative h-[360px] overflow-hidden sm:h-[420px] md:h-[500px]">
@@ -91,6 +96,7 @@ export default function AppShowcaseSection() {
                       exit={{ opacity: 0, y: 10, scale: 0.985 }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                       className="w-full max-w-[760px] rounded-[22px] border border-[#EAE7E2] bg-[#F5F3EF] shadow-[0_40px_100px_rgba(0,0,0,0.25)]"
+                      onClick={(event) => event.stopPropagation()}
                     >
                       <div className="flex items-center justify-between border-b border-[#E5E1DA] bg-white px-5 py-4 md:px-6">
                         <h3 className="text-xl font-bold text-gray-900 md:text-2xl">
@@ -99,7 +105,10 @@ export default function AppShowcaseSection() {
 
                         <button
                           type="button"
-                          onClick={closePreview}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            closePreview();
+                          }}
                           className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D8D1C7] bg-white text-xl text-gray-800 transition hover:bg-gray-50"
                           aria-label="Close app preview"
                         >
