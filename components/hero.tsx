@@ -271,7 +271,14 @@ export default function Hero() {
               className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.1rem] lg:text-[3.4rem]
                          font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
             >
-              Your White Label Delivery Partner for Agency Growth
+              Outsource High-Ticket Services With Us —{" "}
+              <span
+                ref={line2Ref}
+                className="hero-pre gradient-text"
+                style={{ display: "inline" }}
+              >
+                and Expand Your Client Base at Zero Additional Cost.
+              </span>
             </h1>
             <p
               ref={subheadRef}
@@ -357,35 +364,29 @@ export default function Hero() {
 
             {/* Revenue Model — highlighted primary with pulse */}
             <button
-              ref={mag2.ref}
-              onMouseMove={mag2.onMove}
-              onMouseLeave={mag2.onLeave}
               onClick={() =>
                 document
                   .getElementById("revenue")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="mag-btn btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto"
+              className="btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto transition-all duration-300"
             >
               Revenue Model →
             </button>
 
             {/* Book a Call — plain secondary */}
             <button
-              ref={mag1.ref}
-              onMouseMove={mag1.onMove}
-              onMouseLeave={mag1.onLeave}
               onClick={() => {
                 window.gtag?.('event', 'whatsapp_click', { button_location: 'hero' });
                 document
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mag-btn border border-black/12 text-gray-800 px-9 py-3.5 md:px-5
+              className="border border-black/12 text-gray-800 px-9 py-3.5 md:px-5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-white hover:border-black/20 hover:bg-gray-50
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
-                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
+                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300"
             >
               Book a Strategy Call
             </button>
