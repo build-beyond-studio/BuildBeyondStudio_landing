@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
 import PortfolioSection from "@/components/portfolio/PortfolioSection";
+import AppShowcaseSection from "@/components/portfolio/AppShowcaseSection";
 import SeoShowcaseSection from "@/components/portfolio/SeoShowcaseSection";
 export const metadata: Metadata = buildMetadata(
   '/our-work',
@@ -21,6 +22,8 @@ export default function OurWork() {
       <Header />
 
       <PortfolioSection columns={3} />
+
+      <AppShowcaseSection />
 
       <SeoShowcaseSection />
 
