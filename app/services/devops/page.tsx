@@ -4,6 +4,7 @@ import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/devops',
@@ -66,6 +67,34 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: 'DevOps & Deployment', item: 'https://buildbeyondstudio.com/services/devops' },
   ],
 }
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "Why would a marketing agency need DevOps support?",
+    "answer": "Websites and applications can slow down or fail when campaigns bring sudden traffic. DevOps support helps improve deployment, infrastructure reliability, monitoring, and the overall stability of the technical environment."
+  },
+  {
+    "question": "Can you support websites during high-traffic campaigns?",
+    "answer": "Yes. We can review the hosting and infrastructure setup, identify possible bottlenecks, and recommend improvements before a major campaign or launch."
+  },
+  {
+    "question": "Do you help with deployment automation?",
+    "answer": "Where appropriate, we can support deployment workflows, environment setup, release processes, and other practices that reduce manual errors."
+  },
+  {
+    "question": "Can you monitor uptime and performance?",
+    "answer": "Monitoring can be included depending on the project. We can discuss uptime checks, server monitoring, error tracking, and performance alerts."
+  },
+  {
+    "question": "Do you work with existing hosting providers?",
+    "answer": "Yes. We can review the current hosting environment and determine whether it can be improved or whether a different setup would be more suitable."
+  },
+  {
+    "question": "Can DevOps support be offered under our agency brand?",
+    "answer": "Yes. DevOps and infrastructure support can be delivered as a white-label service for agencies managing client websites, applications, or digital platforms."
+  }
+];
 
 export default function DevOpsPage() {
   return (
@@ -160,6 +189,7 @@ export default function DevOpsPage() {
           </TrackedLink>
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

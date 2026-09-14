@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 import { CASE_STUDIES } from './data'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/case-studies',
@@ -16,6 +17,34 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', path: '/' },
   { name: 'Case Studies', path: '/case-studies' },
 ]);
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "What information is included in a case study?",
+    "answer": "A case study may explain the client's challenge, the project scope, the technical approach, the delivery process, and the final outcome. The level of detail depends on what can be shared."
+  },
+  {
+    "question": "Are your case studies based on real client projects?",
+    "answer": "Yes. Case studies are based on actual projects or delivery experiences, subject to client confidentiality and approval."
+  },
+  {
+    "question": "Can you handle projects with complicated technical requirements?",
+    "answer": "We can review projects involving custom functionality, integrations, web applications, mobile apps, DevOps, or infrastructure. We first assess the requirements before confirming what can be delivered."
+  },
+  {
+    "question": "Do you work with an agency's existing technology stack?",
+    "answer": "Where practical, yes. We review the current stack and recommend whether to continue with it, improve it, or move to a more suitable solution."
+  },
+  {
+    "question": "Can you provide a project estimate before development begins?",
+    "answer": "Yes. We can provide an estimate after reviewing the brief, designs, features, integrations, and expected timeline. Unclear projects may need a separate scoping phase."
+  },
+  {
+    "question": "Can you support the project after launch?",
+    "answer": "Yes. Post-launch support may include bug fixes, updates, monitoring, maintenance, improvements, and additional development depending on the agreement."
+  }
+];
 
 export default function CaseStudiesIndexPage() {
   return (
@@ -137,6 +166,7 @@ export default function CaseStudiesIndexPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

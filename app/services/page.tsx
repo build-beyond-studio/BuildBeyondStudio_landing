@@ -4,6 +4,7 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 
 import { buildMetadata } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services',
@@ -94,6 +95,34 @@ const servicesList = [
   },
 ];
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "What technical services does BBS provide to agencies?",
+    "answer": "Our services include website development, mobile app development, custom software, web applications, DevOps, infrastructure management, integrations, maintenance, and technical consulting."
+  },
+  {
+    "question": "Can we outsource only one part of a project?",
+    "answer": "Yes. You can outsource a complete project or only a specific part, such as front-end development, back-end work, API integration, deployment, or maintenance."
+  },
+  {
+    "question": "Do you provide both development and ongoing support?",
+    "answer": "Yes. We can support the project from planning and development through launch and ongoing maintenance, depending on the scope."
+  },
+  {
+    "question": "Can your services be delivered under our agency brand?",
+    "answer": "Yes. Our delivery model is designed for agencies that want to keep the client relationship and present the completed work as part of their own service offering."
+  },
+  {
+    "question": "How do you decide which technology to use?",
+    "answer": "We look at the project goals, budget, performance needs, integrations, expected traffic, maintenance requirements, and existing systems before recommending a technology stack."
+  },
+  {
+    "question": "Can you help us scope a project before we quote our client?",
+    "answer": "Yes. Technical scoping can help you understand the likely features, timeline, risks, and development cost before you submit a proposal to your client."
+  }
+];
+
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -164,6 +193,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

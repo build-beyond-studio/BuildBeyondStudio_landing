@@ -4,6 +4,7 @@ import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
   title: "White Label Website Development Services | Build Beyond Studio",
@@ -108,6 +109,34 @@ const faqs = [
   { q: "Can you redesign my existing website instead of building new?", a: "Yes — we offer full redesigns and migrations with zero downtime during the switch." },
   { q: "Is the website SEO-ready out of the box?", a: "Yes. Every site ships with schema markup, optimized meta data, sitemap, and Core Web Vitals tuning included, not as an add-on." },
 ]
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "Can we outsource website development even if we handle the design?",
+    "answer": "Yes. You can manage the strategy, branding, content, and design while BBS handles the development, testing, and launch."
+  },
+  {
+    "question": "Do you build websites that are ready for SEO?",
+    "answer": "Yes. We can follow SEO-friendly development practices such as clean page structures, responsive layouts, sensible heading structures, performance considerations, and technical requirements provided by your SEO team."
+  },
+  {
+    "question": "How long does a website project usually take?",
+    "answer": "The timeline depends on the number of pages, design readiness, features, integrations, and feedback cycles. A simple website may move quickly, while a custom build needs more planning."
+  },
+  {
+    "question": "Can you build websites using React or Next.js?",
+    "answer": "Yes. React and Next.js are among the technologies we can use for custom website development when they fit the project."
+  },
+  {
+    "question": "Do you provide website deployment support?",
+    "answer": "Yes. We can assist with deployment, hosting setup, domain-related coordination, environment configuration, and launch checks where included in the scope."
+  },
+  {
+    "question": "Can you maintain the website after launch?",
+    "answer": "Yes. Ongoing maintenance can include updates, fixes, performance improvements, monitoring, and support for new requirements."
+  }
+];
 
 export default function WebsiteDevelopmentPage() {
   return (
@@ -222,6 +251,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

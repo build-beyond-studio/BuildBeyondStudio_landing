@@ -7,12 +7,41 @@ import { buildMetadata } from '@/lib/metadata'
 import { CASE_STUDIES } from '../case-studies/data'
 import SuccessStoryCard from './SuccessStoryCard'
 import SuccessStoriesCarousel from './SuccessStoriesCarousel'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/success-stories',
   'Agency Success Stories | Build Beyond Studio',
   'Real agencies, real margins. See how marketing agencies scaled technical delivery and revenue by partnering with Build Beyond Studio.'
 )
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "How does a technical partner help an agency grow?",
+    "answer": "It allows the agency to accept more complex projects without hiring every specialist internally. The agency can focus on sales, strategy, and client management while BBS supports delivery."
+  },
+  {
+    "question": "Can white-label delivery improve our agency's margins?",
+    "answer": "It can. You avoid some of the fixed costs associated with hiring and maintaining a large technical team. Your actual margin will depend on your pricing, project scope, and delivery costs."
+  },
+  {
+    "question": "Do you support agencies with recurring work?",
+    "answer": "Yes. We can discuss ongoing delivery support for agencies that regularly need websites, applications, maintenance, integrations, or technical assistance."
+  },
+  {
+    "question": "Can BBS help us offer services we currently do not provide?",
+    "answer": "Yes. If your agency receives a project outside its current capabilities, we can review the requirements and determine whether our team can deliver it behind your brand."
+  },
+  {
+    "question": "How quickly can we start a project?",
+    "answer": "That depends on the project scope, available resources, and how complete the brief is. A clear brief and ready design usually make the process faster."
+  },
+  {
+    "question": "What makes your partnership different from hiring a freelancer?",
+    "answer": "The difference is the delivery structure. BBS is designed to support agencies through a repeatable process, technical review, project coordination, and ongoing delivery rather than handling only one isolated task."
+  }
+];
 
 export default function SuccessStoriesPage() {
   return (
@@ -71,6 +100,7 @@ export default function SuccessStoriesPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

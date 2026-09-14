@@ -6,12 +6,41 @@ import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
 import { GENERAL_BENEFITS, COURSES } from "./data";
 import SkillDevelopmentFundBanner from "@/components/SkillDevelopmentFundBanner";
+import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
   title: "Web Development Internship & Training Programs | BBS Academy",
   description: "Learn HTML, CSS, JavaScript, and the MERN stack with real deployed projects. Top performers get fast-tracked into paid internships.",
 };
 
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "Who can join the BBS training programs?",
+    "answer": "The programs are intended for learners who want practical experience in web development and modern development technologies. The exact eligibility depends on the specific training program."
+  },
+  {
+    "question": "What technologies are covered?",
+    "answer": "Training may include HTML, CSS, JavaScript, front-end development, and the MERN stack. The curriculum depends on the program and learning level."
+  },
+  {
+    "question": "Is the training focused only on theory?",
+    "answer": "No. The aim is to give learners practical experience through projects, development tasks, and real-world workflows rather than only classroom theory."
+  },
+  {
+    "question": "Will students work on deployed projects?",
+    "answer": "Where included in the program, learners work on practical projects that help them understand development, testing, deployment, and project completion."
+  },
+  {
+    "question": "Are internships available after training?",
+    "answer": "Top-performing learners may be considered for internship opportunities. Selection depends on performance, available positions, and the requirements of the role."
+  },
+  {
+    "question": "Do I need previous coding experience?",
+    "answer": "That depends on the program. Beginners may be able to start with foundational web technologies, while more advanced programs may expect some prior knowledge."
+  }
+];
 
 export default function InternshipProgramsPage() {
   return (
@@ -237,6 +266,7 @@ export default function InternshipProgramsPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   );

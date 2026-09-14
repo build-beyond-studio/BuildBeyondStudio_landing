@@ -1,12 +1,41 @@
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
+import FAQSection from '@/components/FAQSection';
 
 
 export const metadata = {
   title: "How Our White Label Partnership Works | Build Beyond Studio",
   description: "See how the BBS partnership works, from your first quote to final handoff. Fixed pricing, NDA-first, and zero client contact from our side.",
 }
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "What happens after we send a project brief?",
+    "answer": "We review the brief, identify missing information, confirm the technical requirements, and prepare an estimate or proposal. Once the scope is approved, we plan the delivery work."
+  },
+  {
+    "question": "Who communicates with the client during the project?",
+    "answer": "Your agency remains the main point of contact. We communicate with your team and provide the updates, questions, and technical information you need to manage the client."
+  },
+  {
+    "question": "Do you sign an NDA?",
+    "answer": "Yes. An NDA can be arranged when required. We understand that agencies need to protect client information, pricing, processes, and business relationships."
+  },
+  {
+    "question": "How do you manage quality?",
+    "answer": "Our process can include technical review, testing, project checks, and a final handoff review. The exact quality process depends on the size and complexity of the project."
+  },
+  {
+    "question": "Can we request changes during development?",
+    "answer": "Yes. Small changes can usually be handled within the agreed process. Larger changes or new features may require a revised estimate so the timeline and budget remain clear."
+  },
+  {
+    "question": "What do we receive at the end of the project?",
+    "answer": "Depending on the scope, the handoff may include source code, deployment details, documentation, credentials, technical instructions, and any agreed project files."
+  }
+];
 
 export default function HowWePartnerPage() {
   return (
@@ -408,6 +437,7 @@ export default function HowWePartnerPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )
