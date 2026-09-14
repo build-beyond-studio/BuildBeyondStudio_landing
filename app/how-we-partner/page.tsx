@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 
 export const metadata = {
-  title: "White Label Fulfillment Partner for Agencies | Build Beyond",
-  description: "Partner with BBS for White Label fulfillment. Send client projects to our delivery team and keep your client relationship, brand and margin while we deliver.",
+  title: "How Our White Label Partnership Works | Build Beyond Studio",
+  description: "See how the BBS partnership works, from your first quote to final handoff. Fixed pricing, NDA-first, and zero client contact from our side.",
 }
 
 export default function HowWePartnerPage() {
@@ -21,7 +21,7 @@ export default function HowWePartnerPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Invisible Operations</div>
           <h1 className="text-4xl sm:text-6xl font-black text-black tracking-[-0.04em] mb-6 leading-[1.05]">
-            Your White Label Fulfillment Partner for Agencies
+            How the BBS White Label Partnership Works
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-8">
             We operate as your agency's <Link href="/white-label-web-development" className="text-[#C8860A] font-medium hover:underline">white-label web development</Link> engineering extension. Zero hiring friction, full security, and complete transparency.

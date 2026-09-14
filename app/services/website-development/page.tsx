@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: "White Label Website Development Services for Agencies",
-  description: "Outsource website development to BBS and deliver fast, SEO-ready websites under your agency brand, from development and QA through launch and support.",
+  title: "White Label Website Development Services | Build Beyond Studio",
+  description: "Outsource website development to a team built for agencies. Custom React and Next.js builds, SEO-structured, delivered under your brand.",
 }
 
 const serviceSchema = {
@@ -130,7 +130,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Website Development for Agencies
+          White Label Website Development, Delivered Under Your Brand
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Fast, custom-built, SEO-ready websites — not templates.</p>
 

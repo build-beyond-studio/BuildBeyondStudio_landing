@@ -8,8 +8,8 @@ import { GENERAL_BENEFITS, COURSES } from "./data";
 import SkillDevelopmentFundBanner from "@/components/SkillDevelopmentFundBanner";
 
 export const metadata = {
-  title: "Software Development Training & Internship Programs | BBS",
-  description: "Learn software development through BBS training and internship programs with practical projects, structured learning, certificates and career support for students.",
+  title: "Web Development Internship & Training Programs | BBS Academy",
+  description: "Learn HTML, CSS, JavaScript, and the MERN stack with real deployed projects. Top performers get fast-tracked into paid internships.",
 };
 
 
@@ -46,7 +46,7 @@ export default function InternshipProgramsPage() {
               BBS Academy
             </span>
             <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">
-              Software Development Training and Internship Programs
+              BBS Academy: Internship & Training Programs
             </h1>
           </div>
 

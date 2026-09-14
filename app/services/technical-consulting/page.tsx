@@ -7,8 +7,8 @@ import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services/technical-consulting',
-  'Fractional CTO & Tech Roadmap',
-  "Close high-ticket strategic client retainers. We act as your agency's white-label fractional CTO, mapping out systems architecture."
+  'White Label Technical Consulting for Agencies | BBS',
+  'Bring in senior technical expertise without hiring. White label consulting on architecture, platform choice, and project scoping.'
 )
 
 const serviceSchema = {
@@ -47,7 +47,7 @@ export default function TechnicalConsultingPage() {
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-          Fractional CTO & Tech Roadmap. Sell High-Ticket Retainers.
+          Technical Consulting for Agencies Without a CTO
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
           Bring executive-level tech strategy to your clients without hiring a full-time CTO. 

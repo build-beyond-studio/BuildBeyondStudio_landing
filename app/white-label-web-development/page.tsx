@@ -7,8 +7,8 @@ import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/white-label-web-development',
-  'White-Label Web Development Services for Agencies',
-  'Scale your agency with a dedicated white-label web development partner. Deliver MERN, Next.js, and DevOps projects invisibly under your brand.'
+  'White Label Web Development Services for Agencies | BBS',
+  'Offer custom website builds without hiring developers. White label web development on React and Next.js, delivered under your brand with an NDA.'
 )
 
 const serviceSchema = {
@@ -91,7 +91,7 @@ export default function WhiteLabelPillarPage() {
 
         {/* Hero Section */}
         <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
-          Deliver Enterprise-Grade Engineering Under Your Brand.
+          White Label Web Development for Marketing Agencies
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
           Scale your agency MERN stack offerings and protect your client retainers. We act as your invisible web development partner, building custom client portals, SaaS dashboards, and web applications without the liability of local hiring.

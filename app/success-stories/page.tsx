@@ -10,8 +10,8 @@ import SuccessStoriesCarousel from './SuccessStoriesCarousel'
 
 export const metadata: Metadata = buildMetadata(
   '/success-stories',
-  'Success Stories',
-  'See how elite marketing agencies across India scale operations, expand margins, and eliminate tech overhead with our white-label engineering division.'
+  'Agency Success Stories | Build Beyond Studio',
+  'Real agencies, real margins. See how marketing agencies scaled technical delivery and revenue by partnering with Build Beyond Studio.'
 )
 
 export default function SuccessStoriesPage() {
@@ -27,7 +27,7 @@ export default function SuccessStoriesPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Case Studies</div>
           <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-            Proven Results. Silent Execution.
+            Agencies That Scaled With BBS as Their Tech Partner
           </h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             We operate behind the scenes under strict NDA. Your clients see a premium, flawless build; you capture the expanded margins without the operational liability of local hiring.

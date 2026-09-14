@@ -7,8 +7,8 @@ import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/ambikapur',
-  'Web Development Company in Ambikapur, Chhattisgarh',
-  'Build Beyond Studio is a web development & software company based in Ambikapur, Surguja, Chhattisgarh. Custom websites, MERN stack apps, DevOps, and IT consulting for businesses across Chhattisgarh, Raipur, and Bilaspur.'
+  'Build Beyond Studio | Web Development Team in Ambikapur',
+  'Build Beyond Studio\'s development team is based in Ambikapur, Chhattisgarh, serving marketing agencies across India and abroad.'
 )
 
 /* ---------- JSON-LD: LocalBusiness (page-scoped, supplements site-wide Organization) ---------- */
@@ -148,7 +148,7 @@ export default function AmbikapurPage() {
 
         {/* Hero */}
         <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
-          Web Development &amp; IT Company in Ambikapur, Chhattisgarh
+          Our Development Team in Ambikapur, Chhattisgarh
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
           Build Beyond Studio is a software and web development company headquartered in Ambikapur, Surguja. We build custom websites, full-stack web applications, and cloud-native infrastructure for businesses across Chhattisgarh — and partner invisibly with marketing agencies across India.

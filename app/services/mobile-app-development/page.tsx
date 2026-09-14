@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: "White Label Mobile App Development for Agencies",
-  description: "Outsource mobile app development to BBS and deliver scalable iOS and Android apps under your agency brand with development, QA, launch and support.",
+  title: "White Label Mobile App Development for Agencies | BBS",
+  description: "Offer iOS and Android app development without an in-house team. White label mobile app builds from MVP scoping to App Store launch.",
 }
 
 const serviceSchema = {
@@ -129,7 +129,7 @@ export default function MobileAppDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Mobile App Development for Agencies
+          White Label Mobile App Development for Your Agency's Clients
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">One codebase, both platforms. Built to scale.</p>
 

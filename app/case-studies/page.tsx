@@ -8,8 +8,8 @@ import { CASE_STUDIES } from './data'
 
 export const metadata: Metadata = buildMetadata(
   '/case-studies',
-  'Case Studies',
-  'Real results from real agency partners. See how marketing agencies across India scaled operations, boosted revenue, and eliminated tech overhead with Build Beyond Studio.'
+  'Case Studies: Agency Web & App Projects | Build Beyond Studio',
+  'Detailed case studies on website, app, and DevOps projects delivered white label for marketing agency partners.'
 )
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -37,7 +37,7 @@ export default function CaseStudiesIndexPage() {
           </div>
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Case Studies</div>
           <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-            Proven Results. Silent Execution.
+            Case Studies From Our Agency Partnerships
           </h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             We operate behind the scenes under strict NDA. Your clients see a premium, flawless build; you capture the expanded margins without the operational liability of local hiring.

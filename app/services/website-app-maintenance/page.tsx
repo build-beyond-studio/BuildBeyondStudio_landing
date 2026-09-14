@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'Website & App Maintenance Services | Build Beyond Studio',
-  description: 'Ongoing fixes, updates, and hosting care so your website and app stay secure, stable, and running smoothly.',
+  title: 'White-Label Website Maintenance Services for Agencies | BBS',
+  description: 'Keep client websites and apps running smoothly with outsourced fixes, updates, monitoring and maintenance delivered under your agency brand.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function WebsiteAndAppMaintenancePage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Website & App Maintenance Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Ongoing care to keep your digital products stable, fast, and dependable.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Keep Client Websites and Apps Running Without the Extra Team</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>Fixes, updates, and hosting support that prevent small issues from becoming business blockers.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

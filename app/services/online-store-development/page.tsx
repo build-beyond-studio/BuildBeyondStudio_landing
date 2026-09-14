@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'Online Store Development Services | Build Beyond Studio',
-  description: 'Custom e-commerce stores built to sell, not just look good — designed for conversions, product flow, and a strong customer journey.',
+  title: 'White-Label eCommerce Development for Agencies | BBS',
+  description: 'Deliver conversion-focused online stores without hiring an eCommerce development team. BBS builds, tests and launches stores under your agency brand.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function OnlineStoreDevelopmentPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Online Store Development Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Online stores designed to sell — not just to look polished.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Deliver Better Online Stores Without Expanding Your Team</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>Custom storefronts built for conversion, product clarity, and repeatability.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

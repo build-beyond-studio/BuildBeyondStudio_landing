@@ -7,8 +7,8 @@ import { buildMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services',
-  'Our Services',
-  'Explore our high-ticket technical solutions including custom web apps, devops, technical consulting, and performance marketing.'
+  'Web, App & DevOps Services for Agencies | Build Beyond Studio',
+  'Website development, app development, DevOps, and technical consulting, all delivered white label. One accountable team for every build.'
 )
 
 const servicesList = [
@@ -105,7 +105,7 @@ export default function ServicesPage() {
             <span className="text-[12px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">Our Capabilities</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-black mb-6">
-            Elite Technical Execution
+            Technical Services Built for Marketing Agencies
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed font-light">
             We translate complex technology into business outcomes you can sell. Explore our comprehensive suite of high-ticket technical solutions.

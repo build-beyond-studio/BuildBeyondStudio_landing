@@ -9,8 +9,8 @@ import AppShowcaseSection from "@/components/portfolio/AppShowcaseSection";
 import SeoShowcaseSection from "@/components/portfolio/SeoShowcaseSection";
 export const metadata: Metadata = buildMetadata(
   '/our-work',
-  'Our Work',
-  "Real products. Real businesses. Real growth. Explore Build Beyond Studio's portfolio of high-converting websites crafted for modern brands."
+  'Our Work: Websites & Apps Built for Agency Clients | BBS',
+  'Browse websites, apps, and platforms Build Beyond Studio has delivered white label for marketing agencies across India and beyond.'
 );
 
 export default function OurWork() {
@@ -18,6 +18,8 @@ export default function OurWork() {
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <FloatingWhatsApp />
       <FloatingQuickLinks />
+
+      <h1 className="sr-only">Work Delivered Under Our Partner Agencies' Brands</h1>
 
       <Header />
 

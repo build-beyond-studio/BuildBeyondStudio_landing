@@ -9,8 +9,8 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata(
   '/blog',
-  'Insights & Growth Strategies',
-  'Read expert insights on branding, web development, SEO strategies, and startup growth. Discover practical strategies for your business.',
+  'Blog: Resources for Agencies on White Label Development | BBS',
+  'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
   {
     keywords: 'blog, insights, growth strategies, SEO, web development, branding, startup tips',
     openGraph: {
@@ -53,7 +53,7 @@ export default function BlogPage() {
         {/* Content */}
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Insights & Growth Strategies
+            Resources for Agencies Scaling Technical Delivery
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Expert insights on branding, web development, SEO, and startup growth. Practical strategies to accelerate your business.

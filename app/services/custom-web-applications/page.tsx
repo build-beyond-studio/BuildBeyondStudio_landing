@@ -9,8 +9,8 @@ import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services/custom-web-applications',
-  'Custom Web & Portal Development',
-  'Scale your agency MERN stack offerings. We build customized, high-retention client portals, SaaS dashboards, and web apps under your brand.'
+  'Custom Web Application Development for Agencies | BBS',
+  'White label custom web application builds for client projects your agency can\'t take in-house. Fixed pricing, NDA-protected delivery.'
 )
 
 const serviceSchema = {
@@ -47,6 +47,9 @@ export default function CustomWebApplicationsPage() {
       <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Custom Web & Portal Development</div>
 
+        <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
+          Custom Web Applications, Built White Label for Your Agency
+        </h1>
 
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-6">
           High-Retention Web & Portal Development. Seamless Delivery.

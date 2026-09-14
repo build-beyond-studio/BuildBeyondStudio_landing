@@ -8,8 +8,8 @@ import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services/devops-infrastructure',
-  'Auto-Scaling Cloud & DevOps',
-  "Protect your client's ad spend. We setup auto-scaling AWS/GCP pipelines and Docker setups to campaign-proof high-traffic launches."
+  'Infrastructure & Hosting Management for Agencies | BBS',
+  'White label server, hosting, and infrastructure management. Zero downtime, monitored uptime, and support your agency can resell.'
 )
 
 const serviceSchema = {
@@ -48,7 +48,7 @@ export default function DevOpsInfrastructurePage() {
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-          Auto-Scaling Cloud & DevOps. Campaign-Proof Architecture.
+          Infrastructure Management Built for Agency-Hosted Client Sites
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
           Ensure your clients' sites never crash during high-traffic ad launches.

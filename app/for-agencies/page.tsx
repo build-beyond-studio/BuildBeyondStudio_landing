@@ -11,8 +11,8 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = buildMetadata(
   '/for-agencies',
-  'White-Label Web Development for Marketing Agencies',
-  'BBS is your invisible web development team. We build MERN websites under your brand — NDA-first, full IP ownership, and 50/50 revenue split.',
+  'Technical Growth Partner for Marketing Agencies | BBS',
+  'A dedicated technical partner built for marketing agencies. We handle the build, you keep the client, the brand, and the margin.',
   {
     keywords: [
       'white label web development for marketing agencies',
@@ -83,10 +83,7 @@ export default function ForAgenciesPage() {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold text-black mb-4 leading-tight">
-          White-Label Web Development for<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8860A] to-[#E8A020]">
-            Marketing Agencies
-          </span>
+          Built for Agencies That Need a Technical Partner, Not a Vendor
         </h1>
 
         {/* Subheading */}

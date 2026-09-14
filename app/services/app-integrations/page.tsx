@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'App Integrations Services | Build Beyond Studio',
-  description: 'Connect your website or software to payment gateways, CRMs, automation tools, and other systems you already rely on.',
+  title: 'White-Label API Integration Services for Agencies | BBS',
+  description: 'Connect client websites and software with CRMs, payment gateways and business tools through reliable white-label integration services.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function AppIntegrationsPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>App Integrations Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Connect the tools your business already depends on.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Connect the Tools Your Clients Already Use</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>Build the links between your website, software, CRM, payments, and operations.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

@@ -7,8 +7,8 @@ import { buildMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services/consulting',
-  'Technical Consulting Services',
-  'Technical consulting for agencies and startups. We provide software architecture review, tech stack selection, and scalability planning.',
+  'Technical Project Scoping & Consulting | Build Beyond Studio',
+  'Get a firm technical estimate before you quote your client. Free scoping calls, fixed pricing, and no surprises after the brief.',
   {
     keywords: [
       'technical consulting India',
@@ -77,7 +77,7 @@ export default function ConsultingPage() {
         <div className="mb-4 text-sm text-gray-500">Home → Services → Technical Consulting</div>
 
         <h1 className="text-5xl font-bold text-black mb-6">
-          Technical Consulting for Agencies & Startups
+          Project Scoping and Technical Estimates for Agencies
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Strategic guidance on architecture, technology selection, and scalability. Make the right technical decisions before they become expensive mistakes.

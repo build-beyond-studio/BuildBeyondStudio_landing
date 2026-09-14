@@ -17,8 +17,8 @@ import VideoPopup from "@/components/VideoPopup";
 
 
 export const metadata = {
-  title: "Website Development, Mobile Apps & AI Automation | Build Beyond Studio",
-  description: "Build custom websites, mobile apps, AI chatbots, business software, and automation that help teams sell, automate, and grow.",
+  title: "White Label Web Dev & DevOps Agency for Marketing Agencies | BBS",
+  description: "Build Beyond Studio is the invisible tech team behind marketing agencies. White label web, app, and DevOps delivery under your brand. Book a call.",
 };
 
 

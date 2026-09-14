@@ -7,8 +7,8 @@ import { buildMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
   '/services/devops',
-  'DevOps & Infrastructure Services',
-  'DevOps and cloud infrastructure consulting in India. AWS, GCP, Docker, Kubernetes, and CI/CD setup for secure, auto-scaling systems.',
+  'White Label DevOps Services for Agencies | Build Beyond Studio',
+  'Stop losing ad spend to site crashes. White label DevOps and infrastructure management so client campaigns stay live under load.',
   {
     keywords: [
       'DevOps consulting India',
@@ -77,7 +77,7 @@ export default function DevOpsPage() {
         <div className="mb-4 text-sm text-gray-500">Home → Services → DevOps & Deployment</div>
 
         <h1 className="text-5xl font-bold text-black mb-6">
-          DevOps & Cloud Deployment Services
+          DevOps & Infrastructure Support for Agency-Managed Sites
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Docker, CI/CD pipelines, and cloud infrastructure that scales with your business. We handle the ops so your team can focus on building.
