@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/devops',
-  'DevOps & Infrastructure Services',
-  'DevOps and cloud infrastructure consulting in India. AWS, GCP, Docker, Kubernetes, and CI/CD setup for secure, auto-scaling systems.',
+  'White Label DevOps Services for Agencies | Build Beyond Studio',
+  'Stop losing ad spend to site crashes. White label DevOps and infrastructure management so client campaigns stay live under load.',
   {
     keywords: [
       'DevOps consulting India',
@@ -67,6 +68,34 @@ const breadcrumbSchema = {
   ],
 }
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "Why would a marketing agency need DevOps support?",
+    "answer": "Websites and applications can slow down or fail when campaigns bring sudden traffic. DevOps support helps improve deployment, infrastructure reliability, monitoring, and the overall stability of the technical environment."
+  },
+  {
+    "question": "Can you support websites during high-traffic campaigns?",
+    "answer": "Yes. We can review the hosting and infrastructure setup, identify possible bottlenecks, and recommend improvements before a major campaign or launch."
+  },
+  {
+    "question": "Do you help with deployment automation?",
+    "answer": "Where appropriate, we can support deployment workflows, environment setup, release processes, and other practices that reduce manual errors."
+  },
+  {
+    "question": "Can you monitor uptime and performance?",
+    "answer": "Monitoring can be included depending on the project. We can discuss uptime checks, server monitoring, error tracking, and performance alerts."
+  },
+  {
+    "question": "Do you work with existing hosting providers?",
+    "answer": "Yes. We can review the current hosting environment and determine whether it can be improved or whether a different setup would be more suitable."
+  },
+  {
+    "question": "Can DevOps support be offered under our agency brand?",
+    "answer": "Yes. DevOps and infrastructure support can be delivered as a white-label service for agencies managing client websites, applications, or digital platforms."
+  }
+];
+
 export default function DevOpsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -77,7 +106,7 @@ export default function DevOpsPage() {
         <div className="mb-4 text-sm text-gray-500">Home → Services → DevOps & Deployment</div>
 
         <h1 className="text-5xl font-bold text-black mb-6">
-          DevOps & Cloud Deployment Services
+          DevOps & Infrastructure Support for Agency-Managed Sites
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Docker, CI/CD pipelines, and cloud infrastructure that scales with your business. We handle the ops so your team can focus on building.
@@ -160,6 +189,7 @@ export default function DevOpsPage() {
           </TrackedLink>
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

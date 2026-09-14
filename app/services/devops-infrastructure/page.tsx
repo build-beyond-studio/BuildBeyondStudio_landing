@@ -5,11 +5,12 @@ import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/devops-infrastructure',
-  'Auto-Scaling Cloud & DevOps',
-  "Protect your client's ad spend. We setup auto-scaling AWS/GCP pipelines and Docker setups to campaign-proof high-traffic launches."
+  'Infrastructure & Hosting Management for Agencies | BBS',
+  'White label server, hosting, and infrastructure management. Zero downtime, monitored uptime, and support your agency can resell.'
 )
 
 const serviceSchema = {
@@ -31,6 +32,34 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Auto-Scaling Cloud & DevOps', path: '/services/devops-infrastructure' },
 ]);
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "What does infrastructure management include?",
+    "answer": "It may include hosting setup, server configuration, deployment support, monitoring, backups, security-related checks, performance improvements, and general infrastructure maintenance."
+  },
+  {
+    "question": "Can you manage infrastructure for multiple client websites?",
+    "answer": "Yes. We can discuss a suitable process for agencies managing several client websites or applications. The scope depends on the number of environments and the level of support required."
+  },
+  {
+    "question": "Can you help if a client's website keeps going down?",
+    "answer": "Yes. We can review the hosting, server resources, application errors, traffic patterns, and deployment process to identify likely causes and recommend fixes."
+  },
+  {
+    "question": "Do you provide managed hosting?",
+    "answer": "Managed hosting or infrastructure support can be discussed based on the project requirements. We first need to understand the hosting provider, application, traffic, and support expectations."
+  },
+  {
+    "question": "Can you help migrate a website or application to a new server?",
+    "answer": "Yes. Migration planning and execution can be included when the required access and technical information are available."
+  },
+  {
+    "question": "Is infrastructure support available after the website launch?",
+    "answer": "Yes. Ongoing infrastructure support can be arranged for monitoring, updates, troubleshooting, and maintenance."
+  }
+];
+
 export default function DevOpsInfrastructurePage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -48,7 +77,7 @@ export default function DevOpsInfrastructurePage() {
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-          Auto-Scaling Cloud & DevOps. Campaign-Proof Architecture.
+          Infrastructure Management Built for Agency-Hosted Client Sites
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
           Ensure your clients' sites never crash during high-traffic ad launches.
@@ -133,6 +162,7 @@ export default function DevOpsInfrastructurePage() {
 
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

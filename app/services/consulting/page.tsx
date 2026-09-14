@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/consulting',
-  'Technical Consulting Services',
-  'Technical consulting for agencies and startups. We provide software architecture review, tech stack selection, and scalability planning.',
+  'Technical Project Scoping & Consulting | Build Beyond Studio',
+  'Get a firm technical estimate before you quote your client. Free scoping calls, fixed pricing, and no surprises after the brief.',
   {
     keywords: [
       'technical consulting India',
@@ -67,6 +68,34 @@ const breadcrumbSchema = {
   ],
 }
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "What is included in a project scoping call?",
+    "answer": "We discuss the business goal, required features, users, integrations, current technology, expected timeline, and any known limitations. This helps us understand what the project may involve."
+  },
+  {
+    "question": "Can you estimate a project if the client only has a basic idea?",
+    "answer": "Yes, but the first estimate may be preliminary. A clearer scope usually leads to a more reliable timeline and cost."
+  },
+  {
+    "question": "Why is technical scoping important before quoting a client?",
+    "answer": "It helps you avoid underquoting, missed features, unrealistic deadlines, and unexpected development costs after the project begins."
+  },
+  {
+    "question": "Can you help prepare a technical proposal?",
+    "answer": "Yes. We can provide technical input that your agency can use when preparing a client proposal, statement of work, or project estimate."
+  },
+  {
+    "question": "Do you offer consulting for existing websites and applications?",
+    "answer": "Yes. We can review an existing system and help identify improvement opportunities, technical problems, or the next stage of development."
+  },
+  {
+    "question": "Can scoping lead to a full development project?",
+    "answer": "Yes. If the project is a good fit, the scoping work can be followed by development, deployment, and ongoing support under the agreed arrangement."
+  }
+];
+
 export default function ConsultingPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -77,7 +106,7 @@ export default function ConsultingPage() {
         <div className="mb-4 text-sm text-gray-500">Home → Services → Technical Consulting</div>
 
         <h1 className="text-5xl font-bold text-black mb-6">
-          Technical Consulting for Agencies & Startups
+          Project Scoping and Technical Estimates for Agencies
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Strategic guidance on architecture, technology selection, and scalability. Make the right technical decisions before they become expensive mistakes.
@@ -160,6 +189,7 @@ export default function ConsultingPage() {
           </TrackedLink>
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

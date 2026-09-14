@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/technical-consulting',
-  'Fractional CTO & Tech Roadmap',
-  "Close high-ticket strategic client retainers. We act as your agency's white-label fractional CTO, mapping out systems architecture."
+  'White Label Technical Consulting for Agencies | BBS',
+  'Bring in senior technical expertise without hiring. White label consulting on architecture, platform choice, and project scoping.'
 )
 
 const serviceSchema = {
@@ -30,6 +31,34 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Fractional CTO & Tech Roadmap', path: '/services/technical-consulting' },
 ]);
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "When should an agency bring in a technical consultant?",
+    "answer": "It is useful when a project has unclear requirements, complex integrations, performance issues, technology decisions, or risks that your internal team cannot confidently assess."
+  },
+  {
+    "question": "Can you review a client's existing technology setup?",
+    "answer": "Yes. We can review the current website, application, hosting, integrations, or development approach and provide practical recommendations."
+  },
+  {
+    "question": "Can you help us choose the right technology?",
+    "answer": "Yes. We consider the project's budget, functionality, performance, scalability, maintenance needs, and existing systems before making a recommendation."
+  },
+  {
+    "question": "Do you help agencies estimate technical projects?",
+    "answer": "Yes. We can help break down features, identify technical dependencies, highlight risks, and prepare a more realistic development estimate."
+  },
+  {
+    "question": "Can you work with our existing developers?",
+    "answer": "Yes. We can support your team with architecture reviews, technical decisions, troubleshooting, documentation, or specialist guidance."
+  },
+  {
+    "question": "Is technical consulting available as a one-time service?",
+    "answer": "Yes. You can request support for a specific decision, project review, technical audit, or scoping requirement without necessarily committing to a full development project."
+  }
+];
+
 export default function TechnicalConsultingPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -47,7 +76,7 @@ export default function TechnicalConsultingPage() {
 
         {/* 1. Hero Section (Business Outcome) */}
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-          Fractional CTO & Tech Roadmap. Sell High-Ticket Retainers.
+          Technical Consulting for Agencies Without a CTO
         </h1>
         <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
           Bring executive-level tech strategy to your clients without hiring a full-time CTO. 
@@ -116,6 +145,7 @@ export default function TechnicalConsultingPage() {
 
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

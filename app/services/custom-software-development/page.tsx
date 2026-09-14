@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'Custom Software Development Services | Build Beyond Studio',
-  description: 'Business tools, dashboards, and web apps built around how your team works — custom software that saves time and reduces manual work.',
+  title: 'White-Label Software Development for Agencies | BBS',
+  description: 'Offer custom software, dashboards and business tools without hiring developers. BBS builds and supports client solutions under your agency brand.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function CustomSoftwareDevelopmentPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Custom Software Development Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Business software built around how your team actually works.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Offer Custom Software Without Building an Internal Team</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>From dashboards and portals to workflow automation and internal tools.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

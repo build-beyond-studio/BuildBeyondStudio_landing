@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/ambikapur',
-  'Web Development Company in Ambikapur, Chhattisgarh',
-  'Build Beyond Studio is a web development & software company based in Ambikapur, Surguja, Chhattisgarh. Custom websites, MERN stack apps, DevOps, and IT consulting for businesses across Chhattisgarh, Raipur, and Bilaspur.'
+  'Build Beyond Studio | Web Development Team in Ambikapur',
+  'Build Beyond Studio\'s development team is based in Ambikapur, Chhattisgarh, serving marketing agencies across India and abroad.'
 )
 
 /* ---------- JSON-LD: LocalBusiness (page-scoped, supplements site-wide Organization) ---------- */
@@ -123,6 +124,34 @@ const regions = [
   },
 ];
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "Where is the BBS development team based?",
+    "answer": "Build Beyond Studio's development team is based in Ambikapur, Chhattisgarh, and supports marketing agencies and clients in India and other markets."
+  },
+  {
+    "question": "Do you work only with businesses in Ambikapur?",
+    "answer": "No. Although our team is based in Ambikapur, we work with agencies and businesses in different locations through remote communication and digital project workflows."
+  },
+  {
+    "question": "What development services do you provide?",
+    "answer": "Our services include website development, mobile apps, custom software, web applications, integrations, DevOps, infrastructure support, and maintenance."
+  },
+  {
+    "question": "Can agencies from other cities partner with BBS?",
+    "answer": "Yes. Agencies from India or abroad can work with us remotely. The project process can include online meetings, shared documents, project management tools, and regular updates."
+  },
+  {
+    "question": "Do you provide white-label development from Ambikapur?",
+    "answer": "Yes. We support agencies as a behind-the-scenes technical team, allowing them to offer development services under their own brand."
+  },
+  {
+    "question": "Can we visit or speak with the development team?",
+    "answer": "You can contact us to discuss the project and the type of communication required. Any meeting or team interaction can be arranged based on the project."
+  }
+];
+
 export default function AmbikapurPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -148,7 +177,7 @@ export default function AmbikapurPage() {
 
         {/* Hero */}
         <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
-          Web Development &amp; IT Company in Ambikapur, Chhattisgarh
+          Our Development Team in Ambikapur, Chhattisgarh
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
           Build Beyond Studio is a software and web development company headquartered in Ambikapur, Surguja. We build custom websites, full-stack web applications, and cloud-native infrastructure for businesses across Chhattisgarh — and partner invisibly with marketing agencies across India.
@@ -328,6 +357,7 @@ export default function AmbikapurPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

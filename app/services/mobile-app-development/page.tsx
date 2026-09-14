@@ -4,10 +4,11 @@ import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
-  title: "White Label Mobile App Development for Agencies",
-  description: "Outsource mobile app development to BBS and deliver scalable iOS and Android apps under your agency brand with development, QA, launch and support.",
+  title: "White Label Mobile App Development for Agencies | BBS",
+  description: "Offer iOS and Android app development without an in-house team. White label mobile app builds from MVP scoping to App Store launch.",
 }
 
 const serviceSchema = {
@@ -108,6 +109,34 @@ const faqs = [
   { q: "Can you build the backend too, or only the app?", a: "We build both — the mobile app and its backend APIs/database — so there's one accountable team." },
 ]
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "Can BBS build both Android and iOS apps?",
+    "answer": "Yes. We can discuss Android, iOS, or cross-platform development based on the project's requirements, budget, and long-term plans."
+  },
+  {
+    "question": "Can you help us turn an app idea into an MVP?",
+    "answer": "Yes. We can help review the idea, identify the core features, define the first version, and estimate the work needed to build an MVP."
+  },
+  {
+    "question": "Do you handle the app store submission process?",
+    "answer": "App store preparation and submission support can be included in the project scope. The client or agency may still need to provide the required developer accounts and business information."
+  },
+  {
+    "question": "Can you connect the app to an existing website or software?",
+    "answer": "Yes. We can connect mobile apps with existing websites, databases, APIs, payment systems, CRMs, and other business tools where the required access is available."
+  },
+  {
+    "question": "Do you provide support after the app is launched?",
+    "answer": "Yes. We can discuss maintenance, bug fixes, updates, performance improvements, and future features after launch."
+  },
+  {
+    "question": "Can our agency sell app development without hiring mobile developers?",
+    "answer": "Yes. That is one of the main reasons agencies use a white-label delivery partner. You can manage the client and commercial side while BBS supports the technical build."
+  }
+];
+
 export default function MobileAppDevelopmentPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -129,7 +158,7 @@ export default function MobileAppDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Mobile App Development for Agencies
+          White Label Mobile App Development for Your Agency's Clients
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">One codebase, both platforms. Built to scale.</p>
 
@@ -244,6 +273,7 @@ export default function MobileAppDevelopmentPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

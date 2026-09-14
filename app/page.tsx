@@ -14,11 +14,12 @@ import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
 import VideoPopup from "@/components/VideoPopup";
+import FAQSection from '@/components/FAQSection';
 
 
 export const metadata = {
-  title: "Website Development, Mobile Apps & AI Automation | Build Beyond Studio",
-  description: "Build custom websites, mobile apps, AI chatbots, business software, and automation that help teams sell, automate, and grow.",
+  title: "White Label Web Dev & DevOps Agency for Marketing Agencies | BBS",
+  description: "Build Beyond Studio is the invisible tech team behind marketing agencies. White label web, app, and DevOps delivery under your brand. Book a call.",
 };
 
 
@@ -34,6 +35,34 @@ const faqSchema = {
     },
   })),
 };
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "Do you work directly with our clients?",
+    "answer": "No. Build Beyond Studio works behind your agency. You manage the client relationship, communication, pricing, and account, while we handle the technical delivery under your brand."
+  },
+  {
+    "question": "What services can we outsource to BBS?",
+    "answer": "You can outsource website development, mobile apps, custom software, web applications, DevOps, infrastructure management, integrations, maintenance, and technical consulting."
+  },
+  {
+    "question": "Can we sell your services under our own brand?",
+    "answer": "Yes. Our services are designed for white-label partnerships. Your client sees your agency as the service provider, while BBS works as your behind-the-scenes delivery team."
+  },
+  {
+    "question": "Will you contact our client directly?",
+    "answer": "Not unless you specifically approve it. Our normal process is to communicate with your team, so you remain in control of the client relationship."
+  },
+  {
+    "question": "Can you work with our existing designers and SEO team?",
+    "answer": "Yes. We can work from your existing designs, content, SEO plans, technical documents, or client brief. Our role is to support the parts your agency cannot handle internally."
+  },
+  {
+    "question": "Is BBS suitable for small marketing agencies?",
+    "answer": "Yes. You do not need a large client base or an internal development department. BBS can support individual projects, ongoing delivery, or extra technical capacity when your workload increases."
+  }
+];
 
 export default function Home() {
   return (
@@ -55,8 +84,9 @@ export default function Home() {
       <RevenueMath />
       <WhyUs />
       <FounderNote />
-      <FAQ />
+      
       <Contact />
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
     // </ClientHomeWrapper>

@@ -8,11 +8,12 @@ import FAQ from '@/components/faq';
 import Link from 'next/link';
 import RevenueScrollBtn from '@/components/revenue-scroll-btn';
 import { buildMetadata } from '@/lib/metadata';
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/for-agencies',
-  'White-Label Web Development for Marketing Agencies',
-  'BBS is your invisible web development team. We build MERN websites under your brand — NDA-first, full IP ownership, and 50/50 revenue split.',
+  'Technical Growth Partner for Marketing Agencies | BBS',
+  'A dedicated technical partner built for marketing agencies. We handle the build, you keep the client, the brand, and the margin.',
   {
     keywords: [
       'white label web development for marketing agencies',
@@ -24,6 +25,34 @@ export const metadata: Metadata = buildMetadata(
     },
   }
 );
+
+
+const pageSpecificFaqs = [
+  {
+    "question": "Why would a marketing agency need a technical partner?",
+    "answer": "Many agencies are good at strategy, branding, SEO, content, or paid advertising but do not have developers in-house. A technical partner allows them to accept development projects without building a full internal team."
+  },
+  {
+    "question": "Can we keep our own pricing and profit margin?",
+    "answer": "Yes. You decide what to charge your client. BBS provides the delivery cost, and your agency can structure its own pricing and margin."
+  },
+  {
+    "question": "Do you offer fixed project pricing?",
+    "answer": "Where the scope is clear, we can provide a fixed project estimate. If the requirements are uncertain, we may recommend a discovery or technical scoping phase before confirming the final price."
+  },
+  {
+    "question": "How do we send you a project?",
+    "answer": "You can share the client brief, design files, required features, technical requirements, deadline, and any relevant access details. We review the information and come back with questions, scope, and pricing."
+  },
+  {
+    "question": "Can you support us when our internal team is overloaded?",
+    "answer": "Yes. You can use BBS for overflow work, urgent delivery, specialist development, or projects that fall outside your team's current expertise."
+  },
+  {
+    "question": "Is there a minimum number of projects required?",
+    "answer": "Not necessarily. We can discuss a single project, recurring work, or a longer-term partnership depending on your agency's needs."
+  }
+];
 
 export default function ForAgenciesPage() {
   const serviceSchema = {
@@ -83,10 +112,7 @@ export default function ForAgenciesPage() {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold text-black mb-4 leading-tight">
-          White-Label Web Development for<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8860A] to-[#E8A020]">
-            Marketing Agencies
-          </span>
+          Built for Agencies That Need a Technical Partner, Not a Vendor
         </h1>
 
         {/* Subheading */}
@@ -291,7 +317,7 @@ export default function ForAgenciesPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-600 text-lg">Everything you need to know about working with BBS</p>
           </div>
-          <FAQ />
+          
         </div>
       </section>
 
@@ -317,6 +343,7 @@ export default function ForAgenciesPage() {
         </a>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   );

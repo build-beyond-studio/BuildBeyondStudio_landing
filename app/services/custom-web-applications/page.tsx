@@ -6,11 +6,12 @@ import TrackedLink from '@/components/TrackedLink'
 import PortfolioSection from '@/components/portfolio/PortfolioSection'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services/custom-web-applications',
-  'Custom Web & Portal Development',
-  'Scale your agency MERN stack offerings. We build customized, high-retention client portals, SaaS dashboards, and web apps under your brand.'
+  'Custom Web Application Development for Agencies | BBS',
+  'White label custom web application builds for client projects your agency can\'t take in-house. Fixed pricing, NDA-protected delivery.'
 )
 
 const serviceSchema = {
@@ -32,6 +33,34 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Custom Web & Portal Development', path: '/services/custom-web-applications' },
 ]);
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "What is the difference between a website and a web application?",
+    "answer": "A website mainly presents information, while a web application usually allows users to log in, submit information, manage data, complete tasks, or use interactive business features."
+  },
+  {
+    "question": "What types of web applications can you build?",
+    "answer": "Depending on the requirements, we can support portals, dashboards, customer platforms, internal tools, booking systems, workflow applications, and other browser-based software."
+  },
+  {
+    "question": "Can you build a web application from an existing process?",
+    "answer": "Yes. We can review how the business currently works and help turn manual steps, spreadsheets, or disconnected tools into a more structured web application."
+  },
+  {
+    "question": "Can you integrate the application with other systems?",
+    "answer": "Yes. Integrations may include CRMs, payment gateways, email platforms, databases, analytics tools, and third-party APIs."
+  },
+  {
+    "question": "Do you provide technical planning before development?",
+    "answer": "Yes. For complex applications, technical planning helps define the user roles, features, integrations, data structure, and development phases before work begins."
+  },
+  {
+    "question": "Can we start with a smaller version and add features later?",
+    "answer": "Yes. A phased approach or MVP can be useful when the client wants to validate the idea before investing in the complete application."
+  }
+];
+
 export default function CustomWebApplicationsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -47,6 +76,9 @@ export default function CustomWebApplicationsPage() {
       <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Custom Web & Portal Development</div>
 
+        <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
+          Custom Web Applications, Built White Label for Your Agency
+        </h1>
 
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-6">
           High-Retention Web & Portal Development. Seamless Delivery.
@@ -149,6 +181,7 @@ export default function CustomWebApplicationsPage() {
 
         </div>
       </section>
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

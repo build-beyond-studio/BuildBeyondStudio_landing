@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'AI Chatbots & Assistants Services | Build Beyond Studio',
-  description: 'Smart chat and WhatsApp bots that answer customers and capture leads 24/7 — built to automate conversations without losing the human feel.',
+  title: 'White-Label AI Chatbot Development for Agencies | BBS',
+  description: 'Add AI chatbots and WhatsApp assistants to your service offering. BBS builds branded solutions that answer questions and capture leads around the clock.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function AIAssistantsPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>AI Chatbots & Assistants Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>AI chatbots that answer questions and capture leads without slowing your team down.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Add AI Chatbots to Your Agency's Service Offering</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>Built for web chat, WhatsApp, and customer journeys that never sleep.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

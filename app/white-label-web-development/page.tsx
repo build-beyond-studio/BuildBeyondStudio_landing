@@ -4,11 +4,12 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/white-label-web-development',
-  'White-Label Web Development Services for Agencies',
-  'Scale your agency with a dedicated white-label web development partner. Deliver MERN, Next.js, and DevOps projects invisibly under your brand.'
+  'White Label Web Development Services for Agencies | BBS',
+  'Offer custom website builds without hiring developers. White label web development on React and Next.js, delivered under your brand with an NDA.'
 )
 
 const serviceSchema = {
@@ -67,6 +68,34 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'White-Label Web Development', path: '/white-label-web-development' },
 ]);
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "What kind of websites can you outsource to BBS?",
+    "answer": "We can help with business websites, service websites, landing pages, corporate websites, portals, and custom web experiences. The exact approach depends on the client's goals, design, and technical requirements."
+  },
+  {
+    "question": "Can you develop a website from our design?",
+    "answer": "Yes. You can send us a Figma file, design document, wireframe, or even a clear brief. We turn the approved design into a responsive, working website under your agency's brand."
+  },
+  {
+    "question": "Which technologies do you use?",
+    "answer": "Our web development work can include React, Next.js, Node.js, and other suitable technologies. We recommend the stack based on the project rather than forcing every client into the same setup."
+  },
+  {
+    "question": "Can you handle testing and website launch?",
+    "answer": "Yes. Development, responsive testing, basic quality checks, deployment support, and launch assistance can be included in the project scope."
+  },
+  {
+    "question": "Will the client know that BBS built the website?",
+    "answer": "The project is delivered as a white-label service. We do not promote ourselves to your client or add our branding to the website unless you request otherwise."
+  },
+  {
+    "question": "Can you fix or improve a website that another developer built?",
+    "answer": "Yes. We can review an existing website, identify technical issues, and help with improvements, redesigns, performance work, or new functionality. First, we need access to the codebase and a clear understanding of the current setup."
+  }
+];
+
 export default function WhiteLabelPillarPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -91,7 +120,7 @@ export default function WhiteLabelPillarPage() {
 
         {/* Hero Section */}
         <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
-          Deliver Enterprise-Grade Engineering Under Your Brand.
+          White Label Web Development for Marketing Agencies
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
           Scale your agency MERN stack offerings and protect your client retainers. We act as your invisible web development partner, building custom client portals, SaaS dashboards, and web applications without the liability of local hiring.
@@ -191,6 +220,7 @@ export default function WhiteLabelPillarPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'LinkedIn Lead Generation & Automation Services | Build Beyond Studio',
-  description: 'Automated outreach, connection requests, and follow-ups that fill your pipeline while you sleep — built for B2B lead generation and pipeline growth.',
+  title: 'White-Label LinkedIn Lead Generation for Agencies | BBS',
+  description: 'Offer LinkedIn outreach and lead generation without adding another delivery team. BBS manages campaigns, automation and follow-ups behind your brand.',
 }
 
 const serviceSchema = {
@@ -128,7 +128,7 @@ export default function LinkedInLeadGenerationAutomationPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>LinkedIn Lead Generation & Automation</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Automated outreach that turns LinkedIn into a consistent sales engine.</h1>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Add LinkedIn Lead Generation Without Adding Headcount</h1>
         <p className='text-lg text-gray-500 font-light mb-8'>Connection requests, follow-ups, and lead capture built to keep your pipeline moving.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>

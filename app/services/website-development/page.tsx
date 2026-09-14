@@ -4,10 +4,11 @@ import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
 import { buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
-  title: "White Label Website Development Services for Agencies",
-  description: "Outsource website development to BBS and deliver fast, SEO-ready websites under your agency brand, from development and QA through launch and support.",
+  title: "White Label Website Development Services | Build Beyond Studio",
+  description: "Outsource website development to a team built for agencies. Custom React and Next.js builds, SEO-structured, delivered under your brand.",
 }
 
 const serviceSchema = {
@@ -109,6 +110,34 @@ const faqs = [
   { q: "Is the website SEO-ready out of the box?", a: "Yes. Every site ships with schema markup, optimized meta data, sitemap, and Core Web Vitals tuning included, not as an add-on." },
 ]
 
+
+const pageSpecificFaqs = [
+  {
+    "question": "Can we outsource website development even if we handle the design?",
+    "answer": "Yes. You can manage the strategy, branding, content, and design while BBS handles the development, testing, and launch."
+  },
+  {
+    "question": "Do you build websites that are ready for SEO?",
+    "answer": "Yes. We can follow SEO-friendly development practices such as clean page structures, responsive layouts, sensible heading structures, performance considerations, and technical requirements provided by your SEO team."
+  },
+  {
+    "question": "How long does a website project usually take?",
+    "answer": "The timeline depends on the number of pages, design readiness, features, integrations, and feedback cycles. A simple website may move quickly, while a custom build needs more planning."
+  },
+  {
+    "question": "Can you build websites using React or Next.js?",
+    "answer": "Yes. React and Next.js are among the technologies we can use for custom website development when they fit the project."
+  },
+  {
+    "question": "Do you provide website deployment support?",
+    "answer": "Yes. We can assist with deployment, hosting setup, domain-related coordination, environment configuration, and launch checks where included in the scope."
+  },
+  {
+    "question": "Can you maintain the website after launch?",
+    "answer": "Yes. Ongoing maintenance can include updates, fixes, performance improvements, monitoring, and support for new requirements."
+  }
+];
+
 export default function WebsiteDevelopmentPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
@@ -130,7 +159,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Website Development for Agencies
+          White Label Website Development, Delivered Under Your Brand
         </h1>
         <p className="text-lg text-gray-500 font-light mb-8">Fast, custom-built, SEO-ready websites — not templates.</p>
 
@@ -222,6 +251,7 @@ export default function WebsiteDevelopmentPage() {
         </div>
       </section>
 
+      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )
