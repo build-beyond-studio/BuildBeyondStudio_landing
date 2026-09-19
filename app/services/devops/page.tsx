@@ -69,6 +69,61 @@ const breadcrumbSchema = {
 }
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why would a marketing agency need DevOps support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Websites and applications can slow down or fail when campaigns bring sudden traffic. DevOps support helps improve deployment, infrastructure reliability, monitoring, and the overall stability of the technical environment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support websites during high-traffic campaigns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review the hosting and infrastructure setup, identify possible bottlenecks, and recommend improvements before a major campaign or launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with deployment automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Where appropriate, we can support deployment workflows, environment setup, release processes, and other practices that reduce manual errors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you monitor uptime and performance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monitoring can be included depending on the project. We can discuss uptime checks, server monitoring, error tracking, and performance alerts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with existing hosting providers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review the current hosting environment and determine whether it can be improved or whether a different setup would be more suitable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can DevOps support be offered under our agency brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DevOps and infrastructure support can be delivered as a white-label service for agencies managing client websites, applications, or digital platforms."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "Why would a marketing agency need DevOps support?",
@@ -101,6 +156,7 @@ export default function DevOpsPage() {
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → DevOps & Deployment</div>

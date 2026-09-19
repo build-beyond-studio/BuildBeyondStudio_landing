@@ -19,6 +19,61 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What information is included in a case study?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A case study may explain the client's challenge, the project scope, the technical approach, the delivery process, and the final outcome. The level of detail depends on what can be shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your case studies based on real client projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Case studies are based on actual projects or delivery experiences, subject to client confidentiality and approval."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you handle projects with complicated technical requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We can review projects involving custom functionality, integrations, web applications, mobile apps, DevOps, or infrastructure. We first assess the requirements before confirming what can be delivered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with an agency's existing technology stack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Where practical, yes. We review the current stack and recommend whether to continue with it, improve it, or move to a more suitable solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you provide a project estimate before development begins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can provide an estimate after reviewing the brief, designs, features, integrations, and expected timeline. Unclear projects may need a separate scoping phase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support the project after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Post-launch support may include bug fixes, updates, monitoring, maintenance, improvements, and additional development depending on the agreement."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What information is included in a case study?",
@@ -52,6 +107,10 @@ export default function CaseStudiesIndexPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
 

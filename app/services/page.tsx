@@ -96,6 +96,61 @@ const servicesList = [
 ];
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What technical services does BBS provide to agencies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our services include website development, mobile app development, custom software, web applications, DevOps, infrastructure management, integrations, maintenance, and technical consulting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we outsource only one part of a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can outsource a complete project or only a specific part, such as front-end development, back-end work, API integration, deployment, or maintenance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide both development and ongoing support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can support the project from planning and development through launch and ongoing maintenance, depending on the scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can your services be delivered under our agency brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our delivery model is designed for agencies that want to keep the client relationship and present the completed work as part of their own service offering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you decide which technology to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We look at the project goals, budget, performance needs, integrations, expected traffic, maintenance requirements, and existing systems before recommending a technology stack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help us scope a project before we quote our client?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Technical scoping can help you understand the likely features, timeline, risks, and development cost before you submit a proposal to your client."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What technical services does BBS provide to agencies?",
@@ -126,6 +181,10 @@ const pageSpecificFaqs = [
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
       
       <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1000px] mx-auto">

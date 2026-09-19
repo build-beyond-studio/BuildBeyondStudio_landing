@@ -27,6 +27,61 @@ export const metadata: Metadata = buildMetadata(
 );
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why would a marketing agency need a technical partner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many agencies are good at strategy, branding, SEO, content, or paid advertising but do not have developers in-house. A technical partner allows them to accept development projects without building a full internal team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we keep our own pricing and profit margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You decide what to charge your client. BBS provides the delivery cost, and your agency can structure its own pricing and margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer fixed project pricing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Where the scope is clear, we can provide a fixed project estimate. If the requirements are uncertain, we may recommend a discovery or technical scoping phase before confirming the final price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we send you a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can share the client brief, design files, required features, technical requirements, deadline, and any relevant access details. We review the information and come back with questions, scope, and pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support us when our internal team is overloaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can use BBS for overflow work, urgent delivery, specialist development, or projects that fall outside your team's current expertise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum number of projects required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. We can discuss a single project, recurring work, or a longer-term partnership depending on your agency's needs."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "Why would a marketing agency need a technical partner?",
@@ -83,6 +138,10 @@ export default function ForAgenciesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
 

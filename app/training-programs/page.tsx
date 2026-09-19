@@ -15,6 +15,61 @@ export const metadata = {
 
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who can join the BBS training programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The programs are intended for learners who want practical experience in web development and modern development technologies. The exact eligibility depends on the specific training program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies are covered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Training may include HTML, CSS, JavaScript, front-end development, and the MERN stack. The curriculum depends on the program and learning level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the training focused only on theory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The aim is to give learners practical experience through projects, development tasks, and real-world workflows rather than only classroom theory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will students work on deployed projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Where included in the program, learners work on practical projects that help them understand development, testing, deployment, and project completion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are internships available after training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top-performing learners may be considered for internship opportunities. Selection depends on performance, available positions, and the requirements of the role."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need previous coding experience?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on the program. Beginners may be able to start with foundational web technologies, while more advanced programs may expect some prior knowledge."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "Who can join the BBS training programs?",
@@ -45,6 +100,10 @@ const pageSpecificFaqs = [
 export default function InternshipProgramsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
 
       {/* ── 1. WHAT YOU GET SECTION (ON TOP OF THE PAGE) ── */}
