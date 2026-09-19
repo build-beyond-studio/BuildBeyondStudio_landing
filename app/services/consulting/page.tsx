@@ -69,6 +69,61 @@ const breadcrumbSchema = {
 }
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is included in a project scoping call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We discuss the business goal, required features, users, integrations, current technology, expected timeline, and any known limitations. This helps us understand what the project may involve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you estimate a project if the client only has a basic idea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but the first estimate may be preliminary. A clearer scope usually leads to a more reliable timeline and cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is technical scoping important before quoting a client?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It helps you avoid underquoting, missed features, unrealistic deadlines, and unexpected development costs after the project begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help prepare a technical proposal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can provide technical input that your agency can use when preparing a client proposal, statement of work, or project estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer consulting for existing websites and applications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review an existing system and help identify improvement opportunities, technical problems, or the next stage of development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can scoping lead to a full development project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If the project is a good fit, the scoping work can be followed by development, deployment, and ongoing support under the agreed arrangement."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What is included in a project scoping call?",
@@ -101,6 +156,7 @@ export default function ConsultingPage() {
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
         <div className="mb-4 text-sm text-gray-500">Home → Services → Technical Consulting</div>

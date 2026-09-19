@@ -16,6 +16,61 @@ export const metadata: Metadata = buildMetadata(
 )
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does a technical partner help an agency grow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It allows the agency to accept more complex projects without hiring every specialist internally. The agency can focus on sales, strategy, and client management while BBS supports delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can white-label delivery improve our agency's margins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can. You avoid some of the fixed costs associated with hiring and maintaining a large technical team. Your actual margin will depend on your pricing, project scope, and delivery costs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you support agencies with recurring work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can discuss ongoing delivery support for agencies that regularly need websites, applications, maintenance, integrations, or technical assistance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can BBS help us offer services we currently do not provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If your agency receives a project outside its current capabilities, we can review the requirements and determine whether our team can deliver it behind your brand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can we start a project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on the project scope, available resources, and how complete the brief is. A clear brief and ready design usually make the process faster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes your partnership different from hiring a freelancer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The difference is the delivery structure. BBS is designed to support agencies through a repeatable process, technical review, project coordination, and ongoing delivery rather than handling only one isolated task."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "How does a technical partner help an agency grow?",
@@ -46,6 +101,10 @@ const pageSpecificFaqs = [
 export default function SuccessStoriesPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
 
       {/* Hero Section */}

@@ -33,6 +33,61 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does infrastructure management include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It may include hosting setup, server configuration, deployment support, monitoring, backups, security-related checks, performance improvements, and general infrastructure maintenance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you manage infrastructure for multiple client websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can discuss a suitable process for agencies managing several client websites or applications. The scope depends on the number of environments and the level of support required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help if a client's website keeps going down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review the hosting, server resources, application errors, traffic patterns, and deployment process to identify likely causes and recommend fixes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide managed hosting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed hosting or infrastructure support can be discussed based on the project requirements. We first need to understand the hosting provider, application, traffic, and support expectations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help migrate a website or application to a new server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Migration planning and execution can be included when the required access and technical information are available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is infrastructure support available after the website launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ongoing infrastructure support can be arranged for monitoring, updates, troubleshooting, and maintenance."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What does infrastructure management include?",
@@ -70,6 +125,10 @@ export default function DevOpsInfrastructurePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">

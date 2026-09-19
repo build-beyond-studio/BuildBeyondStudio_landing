@@ -10,6 +10,61 @@ export const metadata = {
 }
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens after we send a project brief?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We review the brief, identify missing information, confirm the technical requirements, and prepare an estimate or proposal. Once the scope is approved, we plan the delivery work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who communicates with the client during the project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your agency remains the main point of contact. We communicate with your team and provide the updates, questions, and technical information you need to manage the client."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sign an NDA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. An NDA can be arranged when required. We understand that agencies need to protect client information, pricing, processes, and business relationships."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you manage quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our process can include technical review, testing, project checks, and a final handoff review. The exact quality process depends on the size and complexity of the project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we request changes during development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Small changes can usually be handled within the agreed process. Larger changes or new features may require a revised estimate so the timeline and budget remain clear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do we receive at the end of the project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depending on the scope, the handoff may include source code, deployment details, documentation, credentials, technical instructions, and any agreed project files."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What happens after we send a project brief?",
@@ -40,6 +95,10 @@ const pageSpecificFaqs = [
 export default function HowWePartnerPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
       
       {/* Hero Section */}

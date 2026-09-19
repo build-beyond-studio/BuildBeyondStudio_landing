@@ -84,14 +84,56 @@ const faqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is the BBS development team based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Build Beyond Studio's development team is based in Ambikapur, Chhattisgarh, and supports marketing agencies and clients in India and other markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work only with businesses in Ambikapur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Although our team is based in Ambikapur, we work with agencies and businesses in different locations through remote communication and digital project workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What development services do you provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our services include website development, mobile apps, custom software, web applications, integrations, DevOps, infrastructure support, and maintenance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can agencies from other cities partner with BBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Agencies from India or abroad can work with us remotely. The project process can include online meetings, shared documents, project management tools, and regular updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide white-label development from Ambikapur?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We support agencies as a behind-the-scenes technical team, allowing them to offer development services under their own brand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we visit or speak with the development team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can contact us to discuss the project and the type of communication required. Any meeting or team interaction can be arranged based on the project."
+      }
     }
-  }))
+  ]
 };
 
 const breadcrumbSchema = buildBreadcrumbSchema([

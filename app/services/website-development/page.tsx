@@ -31,46 +31,54 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How long does website development take?",
+      "name": "Can we outsource website development even if we handle the design?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A standard business website takes 2–3 weeks. A custom web application or portal takes 4–8 weeks depending on complexity."
+        "text": "Yes. You can manage the strategy, branding, content, and design while BBS handles the development, testing, and launch."
       }
     },
     {
       "@type": "Question",
-      "name": "What tech stack do you use for website development?",
+      "name": "Do you build websites that are ready for SEO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We build on the MERN stack (MongoDB, Express, React, Node.js) with Next.js for frontend, giving faster load times and better SEO than typical template-based sites."
+        "text": "Yes. We can follow SEO-friendly development practices such as clean page structures, responsive layouts, sensible heading structures, performance considerations, and technical requirements provided by your SEO team."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I own the website after it's built?",
+      "name": "How long does a website project usually take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. 100% of source code, design files, and documentation transfer to you on delivery. We retain nothing."
+        "text": "The timeline depends on the number of pages, design readiness, features, integrations, and feedback cycles. A simple website may move quickly, while a custom build needs more planning."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you redesign my existing website instead of building new?",
+      "name": "Can you build websites using React or Next.js?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — we offer full redesigns and migrations with zero downtime during the switch."
+        "text": "Yes. React and Next.js are among the technologies we can use for custom website development when they fit the project."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the website SEO-ready out of the box?",
+      "name": "Do you provide website deployment support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Every site ships with schema markup, optimized meta data, sitemap, and Core Web Vitals tuning included, not as an add-on."
+        "text": "Yes. We can assist with deployment, hosting setup, domain-related coordination, environment configuration, and launch checks where included in the scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you maintain the website after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ongoing maintenance can include updates, fixes, performance improvements, monitoring, and support for new requirements."
       }
     }
   ]
-}
+};
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', path: '/' },

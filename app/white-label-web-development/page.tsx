@@ -52,14 +52,14 @@ const faqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
+  "mainEntity": [
+    { "@type": "Question", "name": "What kind of websites can you outsource to BBS?", "acceptedAnswer": { "@type": "Answer", "text": "We can help with business websites, service websites, landing pages, corporate websites, portals, and custom web experiences. The exact approach depends on the client's goals, design, and technical requirements." } },
+    { "@type": "Question", "name": "Can you develop a website from our design?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can send us a Figma file, design document, wireframe, or even a clear brief. We turn the approved design into a responsive, working website under your agency's brand." } },
+    { "@type": "Question", "name": "Which technologies do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Our web development work can include React, Next.js, Node.js, and other suitable technologies. We recommend the stack based on the project rather than forcing every client into the same setup." } },
+    { "@type": "Question", "name": "Can you handle testing and website launch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Development, responsive testing, basic quality checks, deployment support, and launch assistance can be included in the project scope." } },
+    { "@type": "Question", "name": "Will the client know that BBS built the website?", "acceptedAnswer": { "@type": "Answer", "text": "The project is delivered as a white-label service. We do not promote ourselves to your client or add our branding to the website unless you request otherwise." } },
+    { "@type": "Question", "name": "Can you fix or improve a website that another developer built?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can review an existing website, identify technical issues, and help with improvements, redesigns, performance work, or new functionality. First, we need access to the codebase and a clear understanding of the current setup." } }
+  ]
 };
 
 const breadcrumbSchema = buildBreadcrumbSchema([

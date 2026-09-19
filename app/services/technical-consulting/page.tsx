@@ -32,6 +32,61 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When should an agency bring in a technical consultant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is useful when a project has unclear requirements, complex integrations, performance issues, technology decisions, or risks that your internal team cannot confidently assess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you review a client's existing technology setup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review the current website, application, hosting, integrations, or development approach and provide practical recommendations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help us choose the right technology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We consider the project's budget, functionality, performance, scalability, maintenance needs, and existing systems before making a recommendation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help agencies estimate technical projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can help break down features, identify technical dependencies, highlight risks, and prepare a more realistic development estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work with our existing developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can support your team with architecture reviews, technical decisions, troubleshooting, documentation, or specialist guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is technical consulting available as a one-time service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can request support for a specific decision, project review, technical audit, or scoping requirement without necessarily committing to a full development project."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "When should an agency bring in a technical consultant?",
@@ -69,6 +124,10 @@ export default function TechnicalConsultingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
       <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">

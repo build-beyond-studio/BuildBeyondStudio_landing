@@ -31,46 +31,54 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How much does mobile app development cost?",
+      "name": "Can BBS build both Android and iOS apps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cost depends on feature scope — an MVP typically starts smaller and scales with complexity; we provide a fixed quote after a discovery call, no hourly billing surprises."
+        "text": "Yes. We can discuss Android, iOS, or cross-platform development based on the project's requirements, budget, and long-term plans."
       }
     },
     {
       "@type": "Question",
-      "name": "Should I build native or cross-platform?",
+      "name": "Can you help us turn an app idea into an MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cross-platform (React Native) works for most business apps and cuts cost/time by ~40%. Native is recommended only for apps needing deep hardware/OS-specific features."
+        "text": "Yes. We can help review the idea, identify the core features, define the first version, and estimate the work needed to build an MVP."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does app development take?",
+      "name": "Do you handle the app store submission process?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "An MVP typically takes 6–8 weeks; a full-featured app takes 10–14 weeks."
+        "text": "App store preparation and submission support can be included in the project scope. The client or agency may still need to provide the required developer accounts and business information."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you handle App Store and Play Store submission?",
+      "name": "Can you connect the app to an existing website or software?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we manage the entire submission, review, and approval process end-to-end."
+        "text": "Yes. We can connect mobile apps with existing websites, databases, APIs, payment systems, CRMs, and other business tools where the required access is available."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you build the backend too, or only the app?",
+      "name": "Do you provide support after the app is launched?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We build both — the mobile app and its backend APIs/database — so there's one accountable team."
+        "text": "Yes. We can discuss maintenance, bug fixes, updates, performance improvements, and future features after launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can our agency sell app development without hiring mobile developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. That is one of the main reasons agencies use a white-label delivery partner. You can manage the client and commercial side while BBS supports the technical build."
       }
     }
   ]
-}
+};
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', path: '/' },

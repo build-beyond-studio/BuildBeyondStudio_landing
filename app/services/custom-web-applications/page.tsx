@@ -34,6 +34,61 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a website and a web application?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A website mainly presents information, while a web application usually allows users to log in, submit information, manage data, complete tasks, or use interactive business features."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of web applications can you build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depending on the requirements, we can support portals, dashboards, customer platforms, internal tools, booking systems, workflow applications, and other browser-based software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a web application from an existing process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We can review how the business currently works and help turn manual steps, spreadsheets, or disconnected tools into a more structured web application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you integrate the application with other systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Integrations may include CRMs, payment gateways, email platforms, databases, analytics tools, and third-party APIs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide technical planning before development?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For complex applications, technical planning helps define the user roles, features, integrations, data structure, and development phases before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we start with a smaller version and add features later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A phased approach or MVP can be useful when the client wants to validate the idea before investing in the complete application."
+      }
+    }
+  ]
+};
+
 const pageSpecificFaqs = [
   {
     "question": "What is the difference between a website and a web application?",
@@ -71,6 +126,10 @@ export default function CustomWebApplicationsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Header />
       <section className="max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6">
