@@ -393,15 +393,27 @@ export default function Hero() {
           </div>
 
           {/* Email */}
-          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400 !mt-2 md:!mt-7">
-            Prefer email?{" "}
-            <a
-              href={`mailto:${EMAIL}`}
-              className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
-                         underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
-            >
-              {EMAIL}
-            </a>
+          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400 !mt-2 md:!mt-7 flex flex-col items-center gap-1">
+            <div>
+              Prefer email?{" "}
+              <a
+                href={`mailto:${EMAIL}`}
+                className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
+                           underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
+              >
+                {EMAIL}
+              </a>
+            </div>
+            <div>
+              Or contact:{" "}
+              <a
+                href="mailto:Info@buildbeyondstudio.com"
+                className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
+                           underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
+              >
+                Info@buildbeyondstudio.com
+              </a>
+            </div>
           </div>
         </div>
 
