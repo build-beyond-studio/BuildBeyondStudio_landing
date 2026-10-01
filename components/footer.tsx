@@ -88,33 +88,33 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-500 mb-8">
-             <div className="text-center md:text-left">
-                <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
-                 <div className="flex flex-col gap-2">
-                  <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
-                  <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
-                  <a href="/services/ui-ux-design" className="hover:text-white transition-colors">UI / UX Design</a>
-                  <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
-                  <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
-                  <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>
-                  <a href="/services/ai-chatbots-assistants" className="hover:text-white transition-colors">AI Chatbots & Assistants</a>
-                  <a href="/services/linkedin-lead-generation-automation" className="hover:text-white transition-colors">LinkedIn Lead Generation & Automation</a>
-                  <a href="/services/online-store-development" className="hover:text-white transition-colors">Online Store Development</a>
-                  <a href="/services/app-integrations" className="hover:text-white transition-colors">App Integrations</a>
-                  <a href="/services/website-app-maintenance" className="hover:text-white transition-colors">Website & App Maintenance</a>
-                </div>
-             </div>
-              <div className="text-center md:text-left">
-                <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
-                <div className="flex flex-col gap-2">
-                  <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
-                  <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
-                  <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
-                  <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
-                  <a href="/ambikapur" className="hover:text-white transition-colors">Ambikapur Office</a>
-                  <a href="/blog" className="hover:text-white transition-colors">Blog</a>
-                </div>
+            <div className="text-center md:text-left">
+              <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
+              <div className="flex flex-col gap-2">
+                <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
+                <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
+                <a href="/services/ui-ux-design" className="hover:text-white transition-colors">UI / UX Design</a>
+                <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
+                <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
+                <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>
+                <a href="/services/ai-chatbots-assistants" className="hover:text-white transition-colors">AI Chatbots & Assistants</a>
+                <a href="/services/linkedin-lead-generation-automation" className="hover:text-white transition-colors">LinkedIn Lead Generation & Automation</a>
+                <a href="/services/online-store-development" className="hover:text-white transition-colors">Online Store Development</a>
+                <a href="/services/app-integrations" className="hover:text-white transition-colors">App Integrations</a>
+                <a href="/services/website-app-maintenance" className="hover:text-white transition-colors">Website & App Maintenance</a>
               </div>
+            </div>
+            <div className="text-center md:text-left">
+              <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
+              <div className="flex flex-col gap-2">
+                <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
+                <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
+                <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
+                <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
+                <a href="/ambikapur" className="hover:text-white transition-colors">Ambikapur Office</a>
+                <a href="/blog" className="hover:text-white transition-colors">Blog</a>
+              </div>
+            </div>
             {/* Contact + Address */}
             <div className="text-center md:text-right text-gray-300 font-light tracking-wide leading-relaxed">
               <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
@@ -126,6 +126,14 @@ export default function Footer() {
                   admin@buildbeyondstudio.com
                 </a>
               </p>
+              <p>
+                <a
+                  href="mailto:Info@buildbeyondstudio.com"
+                  className="hover:text-white transition-colors"
+                >
+                  Info@buildbeyondstudio.com
+                </a>
+              </p>
               <p>Ambikapur, Surguja</p>
               <p>Chhattisgarh 497001</p>
             </div>
@@ -133,7 +141,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:items-center justify-between text-sm text-gray-500 border-t border-white/5 pt-6">
             <p>&copy; {new Date().getFullYear()} Build Beyond Studio. All rights reserved.</p>
             <p className="mt-2 md:mt-0">
-               <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a> | <a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a> | <a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
             </p>
           </div>
         </div>
