@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'UI / UX Design Services | Build Beyond Studio',
-  description: 'UI/UX strategy, wireframes, and product design systems that turn complex workflows into clean, conversion-focused experiences.',
+  title: 'White Label UI UX Design for Agencies | BBS',
+  description: 'White label UI UX design for agencies and studios. User flows, wireframes, design systems, prototypes, and developer ready screens.',
 }
 
 const serviceSchema = {
@@ -62,10 +62,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'How long does a UI/UX project usually take?',
+      name: 'How is the UI UX design schedule decided?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Small landing page or app flow projects usually take 1–3 weeks. Larger product or website redesigns typically range from 3–8 weeks depending on scope and review cycles.',
+        text: 'The schedule depends on the number of screens, research needs, feedback rounds, content readiness, and prototype depth. BBS confirms milestones after reviewing the approved design scope.',
       },
     },
   ],
@@ -105,7 +105,7 @@ const faqs = [
   { q: 'Do you design for websites and apps?', a: 'Yes. We design websites, landing pages, SaaS dashboards, mobile UX, and internal business tools with a focus on clarity, trust, and conversion.' },
   { q: 'Can you work with an existing product team?', a: 'Yes. We can plug into your team, refine weak journeys, create design systems, and deliver screens in a format that engineers can build efficiently.' },
   { q: 'Do you provide design only or also build the final product?', a: 'We can handle either. We provide design systems and UI/UX direction, and we also build the final product if you want design and development under one roof.' },
-  { q: 'How long does a UI/UX project usually take?', a: 'Small landing page or app flow projects usually take 1–3 weeks. Larger product or website redesigns typically range from 3–8 weeks depending on scope and review cycles.' },
+  { q: 'How is the UI UX design schedule decided?', a: 'The schedule depends on the number of screens, research needs, feedback rounds, content readiness, and prototype depth. BBS confirms milestones after reviewing the approved design scope.' },
 ]
 
 export default function UiUxDesignPage() {
@@ -128,12 +128,12 @@ export default function UiUxDesignPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>UI / UX Design Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Design systems that make complex products feel effortless.</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Clear, conversion-focused UX strategy and interface design for modern websites, apps, and products.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label UI UX Design for Agencies and Studios</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Add interface design capacity for client websites, apps, software, and digital products under your agency brand.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            Great products are not built by adding more features — they are built by removing friction. We design interfaces and product journeys that make the right next step obvious, reduce confusion, and turn attention into action.
+            BBS supports agencies and studios with user flows, wireframes, interface systems, prototypes, and developer ready screens. Your team keeps the client relationship and creative direction throughout the project.
           </p>
         </div>
       </section>

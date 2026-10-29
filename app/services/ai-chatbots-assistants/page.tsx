@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'White-Label AI Chatbot Development for Agencies | BBS',
-  description: 'Add AI chatbots and WhatsApp assistants to your service offering. BBS builds branded solutions that answer questions and capture leads around the clock.',
+  title: 'White Label AI Chatbot Development for Agencies | BBS',
+  description: 'White label AI chatbot development for agency client sites and WhatsApp, with approved support, qualification, routing, and lead capture flows.',
 }
 
 const serviceSchema = {
@@ -62,10 +62,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'How quickly can we launch?',
+      name: 'How is the chatbot delivery schedule decided?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most standard chatbot flows can be developed and tested in a matter of days to a few weeks, depending on complexity and required integrations.',
+        text: 'The schedule depends on content, conversation paths, integrations, reviews, testing, and channels. BBS confirms milestones after reviewing the workflow.',
       },
     },
   ],
@@ -105,7 +105,7 @@ const faqs = [
   { q: 'Can it work on WhatsApp?', a: 'Yes. We build WhatsApp-based assistants for customer support, lead qualification, appointment booking, and routine communication flows that feel fast and natural.' },
   { q: 'Does it replace our team?', a: 'No. It handles repetitive conversations and front-end qualification, while your team focuses on more complex or high-value interactions.' },
   { q: 'Can it connect to our systems?', a: 'Yes. We can connect the bot to your website, forms, CRM, spreadsheets, or internal tools so the conversation leads directly to a workflow.' },
-  { q: 'How quickly can we launch?', a: 'Most standard chatbot flows can be developed and tested in a matter of days to a few weeks, depending on complexity and required integrations.' },
+  { q: 'How is the chatbot delivery schedule decided?', a: 'The schedule depends on content, conversation paths, integrations, reviews, testing, and channels. BBS confirms milestones after reviewing the workflow.' },
 ]
 
 export default function AIAssistantsPage() {
@@ -128,12 +128,12 @@ export default function AIAssistantsPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>AI Chatbots & Assistants Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Add AI Chatbots to Your Agency's Service Offering</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Built for web chat, WhatsApp, and customer journeys that never sleep.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label AI Chatbots for Agency Client Projects</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Website and WhatsApp assistants delivered under your agency brand.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            A strong chatbot should not just reply — it should qualify, route, and convert. Build Beyond Studio designs AI assistants to handle the repetitive front end of your sales and support flows so users get immediate responses and your team only steps in when it matters.
+            BBS builds assistants around approved client content and workflows. The solution can answer common questions, collect details, route requests, update connected systems, and hand conversations to a person when required.
           </p>
         </div>
       </section>

@@ -7,8 +7,8 @@ import { buildBreadcrumbSchema } from '@/lib/metadata'
 import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
-  title: "White Label Website Development Services | Build Beyond Studio",
-  description: "Outsource website development to a team built for agencies. Custom React and Next.js builds, SEO-structured, delivered under your brand.",
+  title: "White Label Website Development for Agencies | BBS",
+  description: "White label website development for agencies. BBS delivers marketing sites, landing pages, portals, and web apps under your brand.",
 }
 
 const serviceSchema = {
@@ -89,11 +89,11 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 const included = [
   "Custom UI/UX design (no drag-and-drop templates)",
   "Responsive, mobile-first development (Next.js/React)",
-  "On-page SEO foundation: schema markup, meta tags, sitemap, Core Web Vitals optimization",
+  "Search ready structure including approved metadata, sitemap, schema, and performance checks",
   "CMS integration for easy content updates",
   "E-commerce builds (Shopify headless, custom cart/checkout)",
   "SSL, hosting setup, and deployment (Vercel/Hostinger/AWS)",
-  "30-day post-launch bug-fix support included",
+  "Post launch support according to the agreed handover scope",
 ]
 
 const process = [
@@ -106,12 +106,12 @@ const process = [
 
 const whyBBS = [
   "Full IP and code ownership transferred on delivery — nothing held back",
-  "Built on modern stack (MERN + Next.js), not outdated WordPress hacks",
+  "Technology selected for the approved scope, workflow, integrations, and maintenance",
   "Fixed-price quotes, no scope creep billing",
 ]
 
 const faqs = [
-  { q: "How long does website development take?", a: "A standard business website takes 2–3 weeks. A custom web application or portal takes 4–8 weeks depending on complexity." },
+  { q: "How is the website delivery schedule decided?", a: "The schedule depends on pages, design, content, integrations, reviews, and launch. We confirm milestones after reviewing the approved scope." },
   { q: "What tech stack do you use for website development?", a: "We build on the MERN stack (MongoDB, Express, React, Node.js) with Next.js for frontend, giving faster load times and better SEO than typical template-based sites." },
   { q: "Do I own the website after it's built?", a: "Yes. 100% of source code, design files, and documentation transfer to you on delivery. We retain nothing." },
   { q: "Can you redesign my existing website instead of building new?", a: "Yes — we offer full redesigns and migrations with zero downtime during the switch." },
@@ -167,14 +167,14 @@ export default function WebsiteDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Website Development, Delivered Under Your Brand
+          White Label Website Development for Agency Clients
         </h1>
-        <p className="text-lg text-gray-500 font-light mb-8">Fast, custom-built, SEO-ready websites — not templates.</p>
+        <p className="text-lg text-gray-500 font-light mb-8">Custom websites and web applications delivered under your agency brand.</p>
 
         {/* Answer-first intro — AEO paragraph */}
         <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-            Build Beyond Studio builds custom business websites, e-commerce stores, and client portals using React, Next.js, and Node.js. Every website is mobile-first, loads in under 2 seconds, and is structured for both search engine ranking and AI answer engine visibility from day one — not bolted on after launch.
+            BBS builds marketing websites, landing pages, client portals, and web applications for agency client projects. We follow the approved design, development scope, content structure, testing plan, launch process, and handover requirements.
           </p>
         </div>
       </section>

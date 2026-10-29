@@ -252,7 +252,7 @@ export default function Hero() {
           muted
           playsInline
         >
-          <source src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%201.16.14%20AM.mp4"/>
+          <source src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%201.16.14%20AM.mp4" />
         </video>
 
         {/* ── Centered content ── */}
@@ -289,7 +289,7 @@ export default function Hero() {
                 transitionDelay: '260ms',
               }}
             >
-              Strategic Technical Growth Partner for Marketing Agencies
+              White label development delivered behind your agency brand.
             </p>
           </div>
           {/* Service highlights */}

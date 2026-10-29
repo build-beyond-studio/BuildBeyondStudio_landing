@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'White-Label eCommerce Development for Agencies | BBS',
-  description: 'Deliver conversion-focused online stores without hiring an eCommerce development team. BBS builds, tests and launches stores under your agency brand.',
+  title: 'Ecommerce Development for Agencies | White Label BBS',
+  description: 'White label ecommerce development for agencies, including Shopify, headless stores, integrations, tracking, testing, launch, and handover.',
 }
 
 const serviceSchema = {
@@ -30,10 +30,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Do you build custom stores or just themes?',
+      name: 'Do you build Shopify and headless stores?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We build custom storefronts and commerce flows from the ground up, with logic designed around your products, pricing, and buyer journey instead of a generic template.',
+        text: 'Yes. BBS can deliver a Shopify store, customised theme, or headless storefront. The approach depends on the catalogue, content, integrations, performance, and maintenance needs.',
       },
     },
     {
@@ -101,7 +101,7 @@ const whyBBS = [
 ]
 
 const faqs = [
-  { q: 'Do you build custom stores or just themes?', a: 'We build custom storefronts and commerce flows from the ground up, with logic designed around your products, pricing, and buyer journey instead of a generic template.' },
+  { q: 'Do you build Shopify and headless stores?', a: 'Yes. BBS can deliver a Shopify store, customised theme, or headless storefront. The approach depends on the catalogue, content, integrations, performance, and maintenance needs.' },
   { q: 'Can you integrate payment and shipping?', a: 'Yes. We can connect payment gateways, shipping workflows, order management, and third-party logistics or ERP tools depending on your stack.' },
   { q: 'Can you redesign an existing store?', a: 'Yes. We can redesign and migrate your current store or replace an outdated storefront with a custom experience that supports conversion, reliability, and scale.' },
   { q: 'Is the store mobile-first?', a: 'Yes. We design for mobile-first browsing and fast checkout flows because most product discovery and convenient purchase behavior happens on phone devices.' },
@@ -128,12 +128,12 @@ export default function OnlineStoreDevelopmentPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Online Store Development Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Deliver Better Online Stores Without Expanding Your Team</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Custom storefronts built for conversion, product clarity, and repeatability.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label Ecommerce and Headless Store Development</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Shopify and headless commerce delivery under your agency brand.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            Your store should make the purchase decision feel easy. Build Beyond Studio designs and develops custom e-commerce experiences around your products, customer journey, and operational setup so people can discover the right item, trust the offer, and complete checkout without friction.
+            BBS builds ecommerce experiences for agency client projects. We define the storefront, product data, content, checkout, payments, shipping, integrations, analytics, testing, launch, and handover within the approved scope.
           </p>
         </div>
       </section>
