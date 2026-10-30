@@ -7,11 +7,11 @@ export default function Footer() {
         {/* Main Section */}
         <div className="text-center mb-16">
           <h3 className="text-2xl md:text-4xl font-bold mb-6 leading-tight">
-            You Close the Client. We Handle the Build.
+            Your Agency Owns the Client. We Handle the Build.
           </h3>
 
           <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            BBS is the invisible web team behind marketing agencies across India. You bring the clients — we build, deploy, and maintain. Your brand. Your margins. Our expertise.
+            BBS works behind your agency brand to scope, build, test, launch, and maintain client projects. Your agency leads the relationship. Our team handles the agreed technical delivery.
           </p>
 
 

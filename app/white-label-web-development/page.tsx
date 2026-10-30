@@ -8,8 +8,8 @@ import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/white-label-web-development',
-  'White Label Web Development Services for Agencies | BBS',
-  'Offer custom website builds without hiring developers. White label web development on React and Next.js, delivered under your brand with an NDA.'
+  'White Label Web Development Services | BBS',
+  'White label web development for agencies that need websites, stores, portals, and web apps delivered under their own brand.'
 )
 
 const serviceSchema = {
@@ -32,8 +32,8 @@ const faqs = [
     answer: "White-label web development is when a technical team builds websites and applications for your agency clients, but all work, communications, and deliveries are branded under your agency's name. The end client never knows that a third party was involved."
   },
   {
-    question: "How does the revenue-split / pricing model work?",
-    answer: "We offer flexible fixed-price quotes per project or revenue-split models based on your margins. This allows you to markup our pricing as much as you want, capturing the maximum margin with zero local payroll liability."
+    question: "How does the white label delivery model work?",
+    answer: "Your agency shares the approved requirement and remains the client lead. BBS confirms the delivery scope, builds the agreed solution, provides progress updates, completes testing, and hands over the finished work under your brand."
   },
   {
     question: "Do you sign NDAs to protect our clients?",
@@ -123,7 +123,7 @@ export default function WhiteLabelPillarPage() {
           White Label Web Development for Marketing Agencies
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
-          Scale your agency MERN stack offerings and protect your client retainers. We act as your invisible web development partner, building custom client portals, SaaS dashboards, and web applications without the liability of local hiring.
+          Add web development capacity when your agency needs it. BBS builds websites, stores, portals, and web applications under your brand while your team keeps the client relationship and project direction.
         </p>
         <a 
           href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20White-Label%20Web%20Development%20partnership%20with%20Build%20Beyond%20Studio." 
@@ -139,21 +139,21 @@ export default function WhiteLabelPillarPage() {
           <div>
             <h2 className="text-2xl font-bold text-black mb-4 uppercase tracking-wide text-sm text-[#C8860A]">What is White Label Web Development?</h2>
             <p className="leading-relaxed mb-4 text-base font-light">
-              As a modern marketing agency or creative studio, your core strength is client acquisition, brand strategy, and creative execution. But when clients ask for complex custom software, databases, or cloud infrastructure, building an in-house development team is a massive liability.
+              Marketing agencies often need technical delivery for client projects without maintaining a large internal development team. White label development gives the agency an experienced build team while preserving its existing client process.
             </p>
             <p className="leading-relaxed mb-4 text-base font-light">
-              <strong>White-label web development</strong> lets you outsource the engineering entirely to an invisible partner. We write the code, manage the DevOps, and test the software. You pitch and sell it to the client as your own proprietary work—keeping all direct client communication and brand equity.
+              BBS scopes, develops, tests, launches, and hands over the agreed work under your agency brand. Your agency leads client communication and approvals. We join client conversations only when your team requests it.
             </p>
           </div>
 
           {/* Section 2: Revenue Split Model */}
           <div>
-            <h2 className="text-2xl font-bold text-black mb-4 uppercase tracking-wide text-sm text-[#C8860A]">Our Agency-First Revenue Model</h2>
+            <h2 className="text-2xl font-bold text-black mb-4 uppercase tracking-wide text-sm text-[#C8860A]">HOW THE WHITE LABEL DELIVERY MODEL WORKS</h2>
             <p className="leading-relaxed mb-4 text-base font-light">
-              Traditional website outsourcing companies charge high markup rates that eat into your profit. At Build Beyond Studio, we operate on a flexible revenue-split or predictable flat-rate per project framework.
+              Start by sharing an approved client requirement. BBS reviews the scope, confirms responsibilities, and prepares a delivery plan covering milestones, review points, testing, launch, and handover.
             </p>
             <p className="leading-relaxed mb-4 text-base font-light">
-              You get predictable, wholesale engineering pricing, and you decide the final retail markup. Many of our partner agencies enjoy 50% to 70% gross margins on development retainers without paying full-time developer salaries.
+              Your agency keeps control of client communication and commercial decisions. BBS focuses on technical delivery, progress updates, quality checks, documentation, and post launch support within the agreed scope.
             </p>
             <div className="bg-white p-6 rounded-2xl border border-[rgba(200,134,10,0.12)] mt-6" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}>
               <h3 className="font-bold text-black mb-2 text-lg">BBS Leverage Advantage:</h3>

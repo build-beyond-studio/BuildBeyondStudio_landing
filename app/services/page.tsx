@@ -8,15 +8,15 @@ import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/services',
-  'Web, App & DevOps Services for Agencies | Build Beyond Studio',
-  'Website development, app development, DevOps, and technical consulting, all delivered white label. One accountable team for every build.'
+  'White Label Development Services for Agencies | BBS',
+  'Explore white label development services for agencies, including websites, stores, tracking, software, integrations, mobile apps, and maintenance.'
 )
 
 const servicesList = [
   {
     num: "01",
     title: "Website\nDevelopment",
-    desc: "Custom, high-converting website development — fast, SEO-ready, mobile-first builds on fixed timelines.",
+    desc: "Marketing websites, landing pages, client portals, and web applications scoped and delivered under your agency brand.",
     features: ["Next.js / React", "SEO-Ready", "Mobile-First"],
     link: "/services/website-development",
     color: "#C8860A",
@@ -40,7 +40,7 @@ const servicesList = [
   {
     num: "04",
     title: "SEO, AEO\n& GEO",
-    desc: "Technical visibility and AI search optimization so your brand gets found, cited, and trusted across search surfaces.",
+    desc: "Technical SEO, schema, speed, tracking, and structured implementation support for approved agency search strategies.",
     features: ["Search Visibility", "AEO", "GEO"],
     link: "/services/seo-aeo-geo",
     color: "#E8A020",
@@ -64,7 +64,7 @@ const servicesList = [
   {
     num: "07",
     title: "LinkedIn Lead\nGeneration",
-    desc: "Automated outreach, connection requests, and follow-ups that fill your pipeline while you sleep.",
+    desc: "Technical setup for approved targeting, message sequences, lead capture, CRM routing, and campaign reporting.",
     features: ["CRM Sync", "Automations", "Pipeline Growth"],
     link: "/services/linkedin-lead-generation-automation",
     color: "#C8860A",
@@ -193,10 +193,10 @@ export default function ServicesPage() {
             <span className="text-[12px] font-bold tracking-[0.15em] text-[#C8860A] uppercase">Our Capabilities</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-black mb-6">
-            Technical Services Built for Marketing Agencies
+            White Label Development Services for Agencies
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed font-light">
-            We translate complex technology into business outcomes you can sell. Explore our comprehensive suite of high-ticket technical solutions.
+            Use BBS when a client needs technical delivery beyond your team. We work behind your brand across websites, software, integrations, and support.
           </p>
         </div>
 

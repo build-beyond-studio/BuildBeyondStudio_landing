@@ -8,7 +8,7 @@ import FAQSection from '@/components/FAQSection';
 
 export const metadata = {
   title: "White Label Mobile App Development for Agencies | BBS",
-  description: "Offer iOS and Android app development without an in-house team. White label mobile app builds from MVP scoping to App Store launch.",
+  description: "White label mobile app development for agencies covering product scope, interface design, development, testing, launch, and support.",
 }
 
 const serviceSchema = {
@@ -110,9 +110,9 @@ const whyBBS = [
 ]
 
 const faqs = [
-  { q: "How much does mobile app development cost?", a: "Cost depends on feature scope — an MVP typically starts smaller and scales with complexity; we provide a fixed quote after a discovery call, no hourly billing surprises." },
+  { q: "How do you scope a mobile app project?", a: "We define the users, platforms, features, integrations, content, analytics, store requirements, and support needs. The approved scope then becomes the basis for the delivery plan." },
   { q: "Should I build native or cross-platform?", a: "Cross-platform (React Native) works for most business apps and cuts cost/time by ~40%. Native is recommended only for apps needing deep hardware/OS-specific features." },
-  { q: "How long does app development take?", a: "An MVP typically takes 6–8 weeks; a full-featured app takes 10–14 weeks." },
+  { q: "How is the app delivery schedule decided?", a: "The schedule depends on scope, platforms, design, integrations, testing, and store review." },
   { q: "Do you handle App Store and Play Store submission?", a: "Yes, we manage the entire submission, review, and approval process end-to-end." },
   { q: "Can you build the backend too, or only the app?", a: "We build both — the mobile app and its backend APIs/database — so there's one accountable team." },
 ]
@@ -166,14 +166,14 @@ export default function MobileAppDevelopmentPage() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight">
-          White Label Mobile App Development for Your Agency's Clients
+          White Label Mobile App Development for Agencies
         </h1>
-        <p className="text-lg text-gray-500 font-light mb-8">One codebase, both platforms. Built to scale.</p>
+        <p className="text-lg text-gray-500 font-light mb-8">Mobile product delivery under your agency brand.</p>
 
         {/* Answer-first intro — AEO paragraph */}
         <div className="bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-6" style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-            Build Beyond Studio develops cross-platform mobile apps using React Native and native iOS/Android development, taking products from idea to App Store and Play Store launch. We handle UI/UX, backend APIs, push notifications, payments, and post-launch maintenance under one roof.
+            BBS helps agencies scope and deliver mobile products for client projects. The service can cover interface design, application development, backend connections, testing, store submission, analytics, and ongoing support within the approved scope.
           </p>
         </div>
 

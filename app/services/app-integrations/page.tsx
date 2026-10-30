@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'White-Label API Integration Services for Agencies | BBS',
-  description: 'Connect client websites and software with CRMs, payment gateways and business tools through reliable white-label integration services.',
+  title: 'White Label API Integration Services for Agencies | BBS',
+  description: 'White label API integration services for agency client websites, stores, and software, connecting CRMs, payments, analytics, and business tools.',
 }
 
 const serviceSchema = {
@@ -54,10 +54,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Will this affect our current systems?',
+      name: 'How do you protect current systems during integration?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We scope the integration carefully and test all data transfer paths before launch so you can upgrade without creating operational downtime or broken flows.',
+        text: 'We document the workflow, use approved test data, check permissions, test failures, and validate each transfer path before release through the agreed process.',
       },
     },
     {
@@ -104,7 +104,7 @@ const faqs = [
   { q: 'What types of systems can you connect?', a: 'We can connect CRMs, payment gateways, email tools, analytics, WhatsApp, internal databases, and custom APIs depending on the system you already use.' },
   { q: 'Can you build custom API integrations?', a: 'Yes. If a tool has an API or webhook, we can connect it. If it does not, we can still design a practical integration path around the data you need to move.' },
   { q: 'How do integrations help us?', a: 'Integrations reduce manual work, keep records accurate, make handoffs faster, and help your team act on data in real time instead of copying it between tools.' },
-  { q: 'Will this affect our current systems?', a: 'We scope the integration carefully and test all data transfer paths before launch so you can upgrade without creating operational downtime or broken flows.' },
+  { q: 'How do you protect current systems during integration?', a: 'We document the workflow, use approved test data, check permissions, test failures, and validate each transfer path before release through the agreed process.' },
   { q: 'Can this be phased in?', a: 'Yes. We usually launch the highest-value connection first, then add more integrations as the workflow becomes more automated and stable.' },
 ]
 
@@ -128,12 +128,12 @@ export default function AppIntegrationsPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>App Integrations Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Connect the Tools Your Clients Already Use</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Build the links between your website, software, CRM, payments, and operations.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label API Integrations for Agency Client Projects</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Connect client websites, stores, software, CRMs, payments, and approved business tools.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            Modern businesses lose time when data sits in silos. We connect your website, CRM, payments, customer support flow, and internal tools so the information moves where it needs to go without manual re-entry or missed steps.
+            BBS scopes and builds API and webhook integrations under your agency brand. We define the source, destination, fields, permissions, errors, test data, monitoring, and handover before the connection goes live.
           </p>
         </div>
       </section>

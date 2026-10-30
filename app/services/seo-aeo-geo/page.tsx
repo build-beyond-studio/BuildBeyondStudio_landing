@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'SEO, AEO & GEO Services | Build Beyond Studio',
-  description: 'Technical SEO, answer engine optimization, and GEO strategies that make your business visible across Google and AI discovery surfaces.',
+  title: 'Technical SEO and GEO Support for Agencies | BBS',
+  description: 'Technical SEO and GEO support for agency client sites, including schema, speed, tracking, crawl fixes, and approved content implementation.',
 }
 
 const serviceSchema = {
@@ -104,7 +104,7 @@ const whyBBS = [
 const faqs = [
   { q: 'What\'s the difference between SEO, AEO, and GEO?', a: 'SEO optimizes for traditional search engine rankings, AEO optimizes content to be pulled into direct-answer boxes and voice search, and GEO optimizes content so generative AI tools (ChatGPT, Perplexity, Gemini) cite it as a source in their answers.' },
   { q: 'How long does SEO take to show results?', a: 'Technical fixes show impact in 4–6 weeks; competitive keyword rankings typically build over 3–6 months of consistent work.' },
-  { q: 'Can a website be optimized for AI Overviews and ChatGPT citations?', a: 'Yes — through structured schema markup, clear answer-first content formatting, and strong topical authority, a site becomes more likely to be cited as a source in AI-generated answers.' },
+  { q: 'Can technical changes improve visibility in AI search?', a: 'Technical improvements help search and AI systems access and understand content. BBS implements approved structure, schema, performance, and content changes without promising citations.' },
   { q: 'Do you provide monthly SEO reports?', a: 'Yes, monthly reports cover keyword rankings, technical health, and AI citation appearances.' },
   { q: 'Is AEO/GEO relevant if my business is local?', a: 'Yes — local businesses increasingly get discovered through AI-powered local search and voice assistants, making AEO/GEO as important as traditional local SEO.' },
 ]
@@ -129,12 +129,12 @@ export default function SeoAeoGeoPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>SEO, AEO & GEO Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label SEO, AEO & GEO Services for Agencies</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>One strategy for three search surfaces: Google, AI answer engines, and generative search.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Technical SEO and GEO Support for Agency Client Sites</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Technical implementation support for search, answer engines, analytics, and website performance.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            SEO (Search Engine Optimization), AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization) work together to make a website visible across traditional search results, voice/answer engines, and AI tools like ChatGPT, Perplexity, and Google AI Overviews. Build Beyond Studio structures content, schema, and technical architecture so it ranks in Google and gets directly cited as a source inside AI-generated answers.
+            BBS supports SEO and performance agencies with technical implementation on client websites. The work can include crawl fixes, structured data, page speed, analytics, approved content changes, and development tasks required by the agency strategy.
           </p>
         </div>
       </section>
@@ -154,7 +154,7 @@ export default function SeoAeoGeoPage() {
           </div>
 
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>SEO vs AEO vs GEO — What Each One Does</h2>
+            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>How SEO AEO and GEO Work Together</h2>
             <div className='grid gap-3 md:grid-cols-3'>
               <div className='rounded-xl bg-white p-4 border border-[rgba(200,134,10,0.12)]'>
                 <div className='font-bold text-black mb-2'>SEO</div>

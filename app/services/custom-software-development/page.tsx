@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'White-Label Software Development for Agencies | BBS',
-  description: 'Offer custom software, dashboards and business tools without hiring developers. BBS builds and supports client solutions under your agency brand.',
+  title: 'White Label Software Development for Agencies | BBS',
+  description: 'White label software development for agencies, including dashboards, portals, workflow tools, integrations, testing, and ongoing support.',
 }
 
 const serviceSchema = {
@@ -54,10 +54,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Do you offer a fixed quote?',
+      name: 'How do you define the software scope?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. We scope the workflow, provide a clear build plan, and quote on a fixed-price basis before development begins, so there are no surprise hourly costs.',
+        text: 'We document users, workflows, features, integrations, permissions, data, reporting, and acceptance criteria before the agency approves the delivery stages.',
       },
     },
     {
@@ -104,7 +104,7 @@ const faqs = [
   { q: 'What kinds of custom software do you build?', a: 'We build internal dashboards, CRM tools, workflow systems, booking tools, lead management software, reporting apps, and custom web platforms tailored to your operations.' },
   { q: 'How is custom software different from a normal website?', a: 'A website is customer-facing. Custom software is operational. It manages tasks, automates work, organizes data, and connects multiple steps into one structured system.' },
   { q: 'Can you work with our existing tools?', a: 'Yes. We can connect your system with CRMs, spreadsheets, payment tools, WhatsApp, APIs, and other business software you already use.' },
-  { q: 'Do you offer a fixed quote?', a: 'Yes. We scope the workflow, provide a clear build plan, and quote on a fixed-price basis before development begins, so there are no surprise hourly costs.' },
+  { q: 'How do you define the software scope?', a: 'We document users, workflows, features, integrations, permissions, data, reporting, and acceptance criteria before the agency approves the delivery stages.' },
   { q: 'Can this be launched in phases?', a: 'Absolutely. We often launch an MVP quickly, gather usage data, and then add modules or automations once the workflow is proven in the real world.' },
 ]
 
@@ -128,12 +128,12 @@ export default function CustomSoftwareDevelopmentPage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Custom Software Development Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Offer Custom Software Without Building an Internal Team</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>From dashboards and portals to workflow automation and internal tools.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label Custom Software for Agency Client Projects</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Dashboards, portals, workflow tools, and business software for agency client projects.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            Build Beyond Studio creates custom software systems that eliminate spreadsheet chaos, manual admin work, and disconnected tools. We design tools around your operating model so information flows clearly, approvals move quickly, and your team can focus on higher-value work instead of repetitive admin.
+            BBS helps agencies turn approved client requirements into practical software. We map the users, workflows, data, permissions, integrations, reporting, testing, and handover before building the system in clear stages.
           </p>
         </div>
       </section>

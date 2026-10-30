@@ -6,8 +6,8 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildBreadcrumbSchema } from '@/lib/metadata'
 
 export const metadata = {
-  title: 'White-Label Website Maintenance Services for Agencies | BBS',
-  description: 'Keep client websites and apps running smoothly with outsourced fixes, updates, monitoring and maintenance delivered under your agency brand.',
+  title: 'White Label Website Maintenance for Agencies | BBS',
+  description: 'White label maintenance for agency client websites and apps, covering monitoring, updates, fixes, deployment support, and technical care.',
 }
 
 const serviceSchema = {
@@ -62,10 +62,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Is it a monthly plan or project-based?',
+      name: 'How is the maintenance service structured?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We offer support models based on your needs — from ongoing monthly care to fixed issue-based assistance for critical updates or maintenance windows.',
+        text: 'The service follows a written scope covering systems, routine tasks, requests, reporting, exclusions, and escalation. Larger changes are handled separately.',
       },
     },
   ],
@@ -105,7 +105,7 @@ const faqs = [
   { q: 'Why do we need ongoing maintenance?', a: 'Without regular maintenance, apps and sites can slowly break due to dependency updates, expired hosting settings, slow performance, or security gaps that appear over time.' },
   { q: 'Do you support hosting as well?', a: 'Yes. We can help with hosting setup, deployment checks, server configuration, monitoring, domain issues, and performance tuning as part of the support plan.' },
   { q: 'Can you handle emergency fixes?', a: 'Yes. We can respond to urgent issues, recover broken functionality, and prioritize critical fixes when uptime or user experience is at risk.' },
-  { q: 'Is it a monthly plan or project-based?', a: 'We offer support models based on your needs — from ongoing monthly care to fixed issue-based assistance for critical updates or maintenance windows.' },
+  { q: 'How is the maintenance service structured?', a: 'The service follows a written scope covering systems, routine tasks, requests, reporting, exclusions, and escalation. Larger changes are handled separately.' },
 ]
 
 export default function WebsiteAndAppMaintenancePage() {
@@ -128,12 +128,12 @@ export default function WebsiteAndAppMaintenancePage() {
           <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Website & App Maintenance Services</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Keep Client Websites and Apps Running Without the Extra Team</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Fixes, updates, and hosting support that prevent small issues from becoming business blockers.</p>
+        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label Website and App Maintenance for Agencies</h1>
+        <p className='text-lg text-gray-500 font-light mb-8'>Ongoing technical care for client websites and applications under your agency brand.</p>
 
         <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
           <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            A website or app is not a one-time build. It needs maintenance, monitoring, and periodic improvements to stay performant, secure, and reliable. Our support model keeps your product running while you focus on growth, sales, and operations.
+            BBS maintains agency client websites and applications within an agreed support scope. The plan can cover monitoring, updates, backups, fixes, deployment checks, performance work, reporting, and escalation when an issue needs attention.
           </p>
         </div>
       </section>
