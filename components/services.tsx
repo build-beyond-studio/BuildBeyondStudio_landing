@@ -69,6 +69,20 @@ const Icons = {
       <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
     </svg>
   ),
+  tracking: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3v18h18"/>
+      <path d="m7 14 4-4 3 3 6-7"/>
+      <path d="M16 6h4v4"/>
+    </svg>
+  ),
+  pod: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="8" r="3"/>
+      <path d="M3 20v-1a6 6 0 0 1 12 0v1"/>
+      <path d="M16 5.2a3 3 0 0 1 0 5.6M18 14a5 5 0 0 1 3 4.6V20"/>
+    </svg>
+  ),
   arrow: (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M9 5l7 7-7 7"/>
@@ -139,6 +153,18 @@ const SERVICES = [
     desc: "Ongoing fixes, updates, and hosting care so nothing breaks.",
     href: "/services/website-app-maintenance",
     icon: Icons.maintenance,
+  },
+  {
+    title: "Tracking & Conversion Setup",
+    desc: "Accurate analytics and ad conversion tracking, implemented and tested for your clients.",
+    href: "/services/tracking-conversion-setup",
+    icon: Icons.tracking,
+  },
+  {
+    title: "Dedicated Development Pod",
+    desc: "A managed development team for agencies with ongoing client work and delivery needs.",
+    href: "/services/dedicated-development-pod",
+    icon: Icons.pod,
   },
 ] as const;
 
@@ -243,7 +269,7 @@ function CtaCard() {
       {/* Body */}
       <div>
         <p className="text-[13px] text-[#8C8680] leading-relaxed mb-4">
-          Explore the full scope of what Build Beyond Studio delivers — eight services, one accountable team.
+          Explore the full scope of what Build Beyond Studio delivers — twelve services, one accountable team.
         </p>
         <Link
           href="/services"
