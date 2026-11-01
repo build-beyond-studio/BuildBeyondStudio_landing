@@ -93,6 +93,22 @@ const servicesList = [
     link: "/services/website-app-maintenance",
     color: "#E8A020",
   },
+  {
+    num: "11",
+    title: "Tracking &\nConversion Setup",
+    desc: "Accurate analytics and ad conversion tracking, implemented and tested for your clients.",
+    features: ["GA4 & Tag Manager", "Conversion Events", "Meta CAPI"],
+    link: "/services/tracking-conversion-setup",
+    color: "#C8860A",
+  },
+  {
+    num: "12",
+    title: "Dedicated\nDevelopment Pod",
+    desc: "A managed development team for agencies with ongoing client work and delivery needs.",
+    features: ["Managed Team", "Regular Demos", "Quality Checks"],
+    link: "/services/dedicated-development-pod",
+    color: "#A06A00",
+  },
 ];
 
 
@@ -200,7 +216,7 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        {/* 3-column grid to achieve the 3-3-1 layout for 7 items */}
+        {/* Service cards */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
           {servicesList.map((svc, idx) => (
             <Link 

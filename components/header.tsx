@@ -26,6 +26,8 @@ const NAV_LINKS: NavLink[] = [
       { href: "/services/online-store-development", label: "Online Store Development" },
       { href: "/services/app-integrations", label: "App Integrations" },
       { href: "/services/website-app-maintenance", label: "Website & App Maintenance" },
+      { href: "/services/tracking-conversion-setup", label: "Tracking & Conversion Setup" },
+      { href: "/services/dedicated-development-pod", label: "Dedicated Development Pod" },
     ]
   },
   { href: "/our-work", label: "Our Work" },
