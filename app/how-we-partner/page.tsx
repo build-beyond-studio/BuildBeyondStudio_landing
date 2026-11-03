@@ -117,7 +117,7 @@ export default function HowWePartnerPage() {
 
           {/* Quick TL;DR Visual Badge Row */}
           <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
-            {['100% White-Label', 'Strict NDA Protected', 'Direct Slack Integration', 'CTO-Managed QA'].map((badge) => (
+            {['100% White-Label', 'Strict NDA Protected', 'Direct Slack Integration', 'Managed delivery and QA'].map((badge) => (
               <span 
                 key={badge} 
                 className="px-4 py-1.5 rounded-full bg-white border border-[rgba(200,134,10,0.2)] text-[12px] font-bold text-[#C8860A] shadow-sm uppercase tracking-wider"
@@ -136,9 +136,9 @@ export default function HowWePartnerPage() {
           {/* Section 1: The Visual Handoff & Leverage */}
           <div>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">The Profit Equation</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">How the Partnership Works</h2>
               <p className="text-gray-500 max-w-xl mx-auto font-light mt-2">
-                Eliminate operational liabilities and capture maximum margins on client custom development retainers.
+                Eliminate operational liabilities and capture solid margins on client custom development.
               </p>
             </div>
 
@@ -189,10 +189,10 @@ export default function HowWePartnerPage() {
                   </div>
                   <ul className="space-y-4">
                     {[
-                      { title: 'Zero Hiring Liability', desc: 'Access elite software engineers instantly on demand.' },
+                      { title: 'Zero Hiring Liability', desc: 'Access experienced developers instantly, on demand.' },
                       { title: 'Fixed-Price Scopes', desc: 'No budget overflows. Clear project costs mapped out upfront.' },
-                      { title: 'CTO-Managed Quality', desc: 'We take 100% ownership of tech architecture, QA, and deployment.' },
-                      { title: 'Expanded Recurring Retainers', desc: 'Increase agency revenue by billing high-ticket developer retainers.' },
+                      { title: 'Managed QA & Delivery', desc: 'We take ownership of tech architecture, QA, and deployment.' },
+                      { title: 'Grow Your Service Offering', desc: 'Expand what you sell without expanding your team.' },
                     ].map((item, idx) => (
                       <li key={idx} className="flex gap-3">
                         <span className="text-emerald-500 font-bold">✓</span>
@@ -433,7 +433,7 @@ export default function HowWePartnerPage() {
               <div className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden transition-transform duration-300 hover:-translate-y-1">
                 <div>
                   <div className="text-xs uppercase tracking-widest text-[#C8860A] font-bold mb-2">Human Translation</div>
-                  <h3 className="text-lg font-bold text-black mb-3">Dedicated Technical PM</h3>
+                  <h3 className="text-lg font-bold text-black mb-3">Dedicated Project Coordination</h3>
                   <p className="text-gray-500 text-xs font-light leading-relaxed mb-6">
                     Your liaison who handles the team directly. We translate complex tech updates into straightforward business metrics.
                   </p>
@@ -468,10 +468,10 @@ export default function HowWePartnerPage() {
       <section className="bg-white border-t border-black/5 py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-4">
-            Zero Local Recruiting. Pure Profit expansion.
+            Scale delivery without growing your team.
           </h2>
           <p className="text-gray-500 text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">
-            Eliminate capacity ceilings and scale your agency with absolute confidence.
+            Expand your capacity and deliver more for your clients.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a 

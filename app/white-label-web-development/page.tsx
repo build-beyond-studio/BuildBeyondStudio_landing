@@ -8,8 +8,8 @@ import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = buildMetadata(
   '/white-label-web-development',
-  'White Label Web Development Services | BBS',
-  'White label web development for agencies that need websites, stores, portals, and web apps delivered under their own brand.'
+  'White Label Web Development for Agencies | BBS',
+  'Fixed quotes in 24 hours. Your brand, your client, our build. Websites, stores, tracking and dev pods for marketing agencies.'
 )
 
 const serviceSchema = {

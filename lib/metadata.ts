@@ -26,8 +26,10 @@ export function buildMetadata(
 
   const canonicalUrl = cleanPath === '/' ? baseUrl : `${baseUrl}${cleanPath}`;
   const fullTitle = title 
-    ? `${title} | Build Beyond Studio` 
-    : 'Build Beyond Studio | Website, App & Software Development';
+    ? (title.includes('BBS') || title.includes('Build Beyond Studio') ? title : `${title} | BBS`) 
+    : 'White-Label Web Development for Agencies | BBS';
+
+  const isUkPage = cleanPath.includes('-uk');
 
   const mergedOpenGraph = {
     title: fullTitle,
@@ -35,6 +37,7 @@ export function buildMetadata(
     url: canonicalUrl,
     type: 'website',
     siteName: 'Build Beyond Studio',
+    locale: isUkPage ? 'en_GB' : 'en_IN',
     ...extra.openGraph,
   };
 

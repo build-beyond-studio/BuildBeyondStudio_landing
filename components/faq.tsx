@@ -5,9 +5,9 @@ export const faqs = [
       "White-label web development means your agency offers web development to clients, but a technical partner like Build Beyond Studio builds everything behind the scenes. You present the work under your brand, invoice the client at your price, and keep the full margin. Your clients never know we were involved.",
   },
   {
-    question: "How does the revenue split work?",
+    question: "How does project pricing work?",
     answer:
-      "Simple — you agree a price with us privately. Whatever you charge your client is entirely your decision. We take 50% of the agreed amount: 50% upfront at kickoff, 50% on delivery. On a ₹1 Lakh ($1,250) project, you net ₹50K ($625) with zero developer overhead.",
+      "You agree a scope and fixed price with us privately. We quote you; you set your client price. The difference is yours. We provide a fixed quote in 24 hours before any work begins.",
   },
   {
     question: "What is your typical project timeline?",
@@ -37,7 +37,7 @@ export const faqs = [
   {
     question: "Can we start with just one project?",
     answer:
-      "Yes — and we recommend it. Share one live client requirement, we send you an estimate within 24 hours, and you decide whether to proceed. No long-term commitment required to start.",
+      "Yes — start with a Proof Sprint. Share one defined client requirement, we send you a fixed quote within 24 hours, and we deliver in 7–10 days. No long contracts.",
   },
 ]
 

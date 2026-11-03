@@ -115,10 +115,10 @@ export default function SuccessStoriesPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Case Studies</div>
           <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-            Agencies That Scaled With BBS as Their Tech Partner
+            Agencies That Scaled Delivery With BBS as Their Tech Partner
           </h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            We operate behind the scenes under strict NDA. Your clients see a premium, flawless build; you capture the expanded margins without the operational liability of local hiring.
+            We operate behind the scenes under strict NDA. Your clients see a clean, reliable build; your agency gets on-demand capacity without the overhead of internal hiring.
           </p>
         </div>
       </section>

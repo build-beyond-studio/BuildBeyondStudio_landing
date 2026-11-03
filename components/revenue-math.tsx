@@ -344,11 +344,11 @@ export default function RevenueMath() {
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-[-0.032em] mb-4">
-              Turn Complex Tech into<br/>
-              <span style={{ color: "#C9A84C" }}>Your Biggest Profit Center.</span>
+              Fixed prices<br/>
+              <span style={{ color: "#C9A84C" }}>you can resell.</span>
             </h2>
             <p className="text-[12.5px] text-white/35 max-w-[380px] mx-auto leading-[1.8]">
-              You set the price. You keep 100% of the margin. We handle the heavy lifting while you scale your bottom line.
+              You get a fixed quote from us. You set the price for your client. The difference is yours.
             </p>
           </div>
 
@@ -385,7 +385,7 @@ export default function RevenueMath() {
                 {/* Left: breakdown */}
                 <div className="flex flex-col gap-4">
                   <div>
-                    <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }}>Live Example</p>
+                    <p style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }}>Illustrative Example</p>
                     <div className="rm-row">
                       <span className="rm-row-label">BBS Price to You</span>
                       <span className="rm-row-val">₹40,000 ($500)</span>

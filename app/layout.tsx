@@ -10,8 +10,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   themeColor: "#0066ff",
 };
 
@@ -19,21 +17,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://buildbeyondstudio.com"),
 
   title: {
-    default: "Build Beyond Studio | Website, App & Software Development",
+    default: "White-Label Web Development for Agencies | BBS",
     template: "%s | Build Beyond Studio",
   },
 
   description:
-    "Custom websites, mobile apps, AI chatbots, and software products built for businesses that need fast, reliable execution without the overhead.",
-
-  keywords: [
-    "website development company",
-    "mobile app development India",
-    "custom software development",
-    "AI chatbot development",
-    "business automation services",
-    "web app development",
-  ],
+    "Fixed quotes in 24 hours. Your brand, your client, our build. Websites, stores, tracking and dev pods for marketing agencies.",
 
   authors: [{ name: "Build Beyond Studio" }],
   creator: "Build Beyond Studio",

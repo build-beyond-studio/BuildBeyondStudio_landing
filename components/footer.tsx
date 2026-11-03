@@ -11,7 +11,7 @@ export default function Footer() {
           </h3>
 
           <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            BBS works behind your agency brand to scope, build, test, launch, and maintain client projects. Your agency leads the relationship. Our team handles the agreed technical delivery.
+            BBS works behind your agency brand to scope, build, test, launch, and maintain client projects. Your agency leads the relationship. We serve marketing agencies in India and the UK.
           </p>
 
 
@@ -108,9 +108,9 @@ export default function Footer() {
               <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
               <div className="flex flex-col gap-2">
                 <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
-                <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
+                <a href="/rate-card" className="hover:text-white transition-colors">Pricing</a>
                 <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
-                <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
+                <a href="/training-programs" className="hover:text-white transition-colors">BBS Academy</a>
                 <a href="/ambikapur" className="hover:text-white transition-colors">Ambikapur Office</a>
                 <a href="/blog" className="hover:text-white transition-colors">Blog</a>
               </div>
@@ -124,14 +124,6 @@ export default function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   admin@buildbeyondstudio.com
-                </a>
-              </p>
-              <p>
-                <a
-                  href="mailto:Info@buildbeyondstudio.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Info@buildbeyondstudio.com
                 </a>
               </p>
               <p>Ambikapur, Surguja</p>

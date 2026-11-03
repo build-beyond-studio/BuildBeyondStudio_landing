@@ -13,17 +13,7 @@ import FAQSection from '@/components/FAQSection';
 export const metadata: Metadata = buildMetadata(
   '/for-agencies',
   'Technical Growth Partner for Marketing Agencies | BBS',
-  'A dedicated technical partner built for marketing agencies. We handle the build, you keep the client, the brand, and the margin.',
-  {
-    keywords: [
-      'white label web development for marketing agencies',
-      'web development partner for agencies India',
-      'outsource web development agency India',
-    ],
-    openGraph: {
-      locale: 'en_IN',
-    },
-  }
+  'A dedicated technical partner built for marketing agencies. We handle the build, you keep the client, the brand, and the margin.'
 );
 
 
@@ -114,7 +104,7 @@ export default function ForAgenciesPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "White-Label Web Development for Marketing Agencies",
-    "description": "BBS builds websites and web applications fully under your agency brand. NDA-first, full IP ownership, 50/50 revenue split, zero fixed overhead.",
+    "description": "BBS builds websites and web applications fully under your agency brand. NDA-first, full IP ownership, fixed quotes, clear delivery.",
     "provider": {
       "@type": "Organization",
       "name": "Build Beyond Studio",
@@ -127,7 +117,7 @@ export default function ForAgenciesPage() {
     },
     "offers": {
       "@type": "Offer",
-      "description": "50/50 revenue split. Zero fixed overhead. Start with one pilot project.",
+      "description": "Fixed quotes. No hidden fees. Start with one scoped requirement.",
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock"
     }
@@ -180,7 +170,7 @@ export default function ForAgenciesPage() {
         </p>
 
         <p className="text-base md:text-lg text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
-          Join 10+ marketing agencies across India who use Build Beyond Studio as their white-label web development partner. You bring the clients — we handle 100% of the technical work. As the leading outsource web development agency India has to offer, we act as the invisible web team marketing agency owners trust to scale effortlessly.
+          Join 20+ marketing agencies who use Build Beyond Studio as their white-label web development partner. You bring the clients — we handle 100% of the technical work. As the trusted outsource web development partner, we act as the invisible web team agency owners rely on.
         </p>
 
         {/* CTA Buttons */}
@@ -195,13 +185,18 @@ export default function ForAgenciesPage() {
               boxShadow: '0 4px 16px rgba(200,134,10,0.30)',
             }}
           >
-            Start your first pilot project →
+            Start with a Proof Sprint →
           </a>
 
-          <RevenueScrollBtn label="Revenue Model" />
+          <a
+            href="/rate-card"
+            className="inline-block bg-white text-gray-800 border border-black/15 hover:border-black/25 px-8 py-4 rounded-lg transition-all font-semibold text-base"
+          >
+            See starting prices
+          </a>
         </div>
 
-        <p className="text-gray-400 text-sm">No commitment. Share a client requirement. Get an estimate within 24 hours.</p>
+        <p className="text-gray-400 text-sm">Share a client requirement. Get a fixed quote in 24h.</p>
 
         <style>{`
           @keyframes heroDotPulse {
@@ -383,10 +378,10 @@ export default function ForAgenciesPage() {
       {/* Final CTA Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-20 md:py-24 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-          Start with one pilot project — zero risk
+          Start with a scoped Proof Sprint
         </h2>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Share one live client requirement. We'll send you a firm estimate within 24 hours. No strings attached. No long-term commitment.
+          Share one live client requirement. We'll send you a firm fixed quote within 24 hours. Fixed scope, fixed price, 7-10 days.
         </p>
         <a
           href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio."

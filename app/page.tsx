@@ -3,7 +3,6 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Workflow from "@/components/Workflow";
 import Services from "@/components/services";
-import InternshipProgramsSection from "@/components/internship-programs";
 import RevenueMath from "@/components/revenue-math";
 import WhyUs from "@/components/why-us";
 import Testimonials from "@/components/testimonials";
@@ -13,15 +12,14 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
-import VideoPopup from "@/components/VideoPopup";
 import FAQSection from '@/components/FAQSection';
 
 
 
 
 export const metadata = {
-  title: "White Label Web Dev & DevOps Agency for Marketing Agencies | BBS",
-  description: "Build Beyond Studio is the invisible tech team behind marketing agencies. White label web, app, and DevOps delivery under your brand. Book a call.",
+  title: "White-Label Dev Team for Marketing Agencies | BBS",
+  description: "Fixed quotes in 24 hours. Your brand, your client, our build. Websites, stores, tracking and dev pods for marketing agencies.",
 };
 
 
@@ -76,13 +74,11 @@ export default function Home() {
       />
       <FloatingWhatsApp />
       <FloatingQuickLinks />
-      <VideoPopup />
       <Header />
       <Hero />
       <Testimonials />
       <Workflow />
       <Services />
-      <InternshipProgramsSection />
       <RevenueMath />
       <WhyUs />
       <FounderNote />

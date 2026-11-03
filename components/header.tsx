@@ -16,24 +16,17 @@ const NAV_LINKS: NavLink[] = [
     label: "Services",
     href: "/services",
     dropdown: [
-      { href: "/services/website-development", label: "Website Development" },
-      { href: "/services/ui-ux-design", label: "UI / UX Design" },
-      { href: "/services/mobile-app-development", label: "Mobile App Development" },
-      { href: "/services/seo-aeo-geo", label: "SEO, AEO & GEO" },
-      { href: "/services/custom-software-development", label: "Custom Software Development" },
-      { href: "/services/ai-chatbots-assistants", label: "AI Chatbots & Assistants" },
-      { href: "/services/linkedin-lead-generation-automation", label: "LinkedIn Lead Generation & Automation" },
-      { href: "/services/online-store-development", label: "Online Store Development" },
-      { href: "/services/app-integrations", label: "App Integrations" },
-      { href: "/services/website-app-maintenance", label: "Website & App Maintenance" },
+      { href: "/services/website-development", label: "Web & Web App Development" },
+      { href: "/services/online-store-development", label: "E-commerce & Headless Stores" },
       { href: "/services/tracking-conversion-setup", label: "Tracking & Conversion Setup" },
-      { href: "/services/dedicated-development-pod", label: "Dedicated Development Pod" },
+      { href: "/services/dedicated-development-pod", label: "Dedicated Dev Pod" },
+      { href: "/services/website-app-maintenance", label: "Maintenance & AMC" },
+      { href: "/services", label: "View all services →" },
     ]
   },
   { href: "/our-work", label: "Our Work" },
   { href: "/how-we-partner", label: "How We Partner" },
-  { href: "/training-programs", label: "Internship Programs" },
-  { href: "/#revenue", label: "Revenue Model" },
+  { href: "/rate-card", label: "Pricing" },
   { href: "/success-stories", label: "Success Stories" },
 ];
 
@@ -287,7 +280,7 @@ export default function Header() {
                 boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
               }}
             >
-              Book a Strategy Call →
+              Get a fixed quote →
             </a>
 
             {/* Hamburger — slides from RIGHT */}
@@ -353,7 +346,7 @@ export default function Header() {
                     boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
                   }}
                 >
-                  Book a Strategy Call →
+                  Get a fixed quote →
                 </a>
               </nav>
             </div>

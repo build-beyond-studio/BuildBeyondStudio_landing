@@ -79,10 +79,13 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto">
         <div ref={titleRef} className="opacity-0 text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-3 md:mb-4">
-            Start your first pilot project
+            Start with a Proof Sprint.
           </h2>
-          <p className="text-base sm:text-lg text-gray-400">
-            No commitment. Share a client requirement and we'll send you a firm estimate within 24 hours. Your first project is risk-free.
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+            One client requirement. Fixed scope, fixed price, 7-10 days. If you like the work, we move to a monthly pod. No long contracts.
+          </p>
+          <p className="text-sm font-bold text-[#C8860A]">
+            From ₹25,000 · Fixed quote in 24h
           </p>
         </div>
 

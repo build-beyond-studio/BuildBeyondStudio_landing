@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import BestQuotationBadge from "@/components/BestQuotationBadge";
 
 const EMAIL = "admin@buildbeyondstudio.com";
 
@@ -289,111 +288,70 @@ export default function Hero() {
                 transitionDelay: '260ms',
               }}
             >
-              White label development delivered behind your agency brand.
+              BBS is the white-label dev team behind marketing agencies in India and the UK. Fixed quote in 24 hours. Your brand, your client, our build.
             </p>
           </div>
-          {/* Service highlights */}
+          {/* Trust Strip */}
           <div
             ref={badgesRef}
-            className="hero-pre flex flex-row md:flex-col items-center justify-center gap-[6px] md:gap-3 mt-3 md:mt-7 flex-nowrap"
+            className="hero-pre flex items-center justify-center gap-2 mt-3 md:mt-5 flex-wrap"
           >
-            <div className="flex items-center justify-center gap-[6px] md:gap-2 flex-nowrap">
-              {[
-                {
-                  label: "Development",
-                  icon: "</>",
-                  accent: "#C8860A",
-                  bg: "rgba(200,134,10,0.07)",
-                  border: "rgba(200,134,10,0.18)",
-                },
-                {
-                  label: "Deployment",
-                  icon: "⬆",
-                  accent: "#A06A00",
-                  bg: "rgba(160,106,0,0.07)",
-                  border: "rgba(160,106,0,0.18)",
-                }
-              ].map(({ label, icon, accent, bg, border }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-[3px] md:gap-[8px] px-[8px] md:px-[20px] py-[3px] md:py-[8px] rounded-full text-[9px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
-                  style={{
-                    background: bg,
-                    border: `1px solid ${border}`,
-                    color: accent,
-                  }}
-                >
-                  <span className="text-[8px] md:text-[13px] opacity-90">{icon}</span>
-                  {label}
-                </span>
-              ))}
-            </div>
-            <div className="flex items-center justify-center gap-[6px] md:gap-2 flex-nowrap">
-              {[
-                {
-                  label: "Maintenance",
-                  icon: "⚙",
-                  accent: "#E8A020",
-                  bg: "rgba(232,160,32,0.07)",
-                  border: "rgba(232,160,32,0.18)",
-                },
-              ].map(({ label, icon, accent, bg, border }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-[3px] md:gap-[8px] px-[8px] md:px-[20px] py-[3px] md:py-[8px] rounded-full text-[9px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
-                  style={{
-                    background: bg,
-                    border: `1px solid ${border}`,
-                    color: accent,
-                  }}
-                >
-                  <span className="text-[8px] md:text-[13px] opacity-90">{icon}</span>
-                  {label}
-                </span>
-              ))}
-            </div>
+            <p className="text-[12px] sm:text-[13.5px] font-medium text-gray-700 bg-white/80 border border-black/5 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-xs">
+              Your brand on everything · Weekly demos · 100% code ownership · Fixed quote in 24h
+            </p>
+          </div>
+
+          {/* Plain Trust Row */}
+          <div className="flex items-center justify-center gap-3 md:gap-6 flex-wrap mt-2 text-xs md:text-sm font-semibold text-gray-600">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              20+ agencies working with us
+            </span>
+            <span className="text-gray-300">|</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+              100% white-label
+            </span>
+            <span className="text-gray-300">|</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+              Dedicated tech team
+            </span>
           </div>
 
           {/* CTAs */}
           <div
             ref={buttonsRef}
             className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3
-                       w-full sm:w-auto"
+                       w-full sm:w-auto mt-2"
           >
-
-
-            {/* Revenue Model — highlighted primary with pulse */}
-            <button
-              onClick={() =>
-                document
-                  .getElementById("revenue")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto transition-all duration-300"
-            >
-              Revenue Model →
-            </button>
-
-            {/* Book a Call — plain secondary */}
+            {/* Primary Button */}
             <button
               onClick={() => {
-                window.gtag?.('event', 'whatsapp_click', { button_location: 'hero' });
                 document
                   .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
+              className="btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto transition-all duration-300"
+            >
+              Get a fixed quote in 24h →
+            </button>
+
+            {/* Secondary Button */}
+            <a
+              href="/rate-card"
               className="border border-black/12 text-gray-800 px-9 py-3.5 md:px-5
                          rounded-xl font-bold text-[13.5px] w-full sm:w-auto
                          bg-white hover:border-black/20 hover:bg-gray-50
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
-                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300"
+                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 text-center"
             >
-              Book a Strategy Call
-            </button>
+              See starting prices
+            </a>
           </div>
 
           {/* Email */}
-          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400 !mt-2 md:!mt-7 flex flex-col items-center gap-1">
+          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-500 !mt-2 md:!mt-5 flex flex-col items-center">
             <div>
               Prefer email?{" "}
               <a
@@ -402,16 +360,6 @@ export default function Hero() {
                            underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
               >
                 {EMAIL}
-              </a>
-            </div>
-            <div>
-              Or contact:{" "}
-              <a
-                href="mailto:Info@buildbeyondstudio.com"
-                className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
-                           underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
-              >
-                Info@buildbeyondstudio.com
               </a>
             </div>
           </div>

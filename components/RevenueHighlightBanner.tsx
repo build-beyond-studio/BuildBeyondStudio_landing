@@ -238,12 +238,12 @@ export default function RevenueHighlightBanner() {
       
       <div className="partner-econ-container">
         <div className="pe-left">
-          <span className="pe-eyebrow">PARTNER ECONOMICS — 01</span>
+          <span className="pe-eyebrow">PARTNER PRICING</span>
           <h2 className="pe-title">
-            B2B Pricing That Lets You Charge 2X — Comfortably (50%+ profit Per Project To You)
+            Partner pricing with real margin built in.
           </h2>
           <p className="pe-desc">
-            You bill your client at full market rate. We deliver at a cost that leaves you 50%+ margin — same enterprise standard, same support, same speed.
+            You bill your client at your standard rate. We deliver at a fixed partner rate that leaves you healthy margin on every project.
           </p>
           
           <div className="pe-pills">
