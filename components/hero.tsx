@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import BestQuotationBadge from "@/components/BestQuotationBadge";
 
 const EMAIL = "admin@buildbeyondstudio.com";
 

@@ -29,3 +29,4 @@
 ## Verification
 - `npx tsc --noEmit`: 0 errors.
 - `npm run build`: 60 static routes successfully generated, all 38 baseline routes intact, plus new routes (`/rate-card`, `/white-label-web-development-india`, `/white-label-web-development-uk`, `/proof-sprint`).
+
