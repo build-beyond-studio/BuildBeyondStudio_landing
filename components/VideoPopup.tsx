@@ -50,8 +50,8 @@ export default function VideoPopup() {
             {/* Image Content */}
             <img
               className="w-full max-h-[85vh] object-cover"
-              src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/ChatGPT%20Image%20Sep%206%2C%202026%2C%2001_29_15%20AM.png"
-              alt="Promotional Content"
+              src="/popup.png"
+              alt="Marketing Agency? You Chill, We’ll Build. More Projects. Zero Tech Hassle."
             />
           </div>
         </div>

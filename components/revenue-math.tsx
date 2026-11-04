@@ -344,11 +344,11 @@ export default function RevenueMath() {
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-[-0.032em] mb-4">
-              Turn Complex Tech into<br/>
-              <span style={{ color: "#C9A84C" }}>Your Biggest Profit Center.</span>
+              Fixed prices<br/>
+              <span style={{ color: "#C9A84C" }}>you can resell.</span>
             </h2>
             <p className="text-[12.5px] text-white/35 max-w-[380px] mx-auto leading-[1.8]">
-              You set the price. You keep 100% of the margin. We handle the heavy lifting while you scale your bottom line.
+              You get a fixed quote from us. You set the price for your client. The difference is yours.
             </p>
           </div>
 

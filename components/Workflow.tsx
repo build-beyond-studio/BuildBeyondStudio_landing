@@ -243,7 +243,6 @@ export default function Workflow() {
           border-color: rgba(255,255,255,0.3);
           color: #fff;
         }
-        .wf-card-gold .wf-rev-btn { display: none; }
 
         /* Click-me pulse on gold card */
         @keyframes goldCardPulse {
@@ -304,24 +303,6 @@ export default function Workflow() {
           font-size: 12px; color: #6b7280; line-height: 1.7;
           margin-bottom: 14px;
         }
-
-        /* Revenue button inside card — elegant text link style */
-        .wf-rev-btn {
-          display: inline-flex; align-items: center; gap: 6px;
-          margin-top: 4px;
-          font-size: 11px; font-weight: 800; letter-spacing: 0.04em;
-          text-transform: uppercase; color: #C8860A;
-          text-decoration: none;
-          padding: 5px 0;
-          border-bottom: 1.5px solid rgba(200,134,10,0.3);
-          transition: border-color 0.22s ease, color 0.22s ease;
-        }
-        .wf-rev-btn:hover {
-          color: #A06A00;
-          border-bottom-color: #C8860A;
-        }
-        .wf-rev-btn svg { transition: transform 0.22s ease; }
-        .wf-rev-btn:hover svg { transform: translateX(3px); }
 
         .wf-cta-badge {
           display: inline-flex; align-items: center; gap: 4px;
@@ -445,26 +426,6 @@ export default function Workflow() {
                     <svg width="6" height="6" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg>
                     {step.cta}
                   </span>
-                  {step.revenueBtn && (
-                    <a
-                      href="#revenue"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById('revenue')?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="wf-rev-btn"
-                    >
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="1" x2="12" y2="23"/>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                      </svg>
-                      See Revenue Model
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"/>
-                        <polyline points="12 5 19 12 12 19"/>
-                      </svg>
-                    </a>
-                  )}
                 </CardEl>
               );
             })}
