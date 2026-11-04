@@ -16,23 +16,17 @@ const NAV_LINKS: NavLink[] = [
     label: "Services",
     href: "/services",
     dropdown: [
-      { href: "/services/website-development", label: "Website Development" },
-      { href: "/services/ui-ux-design", label: "UI / UX Design" },
-      { href: "/services/mobile-app-development", label: "Mobile App Development" },
-      { href: "/services/seo-aeo-geo", label: "SEO, AEO & GEO" },
-      { href: "/services/custom-software-development", label: "Custom Software Development" },
-      { href: "/services/ai-chatbots-assistants", label: "AI Chatbots & Assistants" },
-      { href: "/services/linkedin-lead-generation-automation", label: "LinkedIn Lead Generation & Automation" },
-      { href: "/services/online-store-development", label: "Online Store Development" },
-      { href: "/services/app-integrations", label: "App Integrations" },
-      { href: "/services/website-app-maintenance", label: "Website & App Maintenance" },
+      { href: "/services/website-development", label: "Web & Web App Development" },
+      { href: "/services/online-store-development", label: "E-commerce & Headless Stores" },
       { href: "/services/tracking-conversion-setup", label: "Tracking & Conversion Setup" },
-      { href: "/services/dedicated-development-pod", label: "Dedicated Development Pod" },
+      { href: "/services/dedicated-development-pod", label: "Dedicated Dev Pod" },
+      { href: "/services/website-app-maintenance", label: "Maintenance & AMC" },
+      { href: "/services", label: "View all services →" },
     ]
   },
   { href: "/our-work", label: "Our Work" },
   { href: "/how-we-partner", label: "How We Partner" },
-  { href: "/training-programs", label: "Internship Programs" },
+  // { href: "/training-programs", label: "Internship Programs" },
   { href: "/#revenue", label: "Revenue Model" },
   { href: "/success-stories", label: "Success Stories" },
 ];
@@ -248,13 +242,13 @@ export default function Header() {
                         <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                       </span>
                     )}
-                    <div className="absolute top-full left-0 mt-4 w-56 bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0">
-                      <div className="py-2">
-                        {item.dropdown.map(subItem => (
+                    <div className="absolute top-full left-0 mt-3 w-[260px] bg-white rounded-2xl shadow-[0_12px_40px_rgb(0,0,0,0.15)] border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 group-focus-within:translate-y-0">
+                      <div className="py-2.5">
+                        {item.dropdown.map((subItem, subIdx) => (
                           <a
                             key={subItem.href}
                             href={subItem.href}
-                            className="block px-4 py-2.5 text-[13px] text-gray-600 hover:text-black hover:bg-gray-50 transition-colors"
+                            className={`block px-5 py-2.5 text-[14px] text-gray-600 hover:text-black hover:bg-gray-50 transition-colors ${subIdx === item.dropdown!.length - 1 ? "mt-1 border-t border-black/5 font-medium" : ""}`}
                           >
                             {subItem.label}
                           </a>

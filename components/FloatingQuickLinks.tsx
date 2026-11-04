@@ -6,19 +6,23 @@ import { usePathname } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa";
 
 const SERVICES = [
-  { href: "/services/custom-web-applications", label: "Custom Web & Portal Development" },
-  { href: "/services/devops-infrastructure", label: "Auto-Scaling Cloud & DevOps" },
-  { href: "/services/technical-consulting", label: "Fractional CTO & Tech Roadmap" },
-  { href: "/services/aeo-geo", label: "AI-Era Search Visibility (SEO/AEO/GEO)" },
-  { href: "/services/performance-ads", label: "Meta & Google Performance Ads" },
-  { href: "/services/tracking-funnels", label: "E-Comm Funnel Audits & Tracking" },
-  { href: "/services/ai-visuals", label: "AI-Powered Visual Production" },
+  { href: "/services/website-development", label: "Web & Web App Development" },
+  { href: "/services/online-store-development", label: "E-commerce & Headless Stores" },
+  { href: "/services/tracking-conversion-setup", label: "Tracking & Conversion Setup" },
+  { href: "/services/dedicated-development-pod", label: "Dedicated Dev Pod" },
+  { href: "/services/website-app-maintenance", label: "Maintenance & AMC" },
+  { href: "/services", label: "View all services →" },
 ];
 
 export default function FloatingQuickLinks() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const contactHref = isHomePage
+    ? "/#contact"
+    : "https://wa.me/917697339962?text=Hi%21%20I%20would%20like%20to%20discuss%20partnership%20opportunities%20with%20your%20agency.";
+  const contactProps = isHomePage ? {} : { target: "_blank", rel: "noopener noreferrer" };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -59,18 +63,15 @@ export default function FloatingQuickLinks() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-[calc(100%+12px)] left-0 w-[280px] bg-white rounded-2xl shadow-[0_12px_40px_rgb(0,0,0,0.15)] border border-gray-100 overflow-hidden"
+              className="absolute bottom-[calc(100%+12px)] left-0 w-[260px] max-w-[calc(100vw-24px)] bg-white rounded-2xl shadow-[0_12px_40px_rgb(0,0,0,0.15)] border border-gray-100 overflow-hidden"
             >
-              <div className="p-2">
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 py-2">
-                  Our Services
-                </div>
-                {SERVICES.map((item) => (
+              <div className="py-2.5">
+                {SERVICES.map((item, index) => (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsServicesOpen(false)}
-                    className="block px-3 py-2.5 text-sm text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                    className={`block px-5 py-2.5 text-[14px] text-gray-600 hover:text-black hover:bg-gray-50 transition-colors ${index === SERVICES.length - 1 ? "mt-1 border-t border-black/5 font-medium" : ""}`}
                   >
                     {item.label}
                   </a>
@@ -97,11 +98,15 @@ export default function FloatingQuickLinks() {
       </div>
 
       <a
-        href="/training-programs"
-        className="flex-1 text-white shadow-[0_4px_12px_rgba(200,134,10,0.25)] text-[14px] font-semibold py-3.5 rounded-xl flex items-center justify-center hover:brightness-110 transition-all"
-        style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)' }}
+        href={contactHref}
+        {...contactProps}
+        onClick={() => {
+          window.gtag?.("event", "whatsapp_click", { button_location: "bottom_nav_right" });
+        }}
+        className="flex-1 text-white shadow-[0_4px_12px_rgba(200,134,10,0.25)] text-[12px] sm:text-[14px] font-semibold py-3.5 rounded-xl flex items-center justify-center whitespace-nowrap hover:brightness-110 transition-all"
+        style={{ background: "linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)" }}
       >
-        Internship Program
+        Book a Strategy Call
       </a>
     </div>
   );
