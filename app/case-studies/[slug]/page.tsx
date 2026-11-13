@@ -139,7 +139,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </div>
               <div>
                 <div className="text-xl sm:text-2xl font-black text-black">{study.resultStat}</div>
-                <div className="text-[10px] sm:text-xs text-gray-500 font-medium uppercase tracking-wider">Verified result</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 font-medium uppercase tracking-wider">Partner-reported outcome</div>
               </div>
             </div>
           </div>

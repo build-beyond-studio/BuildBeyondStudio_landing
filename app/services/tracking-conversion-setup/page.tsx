@@ -1,19 +1,23 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection, { FAQItem } from '@/components/FAQSection'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'Conversion Tracking Setup for Agencies | BBS',
-  description: 'White label GA4, tag management, Meta Conversions API, server side tracking, ecommerce events, testing, and handover for agency clients.',
-}
+export const metadata: Metadata = buildMetadata(
+  '/services/tracking-conversion-setup',
+  'White Label Conversion Tracking Setup for Agencies | BBS',
+  'White label GA4, tag management, Meta Conversions API, server side tracking, ecommerce events, testing, and handover for agency clients.'
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Tracking & Conversion Setup Services',
+  name: 'White Label Conversion Tracking Setup',
   serviceType: 'Tracking & Conversion Setup',
   provider: {
     '@type': 'Organization',
@@ -24,232 +28,173 @@ const serviceSchema = {
   description: 'White label GA4, tag management, Meta Conversions API, server side tracking, ecommerce events, testing, and handover for agency clients.',
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is conversion tracking setup?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Conversion tracking setup connects important actions such as form submissions, purchases, calls, bookings, and qualified leads with analytics and advertising platforms so the agency can measure what happened after a visit or campaign click.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can BBS work with an existing GA4 and Tag Manager account?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. BBS can audit and improve an existing setup or implement a new structure. Access requirements and account ownership are agreed before work begins.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you support Meta Conversions API and server side tracking?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. BBS can implement Meta Conversions API and server side tracking when the client platform, consent setup, hosting, and approved data flow support the required connection.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you track ecommerce events?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. The scope can include product views, cart actions, checkout steps, purchases, refunds, values, currencies, and item data. The exact event set depends on the store platform and reporting plan.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do you check that the data is correct?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'BBS tests the complete journey using browser tools, platform diagnostics, analytics reports, and controlled test actions. The handover records what was tested and any remaining platform limitation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Will BBS communicate directly with our client?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Only when your agency requests it. The default model keeps your agency as the client lead while BBS handles technical implementation and reports progress through the agreed channel.',
-      },
-    },
-  ],
-}
-
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'Tracking & Conversion Setup', path: '/services/tracking-conversion-setup' },
 ])
 
-const faqs = [
+const whatYouReceive = [
+  'Fully implemented GTM web and server container configuration',
+  'Verified GA4 data stream with customized conversion events',
+  'Meta Conversions API (CAPI) server-side event routing setup',
+  'Comprehensive event mapping spreadsheet and handover checklist',
+]
+
+const faqs: FAQItem[] = [
   {
-    q: 'What is conversion tracking setup?',
-    a: 'Conversion tracking setup connects important actions such as form submissions, purchases, calls, bookings, and qualified leads with analytics and advertising platforms so the agency can measure what happened after a visit or campaign click.',
+    question: 'What is conversion tracking setup?',
+    answer: 'Conversion tracking setup connects important actions such as form submissions, purchases, calls, bookings, and qualified leads with analytics and advertising platforms so your agency can accurately measure campaign ROI.',
   },
   {
-    q: 'Can BBS work with an existing GA4 and Tag Manager account?',
-    a: 'Yes. BBS can audit and improve an existing setup or implement a new structure. Access requirements and account ownership are agreed before work begins.',
+    question: 'Can BBS work with an existing GA4 and Tag Manager account?',
+    answer: 'Yes. BBS audits and fixes existing setups or builds a clean new structure. Access requirements and account permissions are agreed before work begins.',
   },
   {
-    q: 'Do you support Meta Conversions API and server side tracking?',
-    a: 'Yes. BBS can implement Meta Conversions API and server side tracking when the client platform, consent setup, hosting, and approved data flow support the required connection.',
+    question: 'Do you support Meta Conversions API and server-side tracking?',
+    answer: 'Yes. BBS implements Meta Conversions API and server-side tagging (via Stape or custom GCP/AWS containers) when the client platform and consent framework support it.',
   },
   {
-    q: 'Can you track ecommerce events?',
-    a: 'Yes. The scope can include product views, cart actions, checkout steps, purchases, refunds, values, currencies, and item data. The exact event set depends on the store platform and reporting plan.',
+    question: 'Can you track ecommerce events?',
+    answer: 'Yes. The scope includes product views, cart actions, checkout steps, purchases, currency handling, and transaction values with deduplicated browser and server events.',
   },
   {
-    q: 'How do you check that the data is correct?',
-    a: 'BBS tests the complete journey using browser tools, platform diagnostics, analytics reports, and controlled test actions. The handover records what was tested and any remaining platform limitation.',
+    question: 'How do you check that the data is accurate?',
+    answer: 'BBS tests the complete customer journey using browser debuggers, Meta Pixel Helper, GA4 DebugView, and controlled test purchases. Handover notes verify all event firing.',
   },
   {
-    q: 'Will BBS communicate directly with our client?',
-    a: 'Only when your agency requests it. The default model keeps your agency as the client lead while BBS handles technical implementation and reports progress through the agreed channel.',
+    question: 'Will BBS communicate directly with our client?',
+    answer: 'Only when your agency specifically requests it. Our default model keeps your agency as the client lead while BBS handles the technical configuration behind the scenes.',
   },
 ]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
 
 export default function TrackingConversionSetupPage() {
   return (
     <main className='min-h-screen bg-[#F5F2EC] text-black'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <section className='max-w-4xl mx-auto pt-28 pb-8 px-4 sm:px-6'>
-        <div className='mb-4 text-sm text-gray-500'>
+      <section className='max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6'>
+        <div className='mb-4 text-xs text-gray-500 flex items-center gap-2'>
           <Link href='/' className='hover:text-black transition-colors'>Home</Link>
-          {' → '}
+          <span>/</span>
           <Link href='/services' className='hover:text-black transition-colors'>Services</Link>
-          {' → '}Tracking & Conversion Setup
+          <span>/</span>
+          <span className='text-[#C8860A] font-medium'>Tracking & Conversion Setup</span>
         </div>
 
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-4'>
-          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Tracking & Conversion Setup</span>
+        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/70 mb-4'>
+          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Core Service</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>
-          White Label Tracking and Conversion Setup for Agencies
+        <h1 className='text-3xl sm:text-5xl font-black text-black mb-4 leading-tight'>
+          White Label Conversion Tracking Setup for Agencies
         </h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>
+        <p className='text-lg text-gray-600 font-light mb-8'>
           Give your agency reliable measurement across client websites, landing pages, and ecommerce stores. BBS implements the approved tracking plan, tests the data, and hands over clear documentation under your brand.
         </p>
 
-        <div>
-          <TrackedLink
-            href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20Tracking%20and%20Conversion%20Setup%20with%20Build%20Beyond%20Studio.'
-            eventName='whatsapp_click'
-            eventParams={{ button_location: 'service_page_tracking_conversion_setup' }}
-            className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+        <div className='mb-12'>
+          <Link
+            href='/contact'
+            className='inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-300'
+            style={{
+              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+              boxShadow: '0 4px 18px rgba(200,134,10,0.32)',
+            }}
           >
-            Get a Fixed-Price Quote →
-          </TrackedLink>
+            <span>Send a Project Brief</span>
+            <ArrowRight className='w-4 h-4' />
+          </Link>
         </div>
       </section>
 
-      <section className='max-w-4xl mx-auto pb-24 px-4 sm:px-6'>
-        <div className='space-y-10 text-gray-700'>
+      <section className='max-w-4xl mx-auto pb-20 px-4 sm:px-6'>
+        <div className='space-y-12 text-gray-700'>
           
-          {/* Section 1 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>When This Service Fits</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Use this service when a client is launching a new site, running paid campaigns, moving platforms, or seeing gaps between ad platforms and analytics. BBS handles the technical implementation while your agency owns the measurement strategy and client reporting.
-            </p>
-          </div>
-
-          {/* Section 2 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>What BBS Can Implement</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              The scope can include GA4, Google Tag Manager, Meta Pixel, Meta Conversions API, server side tracking, ecommerce events, form and call events, consent settings, CRM event routing, and testing across browsers and devices.
-            </p>
-          </div>
-
-          {/* Section 3 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Event and Data Mapping</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Before implementation, we document the business actions that matter, where each event starts, which fields are required, where the data should be sent, and how success will be checked. This prevents duplicate events, unclear naming, and reports that do not match the real customer journey.
-            </p>
-          </div>
-
-          {/* Section 4 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Implementation Process</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              First, BBS audits the current setup and the approved measurement plan. Next, we map events and data requirements. We then configure the required tags, APIs, and server connections. Finally, we test the full journey, record the results, and complete the handover.
-            </p>
-          </div>
-
-          {/* Section 5 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Testing and Quality Checks</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Testing covers event names, parameters, consent behaviour, duplicate events, browser differences, referral handling, ecommerce values, campaign attribution, and platform diagnostics. Any limitation caused by the website, platform, consent tool, or third party system is documented clearly.
-            </p>
-          </div>
-
-          {/* Section 6 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>What Your Agency Receives</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Your agency receives the implemented tracking setup, a record of configured events, test evidence, access notes, naming conventions, known limitations, and handover guidance. The final documentation can carry your agency branding.
-            </p>
-          </div>
-
-          {/* Section 7 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>White Label Working Model</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Your agency remains the client lead and approves the measurement plan. BBS works behind the scenes, communicates through the agreed channel, and joins a client call only when your team requests technical support.
-            </p>
-          </div>
-
-          {/* Section 8 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Call to Action</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-6'>
-              Share the website, platforms, approved event list, and the reporting outcome your client needs. BBS will review the current setup and outline the implementation scope.
-            </p>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20Tracking%20and%20Conversion%20Setup%20with%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_tracking_conversion_setup_cta_section' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-            >
-              Get a Fixed-Price Quote →
-            </TrackedLink>
-          </div>
-
-          {/* Internal navigation links */}
-          <div className='flex flex-wrap gap-3 pt-2'>
-            <Link href='/services/seo-aeo-geo' className='text-[13px] text-[#C8860A] hover:underline'>Technical SEO, AEO & GEO →</Link>
-            <Link href='/services/app-integrations' className='text-[13px] text-[#C8860A] hover:underline'>App Integrations →</Link>
-          </div>
-
-          {/* FAQ Section */}
-          <div className='pt-4'>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-6'>Frequently Asked Questions</h2>
-            <div className='space-y-4'>
-              {faqs.map((faq, i) => (
-                <div key={i} className='p-5 sm:p-6 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <h3 className='font-semibold text-black mb-2 text-base sm:text-lg'>{faq.q}</h3>
-                  <p className='text-gray-600 text-sm sm:text-base leading-relaxed'>{faq.a}</p>
+          {/* What You Receive */}
+          <div className='bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.18)] shadow-sm'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Deliverables
+            </h2>
+            <h3 className='text-xl sm:text-2xl font-bold text-black mb-4'>
+              What You Receive Upon Handover
+            </h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm'>
+              {whatYouReceive.map((item, idx) => (
+                <div key={idx} className='flex items-start gap-2.5'>
+                  <CheckCircle2 className='w-5 h-5 text-[#C8860A] shrink-0 mt-0.5' />
+                  <span className='text-gray-800'>{item}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Section 1: When this service fits */}
+          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-6 sm:p-7 shadow-sm'>
+            <h2 className='text-xl sm:text-2xl font-bold text-black mb-3'>When This Service Fits</h2>
+            <p className='text-sm sm:text-base text-gray-700 leading-relaxed font-light'>
+              Use this service when an agency client is launching a new site, scaling paid ad campaigns, moving platforms, or experiencing data discrepancies between ad platforms and analytics. BBS handles the technical tagging, container architecture, and server-side webhooks while your agency leads measurement strategy and campaign reporting.
+            </p>
+          </div>
+
+          {/* Section 2: What BBS Implements */}
+          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-6 sm:p-7 shadow-sm'>
+            <h2 className='text-xl sm:text-2xl font-bold text-black mb-3'>What BBS Implements</h2>
+            <p className='text-sm sm:text-base text-gray-700 leading-relaxed font-light mb-4'>
+              The scope includes GA4 custom event tracking, Google Tag Manager container setup, Meta Pixel, Meta Conversions API (server-side tracking), ecommerce purchase pipelines, form submissions, phone call click tracking, and consent mode parameters.
+            </p>
+            <div className='bg-[#FAF8F4] p-4 rounded-xl border border-[rgba(200,134,10,0.15)] text-xs text-gray-600 leading-relaxed'>
+              <strong className='text-black'>Consent &amp; Privacy:</strong> When user consent banners (e.g. Cookiebot, OneTrust) are present, tracking triggers are aligned to respect consent choices and Google Consent Mode v2 standards.
+            </div>
+          </div>
+
+          {/* Section 3: Event & Data Mapping */}
+          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-6 sm:p-7 shadow-sm'>
+            <h2 className='text-xl sm:text-2xl font-bold text-black mb-3'>Event and Data Mapping</h2>
+            <p className='text-sm sm:text-base text-gray-700 leading-relaxed font-light'>
+              Before writing any code, we document the commercial actions that matter: event triggers, data layer variables, destination platforms, and testing parameters. This structured map prevents duplicate firing, inconsistent nomenclature, and inaccurate reporting.
+            </p>
+          </div>
+
+          {/* Related Services */}
+          <div>
+            <h2 className='text-xs font-bold text-gray-500 uppercase tracking-widest mb-3'>
+              Related Services
+            </h2>
+            <div className='flex flex-wrap gap-3'>
+              <Link href='/services/online-store-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Online Store Development →
+              </Link>
+              <Link href='/services/website-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website Development →
+              </Link>
+              <Link href='/services/seo-aeo-geo' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Technical SEO, AEO &amp; GEO →
+              </Link>
             </div>
           </div>
 
         </div>
       </section>
 
+      {/* Single Unified FAQ */}
+      <FAQSection faqs={faqs} title="Conversion Tracking FAQs" />
       <Footer />
     </main>
   )

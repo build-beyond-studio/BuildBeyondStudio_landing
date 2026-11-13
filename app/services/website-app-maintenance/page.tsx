@@ -1,19 +1,23 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection, { FAQItem } from '@/components/FAQSection'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'White Label Website Maintenance for Agencies | BBS',
-  description: 'White label maintenance for agency client websites and apps, covering monitoring, updates, fixes, deployment support, and technical care.',
-}
+export const metadata: Metadata = buildMetadata(
+  '/services/website-app-maintenance',
+  'White Label Website Maintenance for Agencies | BBS',
+  'White label maintenance for agency client websites and apps, covering monitoring, updates, fixes, deployment support, and technical care.'
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Website & App Maintenance Services',
+  name: 'White Label Website & App Maintenance',
   serviceType: 'Website & App Maintenance',
   provider: {
     '@type': 'Organization',
@@ -21,54 +25,7 @@ const serviceSchema = {
     url: 'https://buildbeyondstudio.com',
   },
   areaServed: 'IN',
-  description: 'Build Beyond Studio provides ongoing website and app maintenance, performance monitoring, hosting support, bug fixes, and updates so your digital products keep working without surprises.',
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What does website and app maintenance include?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'It includes regular updates, bug fixes, performance checks, hosting support, monitoring, plugin and dependency maintenance, and quick issue resolution.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Why do we need ongoing maintenance?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Without regular maintenance, apps and sites can slowly break due to dependency updates, expired hosting settings, slow performance, or security gaps that appear over time.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you support hosting as well?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We can help with hosting setup, deployment checks, server configuration, monitoring, domain issues, and performance tuning as part of the support plan.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you handle emergency fixes?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We can respond to urgent issues, recover broken functionality, and prioritize critical fixes when uptime or user experience is at risk.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How is the maintenance service structured?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The service follows a written scope covering systems, routine tasks, requests, reporting, exclusions, and escalation. Larger changes are handled separately.',
-      },
-    },
-  ],
+  description: 'White label maintenance for agency client websites and apps, covering monitoring, updates, fixes, deployment support, and technical care.',
 }
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -78,138 +35,188 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ])
 
 const included = [
-  'Ongoing bug fix and troubleshooting support',
-  'Core app and website updates and dependency maintenance',
-  'Hosting, deployment, and server care',
-  'Performance checks and optimization recommendations',
-  'Security and uptime monitoring',
-  'Priority support for issues affecting clients or sales',
+  'Routine bug fixes and technical troubleshooting under agreed scope',
+  'Core web and framework dependency updates (Next.js, React, Node.js)',
+  'CMS and plugin security patches and regression checks',
+  'Hosting and server environment care (Vercel, AWS, GCP, Hostinger)',
+  'Scheduled database backups and restore procedure verification',
+  'Uptime and technical error monitoring with prompt issue response',
 ]
 
-const process = [
-  { step: '01', title: 'Audit Current Setup', desc: 'We review the website or app, dependencies, hosting, and any recurring issues that need attention.' },
-  { step: '02', title: 'Maintenance Scope', desc: 'We define what needs monitoring, what is covered in updates, and how communication works for support requests.' },
-  { step: '03', title: 'Support Workflow', desc: 'We set up a simple process for issue reporting, fixes, and release management.' },
-  { step: '04', title: 'Monitoring & Updates', desc: 'We keep the platform healthy by patching updates, reviewing performance, and fixing regressions quickly.' },
-  { step: '05', title: 'Continuous Support', desc: 'We stay available for ongoing care so that small issues do not become bigger operational problems.' },
+const whatYouReceive = [
+  'Monthly maintenance summary covering completed patches and updates',
+  'Dedicated ticketing channel for triage and issue resolution',
+  'Deployment verification log for all production releases',
+  'Clear escalation paths for critical incidents within agreed business hours',
 ]
 
-const whyBBS = [
-  'Support that keeps your product stable without forcing an entire rebuild',
-  'Clear process for bug triage, hosting care, and release updates',
-  'A technical partner to catch issues early before they affect growth or customer trust',
+const faqs: FAQItem[] = [
+  {
+    question: 'What does website and app maintenance include?',
+    answer: 'It includes dependency updates, security patches, bug fixes, hosting care, technical monitoring, and priority issue resolution under an agreed scope of work.'
+  },
+  {
+    question: 'Why do marketing agencies need ongoing maintenance retainers?',
+    answer: 'Without proactive maintenance, client websites face broken plugins, dependency incompatibilities, security vulnerabilities, or performance degradations that compromise live campaigns.'
+  },
+  {
+    question: 'Do you offer unlimited support?',
+    answer: 'No. To ensure high engineering quality and predictable delivery, maintenance operates under a structured monthly scope of work. Scope expansions are quoted and approved in writing.'
+  },
+  {
+    question: 'Do you support hosting and server care?',
+    answer: 'Yes. We manage hosting setups, deployment pipelines, server configurations, domain configurations, and SSL certificates across Vercel, AWS, GCP, and other platforms.'
+  },
+  {
+    question: 'Can you handle urgent fixes during active client campaigns?',
+    answer: 'Yes. Critical issues affecting live campaigns or transactions receive priority triage and resolution within the agreed working hours and maintenance tier.'
+  }
 ]
 
-const faqs = [
-  { q: 'What does website and app maintenance include?', a: 'It includes regular updates, bug fixes, performance checks, hosting support, monitoring, plugin and dependency maintenance, and quick issue resolution.' },
-  { q: 'Why do we need ongoing maintenance?', a: 'Without regular maintenance, apps and sites can slowly break due to dependency updates, expired hosting settings, slow performance, or security gaps that appear over time.' },
-  { q: 'Do you support hosting as well?', a: 'Yes. We can help with hosting setup, deployment checks, server configuration, monitoring, domain issues, and performance tuning as part of the support plan.' },
-  { q: 'Can you handle emergency fixes?', a: 'Yes. We can respond to urgent issues, recover broken functionality, and prioritize critical fixes when uptime or user experience is at risk.' },
-  { q: 'How is the maintenance service structured?', a: 'The service follows a written scope covering systems, routine tasks, requests, reporting, exclusions, and escalation. Larger changes are handled separately.' },
-]
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
 
 export default function WebsiteAndAppMaintenancePage() {
   return (
     <main className='min-h-screen bg-[#F5F2EC] text-black'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <section className='max-w-4xl mx-auto pt-28 pb-8 px-4 sm:px-6'>
-        <div className='mb-4 text-sm text-gray-500'>
+      <section className='max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6'>
+        <div className='mb-4 text-xs text-gray-500 flex items-center gap-2'>
           <Link href='/' className='hover:text-black transition-colors'>Home</Link>
-          {' → '}
+          <span>/</span>
           <Link href='/services' className='hover:text-black transition-colors'>Services</Link>
-          {' → '}Website & App Maintenance
+          <span>/</span>
+          <span className='text-[#C8860A] font-medium'>Website &amp; App Maintenance</span>
         </div>
 
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-4'>
-          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Website & App Maintenance Services</span>
+        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/70 mb-4'>
+          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Core Service</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label Website and App Maintenance for Agencies</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Ongoing technical care for client websites and applications under your agency brand.</p>
+        <h1 className='text-3xl sm:text-5xl font-black text-black mb-4 leading-tight'>
+          White Label Website and App Maintenance for Agencies
+        </h1>
+        <p className='text-lg text-gray-600 font-light mb-8'>
+          Ongoing technical care for client websites and applications under your agency brand.
+        </p>
 
-        <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-          <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            BBS maintains agency client websites and applications within an agreed support scope. The plan can cover monitoring, updates, backups, fixes, deployment checks, performance work, reporting, and escalation when an issue needs attention.
+        <div className='bg-white border-l-4 border-[#C8860A] p-5 sm:p-6 rounded-r-xl border-y border-r border-[rgba(200,134,10,0.15)] mb-10 shadow-sm'>
+          <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-normal'>
+            BBS maintains agency client websites and applications within an agreed support scope. The plan covers monitoring, security patches, dependency updates, backups, bug fixes, deployment checks, and performance care under your brand.
           </p>
         </div>
-      </section>
 
-      <section className='max-w-4xl mx-auto pb-24 px-4 sm:px-6'>
-        <div className='space-y-12 text-gray-700'>
-          <div>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20need%20Website%20and%20App%20Maintenance%20support%20from%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_website_app_maintenance' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-            >
-              Get a Fixed-Price Quote →
-            </TrackedLink>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>What&apos;s Included</h2>
-            <ul className='space-y-2'>
-              {included.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Our Process</h2>
-            <div className='space-y-3'>
-              {process.map((item) => (
-                <div key={item.step} className='flex gap-4 p-4 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <span className='text-[#C8860A] font-mono text-sm pt-0.5 shrink-0'>{item.step}</span>
-                  <div>
-                    <div className='font-semibold text-black mb-1'>{item.title}</div>
-                    <div className='text-gray-600 text-sm leading-relaxed'>{item.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Why Build Beyond Studio</h2>
-            <ul className='space-y-2'>
-              {whyBBS.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className='flex flex-wrap gap-3'>
-            <Link href='/services/app-integrations' className='text-[13px] text-[#C8860A] hover:underline'>App Integrations →</Link>
-            <Link href='/services/website-development' className='text-[13px] text-[#C8860A] hover:underline'>Website Development →</Link>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-6'>Frequently Asked Questions</h2>
-            <div className='space-y-4'>
-              {faqs.map((faq, i) => (
-                <div key={i} className='p-4 sm:p-5 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <h3 className='font-semibold text-black mb-2 text-sm sm:text-base'>{faq.q}</h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className='mb-12'>
+          <Link
+            href='/contact'
+            className='inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-300'
+            style={{
+              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+              boxShadow: '0 4px 18px rgba(200,134,10,0.32)',
+            }}
+          >
+            <span>Send a Project Brief</span>
+            <ArrowRight className='w-4 h-4' />
+          </Link>
         </div>
       </section>
 
+      <section className='max-w-4xl mx-auto pb-20 px-4 sm:px-6'>
+        <div className='space-y-12 text-gray-700'>
+
+          {/* What You Receive */}
+          <div className='bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.18)] shadow-sm'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Deliverables
+            </h2>
+            <h3 className='text-xl sm:text-2xl font-bold text-black mb-4'>
+              What Your Agency Receives
+            </h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm'>
+              {whatYouReceive.map((item, idx) => (
+                <div key={idx} className='flex items-start gap-2.5'>
+                  <CheckCircle2 className='w-5 h-5 text-[#C8860A] shrink-0 mt-0.5' />
+                  <span className='text-gray-800'>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Included */}
+          <div>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Scope of Coverage
+            </h2>
+            <h3 className='text-2xl sm:text-3xl font-bold text-black mb-4'>
+              Included Maintenance Activities
+            </h3>
+            <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+              {included.map((item, i) => (
+                <li key={i} className='flex gap-2.5 text-xs sm:text-sm text-gray-600 leading-relaxed bg-white p-3.5 rounded-xl border border-black/5'>
+                  <span className='text-[#C8860A] font-bold shrink-0'>✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Relevant Partner Proof */}
+          <div className='bg-[#FAF8F4] p-6 rounded-2xl border border-[rgba(200,134,10,0.18)]'>
+            <span className='text-xs font-bold text-[#A06A00] uppercase tracking-widest block mb-1'>
+              Agency Case Study
+            </span>
+            <h3 className='text-lg font-bold text-black mb-2'>
+              Shivora Media Technical Offloading
+            </h3>
+            <p className='text-xs sm:text-sm text-gray-600 leading-relaxed mb-4'>
+              BBS took 100% ownership of project execution, deployments, and post-launch maintenance under strict NDA, allowing Shivora Media to increase client capacity by 40% in Bhopal.
+            </p>
+            <Link
+              href='/case-studies/shivora-media'
+              className='inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#C8860A] hover:text-[#A06A00]'
+            >
+              <span>Read the full case study</span>
+              <ArrowRight className='w-3.5 h-3.5' />
+            </Link>
+          </div>
+
+          {/* Related services */}
+          <div>
+            <h2 className='text-xs font-bold text-gray-500 uppercase tracking-widest mb-3'>
+              Related Services
+            </h2>
+            <div className='flex flex-wrap gap-3'>
+              <Link href='/services/website-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website Development →
+              </Link>
+              <Link href='/services/dedicated-development-pod' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Dedicated Development Pod →
+              </Link>
+              <Link href='/services/app-integrations' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                App Integrations →
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Single Merged FAQ */}
+      <FAQSection faqs={faqs} title="Maintenance FAQs" />
       <Footer />
     </main>
   )

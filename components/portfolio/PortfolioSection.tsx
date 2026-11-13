@@ -49,7 +49,7 @@ export default function PortfolioSection({
     },
     {
       title: "Story driven",
-      subtitle: "Ads | marketing",
+      subtitle: "Web Platform & Experience",
       videoSrc: "https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/BBS_WEBSITE/WhatsApp%20Video%202026-09-06%20at%2012.12.50%20AM.mp4",
       link: "https://story-driven-client.vercel.app/"
     },

@@ -1,19 +1,23 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection, { FAQItem } from '@/components/FAQSection'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'White Label AI Chatbot Development for Agencies | BBS',
-  description: 'White label AI chatbot development for agency client sites and WhatsApp, with approved support, qualification, routing, and lead capture flows.',
-}
+export const metadata: Metadata = buildMetadata(
+  '/services/ai-chatbots-assistants',
+  'White Label AI Chatbot Development for Agencies | BBS',
+  'White label AI chatbot development for agency client sites and WhatsApp, with approved support, qualification, routing, and lead capture flows.'
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'AI Chatbots & Assistants Services',
+  name: 'White Label AI Chatbot Development',
   serviceType: 'AI Chatbots & Assistants',
   provider: {
     '@type': 'Organization',
@@ -21,54 +25,7 @@ const serviceSchema = {
     url: 'https://buildbeyondstudio.com',
   },
   areaServed: 'IN',
-  description: 'Build Beyond Studio builds AI chatbots and WhatsApp assistants that qualify leads, answer common questions, schedule calls, and automate repetitive conversations around the clock.',
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What can an AI chatbot do for us?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'It can answer product questions, qualify leads, capture contact details, route conversations, share pricing info, and connect users to the right next step without needing a person online at all times.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can it work on WhatsApp?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We build WhatsApp-based assistants for customer support, lead qualification, appointment booking, and routine communication flows that feel fast and natural.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Does it replace our team?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. It handles repetitive conversations and front-end qualification, while your team focuses on more complex or high-value interactions.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can it connect to our systems?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We can connect the bot to your website, forms, CRM, spreadsheets, or internal tools so the conversation leads directly to a workflow.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How is the chatbot delivery schedule decided?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The schedule depends on content, conversation paths, integrations, reviews, testing, and channels. BBS confirms milestones after reviewing the workflow.',
-      },
-    },
-  ],
+  description: 'White label AI chatbot development for agency client sites and WhatsApp, with approved support, qualification, routing, and lead capture flows.',
 }
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -78,138 +35,190 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ])
 
 const included = [
-  'Conversation flow design for sales, support, and lead qualification',
-  'WhatsApp and web chat bot setup with quick replies and handoff logic',
-  'Lead capture, follow-up triggers, and CRM sync',
-  'Basic knowledge-base responses and FAQs',
-  'Human escalation paths for complex cases',
-  'Launch-ready bot testing and iterations',
+  'Custom chat interface embedding directly into client websites',
+  'Rule-based and LLM-powered qualification and routing logic',
+  'Seamless human-handoff escalation workflows when operators are available',
+  'CRM and spreadsheet lead synchronization via webhooks',
+  'Conversation transcript storage and performance analytics',
+  'Pre-launch conversational testing and error boundary handling',
+]
+
+const whatYouReceive = [
+  'Configured chatbot widget code or webhook integration endpoints',
+  'Structured intent map and conversation flow documentation',
+  'CRM routing and notification test logs',
+  'Handover documentation for ongoing knowledge base updates',
 ]
 
 const process = [
-  { step: '01', title: 'Conversation Mapping', desc: 'We review the most common customer conversations and define the script, funnel, and fallback logic.' },
-  { step: '02', title: 'Bot Design', desc: 'We design the flow, tone, prompts, and database logic around real user intent.' },
-  { step: '03', title: 'Build & Connect', desc: 'We connect the assistant to web chat, WhatsApp, or other channels and integrate your tools.' },
-  { step: '04', title: 'QA & Training', desc: 'We test edge cases, incorrect user inputs, and qualification scenarios before launch.' },
-  { step: '05', title: 'Launch & Improve', desc: 'We monitor usage and refine prompts and flows based on actual customer behavior.' },
+  { step: '01', title: 'Conversation Mapping', desc: 'We identify key lead qualification questions, knowledge base resources, and routing destinations.' },
+  { step: '02', title: 'Prompt & Flow Design', desc: 'We define the interaction logic, guardrails, fallback boundaries, and human escalation triggers.' },
+  { step: '03', title: 'Integration & Development', desc: 'We build the bot, embed the widget on the staging site, and connect CRM endpoints.' },
+  { step: '04', title: 'Conversational QA', desc: 'We test dialogue edge cases, qualification accuracy, and handoff triggers.' },
+  { step: '05', title: 'Deployment & Handover', desc: 'Live deployment under your agency brand with complete access and documentation.' },
 ]
 
-const whyBBS = [
-  'Built to feel useful, not robotic — fast answers with clear handoff when needed',
-  'Works across your website, WhatsApp, and support workflows',
-  'Leads and conversations are channelled into your existing systems instead of lost in chat threads',
+const faqs: FAQItem[] = [
+  {
+    question: 'What can an AI chatbot do for an agency client?',
+    answer: 'It handles routine product inquiries, qualifies inbound leads, collects contact details, and routes qualified prospects into the agency client’s CRM or email inbox 24/7.',
+  },
+  {
+    question: 'How does human handoff work?',
+    answer: 'When a user requests a human representative or asks a query outside the approved knowledge base, the bot escalates the conversation via email, live chat routing, or CRM alert.',
+  },
+  {
+    question: 'Can the bot integrate with CRM tools?',
+    answer: 'Yes. We connect chatbots to HubSpot, Zoho, Google Sheets, or custom webhook endpoints to log conversations and lead records in real time.',
+  },
+  {
+    question: 'Who owns the bot configuration and data?',
+    answer: 'Your agency or your client retains 100% ownership of all conversation prompts, knowledge base documents, and integration credentials.',
+  },
 ]
 
-const faqs = [
-  { q: 'What can an AI chatbot do for us?', a: 'It can answer product questions, qualify leads, capture contact details, route conversations, share pricing info, and connect users to the right next step without needing a person online at all times.' },
-  { q: 'Can it work on WhatsApp?', a: 'Yes. We build WhatsApp-based assistants for customer support, lead qualification, appointment booking, and routine communication flows that feel fast and natural.' },
-  { q: 'Does it replace our team?', a: 'No. It handles repetitive conversations and front-end qualification, while your team focuses on more complex or high-value interactions.' },
-  { q: 'Can it connect to our systems?', a: 'Yes. We can connect the bot to your website, forms, CRM, spreadsheets, or internal tools so the conversation leads directly to a workflow.' },
-  { q: 'How is the chatbot delivery schedule decided?', a: 'The schedule depends on content, conversation paths, integrations, reviews, testing, and channels. BBS confirms milestones after reviewing the workflow.' },
-]
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
 
-export default function AIAssistantsPage() {
+export default function AiChatbotsAssistantsPage() {
   return (
     <main className='min-h-screen bg-[#F5F2EC] text-black'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <section className='max-w-4xl mx-auto pt-28 pb-8 px-4 sm:px-6'>
-        <div className='mb-4 text-sm text-gray-500'>
+      <section className='max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6'>
+        <div className='mb-4 text-xs text-gray-500 flex items-center gap-2'>
           <Link href='/' className='hover:text-black transition-colors'>Home</Link>
-          {' → '}
+          <span>/</span>
           <Link href='/services' className='hover:text-black transition-colors'>Services</Link>
-          {' → '}AI Chatbots & Assistants
+          <span>/</span>
+          <span className='text-[#C8860A] font-medium'>AI Chatbots &amp; Assistants</span>
         </div>
 
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-4'>
-          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>AI Chatbots & Assistants Services</span>
+        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/70 mb-4'>
+          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Additional Capability</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>White Label AI Chatbots for Agency Client Projects</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Website and WhatsApp assistants delivered under your agency brand.</p>
+        <h1 className='text-3xl sm:text-5xl font-black text-black mb-4 leading-tight'>
+          White Label AI Chatbot Development for Agencies
+        </h1>
+        <p className='text-lg text-gray-600 font-light mb-8'>
+          AI chatbots and customer assistants with human handoff for agency client sites and lead workflows.
+        </p>
 
-        <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-          <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            BBS builds assistants around approved client content and workflows. The solution can answer common questions, collect details, route requests, update connected systems, and hand conversations to a person when required.
+        <div className='bg-white border-l-4 border-[#C8860A] p-5 sm:p-6 rounded-r-xl border-y border-r border-[rgba(200,134,10,0.15)] mb-10 shadow-sm'>
+          <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-normal'>
+            BBS builds conversational assistants for agency client projects. We structure knowledge bases, configure qualification flows, set up human-handoff triggers, and connect conversations directly to client CRMs.
           </p>
+        </div>
+
+        <div className='mb-12'>
+          <Link
+            href='/contact'
+            className='inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-300'
+            style={{
+              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+              boxShadow: '0 4px 18px rgba(200,134,10,0.32)',
+            }}
+          >
+            <span>Send a Project Brief</span>
+            <ArrowRight className='w-4 h-4' />
+          </Link>
         </div>
       </section>
 
-      <section className='max-w-4xl mx-auto pb-24 px-4 sm:px-6'>
+      <section className='max-w-4xl mx-auto pb-20 px-4 sm:px-6'>
         <div className='space-y-12 text-gray-700'>
-          <div>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20an%20AI%20Chatbot%20or%20Assistant%20with%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_ai_chatbots_assistants' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-            >
-              Get a Fixed-Price Quote →
-            </TrackedLink>
+
+          {/* What You Receive */}
+          <div className='bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.18)] shadow-sm'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Deliverables
+            </h2>
+            <h3 className='text-xl sm:text-2xl font-bold text-black mb-4'>
+              What Your Agency Receives
+            </h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm'>
+              {whatYouReceive.map((item, idx) => (
+                <div key={idx} className='flex items-start gap-2.5'>
+                  <CheckCircle2 className='w-5 h-5 text-[#C8860A] shrink-0 mt-0.5' />
+                  <span className='text-gray-800'>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
+          {/* Included */}
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>What&apos;s Included</h2>
-            <ul className='space-y-2'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Scope
+            </h2>
+            <h3 className='text-2xl sm:text-3xl font-bold text-black mb-4'>
+              Included in Chatbot Engagements
+            </h3>
+            <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
               {included.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>✓</span>
-                  {item}
+                <li key={i} className='flex gap-2.5 text-xs sm:text-sm text-gray-600 leading-relaxed bg-white p-3.5 rounded-xl border border-black/5'>
+                  <span className='text-[#C8860A] font-bold shrink-0'>✓</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Process */}
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Our Process</h2>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Delivery Workflow
+            </h2>
+            <h3 className='text-2xl sm:text-3xl font-bold text-black mb-4'>
+              How We Build &amp; Train Chatbots
+            </h3>
             <div className='space-y-3'>
               {process.map((item) => (
-                <div key={item.step} className='flex gap-4 p-4 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <span className='text-[#C8860A] font-mono text-sm pt-0.5 shrink-0'>{item.step}</span>
+                <div key={item.step} className='flex gap-4 p-4 sm:p-5 rounded-xl bg-white border border-[rgba(200,134,10,0.12)] shadow-sm'>
+                  <span className='text-[#C8860A] font-mono text-sm pt-0.5 shrink-0 font-bold'>{item.step}</span>
                   <div>
-                    <div className='font-semibold text-black mb-1'>{item.title}</div>
-                    <div className='text-gray-600 text-sm leading-relaxed'>{item.desc}</div>
+                    <h4 className='font-bold text-black mb-1 text-sm sm:text-base'>{item.title}</h4>
+                    <p className='text-gray-600 text-xs sm:text-sm leading-relaxed'>{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Related services */}
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Why Build Beyond Studio</h2>
-            <ul className='space-y-2'>
-              {whyBBS.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className='flex flex-wrap gap-3'>
-            <Link href='/services/custom-software-development' className='text-[13px] text-[#C8860A] hover:underline'>Custom Software Development →</Link>
-            <Link href='/services/website-development' className='text-[13px] text-[#C8860A] hover:underline'>Website Development →</Link>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-6'>Frequently Asked Questions</h2>
-            <div className='space-y-4'>
-              {faqs.map((faq, i) => (
-                <div key={i} className='p-4 sm:p-5 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <h3 className='font-semibold text-black mb-2 text-sm sm:text-base'>{faq.q}</h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>{faq.a}</p>
-                </div>
-              ))}
+            <h2 className='text-xs font-bold text-gray-500 uppercase tracking-widest mb-3'>
+              Related Services
+            </h2>
+            <div className='flex flex-wrap gap-3'>
+              <Link href='/services/website-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website Development →
+              </Link>
+              <Link href='/services/app-integrations' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                App Integrations →
+              </Link>
             </div>
           </div>
+
         </div>
       </section>
 
+      {/* Single Merged FAQ */}
+      <FAQSection faqs={faqs} title="AI Chatbot FAQs" />
       <Footer />
     </main>
   )

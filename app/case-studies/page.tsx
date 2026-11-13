@@ -207,7 +207,7 @@ export default function CaseStudiesIndexPage() {
       <section className="bg-white border-t border-black/5 py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-4">
-            Deliver Enterprise Value Under Your Brand
+            Deliver Reliable Engineering Under Your Agency Brand
           </h2>
           <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto font-light">
             We operate invisibly in your Slack, codebases, and sprint pipelines. Let&apos;s discuss a white-label capacity retainer.

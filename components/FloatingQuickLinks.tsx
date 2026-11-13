@@ -101,12 +101,12 @@ export default function FloatingQuickLinks() {
         href={contactHref}
         {...contactProps}
         onClick={() => {
-          window.gtag?.("event", "whatsapp_click", { button_location: "bottom_nav_right" });
+          window.gtag?.("event", "cta_click", { button_location: "bottom_nav_right", cta_label: "Send a Project Brief" });
         }}
         className="flex-1 text-white shadow-[0_4px_12px_rgba(200,134,10,0.25)] text-[12px] sm:text-[14px] font-semibold py-3.5 rounded-xl flex items-center justify-center whitespace-nowrap hover:brightness-110 transition-all"
         style={{ background: "linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)" }}
       >
-        Book a Strategy Call
+        Send a Project Brief
       </a>
     </div>
   );

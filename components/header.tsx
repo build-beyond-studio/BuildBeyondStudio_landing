@@ -24,11 +24,11 @@ const NAV_LINKS: NavLink[] = [
       { href: "/services", label: "View all services →" },
     ]
   },
-  { href: "/our-work", label: "Our Work" },
   { href: "/how-we-partner", label: "How We Partner" },
-  // { href: "/training-programs", label: "Internship Programs" },
-  { href: "/#revenue", label: "Revenue Model" },
+  { href: "/pricing-model", label: "Pricing Model" },
   { href: "/success-stories", label: "Success Stories" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -219,6 +219,7 @@ export default function Header() {
                 alt="Build Beyond Studio - Web Development & DevOps Agency"
                 width={40}
                 height={40}
+                priority
                 className="w-8 sm:w-9 h-8 sm:h-9 shrink-0 bg-white rounded-full"
               />
               <span className="font-semibold text-black text-sm sm:text-[15px] tracking-tight whitespace-nowrap">
@@ -273,7 +274,7 @@ export default function Header() {
               href={contactHref}
               {...contactProps}
               onClick={() => {
-                window.gtag?.('event', 'whatsapp_click', { button_location: 'navbar' });
+                window.gtag?.('event', 'cta_click', { button_location: 'navbar', cta_label: 'Send a Project Brief' });
               }}
               className="hidden lg:inline-block text-white px-5 py-2 rounded-lg transition-all font-semibold text-[13px] anim-from-right whitespace-nowrap"
               style={{
@@ -281,7 +282,7 @@ export default function Header() {
                 boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
               }}
             >
-              Book a Strategy Call →
+              Send a Project Brief →
             </a>
 
             {/* Hamburger — slides from RIGHT */}
@@ -338,7 +339,7 @@ export default function Header() {
                   href={contactHref}
                   {...contactProps}
                   onClick={() => {
-                    window.gtag?.('event', 'whatsapp_click', { button_location: 'navbar' });
+                    window.gtag?.('event', 'cta_click', { button_location: 'navbar', cta_label: 'Send a Project Brief' });
                     setIsMenuOpen(false);
                   }}
                   className="mob-link text-white text-[12px] font-semibold py-2 px-4 rounded-lg mt-2 text-center transition-all"
@@ -347,7 +348,7 @@ export default function Header() {
                     boxShadow: '0 4px 12px rgba(200,134,10,0.25)',
                   }}
                 >
-                  Book a Strategy Call →
+                  Send a Project Brief →
                 </a>
               </nav>
             </div>

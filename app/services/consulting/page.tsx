@@ -233,7 +233,7 @@ export default function ConsultingPage() {
 
         <div className="mt-16 p-8 rounded-xl bg-white border border-[rgba(200,134,10,0.16)]" style={{ boxShadow: '0 4px 20px rgba(200,134,10,0.10)' }}>
           <h2 className="text-2xl font-semibold text-black mb-3">Need a technical second opinion?</h2>
-          <p className="text-gray-600 mb-6">Book a free 30-minute discovery call. No commitment, no sales pitch.</p>
+          <p className="text-gray-600 mb-6">Book a 30-minute discovery call. We review your technical requirements and provide clear scope guidance.</p>
           <TrackedLink
             href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20Technical%20Consulting%20brief%20with%20Build%20Beyond%20Studio."
             eventName="whatsapp_click"

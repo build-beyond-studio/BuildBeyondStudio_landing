@@ -1,21 +1,17 @@
-import { MetadataRoute } from 'next'
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
+import type { MetadataRoute } from 'next';
 
-import blogs from '@/data/blogs.json'
-import { COURSES } from './training-programs/data'
-import { CASE_STUDIES } from './case-studies/data'
+import blogs from '@/data/blogs.json';
+import { COURSES } from './training-programs/data';
+import { CASE_STUDIES } from './case-studies/data';
 
-const BASE_URL = 'https://buildbeyondstudio.com'
+const BASE_URL = 'https://buildbeyondstudio.com';
 
-/**
- * Priority & changeFrequency configuration for known route patterns.
- * Routes not listed here get sensible defaults based on their depth.
- */
-const ROUTE_CONFIG: Record<string, { priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }> = {
+const ROUTE_CONFIG: Record<string, { priority: number; changeFrequency: string }> = {
   '/': { priority: 1.0, changeFrequency: 'weekly' },
-  '/for-agencies': { priority: 1.0, changeFrequency: 'weekly' },
   '/white-label-web-development': { priority: 1.0, changeFrequency: 'weekly' },
+  '/white-label-web-development-uk': { priority: 1.0, changeFrequency: 'weekly' },
   '/services': { priority: 0.9, changeFrequency: 'weekly' },
   '/how-we-partner': { priority: 0.9, changeFrequency: 'weekly' },
   '/success-stories': { priority: 0.9, changeFrequency: 'weekly' },
@@ -26,142 +22,108 @@ const ROUTE_CONFIG: Record<string, { priority: number; changeFrequency: Metadata
   '/blog': { priority: 0.8, changeFrequency: 'weekly' },
   '/privacy': { priority: 0.3, changeFrequency: 'yearly' },
   '/terms': { priority: 0.3, changeFrequency: 'yearly' },
-}
+};
 
-/**
- * Directories to exclude from sitemap (API routes, assets, etc.)
- */
-const EXCLUDED_DIRS = new Set(['api', 'assets', '_components'])
+const EXCLUDED_DIRS = new Set(['api', 'assets', '_components', 'leads', 'panel']);
 
-/**
- * Recursively scans the app directory to discover all static routes
- * (directories containing a page.tsx that are NOT dynamic [slug] routes).
- */
-function discoverStaticRoutes(dir: string, basePath: string = ''): string[] {
-  const routes: string[] = []
+function discoverStaticRoutes(dir: string, basePath = ''): string[] {
+  const routes: string[] = [];
 
-  let entries: fs.Dirent[]
+  let entries: fs.Dirent[];
   try {
-    entries = fs.readdirSync(dir, { withFileTypes: true })
+    entries = fs.readdirSync(dir, { withFileTypes: true });
   } catch {
-    return routes
+    return routes;
   }
 
-  // Check if this directory has a page.tsx (meaning it's a valid route)
   const hasPage = entries.some(
-    (e) => !e.isDirectory() && (e.name === 'page.tsx' || e.name === 'page.ts' || e.name === 'page.jsx' || e.name === 'page.js')
-  )
+    (entry) => !entry.isDirectory() && ['page.tsx', 'page.ts', 'page.jsx', 'page.js'].includes(entry.name)
+  );
 
-  if (hasPage) {
-    routes.push(basePath || '/')
+  if (hasPage && basePath !== '/robots.txt' && basePath !== '/sitemap.xml') {
+    routes.push(basePath || '/');
   }
 
-  // Recurse into subdirectories
   for (const entry of entries) {
-    if (!entry.isDirectory()) continue
+    if (!entry.isDirectory()) continue;
 
-    const dirName = entry.name
+    const dirName = entry.name;
 
-    // Skip dynamic route segments — they are handled separately
-    if (dirName.startsWith('[') && dirName.endsWith(']')) continue
+    if (dirName.startsWith('[') && dirName.endsWith(']')) continue;
+    if (EXCLUDED_DIRS.has(dirName)) continue;
+    if (dirName.startsWith('_') || dirName.startsWith('.')) continue;
 
-    // Skip excluded directories
-    if (EXCLUDED_DIRS.has(dirName)) continue
-
-    // Skip hidden/internal directories
-    if (dirName.startsWith('_') || dirName.startsWith('.')) continue
-
-    const childPath = `${basePath}/${dirName}`
-    routes.push(...discoverStaticRoutes(path.join(dir, dirName), childPath))
+    const childPath = `${basePath}/${dirName}`;
+    routes.push(...discoverStaticRoutes(path.join(dir, dirName), childPath));
   }
 
-  return routes
+  return routes;
 }
 
-/**
- * Returns default priority and changeFrequency for a route based on its pattern.
- */
 function getRouteConfig(routePath: string) {
-  // Check for an explicit config first
   if (ROUTE_CONFIG[routePath]) {
-    return ROUTE_CONFIG[routePath]
+    return ROUTE_CONFIG[routePath];
   }
 
-  // Service sub-pages
   if (routePath.startsWith('/services/')) {
-    return { priority: 0.8, changeFrequency: 'monthly' as const }
+    return { priority: 0.8, changeFrequency: 'monthly' };
   }
 
-  // Fallback based on depth
-  const depth = routePath.split('/').filter(Boolean).length
+  const depth = routePath.split('/').filter(Boolean).length;
   if (depth <= 1) {
-    return { priority: 0.8, changeFrequency: 'monthly' as const }
+    return { priority: 0.8, changeFrequency: 'monthly' };
   }
-  return { priority: 0.7, changeFrequency: 'monthly' as const }
+  return { priority: 0.7, changeFrequency: 'monthly' };
 }
 
-/**
- * Generates a fully dynamic sitemap by:
- * 1. Scanning the filesystem for all page.tsx files (static routes)
- * 2. Resolving dynamic [slug] routes from data sources (blogs, courses, case studies)
- *
- * Any new page.tsx added to the app directory is automatically included.
- */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-  const appDir = path.join(process.cwd(), 'app')
+  const appDir = path.join(process.cwd(), 'app');
+  const staticRoutes = discoverStaticRoutes(appDir).filter(
+    (route) =>
+      !route.startsWith('/leads') &&
+      !route.startsWith('/panel') &&
+      route !== '/for-agencies' &&
+      route !== '/services/white-label'
+  );
 
-  // ── 1. Discover all static routes from the filesystem ──
-  const staticRoutes = discoverStaticRoutes(appDir)
-
-  const staticPages: MetadataRoute.Sitemap = staticRoutes.map((route) => {
-    const config = getRouteConfig(route)
+  const staticPages = staticRoutes.map((route) => {
+    const config = getRouteConfig(route);
     return {
       url: `${BASE_URL}${route === '/' ? '' : route}`,
-      lastModified: now,
       changeFrequency: config.changeFrequency,
       priority: config.priority,
-    }
-  })
+    };
+  });
 
-  // ── 2. Resolve dynamic [slug] routes from data sources ──
-
-  // Blog posts from blogs.json
-  const blogPages: MetadataRoute.Sitemap = blogs.map((blog) => ({
+  const blogPages = blogs.map((blog: { slug: string; date: string }) => ({
     url: `${BASE_URL}/blog/${blog.slug}`,
     lastModified: new Date(blog.date),
     changeFrequency: 'monthly',
     priority: 0.8,
-  }))
+  }));
 
-  // Training program courses
-  const coursePages: MetadataRoute.Sitemap = COURSES.map((course: { id: string }) => ({
+  const coursePages = COURSES.map((course) => ({
     url: `${BASE_URL}/training-programs/${course.id}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'monthly',
     priority: 0.8,
-  }))
+  }));
 
-  // Case studies
-  const caseStudyPages: MetadataRoute.Sitemap = CASE_STUDIES.map((cs) => ({
-    url: `${BASE_URL}/case-studies/${cs.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
+  const caseStudyPages = CASE_STUDIES.map((study) => ({
+    url: `${BASE_URL}/case-studies/${study.slug}`,
+    changeFrequency: 'monthly',
     priority: 0.8,
-  }))
+  }));
 
-  // ── 3. Combine and deduplicate ──
-  const allPages = [...staticPages, ...blogPages, ...coursePages, ...caseStudyPages]
+  const allPages = [...staticPages, ...blogPages, ...coursePages, ...caseStudyPages];
+  const seen = new Set<string>();
+  const deduped: MetadataRoute.Sitemap = [];
 
-  // Deduplicate by URL (in case a dynamic route overlaps with a discovered static route)
-  const seen = new Set<string>()
-  const deduped: MetadataRoute.Sitemap = []
   for (const page of allPages) {
     if (!seen.has(page.url)) {
-      seen.add(page.url)
-      deduped.push(page)
+      seen.add(page.url);
+      deduped.push(page);
     }
   }
 
-  return deduped
+  return deduped;
 }

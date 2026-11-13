@@ -1,19 +1,23 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection, { FAQItem } from '@/components/FAQSection'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'Dedicated Development Team for Agencies | BBS',
-  description: 'A managed development pod for agencies with ongoing client work, shared priorities, regular demos, quality checks, and delivery under your brand.',
-}
+export const metadata: Metadata = buildMetadata(
+  '/services/dedicated-development-pod',
+  'Dedicated Development Team for Agencies | BBS',
+  'A managed development pod for agencies with ongoing client work, shared priorities, regular demos, quality checks, and delivery under your brand.'
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Dedicated Development Pod Services',
+  name: 'Dedicated Development Team for Agencies',
   serviceType: 'Dedicated Development Pod',
   provider: {
     '@type': 'Organization',
@@ -24,232 +28,185 @@ const serviceSchema = {
   description: 'A managed development pod for agencies with ongoing client work, shared priorities, regular demos, quality checks, and delivery under your brand.',
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is a dedicated development pod?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A dedicated development pod is a managed technical team assigned to ongoing agency work. It follows the agency backlog, delivery process, communication rules, and review cycle instead of being hired for one isolated task.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is the pod part of our agency team?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The pod works as an extension of your agency for the agreed delivery scope. Your agency owns the client relationship, priorities, approvals, and commercial decisions.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What work can the pod handle?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The pod can support websites, web applications, ecommerce work, integrations, tracking implementation, maintenance, technical fixes, deployment, testing, and documentation within the agreed skills and scope.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do we assign priorities?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Your agency maintains the approved backlog and identifies the next priorities. BBS reviews each request for scope, dependencies, access, and acceptance criteria before placing it into the delivery cycle.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do we see progress?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'BBS provides progress updates, working demonstrations, and completed item summaries through the agreed channel. Your team can review the work and record feedback before the next priorities begin.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Will the pod speak directly with our clients?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Only when your agency requests it. The default arrangement keeps your agency as the client lead while BBS communicates with your team and delivers under your brand.',
-      },
-    },
-  ],
-}
-
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'Dedicated Development Pod', path: '/services/dedicated-development-pod' },
 ])
 
-const faqs = [
+const whatYouReceive = [
+  'Dedicated full-stack engineers aligned to your sprint cycles',
+  'Weekly progress demos, staging links, and direct task coordination',
+  'Codebase architecture reviews and QA testing before every release',
+  '100% IP ownership, clear handover notes, and repository access',
+]
+
+const faqs: FAQItem[] = [
   {
-    q: 'What is a dedicated development pod?',
-    a: 'A dedicated development pod is a managed technical team assigned to ongoing agency work. It follows the agency backlog, delivery process, communication rules, and review cycle instead of being hired for one isolated task.',
+    question: 'What is a dedicated development pod?',
+    answer: 'A dedicated development pod is an agile engineering team assigned to ongoing agency work. The pod works on your agency’s backlog, communication channels, and review cycle without the payroll liability of direct hiring.',
   },
   {
-    q: 'Is the pod part of our agency team?',
-    a: 'The pod works as an extension of your agency for the agreed delivery scope. Your agency owns the client relationship, priorities, approvals, and commercial decisions.',
+    question: 'Is the pod part of our agency team?',
+    answer: 'The pod works as an invisible extension of your agency. Your agency owns the client relationship, backlog priorities, approvals, and commercial terms.',
   },
   {
-    q: 'What work can the pod handle?',
-    a: 'The pod can support websites, web applications, ecommerce work, integrations, tracking implementation, maintenance, technical fixes, deployment, testing, and documentation within the agreed skills and scope.',
+    question: 'What work can the pod handle?',
+    answer: 'The pod handles custom websites, web applications, ecommerce builds, third-party integrations, tracking setups, bug fixes, deployment pipelines, and ongoing maintenance.',
   },
   {
-    q: 'How do we assign priorities?',
-    a: 'Your agency maintains the approved backlog and identifies the next priorities. BBS reviews each request for scope, dependencies, access, and acceptance criteria before placing it into the delivery cycle.',
+    question: 'How do we assign priorities?',
+    answer: 'Your agency maintains the sprint backlog. BBS reviews tickets for scope, dependencies, and acceptance criteria before moving them into development.',
   },
   {
-    q: 'How do we see progress?',
-    a: 'BBS provides progress updates, working demonstrations, and completed item summaries through the agreed channel. Your team can review the work and record feedback before the next priorities begin.',
+    question: 'How do we review progress?',
+    answer: 'BBS provides weekly progress updates, staging links, and working demos. Your team reviews completed features and approves priorities before releases.',
   },
   {
-    q: 'Will the pod speak directly with our clients?',
-    a: 'Only when your agency requests it. The default arrangement keeps your agency as the client lead while BBS communicates with your team and delivers under your brand.',
+    question: 'Will the pod speak directly with our clients?',
+    answer: 'Only when your agency specifically requests technical attendance. The default model keeps your agency as the sole client lead while BBS communicates with your internal team.',
   },
 ]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
 
 export default function DedicatedDevelopmentPodPage() {
   return (
     <main className='min-h-screen bg-[#F5F2EC] text-black'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <section className='max-w-4xl mx-auto pt-28 pb-8 px-4 sm:px-6'>
-        <div className='mb-4 text-sm text-gray-500'>
+      <section className='max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6'>
+        <div className='mb-4 text-xs text-gray-500 flex items-center gap-2'>
           <Link href='/' className='hover:text-black transition-colors'>Home</Link>
-          {' → '}
+          <span>/</span>
           <Link href='/services' className='hover:text-black transition-colors'>Services</Link>
-          {' → '}Dedicated Development Pod
+          <span>/</span>
+          <span className='text-[#C8860A] font-medium'>Dedicated Development Pod</span>
         </div>
 
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-4'>
-          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Dedicated Development Pod</span>
+        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/70 mb-4'>
+          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Core Service</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>
-          A Dedicated Development Pod for Your Agency
+        <h1 className='text-3xl sm:text-5xl font-black text-black mb-4 leading-tight'>
+          Dedicated Development Team for Agencies
         </h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>
-          Add dependable development capacity for steady client work without building another internal department. BBS provides a managed pod that works from your approved priorities and delivers under your agency brand.
+        <p className='text-lg text-gray-600 font-light mb-8'>
+          A managed development pod for agencies with ongoing client work, shared priorities, regular demos, quality checks, and delivery under your brand.
         </p>
 
-        <div>
-          <TrackedLink
-            href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20a%20Dedicated%20Development%20Pod%20with%20Build%20Beyond%20Studio.'
-            eventName='whatsapp_click'
-            eventParams={{ button_location: 'service_page_dedicated_development_pod' }}
-            className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+        <div className='mb-12'>
+          <Link
+            href='/contact'
+            className='inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-300'
+            style={{
+              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+              boxShadow: '0 4px 18px rgba(200,134,10,0.32)',
+            }}
           >
-            Get a Fixed-Price Quote →
-          </TrackedLink>
+            <span>Send a Project Brief</span>
+            <ArrowRight className='w-4 h-4' />
+          </Link>
         </div>
       </section>
 
-      <section className='max-w-4xl mx-auto pb-24 px-4 sm:px-6'>
-        <div className='space-y-10 text-gray-700'>
-          
+      <section className='max-w-4xl mx-auto pb-20 px-4 sm:px-6'>
+        <div className='space-y-12 text-gray-700'>
+
+          {/* What You Receive */}
+          <div className='bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.18)] shadow-sm'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Deliverables
+            </h2>
+            <h3 className='text-xl sm:text-2xl font-bold text-black mb-4'>
+              What Your Agency Receives
+            </h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm'>
+              {whatYouReceive.map((item, idx) => (
+                <div key={idx} className='flex items-start gap-2.5'>
+                  <CheckCircle2 className='w-5 h-5 text-[#C8860A] shrink-0 mt-0.5' />
+                  <span className='text-gray-800'>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Section 1 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>When a Development Pod Fits</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              A pod fits agencies with ongoing website work, feature requests, landing pages, integrations, maintenance, or several client projects moving at the same time. It gives the agency a consistent technical team and a clear delivery rhythm.
+          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-6 sm:p-7 shadow-sm'>
+            <h2 className='text-xl sm:text-2xl font-bold text-black mb-3'>When This Service Fits</h2>
+            <p className='text-sm sm:text-base text-gray-700 leading-relaxed font-light'>
+              Use a dedicated development pod when your agency handles steady monthly web projects, client retainer requests, or iterative feature rollouts. The pod eliminates the overhead of sourcing, vetting, and managing developers internally while preserving your agency's gross margins.
             </p>
           </div>
 
           {/* Section 2 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>What the Pod Can Handle</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              The pod can support website development, web applications, ecommerce work, integrations, tracking implementation, technical fixes, maintenance, quality checks, deployment, and documentation. The exact responsibilities are agreed before work begins.<br className='hidden' />
+          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-2xl p-6 sm:p-7 shadow-sm'>
+            <h2 className='text-xl sm:text-2xl font-bold text-black mb-3'>Delivery and Review Rhythm</h2>
+            <p className='text-sm sm:text-base text-gray-700 leading-relaxed font-light mb-3'>
+              The pod provides structured progress updates, staging environments, and working demos. Your team reviews completed features, records client feedback, and sets upcoming sprint priorities.
+            </p>
+            <p className='text-xs text-gray-500 italic'>
+              * Pod sizing, roles, and minimum engagement periods are confirmed per agency volume. Contact us for custom pod configurations.
             </p>
           </div>
 
-          {/* Section 3 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>How Work Is Prioritised</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Your agency maintains the approved backlog and decides what matters next. BBS reviews each request, identifies dependencies, confirms acceptance criteria, and plans the work into the agreed delivery cycle. New requests are assessed before they enter active development.
+          {/* Relevant Partner Proof */}
+          <div className='bg-[#FAF8F4] p-6 rounded-2xl border border-[rgba(200,134,10,0.18)]'>
+            <span className='text-xs font-bold text-[#A06A00] uppercase tracking-widest block mb-1'>
+              Partner Case Study
+            </span>
+            <h3 className='text-lg font-bold text-black mb-2'>
+              BVFX Digify Sprint Integration
+            </h3>
+            <p className='text-xs sm:text-sm text-gray-600 leading-relaxed mb-4'>
+              BBS integrated directly into BVFX Digify's workflow to deliver 3× faster project execution without adding internal headcount in Bhilai.
             </p>
-          </div>
-
-          {/* Section 4 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Delivery and Review Rhythm</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              The pod provides regular progress updates and working demonstrations through the agreed channel. Your team reviews completed work, records feedback, and approves the next priorities. This keeps delivery visible without adding daily management work for the agency.
-            </p>
-          </div>
-
-          {/* Section 5 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Quality and Handover</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Every completed item follows the agreed review and testing process. BBS records relevant setup details, deployment notes, known limitations, and handover information so your agency is not dependent on undocumented knowledge.
-            </p>
-          </div>
-
-          {/* Section 6 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Client Protection</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Your agency remains the client lead. BBS works under your brand, follows the agreed communication rules, and does not approach the client outside the approved project workflow. Client access and confidential material are limited to the work that requires them.
-            </p>
-          </div>
-
-          {/* Section 7 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Starting the Pod</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light'>
-              Begin with the current backlog, active platforms, access requirements, review process, and expected delivery rhythm. BBS uses that information to define the pod responsibilities, working method, and first set of priorities.
-            </p>
-          </div>
-
-          {/* Section 8 */}
-          <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-6 sm:p-7' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-3'>Call to Action</h2>
-            <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-6'>
-              Share the type of client work your agency handles each month and the backlog you want to move forward. BBS will review the requirements and outline a suitable pod structure.
-            </p>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20a%20Dedicated%20Development%20Pod%20with%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_dedicated_development_pod_cta_section' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+            <Link
+              href='/case-studies/bvfx-digify'
+              className='inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#C8860A] hover:text-[#A06A00]'
             >
-              Get a Fixed-Price Quote →
-            </TrackedLink>
+              <span>Read the full case study</span>
+              <ArrowRight className='w-3.5 h-3.5' />
+            </Link>
           </div>
 
-          {/* Internal navigation links */}
-          <div className='flex flex-wrap gap-3 pt-2'>
-            <Link href='/services/custom-software-development' className='text-[13px] text-[#C8860A] hover:underline'>Custom Software Development →</Link>
-            <Link href='/services/website-app-maintenance' className='text-[13px] text-[#C8860A] hover:underline'>Website & App Maintenance →</Link>
-          </div>
-
-          {/* FAQ Section */}
-          <div className='pt-4'>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-6'>Frequently Asked Questions</h2>
-            <div className='space-y-4'>
-              {faqs.map((faq, i) => (
-                <div key={i} className='p-5 sm:p-6 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <h3 className='font-semibold text-black mb-2 text-base sm:text-lg'>{faq.q}</h3>
-                  <p className='text-gray-600 text-sm sm:text-base leading-relaxed'>{faq.a}</p>
-                </div>
-              ))}
+          {/* Related services with direct link to Maintenance */}
+          <div>
+            <h2 className='text-xs font-bold text-gray-500 uppercase tracking-widest mb-3'>
+              Related Services
+            </h2>
+            <div className='flex flex-wrap gap-3'>
+              <Link href='/services/website-app-maintenance' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website &amp; App Maintenance →
+              </Link>
+              <Link href='/services/website-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website Development →
+              </Link>
+              <Link href='/services/custom-software-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Custom Software Development →
+              </Link>
             </div>
           </div>
 
         </div>
       </section>
 
+      {/* Single Merged FAQ */}
+      <FAQSection faqs={faqs} title="Dedicated Pod FAQs" />
       <Footer />
     </main>
   )

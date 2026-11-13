@@ -1,83 +1,38 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { XCircle, UserX, TrendingDown, AlertTriangle } from "lucide-react";
 
-/* ── SVG icons ── */
-const IconHandshake = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/>
-    <path d="M12 5.36 8.87 8.5a2.13 2.13 0 0 0 0 3h0a2.13 2.13 0 0 0 3.02 0L12 11l.11.5a2.13 2.13 0 0 0 3.02 0h0a2.13 2.13 0 0 0 0-3z"/>
-  </svg>
-);
-const IconSend = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="22" y1="2" x2="11" y2="13"/>
-    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-  </svg>
-);
-const IconRocket = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
-    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
-  </svg>
-);
-const IconArrow = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="5" y1="12" x2="19" y2="12"/>
-    <polyline points="12 5 19 12 12 19"/>
-  </svg>
-);
-const IconDollar = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="12" y1="1" x2="12" y2="23"/>
-    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-  </svg>
-);
-
-const STEPS = [
+const PROBLEMS = [
   {
-    num: "01",
-    title: "Turning Down Projects",
-    body: "Stop saying 'no' to custom app requests because you lack in-house technical capacity.",
-    Icon: IconHandshake,
-    cta: "Capture lost revenue",
-    revenueBtn: false,
+    title: "Projects you turn down",
+    body: "You say no to custom builds because you lack developers. That revenue goes to full-service competitors.",
+    Icon: XCircle,
   },
   {
-    num: "02",
-    title: "Unreliable Freelancers",
-    body: "Tired of missed deadlines and buggy code from unvetted contractors? We provide agency-grade reliability.",
-    Icon: IconSend,
-    cta: "Dependable execution",
-    revenueBtn: false,
+    title: "Freelancers who disappear",
+    body: "Missed deadlines and unreviewed code from unvetted contractors put your client relationship at risk.",
+    Icon: UserX,
   },
   {
-    num: "03",
-    title: "Margin Compression",
-    body: "Hiring full-time developers kills your margins. Partnering with us gives you high-ticket capabilities with zero overhead.",
-    Icon: IconDollar,
-    cta: "Keep the profit",
-    revenueBtn: true,
+    title: "Margins that shrink",
+    body: "A full-time developer is a fixed cost whether or not projects arrive. Project-based partner pricing keeps your cost tied to revenue.",
+    Icon: TrendingDown,
   },
   {
-    num: "04",
-    title: "Infrastructure Failures",
-    body: "Sites crashing during your most expensive ad campaigns? We build campaign-proof infrastructure.",
-    Icon: IconRocket,
-    cta: "Zero downtime",
-    revenueBtn: false,
+    title: "Launches that go wrong",
+    body: "A site that fails during a paid campaign hurts your client and your reputation. BBS tests, deploys and hands over with documentation.",
+    Icon: AlertTriangle,
   },
 ];
 
 export default function Workflow() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<(HTMLElement | null)[]>([]);
-  const [activeStep, setActiveStep] = useState(-1);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [headerVisible, setHeaderVisible] = useState(false);
-  const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,9 +42,9 @@ export default function Workflow() {
           if (entry.target === headerRef.current) {
             setHeaderVisible(true);
           } else {
-            const idx = stepsRef.current.indexOf(entry.target as HTMLElement);
+            const idx = cardsRef.current.indexOf(entry.target as HTMLDivElement);
             if (idx >= 0) {
-              setVisibleSteps((prev) => new Set([...prev, idx]));
+              setVisibleCards((prev) => new Set([...prev, idx]));
             }
           }
           observer.unobserve(entry.target);
@@ -98,7 +53,7 @@ export default function Workflow() {
       { threshold: 0.12 }
     );
     if (headerRef.current) observer.observe(headerRef.current);
-    stepsRef.current.forEach((el) => el && observer.observe(el));
+    cardsRef.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -107,51 +62,42 @@ export default function Workflow() {
       <style>{`
         .wf-section {
           background: #F5F2EC;
-          padding: 88px 0 60px;
+          padding: 88px 0 72px;
           position: relative;
           z-index: 20;
-          margin-top: -80px;
           overflow: hidden;
         }
         @media (max-width: 767px) {
-          .wf-section { padding: 64px 0 40px; margin-top: -40px; }
-        }
-
-        /* Noise texture overlay */
-        .wf-section::before {
-          content: '';
-          position: absolute; inset: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-          pointer-events: none; z-index: 0; opacity: 0.6;
+          .wf-section { padding: 60px 0 48px; }
         }
 
         .wf-glow {
           position: absolute; inset: 0;
           background:
-            radial-gradient(ellipse 60% 40% at 50% 0%, rgba(200,134,10,0.07) 0%, transparent 60%),
-            radial-gradient(ellipse 40% 30% at 20% 80%, rgba(200,134,10,0.04) 0%, transparent 50%);
+            radial-gradient(ellipse 60% 40% at 50% 0%, rgba(200,134,10,0.06) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 30% at 20% 80%, rgba(200,134,10,0.03) 0%, transparent 50%);
           pointer-events: none; z-index: 0;
         }
 
         /* Entrance */
         .wf-fade {
-          opacity: 0; transform: translateY(32px);
-          transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1),
-                      transform 0.75s cubic-bezier(0.22,1,0.36,1);
+          opacity: 0; transform: translateY(24px);
+          transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                      transform 0.7s cubic-bezier(0.22,1,0.36,1);
         }
         .wf-fade.wf-visible { opacity: 1; transform: translateY(0); }
-        .wf-step-0 { transition-delay: 0.08s; }
-        .wf-step-1 { transition-delay: 0.2s; }
-        .wf-step-2 { transition-delay: 0.32s; }
-        .wf-step-3 { transition-delay: 0.44s; }
+        .wf-card-0 { transition-delay: 0.06s; }
+        .wf-card-1 { transition-delay: 0.16s; }
+        .wf-card-2 { transition-delay: 0.26s; }
+        .wf-card-3 { transition-delay: 0.36s; }
 
         /* Pill */
         .wf-pill {
           display: inline-flex; align-items: center; gap: 7px;
           padding: 5px 14px 5px 8px; border-radius: 999px;
-          border: 1px solid rgba(0,0,0,0.07);
-          background: rgba(0,0,0,0.025);
-          font-size: 11px; font-weight: 600; color: #6b7280;
+          border: 1px solid rgba(200,134,10,0.22);
+          background: rgba(255,255,255,0.7);
+          font-size: 11px; font-weight: 700; color: #7A5200;
           letter-spacing: .04em; text-transform: uppercase;
           backdrop-filter: blur(4px);
         }
@@ -166,280 +112,99 @@ export default function Workflow() {
           50%      { box-shadow: 0 0 0 6px rgba(200,134,10,0); }
         }
 
-        /* Step card */
+        /* Card uniform style */
         .wf-card {
           position: relative;
           background: #fff;
-          border: 1px solid rgba(200,134,10,0.12);
-          border-radius: 22px;
-          overflow: hidden;
-          cursor: default;
+          border: 1px solid rgba(200,134,10,0.14);
+          border-radius: 20px;
+          padding: 28px 24px;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
           transition:
-            border-color 0.35s ease,
-            box-shadow 0.35s ease,
-            transform 0.35s cubic-bezier(0.22,1,0.36,1),
-            background 0.35s ease;
-          box-shadow: 0 2px 16px rgba(200,134,10,0.06), 0 0 0 1px rgba(200,134,10,0.04);
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.3s cubic-bezier(0.22,1,0.36,1);
+          box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+        }
+        .wf-card:hover {
+          border-color: rgba(200,134,10,0.32);
+          box-shadow: 0 16px 40px rgba(200,134,10,0.12);
+          transform: translateY(-4px);
         }
 
-        /* Card corner accent */
-        .wf-card::before {
-          content: '';
-          position: absolute; top: 0; left: 0; right: 0; height: 1px;
-          background: linear-gradient(90deg, transparent 10%, rgba(200,134,10,0.25) 50%, transparent 90%);
-          opacity: 0;
-          transition: opacity 0.35s ease;
-        }
-
-        .wf-card:hover,
-        .wf-card.is-active {
-          border-color: rgba(200,134,10,0.3);
-          box-shadow: 0 20px 56px rgba(200,134,10,0.15), 0 0 0 1px rgba(200,134,10,0.12);
-          transform: translateY(-6px);
-        }
-        .wf-card:hover::before,
-        .wf-card.is-active::before { opacity: 1; }
-
-        /* ── Golden highlight card (Step 3) ── */
-        .wf-card-gold {
-          background: linear-gradient(145deg, #A06A00 0%, #C8860A 55%, #E8A020 100%);
-          border-color: transparent;
-          cursor: pointer;
-          box-shadow:
-            0 8px 32px rgba(200,134,10,0.45),
-            0 0 0 1px rgba(255,255,255,0.12) inset;
-          text-decoration: none;
-          display: block;
-        }
-        .wf-card-gold::before {
-          background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.2) 50%, transparent 90%);
-          opacity: 1;
-        }
-        .wf-card-gold:hover {
-          border-color: transparent;
-          box-shadow:
-            0 20px 60px rgba(200,134,10,0.6),
-            0 0 0 1px rgba(255,255,255,0.18) inset;
-          transform: translateY(-8px);
-        }
-        .wf-card-gold .wf-ghost-num { color: rgba(255,255,255,0.12); }
-        .wf-card-gold:hover .wf-ghost-num { color: rgba(255,255,255,0.2); }
-        .wf-card-gold .wf-step-num-label { color: rgba(255,255,255,0.75); }
-        .wf-card-gold .wf-step-num-label::after { background: rgba(255,255,255,0.25); }
-        .wf-card-gold .wf-icon-wrap {
-          background: rgba(255,255,255,0.18);
-          border-color: rgba(255,255,255,0.3);
-          color: #fff;
-        }
-        .wf-card-gold:hover .wf-icon-wrap {
-          background: rgba(255,255,255,0.26);
-          border-color: rgba(255,255,255,0.45);
-        }
-        .wf-card-gold .wf-card-title { color: #fff; }
-        .wf-card-gold:hover .wf-card-title { color: #fff; }
-        .wf-card-gold .wf-card-body { color: rgba(255,255,255,0.78); }
-        .wf-card-gold .wf-cta-badge {
-          background: rgba(255,255,255,0.15);
-          border-color: rgba(255,255,255,0.3);
-          color: #fff;
-        }
-
-        /* Click-me pulse on gold card */
-        @keyframes goldCardPulse {
-          0%,100% { box-shadow: 0 8px 32px rgba(200,134,10,0.45), 0 0 0 1px rgba(255,255,255,0.12) inset; }
-          50%      { box-shadow: 0 12px 48px rgba(200,134,10,0.65), 0 0 0 5px rgba(200,134,10,0.15), 0 0 0 1px rgba(255,255,255,0.12) inset; }
-        }
-        .wf-card-gold { animation: goldCardPulse 3s ease-in-out infinite; }
-
-        /* Ghost number */
-        .wf-ghost-num {
-          position: absolute; top: -14px; right: 16px;
-          font-size: 56px; font-weight: 900; letter-spacing: -0.06em;
-          color: rgba(200,134,10,0.05);
-          line-height: 1; pointer-events: none; user-select: none;
-          transition: color 0.35s ease, transform 0.35s ease;
-        }
-        .wf-card:hover .wf-ghost-num { color: rgba(200,134,10,0.09); transform: scale(1.06); }
-
-        /* Icon circle */
         .wf-icon-wrap {
-          width: 40px; height: 40px; border-radius: 12px;
-          display: flex; align-items: center; justify-content: center;
+          width: 48px; height: 48px; border-radius: 12px;
           background: rgba(200,134,10,0.08);
-          border: 1px solid rgba(200,134,10,0.15);
+          border: 1px solid rgba(200,134,10,0.18);
+          display: flex; align-items: center; justify-content: center;
           color: #C8860A;
-          margin-bottom: 14px;
-          transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
-        }
-        .wf-card:hover .wf-icon-wrap {
-          background: rgba(200,134,10,0.14);
-          border-color: rgba(200,134,10,0.28);
-          transform: scale(1.08) rotate(-3deg);
-        }
-
-        .wf-step-num-label {
-          font-size: 10px; font-weight: 800; letter-spacing: 0.14em;
-          text-transform: uppercase; color: #C8860A;
-          margin-bottom: 8px;
-          display: flex; align-items: center; gap: 6px;
-        }
-        .wf-step-num-label::after {
-          content: '';
-          display: block;
-          flex: 1; height: 1px;
-          background: rgba(200,134,10,0.2);
-          border-radius: 99px;
+          margin-bottom: 20px;
         }
 
         .wf-card-title {
-          font-size: 14.5px; font-weight: 800; color: #000;
-          letter-spacing: -0.02em; line-height: 1.25;
-          margin-bottom: 8px;
-          transition: color 0.25s ease;
+          font-size: 18px; font-weight: 800; color: #111;
+          letter-spacing: -0.02em; line-height: 1.3;
+          margin-bottom: 10px;
         }
-        .wf-card:hover .wf-card-title { color: #111; }
 
         .wf-card-body {
-          font-size: 12px; color: #6b7280; line-height: 1.7;
-          margin-bottom: 14px;
+          font-size: 13.5px; color: #555;
+          line-height: 1.65;
+          margin-top: auto;
         }
-
-        .wf-cta-badge {
-          display: inline-flex; align-items: center; gap: 4px;
-          font-size: 8.5px; font-weight: 800; letter-spacing: 0.04em;
-          text-transform: uppercase;
-          color: #C8860A;
-          padding: 3px 8px;
-          background: rgba(200,134,10,0.07);
-          border: 1px solid rgba(200,134,10,0.14);
-          border-radius: 999px;
-          transition: background 0.25s ease, border-color 0.25s ease;
-        }
-        .wf-card:hover .wf-cta-badge {
-          background: rgba(200,134,10,0.12);
-          border-color: rgba(200,134,10,0.25);
-        }
-
-        /* ── Steps row (single horizontal row) ── */
-        .wf-steps-row {
-          display: flex;
-          gap: 16px;
-          align-items: stretch;
-          padding-top: 12px;
-          padding-bottom: 12px;
-        }
-        .wf-card {
-          flex: 1;
-          min-width: 200px;
-          padding: 24px 20px 20px;
-        }
-        @media (max-width: 767px) {
-          .wf-steps-row {
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-          }
-          .wf-steps-row::-webkit-scrollbar { display: none; }
-          .wf-card { 
-            min-width: 190px; 
-            flex-shrink: 0; 
-            padding: 18px 16px 14px; 
-          }
-          .wf-icon-wrap { margin-bottom: 10px; width: 36px; height: 36px; }
-          .wf-step-num-label { margin-bottom: 6px; }
-          .wf-card-title { margin-bottom: 6px; font-size: 13.5px; }
-          .wf-card-body { margin-bottom: 10px; font-size: 11px; line-height: 1.5; }
-        }
-
-        /* Bottom CTA Button */
-        .wf-cta-link {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-size: 14px; font-weight: 700; color: #ffffff;
-          background: #C8860A;
-          padding: 12px 28px;
-          border-radius: 8px;
-          text-decoration: none; letter-spacing: 0.02em;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 14px rgba(200,134,10,0.25);
-        }
-        .wf-cta-link:hover { 
-          background: #A06A00;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(200,134,10,0.35);
-        }
-        .wf-cta-link svg { transition: transform 0.25s ease; }
-        .wf-cta-link:hover svg { transform: translateX(4px); }
       `}</style>
 
-      <section ref={sectionRef} id="how-we-work" className="wf-section">
+      <section ref={sectionRef} id="challenges" className="wf-section border-t border-black/5">
         <div className="wf-glow" />
 
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
           {/* Header */}
           <div
             ref={headerRef}
-            className={`wf-fade text-center mb-12 ${headerVisible ? "wf-visible" : ""}`}
+            className={`wf-fade text-center mb-12 sm:mb-14 ${headerVisible ? "wf-visible" : ""}`}
           >
             <div className="mb-4">
               <span className="wf-pill">
                 <span className="wf-dot" />
-                The Agency Bottleneck
+                Where Agency Delivery Breaks
               </span>
             </div>
-            <h2 className="text-2xl sm:text-[2.1rem] font-black text-black leading-[1.08] tracking-[-0.032em] mb-3">
-              You Built a Marketing Agency.<br/>Don't Let Tech Bottlenecks Slow Your Growth.
+            <h2 className="text-2xl sm:text-[2.2rem] md:text-[2.6rem] font-black text-black leading-[1.12] tracking-[-0.032em] mb-3 max-w-3xl mx-auto">
+              You Built a Marketing Agency.<br className="hidden sm:inline" />Don't Let Technical Bottlenecks Cap Your Growth.
             </h2>
-            <p className="text-[13.5px] text-gray-500 max-w-[480px] mx-auto leading-[1.75]">
-              Scaling an agency is hard enough. Dealing with technical hurdles, unreliable contractors, and crashed campaigns shouldn't be part of the job.
+            <p className="text-[14px] sm:text-[15px] text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Managing clients and campaigns is your business. When technical delivery stumbles, it hurts client trust and cuts into your margins.
             </p>
           </div>
 
-          {/* Steps */}
-          <div className="wf-steps-row">
-            {STEPS.map((step, i) => {
-              const isGold = step.revenueBtn;
-              const CardEl = isGold ? 'a' : 'div';
-              return (
-                <CardEl
-                  key={step.num}
-                  ref={(el: HTMLElement | null) => { stepsRef.current[i] = el; }}
-                  className={`wf-fade wf-step-${i} wf-card ${isGold ? 'wf-card-gold' : ''} ${visibleSteps.has(i) ? 'wf-visible' : ''} ${activeStep === i ? 'is-active' : ''}`}
-                  onMouseEnter={() => setActiveStep(i)}
-                  onMouseLeave={() => setActiveStep(-1)}
-                  {...(isGold ? {
-                    href: '#revenue',
-                    onClick: (e: React.MouseEvent) => {
-                      e.preventDefault();
-                      document.getElementById('revenue')?.scrollIntoView({ behavior: 'smooth' });
-                    },
-                  } : {})}
-                >
-                  <span className="wf-ghost-num">{step.num}</span>
-                  <div className="wf-step-num-label">Step {step.num}</div>
-                  <div className="wf-icon-wrap">
-                    <step.Icon />
-                  </div>
-                  <h3 className="wf-card-title">{step.title}</h3>
-                  <p className="wf-card-body">{step.body}</p>
-                  <span className="wf-cta-badge">
-                    <svg width="6" height="6" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg>
-                    {step.cta}
-                  </span>
-                </CardEl>
-              );
-            })}
+          {/* Four Uniform Problem Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {PROBLEMS.map((problem, i) => (
+              <div
+                key={problem.title}
+                ref={(el) => { cardsRef.current[i] = el; }}
+                className={`wf-fade wf-card-${i} wf-card ${visibleCards.has(i) ? "wf-visible" : ""}`}
+              >
+                <div className="wf-icon-wrap">
+                  <problem.Icon className="w-6 h-6" />
+                </div>
+                <h3 className="wf-card-title">{problem.title}</h3>
+                <p className="wf-card-body">{problem.body}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Bottom CTA */}
+          {/* Bottom CTA to how we partner */}
           <div className="mt-12 text-center">
-            <a href="/#contact" className="wf-cta-link">
-              Start the conversation
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
+            <Link
+              href="/how-we-partner"
+              className="inline-flex items-center gap-2 text-[14px] font-bold text-[#C8860A] hover:text-[#A06A00] transition-colors"
+            >
+              See how BBS solves these delivery risks
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
