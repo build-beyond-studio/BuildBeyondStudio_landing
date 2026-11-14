@@ -276,7 +276,7 @@ export default function Hero() {
           {/* Subheading */}
           <p
             ref={subheadRef}
-            className="hero-pre text-[12.5px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[280px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-tight sm:leading-relaxed -mt-1 sm:mt-0"
+            className="hero-pre text-[12.5px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[295px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-tight sm:leading-relaxed -mt-1 sm:mt-0"
           >
             BBS is the invisible engineering team behind your agency. We build custom websites, stores and web apps, and handle DevOps and tracking, under your brand at fixed partner prices.
           </p>
@@ -284,12 +284,12 @@ export default function Hero() {
           {/* CTAs */}
           <div
             ref={buttonsRef}
-            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 w-full sm:w-auto mt-0 sm:mt-2"
+            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3.5 w-full sm:w-auto -mt-1 sm:mt-2"
           >
             <Link
               href="/contact"
               onClick={() => handleCtaClick("Hero - Send a Project Brief")}
-              className="btn-primary text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto inline-flex items-center justify-center gap-2"
+              className="btn-primary text-white px-7 sm:px-8 py-2.5 sm:py-3.5 rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               Send a Project Brief
               <span aria-hidden="true">→</span>
@@ -298,7 +298,7 @@ export default function Hero() {
             <Link
               href="/how-we-partner"
               onClick={() => handleCtaClick("Hero - See How It Works")}
-              className="border border-black/15 text-gray-800 px-7 sm:px-8 py-3 sm:py-3.5
+              className="border border-black/15 text-gray-800 px-7 sm:px-8 py-2.5 sm:py-3.5
                          rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto
                          bg-white/90 hover:border-black/25 hover:bg-white
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
@@ -312,7 +312,7 @@ export default function Hero() {
           {/* Trust Strip — exactly three items */}
           <div
             ref={trustStripRef}
-            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 w-full max-w-3xl -mt-1 sm:mt-4 pt-2.5 sm:pt-4 border-t border-black/10"
+            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-3 w-full max-w-3xl -mt-1 sm:mt-4 pt-0 sm:pt-4 border-t-0 sm:border-t border-black/10"
           >
             <div className="hero-trust-item">
               <ShieldCheck className="w-5 h-5 text-[#C8860A] shrink-0" />
