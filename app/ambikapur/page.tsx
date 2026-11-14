@@ -3,16 +3,21 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 
-import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
-import FAQSection from '@/components/FAQSection';
+export const metadata: Metadata = {
+  title: "Web Development Company in Ambikapur, Chhattisgarh | BBS",
+  description: "Build Beyond Studio is a web development team in Ambikapur, Chhattisgarh, serving local businesses and partnering with agencies across India.",
+  alternates: {
+    canonical: "https://buildbeyondstudio.com/ambikapur",
+  },
+  openGraph: {
+    title: "Web Development Company in Ambikapur, Chhattisgarh | BBS",
+    description: "Build Beyond Studio is a web development team in Ambikapur, Chhattisgarh, serving local businesses and partnering with agencies across India.",
+    url: "https://buildbeyondstudio.com/ambikapur",
+    type: "website",
+  },
+}
 
-export const metadata: Metadata = buildMetadata(
-  '/ambikapur',
-  'Build Beyond Studio | Web Development Team in Ambikapur',
-  'Build Beyond Studio\'s development team is based in Ambikapur, Chhattisgarh, serving marketing agencies across India and abroad.'
-)
-
-/* ---------- JSON-LD: LocalBusiness (page-scoped, supplements site-wide Organization) ---------- */
+/* ---------- JSON-LD: LocalBusiness ---------- */
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -50,149 +55,87 @@ const localBusinessSchema = {
     { "@type": "AdministrativeArea", "name": "Bilaspur" },
     { "@type": "State", "name": "Chhattisgarh" }
   ],
-  "description": "Build Beyond Studio is a web development and IT company headquartered in Ambikapur, Surguja, Chhattisgarh. We deliver custom websites, MERN stack web applications, cloud DevOps, and technical consulting to businesses across Chhattisgarh and India.",
+  "description": "Build Beyond Studio is a web development company headquartered in Ambikapur, Surguja, Chhattisgarh. We deliver custom websites, e-commerce stores, web applications, and white-label engineering for marketing agencies across India.",
   "sameAs": [
     "https://www.linkedin.com/company/buildbeyondstudio",
     "https://github.com/buildbeyondstudio"
   ]
 }
 
-/* ---------- FAQs ---------- */
-const faqs = [
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://buildbeyondstudio.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ambikapur Development Team",
+      "item": "https://buildbeyondstudio.com/ambikapur"
+    }
+  ]
+}
+
+const pageSpecificFaqs = [
   {
-    question: "Where is Build Beyond Studio located?",
-    answer: "Build Beyond Studio is headquartered in Ambikapur, Surguja district, Chhattisgarh — 497001. We serve clients locally across Ambikapur, Raipur, Bilaspur, Korba, and the wider Chhattisgarh region, as well as agencies across India."
+    question: "Where is the BBS development team based?",
+    answer: "Build Beyond Studio's core engineering team is headquartered in Ambikapur, Surguja district, Chhattisgarh (PIN 497001)."
   },
   {
-    question: "What services does BBS offer to Ambikapur businesses?",
-    answer: "We offer custom website development, full-stack MERN (MongoDB, Express, React, Next.js, Node.js) web applications, cloud infrastructure and DevOps, SEO and digital marketing consulting, and AI-powered visual production — all from our Ambikapur office."
+    question: "Do you work only with businesses in Ambikapur?",
+    answer: "No. While we support local enterprises in Chhattisgarh, the majority of our work is white-label development for marketing agencies across India, delivered remotely with structured sprint reporting."
   },
   {
-    question: "Do you work with clients outside Ambikapur?",
-    answer: "Absolutely. While we are proudly based in Ambikapur, we work with marketing agencies and businesses across Raipur, Bilaspur, Korba, Jagdalpur, and all of Chhattisgarh. We also partner with agencies across India as their white-label web development team."
+    question: "What web development services do you provide?",
+    answer: "Our core services include custom website development (Next.js, React, WordPress), online store builds (Shopify, WooCommerce), conversion tracking setup, and monthly website maintenance retainers."
   },
   {
-    question: "Can local students intern at Build Beyond Studio?",
-    answer: "Yes. We run structured training and internship programs in HTML/CSS/JavaScript, MERN Stack, and full-stack development specifically designed for students in Ambikapur and Surguja. These programs include real project experience and mentorship."
+    question: "Can agencies from other cities partner with BBS?",
+    answer: "Yes. Agencies across Delhi, Mumbai, Bengaluru, Bhopal, and other hubs partner with BBS under NDA as their behind-the-scenes engineering delivery pod."
   },
   {
-    question: "How do I get a quote for a website or application?",
-    answer: "You can reach our founder Ankush Kumar Gupta directly via WhatsApp at +91 76973 39962 or email admin@buildbeyondstudio.com. We typically respond within a few hours with an initial consultation."
+    question: "How can local businesses or agencies visit or contact the team?",
+    answer: "You can reach us at admin@buildbeyondstudio.com or message us on WhatsApp at +91 76973 39962. In-person consultations in Ambikapur are scheduled by appointment."
   }
-];
+]
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Where is the BBS development team based?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Build Beyond Studio's development team is based in Ambikapur, Chhattisgarh, and supports marketing agencies and clients in India and other markets."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work only with businesses in Ambikapur?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Although our team is based in Ambikapur, we work with agencies and businesses in different locations through remote communication and digital project workflows."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What development services do you provide?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our services include website development, mobile apps, custom software, web applications, integrations, DevOps, infrastructure support, and maintenance."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can agencies from other cities partner with BBS?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Agencies from India or abroad can work with us remotely. The project process can include online meetings, shared documents, project management tools, and regular updates."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide white-label development from Ambikapur?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We support agencies as a behind-the-scenes technical team, allowing them to offer development services under their own brand."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can we visit or speak with the development team?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can contact us to discuss the project and the type of communication required. Any meeting or team interaction can be arranged based on the project."
-      }
+  "mainEntity": pageSpecificFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
     }
-  ]
-};
+  }))
+}
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', path: '/' },
-  { name: 'Ambikapur', path: '/ambikapur' },
-]);
-
-/* ---------- Regional coverage data ---------- */
 const regions = [
   {
     name: 'Ambikapur & Surguja',
-    desc: 'Our home base. Walk-in consultations, same-day meetings, and direct collaboration with our founding team.',
+    desc: 'Our headquarters and core engineering pod. Supporting regional businesses, education hubs, and local enterprises with modern digital infrastructure.',
     highlight: true,
   },
   {
     name: 'Raipur',
-    desc: 'Serving the state capital\'s growing startup ecosystem and enterprise clients with remote-first delivery and periodic on-site visits.',
+    desc: 'Serving businesses and agencies in the state capital with custom website builds, e-commerce stores, and high-performance web applications.',
   },
   {
     name: 'Bilaspur',
-    desc: 'Supporting businesses and institutions in Bilaspur with custom web solutions, from e-commerce portals to internal management dashboards.',
+    desc: 'Supporting commercial enterprises and institutions in Bilaspur with reliable web platforms, analytics setups, and ongoing maintenance.',
   },
   {
-    name: 'Korba & Janjgir-Champa',
-    desc: 'Building digital presence for the industrial heartland — corporate websites, staff portals, and inventory management systems.',
+    name: 'Pan-India Agency Partnerships',
+    desc: 'Operating as the invisible white-label engineering partner for marketing agencies across Delhi, Mumbai, Bengaluru, and beyond.',
   },
-  {
-    name: 'Pan-Chhattisgarh & India',
-    desc: 'Our white-label model means we seamlessly partner with agencies and businesses anywhere in India with zero geographical friction.',
-  },
-];
-
-
-const pageSpecificFaqs = [
-  {
-    "question": "Where is the BBS development team based?",
-    "answer": "Build Beyond Studio's development team is based in Ambikapur, Chhattisgarh, and supports marketing agencies and clients in India and other markets."
-  },
-  {
-    "question": "Do you work only with businesses in Ambikapur?",
-    "answer": "No. Although our team is based in Ambikapur, we work with agencies and businesses in different locations through remote communication and digital project workflows."
-  },
-  {
-    "question": "What development services do you provide?",
-    "answer": "Our services include website development, mobile apps, custom software, web applications, integrations, DevOps, infrastructure support, and maintenance."
-  },
-  {
-    "question": "Can agencies from other cities partner with BBS?",
-    "answer": "Yes. Agencies from India or abroad can work with us remotely. The project process can include online meetings, shared documents, project management tools, and regular updates."
-  },
-  {
-    "question": "Do you provide white-label development from Ambikapur?",
-    "answer": "Yes. We support agencies as a behind-the-scenes technical team, allowing them to offer development services under their own brand."
-  },
-  {
-    "question": "Can we visit or speak with the development team?",
-    "answer": "You can contact us to discuss the project and the type of communication required. Any meeting or team interaction can be arranged based on the project."
-  }
-];
+]
 
 export default function AmbikapurPage() {
   return (
@@ -211,32 +154,43 @@ export default function AmbikapurPage() {
       />
       <Header />
 
-      <section className="max-w-4xl mx-auto py-24 px-4 sm:px-6">
+      <section className="max-w-4xl mx-auto py-28 px-4 sm:px-6">
         {/* Breadcrumb */}
         <div className="mb-4 text-sm text-gray-500">
           <Link href="/" className="hover:underline">Home</Link> → Ambikapur
         </div>
 
         {/* Hero */}
+        <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">
+          Ambikapur, Chhattisgarh
+        </div>
         <h1 className="text-4xl sm:text-5xl font-black text-black mb-6 tracking-tight leading-tight">
-          Our Development Team in Ambikapur, Chhattisgarh
+          Web Development Company in Ambikapur, Chhattisgarh
         </h1>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
-          Build Beyond Studio is a software and web development company headquartered in Ambikapur, Surguja. We build custom websites, full-stack web applications, and cloud-native infrastructure for businesses across Chhattisgarh — and partner invisibly with marketing agencies across India.
+          Build Beyond Studio is a web development team headquartered in Ambikapur, Surguja. We build custom websites, online stores, and web applications for regional businesses—and partner invisibly as the white-label engineering team behind marketing agencies across India.
         </p>
-        <a
-          href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20found%20you%20on%20the%20Ambikapur%20page.%20I%20would%20like%20to%20discuss%20a%20project%20with%20Build%20Beyond%20Studio."
-          className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold mb-16"
-          style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-        >
-          Talk to Us on WhatsApp
-        </a>
+        <div className="flex flex-wrap gap-4 mb-16">
+          <Link
+            href="/contact"
+            className="inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold"
+            style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
+          >
+            Start a Partnership Brief
+          </Link>
+          <a
+            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20found%20you%20on%20the%20Ambikapur%20page.%20I%20would%20like%20to%20discuss%20a%20project%20with%20Build%20Beyond%20Studio."
+            className="inline-block bg-white text-[#C8860A] border border-[rgba(200,134,10,0.3)] hover:bg-[#FDF8F0] px-8 py-3 rounded-lg font-semibold"
+          >
+            WhatsApp Ankush
+          </a>
+        </div>
 
         <div className="space-y-16 text-gray-700">
 
           {/* NAP Block */}
           <div>
-            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Our Office</h2>
+            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Our Ambikapur Office</h2>
             <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.12)]" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -258,7 +212,7 @@ export default function AmbikapurPage() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">Hours</div>
-                    <div className="text-gray-600 text-sm font-light">Monday — Friday, 9:00 AM — 6:00 PM IST</div>
+                    <div className="text-gray-600 text-sm font-light">Monday — Friday, 9:00 AM — 6:00 PM IST (Consultations by appointment)</div>
                   </div>
                 </div>
 
@@ -279,24 +233,23 @@ export default function AmbikapurPage() {
             </div>
           </div>
 
-          {/* What We Build */}
+          {/* Core Services */}
           <div>
-            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">What We Build</h2>
+            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Core Web Development Services</h2>
             <p className="leading-relaxed mb-6 text-base font-light">
-              From our Ambikapur headquarters, we deliver enterprise-grade web solutions to businesses across Chhattisgarh and agency partners across India. Our core technology stack includes React, Next.js, Node.js, MongoDB (MERN Stack), Docker, and AWS/GCP cloud infrastructure.
+              From our Ambikapur development base, we engineer modern websites and applications with high performance, semantic structure, and clean code.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { title: 'Custom Websites & Portals', desc: 'Responsive business websites, client portals, and admin dashboards built with modern frameworks.', href: '/services/custom-web-applications' },
-                { title: 'Cloud & DevOps', desc: 'Auto-scaling infrastructure, CI/CD pipelines, Docker containerization, and AWS/GCP deployments.', href: '/services/devops-infrastructure' },
-                { title: 'SEO & Digital Marketing', desc: 'AI-era search visibility (AEO/GEO), performance ads, and conversion funnel optimization.', href: '/services/aeo-geo' },
-                { title: 'Technical Consulting', desc: 'Fractional CTO services, tech roadmaps, and architecture reviews for growing businesses.', href: '/services/technical-consulting' },
+                { title: 'Custom Website Development', desc: 'Fast, responsive Next.js and React websites built with pixel-perfect attention to design briefs.', href: '/services/website-development' },
+                { title: 'Online Store Development', desc: 'Custom Shopify and WooCommerce stores engineered for speed, secure checkout, and mobile conversions.', href: '/services/online-store-development' },
+                { title: 'Tracking & Conversion Setup', desc: 'Server-side GTM, Meta CAPI, GA4 e-commerce tracking, and clean attribution pipelines.', href: '/services/tracking-conversion-setup' },
+                { title: 'Website & App Maintenance', desc: 'Ongoing security patching, performance monitoring, automated backups, and sprint updates.', href: '/services/website-app-maintenance' },
               ].map((service) => (
                 <Link
                   key={service.title}
                   href={service.href}
-                  className="block p-5 rounded-2xl bg-white border border-[rgba(200,134,10,0.12)] hover:border-[#C8860A] transition-colors group"
-                  style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}
+                  className="block p-5 rounded-2xl bg-white border border-[rgba(200,134,10,0.12)] hover:border-[#C8860A] transition-colors group shadow-sm"
                 >
                   <div className="font-bold text-black mb-1 text-base group-hover:text-[#C8860A] transition-colors">{service.title}</div>
                   <div className="text-gray-600 text-sm leading-relaxed font-light">{service.desc}</div>
@@ -305,18 +258,17 @@ export default function AmbikapurPage() {
             </div>
           </div>
 
-          {/* Serving Ambikapur / Surguja / Chhattisgarh / Raipur / Bilaspur */}
+          {/* Regional Reach */}
           <div>
-            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Serving All of Chhattisgarh</h2>
+            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Serving Chhattisgarh and Agency Partners Across India</h2>
             <p className="leading-relaxed mb-6 text-base font-light">
-              While we are proudly rooted in Ambikapur, our client base spans the entire state of Chhattisgarh and beyond. Whether you are a local business in Surguja, a startup in Raipur, or an institution in Bilaspur — we bring the same calibre of engineering to every project.
+              Our engineering centre in Ambikapur provides tier-1 development quality with predictable delivery and competitive partner margins.
             </p>
             <div className="space-y-4">
               {regions.map((region) => (
                 <div
                   key={region.name}
-                  className={`flex gap-4 p-5 rounded-2xl bg-white border ${region.highlight ? 'border-[#C8860A]' : 'border-[rgba(200,134,10,0.12)]'}`}
-                  style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}
+                  className={`flex gap-4 p-5 rounded-2xl bg-white border ${region.highlight ? 'border-[#C8860A]' : 'border-[rgba(200,134,10,0.12)]'} shadow-sm`}
                 >
                   <span className="text-[#C8860A] text-lg mt-0.5">{region.highlight ? '📍' : '→'}</span>
                   <div>
@@ -328,33 +280,20 @@ export default function AmbikapurPage() {
             </div>
           </div>
 
-          {/* Training & Internships for Local Students */}
-          <div>
-            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4">Training &amp; Internships for Ambikapur Students</h2>
-            <p className="leading-relaxed mb-4 text-base font-light">
-              We are committed to building tech talent in Surguja and Chhattisgarh. Our structured training programs are designed for local students who want to break into professional web development — with real project experience, not just theory.
-            </p>
-            <div className="bg-white p-6 rounded-2xl border border-[rgba(200,134,10,0.12)] mb-4" style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.06)' }}>
-              <ul className="space-y-3 text-sm text-gray-600">
-                <li className="flex gap-2">
-                  <span className="text-[#C8860A] font-bold">→</span>
-                  <span><strong className="text-black">HTML, CSS & JavaScript in 28 Days</strong> — ₹3,999. Perfect for beginners starting from zero.</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-[#C8860A] font-bold">→</span>
-                  <span><strong className="text-black">MERN Stack in 45 Days</strong> — ₹7,999. Build production-ready full-stack applications.</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-[#C8860A] font-bold">→</span>
-                  <span><strong className="text-black">Zero to MERN in 65 Days</strong> — ₹9,999. The complete journey from HTML basics to deploying MERN apps.</span>
-                </li>
-              </ul>
+          {/* Training Mention */}
+          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <div className="text-xs uppercase tracking-widest text-[#C8860A] font-bold mb-1">Local Education Initiative</div>
+              <h3 className="text-lg font-bold text-black">Looking for Web Development Training in Ambikapur?</h3>
+              <p className="text-gray-600 text-sm font-light mt-1">
+                We offer separate practical coding and MERN stack training programs for students and developers in Surguja.
+              </p>
             </div>
             <Link
               href="/training-programs"
-              className="inline-block text-[#C8860A] font-semibold hover:underline text-sm"
+              className="px-5 py-2.5 rounded-lg border border-[#C8860A] text-[#C8860A] hover:bg-[#FDF8F0] font-semibold text-xs whitespace-nowrap transition-all"
             >
-              View all training programs →
+              View Training Programs →
             </Link>
           </div>
 
@@ -362,7 +301,7 @@ export default function AmbikapurPage() {
           <div>
             <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-6">
-              {faqs.map((faq, index) => (
+              {pageSpecificFaqs.map((faq, index) => (
                 <div key={index} className="border-b border-gray-200 pb-6">
                   <h3 className="font-bold text-black text-lg mb-2">{faq.question}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">{faq.answer}</p>
@@ -370,36 +309,10 @@ export default function AmbikapurPage() {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* CTA Banner */}
-        <div className="bg-[#0A0A0A] rounded-[32px] p-8 md:p-12 text-white relative overflow-hidden mt-20 shadow-2xl border border-white/5">
-          <div className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#C8860A] rounded-full mix-blend-screen filter blur-[100px] opacity-[0.10] pointer-events-none" />
-          <h2 className="text-2xl sm:text-3xl font-black mb-4 text-white tracking-tight relative z-10">
-            Let&apos;s Build Something Together
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base mb-8 leading-relaxed font-light relative z-10">
-            Whether you&apos;re a business in Ambikapur looking for your first website, a Raipur startup scaling your platform, or an agency anywhere in India — reach out to our founder Ankush Kumar Gupta directly.
-          </p>
-          <div className="flex flex-wrap gap-4 relative z-10">
-            <a
-              href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20found%20you%20on%20the%20Ambikapur%20page.%20I%20would%20like%20to%20discuss%20a%20project%20with%20Build%20Beyond%20Studio."
-              className="inline-block bg-[#C8860A] text-white px-8 py-3 rounded-lg hover:bg-[#A06A00] transition-all font-semibold"
-              style={{ boxShadow: '0 4px 16px rgba(200,134,10,0.25)' }}
-            >
-              WhatsApp Us
-            </a>
-            <a
-              href="mailto:admin@buildbeyondstudio.com"
-              className="inline-block bg-white/10 text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-all font-semibold border border-white/10"
-            >
-              Email Us
-            </a>
-          </div>
         </div>
       </section>
 
-      <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
   )

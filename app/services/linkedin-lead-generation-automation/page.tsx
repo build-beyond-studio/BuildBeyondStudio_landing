@@ -95,9 +95,9 @@ const process = [
 ]
 
 const whyBBS = [
-  'Sustainable, human-like outreach that is built to keep running without constant manual effort',
-  'Clear sales process tied to actual pipeline management, not just vanity engagement',
-  'A system that fills pipeline consistently while your team focuses on conversations and closing',
+  'Technical setup aligned with platform best practices and conservative connection limits',
+  'Clear sales workflow tied to actual pipeline tracking, not vanity connection counts',
+  'Organized CRM routing that captures inbound responses so your team focuses on conversations and closing',
 ]
 
 const faqs = [

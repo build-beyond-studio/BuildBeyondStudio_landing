@@ -7,96 +7,80 @@ import { buildMetadata } from '@/lib/metadata'
 import { CASE_STUDIES } from '../case-studies/data'
 import SuccessStoryCard from './SuccessStoryCard'
 import SuccessStoriesCarousel from './SuccessStoriesCarousel'
-import FAQSection from '@/components/FAQSection';
+import FAQSection from '@/components/FAQSection'
 
-export const metadata: Metadata = buildMetadata(
-  '/success-stories',
-  'Agency Success Stories | Build Beyond Studio',
-  'Real agencies, real margins. See how marketing agencies scaled technical delivery and revenue by partnering with Build Beyond Studio.'
-)
+export const metadata: Metadata = {
+  title: "Agency Partner Case Studies | White Label Results | BBS",
+  description: "Case studies from agencies that use BBS as their white-label engineering partner: what was built, how delivery worked, and what changed for the agency.",
+  alternates: {
+    canonical: "https://buildbeyondstudio.com/success-stories",
+  },
+  openGraph: {
+    title: "Agency Partner Case Studies | White Label Results | BBS",
+    description: "Case studies from agencies that use BBS as their white-label engineering partner: what was built, how delivery worked, and what changed for the agency.",
+    url: "https://buildbeyondstudio.com/success-stories",
+    type: "website",
+  },
+}
 
+const pageSpecificFaqs = [
+  {
+    question: "How does a technical partner help an agency grow?",
+    answer: "It allows the agency to accept more complex web development projects without hiring every specialist in-house. The agency focuses on sales, strategy, and client management while BBS handles technical execution."
+  },
+  {
+    question: "Can white-label delivery improve our agency's margins?",
+    answer: "Yes. Agencies avoid fixed developer payroll, recruitment fees, and bench overhead. You charge your client your standard retail rate and pay BBS an agreed fixed project fee, keeping the gross margin."
+  },
+  {
+    question: "Do you support agencies with recurring work?",
+    answer: "Yes. We offer ongoing delivery through dedicated development pods and monthly maintenance retainers for agencies needing continuous engineering support."
+  },
+  {
+    question: "Can BBS help us offer services we currently do not provide?",
+    answer: "Yes. If your agency receives briefs for custom React / Next.js builds, complex Shopify setups, or server-side conversion tracking, BBS can deliver them under your brand."
+  },
+  {
+    question: "How quickly can we start a project?",
+    answer: "Following brief submission and NDA execution, we respond within 24 hours with an itemised quote. Sprints can usually begin within 3–5 business days once scope is approved."
+  },
+  {
+    question: "What makes your partnership different from hiring a freelancer?",
+    answer: "Structure and accountability. BBS provides multi-developer redundancy, code review, structured QA, and formal project coordination, eliminating single-freelancer dependency and communication blackouts."
+  }
+];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  "mainEntity": pageSpecificFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@type": "Question",
-      "name": "How does a technical partner help an agency grow?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It allows the agency to accept more complex projects without hiring every specialist internally. The agency can focus on sales, strategy, and client management while BBS supports delivery."
-      }
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://buildbeyondstudio.com"
     },
     {
-      "@type": "Question",
-      "name": "Can white-label delivery improve our agency's margins?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can. You avoid some of the fixed costs associated with hiring and maintaining a large technical team. Your actual margin will depend on your pricing, project scope, and delivery costs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you support agencies with recurring work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We can discuss ongoing delivery support for agencies that regularly need websites, applications, maintenance, integrations, or technical assistance."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can BBS help us offer services we currently do not provide?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. If your agency receives a project outside its current capabilities, we can review the requirements and determine whether our team can deliver it behind your brand."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly can we start a project?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "That depends on the project scope, available resources, and how complete the brief is. A clear brief and ready design usually make the process faster."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What makes your partnership different from hiring a freelancer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The difference is the delivery structure. BBS is designed to support agencies through a repeatable process, technical review, project coordination, and ongoing delivery rather than handling only one isolated task."
-      }
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Success Stories",
+      "item": "https://buildbeyondstudio.com/success-stories"
     }
   ]
 };
-
-const pageSpecificFaqs = [
-  {
-    "question": "How does a technical partner help an agency grow?",
-    "answer": "It allows the agency to accept more complex projects without hiring every specialist internally. The agency can focus on sales, strategy, and client management while BBS supports delivery."
-  },
-  {
-    "question": "Can white-label delivery improve our agency's margins?",
-    "answer": "It can. You avoid some of the fixed costs associated with hiring and maintaining a large technical team. Your actual margin will depend on your pricing, project scope, and delivery costs."
-  },
-  {
-    "question": "Do you support agencies with recurring work?",
-    "answer": "Yes. We can discuss ongoing delivery support for agencies that regularly need websites, applications, maintenance, integrations, or technical assistance."
-  },
-  {
-    "question": "Can BBS help us offer services we currently do not provide?",
-    "answer": "Yes. If your agency receives a project outside its current capabilities, we can review the requirements and determine whether our team can deliver it behind your brand."
-  },
-  {
-    "question": "How quickly can we start a project?",
-    "answer": "That depends on the project scope, available resources, and how complete the brief is. A clear brief and ready design usually make the process faster."
-  },
-  {
-    "question": "What makes your partnership different from hiring a freelancer?",
-    "answer": "The difference is the delivery structure. BBS is designed to support agencies through a repeatable process, technical review, project coordination, and ongoing delivery rather than handling only one isolated task."
-  }
-];
 
 export default function SuccessStoriesPage() {
   return (
@@ -105,28 +89,35 @@ export default function SuccessStoriesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-20 border-b border-black/5 bg-[#F5F2EC]">
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-1/2 left-1/4 w-[40vw] h-[40vw] rounded-full blur-[120px] -translate-y-1/2" style={{ background: 'rgba(200,134,10,0.04)' }} />
-        </div>
+      <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20 border-b border-black/5 bg-[#F5F2EC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">Case Studies</div>
-          <h1 className="text-3xl sm:text-5xl font-bold text-black mb-6">
-            Agencies That Scaled With BBS as Their Tech Partner
+          <div className="mb-4 text-xs font-bold uppercase tracking-widest text-[#C8860A]">
+            Agency Partner Case Studies
+          </div>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-black mb-6 tracking-tight">
+            Agency Partner Case Studies
           </h1>
-          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            We operate behind the scenes under strict NDA. Your clients see a premium, flawless build; you capture the expanded margins without the operational liability of local hiring.
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-light mb-6">
+            Case studies from marketing agencies that use BBS as their white-label engineering partner. See what was built, how delivery worked, and how agencies expanded their capacity without in-house payroll.
           </p>
+
+          <div className="inline-block bg-white/80 border border-gray-200 px-4 py-2 rounded-full text-xs text-gray-600 font-medium">
+            Agencies named here approved publication. We never name their clients.
+          </div>
         </div>
       </section>
 
       {/* Case Studies Grid (Mobile & Tablet) */}
       <section className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:hidden">
         <div className="grid grid-cols-1 gap-12">
-          {CASE_STUDIES.map((study, idx) => (
+          {CASE_STUDIES.map((study) => (
             <SuccessStoryCard key={study.slug} study={study} />
           ))}
         </div>
@@ -137,25 +128,43 @@ export default function SuccessStoriesPage() {
         <SuccessStoriesCarousel studies={CASE_STUDIES} />
       </section>
 
-      {/* CTA Banner */}
-      <section className="bg-white border-t border-black/5 py-20 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-4">
-            Deliver Enterprise Value Under Your Brand
-          </h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto font-light">
-            We operate invisibly in your Slack, codebases, and sprint pipelines. Let's discuss a white-label capacity retainer.
+      {/* Partner Alignment Note */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+        <div className="bg-white border border-gray-200/80 rounded-2xl p-6 sm:p-8 text-center text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+          <p>
+            * Outcome metrics shown above are based on documented partner feedback and reported revenue figures from the agency founders. Delivery times and gross margins vary depending on client scope, agency pricing structure, and project complexity.
           </p>
-          <a
-            href="https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20a%20project%20brief%20with%20Build%20Beyond%20Studio."
-            className="inline-block text-white px-8 py-3.5 rounded-lg transition-all font-semibold"
-            style={{
-              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
-              boxShadow: '0 4px 16px rgba(200,134,10,0.30)'
-            }}
-          >
-            Request white-label partnership
-          </a>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="bg-white border-t border-black/5 py-16 sm:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-[#C8860A] text-xs font-bold uppercase tracking-widest">Partner with BBS</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight mt-2 mb-4">
+            Deliver Reliable Engineering Under Your Agency Brand
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+            We work behind the scenes in your communication channels, sprint workflows, and staging pipelines. Let's discuss a project brief or capacity model.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-block text-white px-8 py-3.5 rounded-lg transition-all font-semibold shadow-md hover:shadow-lg text-sm"
+              style={{
+                background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+                boxShadow: '0 4px 16px rgba(200,134,10,0.30)'
+              }}
+            >
+              Send a Project Brief →
+            </Link>
+            <Link
+              href="/pricing-model"
+              className="inline-block bg-white text-[#C8860A] border border-[rgba(200,134,10,0.3)] hover:bg-[#FDF8F0] px-8 py-3.5 rounded-lg transition-all font-semibold text-sm"
+            >
+              See Partner Pricing Model
+            </Link>
+          </div>
         </div>
       </section>
 

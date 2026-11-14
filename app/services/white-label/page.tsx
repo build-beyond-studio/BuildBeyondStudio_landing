@@ -8,7 +8,7 @@ import TrackedLink from '@/components/TrackedLink'
 import { buildMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = buildMetadata(
-  '/services/white-label',
+  '/white-label-web-development',
   'White-Label Web Development for Marketing Agencies India',
   'Offer premium web development without hiring developers. BBS builds everything under your agency brand — NDA-first with full IP ownership.',
   {
@@ -96,7 +96,7 @@ export default function WhiteLabelPage() {
 
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           Build custom web applications under your brand with a top white label web development agency India. Your reputation, our
-          expertise. Full IP rights included — your clients never know we exist.
+          expertise. Full IP rights included — we do not contact your clients unless you ask us to.
         </p>
 
         <TrackedLink
@@ -150,7 +150,7 @@ export default function WhiteLabelPage() {
                 {
                   step: '03',
                   title: 'We build everything',
-                  desc: 'Full-stack development, QA, DevOps, and deployment. Weekly progress updates throughout.',
+                  desc: 'Full-stack development, QA, DevOps, and deployment. You get a weekly progress update with a staging link.',
                 },
                 {
                   step: '04',

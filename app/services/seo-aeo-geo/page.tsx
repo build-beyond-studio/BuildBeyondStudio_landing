@@ -3,17 +3,20 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
+import FAQSection, { FAQItem } from '@/components/FAQSection'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'Technical SEO and GEO Support for Agencies | BBS',
-  description: 'Technical SEO and GEO support for agency client sites, including schema, speed, tracking, crawl fixes, and approved content implementation.',
-}
+export const metadata = buildMetadata(
+  '/services/seo-aeo-geo',
+  'Technical SEO and GEO Support for Agencies | BBS',
+  'Technical SEO and GEO support for agency client sites, including schema, speed, tracking, crawl fixes, and approved content implementation.'
+)
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'SEO, AEO & GEO Services',
+  name: 'Technical SEO, AEO & GEO Support',
   serviceType: 'SEO, AEO & GEO',
   provider: {
     '@type': 'Organization',
@@ -21,54 +24,7 @@ const serviceSchema = {
     url: 'https://buildbeyondstudio.com',
   },
   areaServed: 'IN',
-  description: 'Build Beyond Studio helps businesses improve search visibility, technical SEO, structured content, and AI answer engine readiness so they appear in search results and AI-powered discovery experiences.',
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is the difference between SEO, AEO, and GEO?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'SEO helps you rank in traditional search results, AEO makes your content easier to answer directly in search features and voice results, and GEO helps AI systems find and cite your content when answering questions.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you handle technical SEO and schema?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We cover technical structure, metadata, crawlability, schema, internal linking, and content architecture that supports both search engines and AI discovery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can this work for service businesses?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We optimize for the questions, intent, and trust signals that matter most for service businesses, local visibility, and lead generation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does SEO take?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Results build over time. We focus on foundational technical improvements and content strategy first, then improve rankings and visibility through sustained optimization, not quick hacks.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you pair this with our website or app build?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We can optimize the site from the start, including technical foundations, page structure, and content clarity so it is ready for both human search traffic and AI visibility.',
-      },
-    },
-  ],
+  description: 'Technical SEO and GEO support for agency client sites, including schema, speed, tracking, crawl fixes, and approved content implementation.',
 }
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -78,173 +34,212 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ])
 
 const included = [
-  'Technical SEO audit & fixes (site speed, crawlability, Core Web Vitals)',
-  'Keyword research & content strategy (traditional + conversational/AI-query intent)',
-  'On-page optimization: schema markup (FAQ, HowTo, Organization, Service)',
-  'AEO: structuring content in direct-answer format for AI Overviews/voice search',
-  'GEO: entity optimization, authoritative citations, structured data for LLM crawlers',
-  'Local SEO / Google Business Profile optimization',
-  'Monthly ranking & AI-citation tracking reports',
+  'Technical site crawl audit and Core Web Vitals performance tuning',
+  'JSON-LD structured data implementation (Organization, Product, FAQPage, Article)',
+  'XML sitemaps, canonical tags, and robots.txt indexation configuration',
+  'Answer engine optimization (AEO) formatting for featured snippets',
+  'Generative engine optimization (GEO) structuring for AI citations',
+  'Verification reports and indexation handover documentation',
+]
+
+const whatYouReceive = [
+  'Pre-and-post technical SEO audit report',
+  'Validated JSON-LD schema code injected into client templates',
+  'Core Web Vitals diagnostic benchmark before and after tuning',
+  'Handover documentation with recommendations for content teams',
 ]
 
 const process = [
-  { step: '01', title: 'Full Technical + Content Audit', desc: 'Complete review of your site\'s current SEO health, content gaps, and AI citation status.' },
-  { step: '02', title: 'Keyword & AI-Query Intent Mapping', desc: 'Map traditional keywords alongside conversational and AI-search query patterns.' },
-  { step: '03', title: 'On-Page + Schema Implementation', desc: 'Deploy structured data (FAQPage, Service, HowTo, Organization) across all priority pages.' },
-  { step: '04', title: 'Content Restructuring for Answer-First Format', desc: 'Rewrite and restructure key pages so AI engines can extract direct answers to cite.' },
-  { step: '05', title: 'Monthly Tracking: Rankings + AI Citation Monitoring', desc: 'Ongoing monitoring of Google positions and AI search citations — both surfaces reported monthly.' },
+  { step: '01', title: 'Technical Crawl & Audit', desc: 'We inspect crawl errors, indexing blocks, duplicate canonicals, and Core Web Vitals metrics.' },
+  { step: '02', title: 'Schema & Architecture Mapping', desc: 'We design the structured data model and content hierarchy supporting both search engines and AI engines.' },
+  { step: '03', title: 'Code-Level Implementation', desc: 'We implement schema, fix heading hierarchies, clean internal linking, and optimize page load speed.' },
+  { step: '04', title: 'Validation & Testing', desc: 'We test schema with Google Rich Results Tool and verify search engine bot accessibility.' },
+  { step: '05', title: 'Reporting & Handover', desc: 'We deliver verification reports under your agency’s brand with zero third-party disclosure.' },
 ]
 
-const whyBBS = [
-  'One team handling SEO, AEO, and GEO — not three disconnected vendors',
-  'We build the website AND optimize it, so technical fixes ship faster',
-  'Reporting includes AI-citation tracking, not just Google rank position',
+const faqs: FAQItem[] = [
+  {
+    question: 'What is the difference between SEO, AEO, and GEO?',
+    answer: 'SEO optimizes for traditional search ranking in Google. AEO formats concise answer blocks for search engine rich snippets and voice search. GEO structures data and brand citations so LLMs (ChatGPT, Gemini, Perplexity) cite your client’s content in generative responses.',
+  },
+  {
+    question: 'Do you provide keyword research or technical implementation?',
+    answer: 'We focus on technical SEO, schema implementation, performance tuning, and crawlability to support your agency’s ongoing SEO and content strategies.',
+  },
+  {
+    question: 'Can you pair technical SEO with a new website build?',
+    answer: 'Yes. Every website built by BBS comes with foundational technical SEO, clean semantic hierarchy, and schema markup built-in.',
+  },
+  {
+    question: 'Who owns the technical deliverables?',
+    answer: 'Your agency or client receives 100% of all code changes, schema configurations, and documentation with zero proprietary lock-in.',
+  },
 ]
 
-const faqs = [
-  { q: 'What\'s the difference between SEO, AEO, and GEO?', a: 'SEO optimizes for traditional search engine rankings, AEO optimizes content to be pulled into direct-answer boxes and voice search, and GEO optimizes content so generative AI tools (ChatGPT, Perplexity, Gemini) cite it as a source in their answers.' },
-  { q: 'How long does SEO take to show results?', a: 'Technical fixes show impact in 4–6 weeks; competitive keyword rankings typically build over 3–6 months of consistent work.' },
-  { q: 'Can technical changes improve visibility in AI search?', a: 'Technical improvements help search and AI systems access and understand content. BBS implements approved structure, schema, performance, and content changes without promising citations.' },
-  { q: 'Do you provide monthly SEO reports?', a: 'Yes, monthly reports cover keyword rankings, technical health, and AI citation appearances.' },
-  { q: 'Is AEO/GEO relevant if my business is local?', a: 'Yes — local businesses increasingly get discovered through AI-powered local search and voice assistants, making AEO/GEO as important as traditional local SEO.' },
-]
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
 
 export default function SeoAeoGeoPage() {
   return (
     <main className='min-h-screen bg-[#F5F2EC] text-black'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
 
-      <section className='max-w-4xl mx-auto pt-28 pb-8 px-4 sm:px-6'>
-        <div className='mb-4 text-sm text-gray-500'>
+      <section className='max-w-4xl mx-auto pt-24 pb-8 px-4 sm:px-6'>
+        <div className='mb-4 text-xs text-gray-500 flex items-center gap-2'>
           <Link href='/' className='hover:text-black transition-colors'>Home</Link>
-          {' → '}
+          <span>/</span>
           <Link href='/services' className='hover:text-black transition-colors'>Services</Link>
-          {' → '}SEO, AEO & GEO
+          <span>/</span>
+          <span className='text-[#C8860A] font-medium'>SEO, AEO &amp; GEO</span>
         </div>
 
-        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-transparent mb-4'>
-          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>SEO, AEO & GEO Services</span>
+        <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/70 mb-4'>
+          <span className='text-[11px] font-bold tracking-[0.15em] text-[#C8860A] uppercase'>Additional Capability</span>
         </div>
 
-        <h1 className='text-3xl sm:text-5xl font-bold text-black mb-4 leading-tight'>Technical SEO and GEO Support for Agency Client Sites</h1>
-        <p className='text-lg text-gray-500 font-light mb-8'>Technical implementation support for search, answer engines, analytics, and website performance.</p>
+        <h1 className='text-3xl sm:text-5xl font-black text-black mb-4 leading-tight'>
+          Technical SEO, AEO &amp; GEO Support for Agencies
+        </h1>
+        <p className='text-lg text-gray-600 font-light mb-8'>
+          Schema markup, performance tuning, crawl diagnostics, and AI answer engine readiness under your agency brand.
+        </p>
 
-        <div className='bg-white border border-[rgba(200,134,10,0.12)] rounded-xl p-5 sm:p-6 mb-12' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-          <p className='text-base sm:text-lg text-gray-700 leading-relaxed'>
-            BBS supports SEO and performance agencies with technical implementation on client websites. The work can include crawl fixes, structured data, page speed, analytics, approved content changes, and development tasks required by the agency strategy.
+        <div className='bg-white border-l-4 border-[#C8860A] p-5 sm:p-6 rounded-r-xl border-y border-r border-[rgba(200,134,10,0.15)] mb-10 shadow-sm'>
+          <p className='text-base sm:text-lg text-gray-700 leading-relaxed font-normal'>
+            BBS supports marketing agencies with code-level technical SEO, structured data schemas, and generative search readiness. We fix technical barriers and tune site performance so client content ranks higher in traditional search and gets cited in AI discovery engines.
           </p>
+        </div>
+
+        <div className='mb-12'>
+          <Link
+            href='/contact'
+            className='inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-300'
+            style={{
+              background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)',
+              boxShadow: '0 4px 18px rgba(200,134,10,0.32)',
+            }}
+          >
+            <span>Send a Project Brief</span>
+            <ArrowRight className='w-4 h-4' />
+          </Link>
         </div>
       </section>
 
-      <section className='max-w-4xl mx-auto pb-24 px-4 sm:px-6'>
+      <section className='max-w-4xl mx-auto pb-20 px-4 sm:px-6'>
         <div className='space-y-12 text-gray-700'>
-          <div>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20want%20to%20discuss%20SEO%2C%20AEO%20and%20GEO%20services%20with%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_seo_aeo_geo' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-            >
-              Get a Fixed-Price Quote →
-            </TrackedLink>
+
+          {/* Deliverables */}
+          <div className='bg-white p-6 sm:p-8 rounded-2xl border border-[rgba(200,134,10,0.18)] shadow-sm'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Deliverables
+            </h2>
+            <h3 className='text-xl sm:text-2xl font-bold text-black mb-4'>
+              What Your Agency Receives
+            </h3>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm'>
+              {whatYouReceive.map((item, idx) => (
+                <div key={idx} className='flex items-start gap-2.5'>
+                  <CheckCircle2 className='w-5 h-5 text-[#C8860A] shrink-0 mt-0.5' />
+                  <span className='text-gray-800'>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>How SEO AEO and GEO Work Together</h2>
-            <div className='grid gap-3 md:grid-cols-3'>
-              <div className='rounded-xl bg-white p-4 border border-[rgba(200,134,10,0.12)]'>
-                <div className='font-bold text-black mb-2'>SEO</div>
-                <div className='text-gray-600 text-sm'>Traditional search engine rankings</div>
-                <div className='mt-2 text-xs font-semibold uppercase tracking-wide text-[#C8860A]'>Google / Bing blue-link results</div>
+          {/* Three pillars visual */}
+          <div className='bg-[#FAF8F4] border border-[rgba(200,134,10,0.15)] rounded-2xl p-6 shadow-sm'>
+            <h2 className='font-bold text-black mb-4 text-lg'>The Three Search Discovery Surfaces</h2>
+            <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 text-center'>
+              <div className='bg-white p-4 rounded-xl border border-black/5'>
+                <div className='font-bold text-black text-base mb-1'>SEO</div>
+                <div className='text-gray-500 text-xs mb-2'>Traditional Search Engine Optimization</div>
+                <div className='text-xs font-semibold text-[#C8860A]'>Google Organic SERP Rankings</div>
               </div>
-              <div className='rounded-xl bg-white p-4 border border-[rgba(200,134,10,0.12)]'>
-                <div className='font-bold text-black mb-2'>AEO</div>
-                <div className='text-gray-600 text-sm'>Direct-answer boxes & voice search</div>
-                <div className='mt-2 text-xs font-semibold uppercase tracking-wide text-[#C8860A]'>Google AI Overviews, Siri, Alexa</div>
+              <div className='bg-white p-4 rounded-xl border border-black/5'>
+                <div className='font-bold text-black text-base mb-1'>AEO</div>
+                <div className='text-gray-500 text-xs mb-2'>Answer Engine Optimization</div>
+                <div className='text-xs font-semibold text-[#C8860A]'>Featured Snippets &amp; Voice Search</div>
               </div>
-              <div className='rounded-xl bg-white p-4 border border-[rgba(200,134,10,0.12)]'>
-                <div className='font-bold text-black mb-2'>GEO</div>
-                <div className='text-gray-600 text-sm'>Generative AI citations & sources</div>
-                <div className='mt-2 text-xs font-semibold uppercase tracking-wide text-[#C8860A]'>ChatGPT, Perplexity, Gemini answers</div>
+              <div className='bg-white p-4 rounded-xl border border-black/5'>
+                <div className='font-bold text-black text-base mb-1'>GEO</div>
+                <div className='text-gray-500 text-xs mb-2'>Generative Engine Optimization</div>
+                <div className='text-xs font-semibold text-[#C8860A]'>ChatGPT, Perplexity &amp; Gemini Citations</div>
               </div>
             </div>
           </div>
 
+          {/* Included */}
           <div>
-            <TrackedLink
-              href='https://wa.me/917697339962?text=Hi%20Ankush%2C%20I%20would%20like%20to%20discuss%20SEO%2C%20AEO%20%26%20GEO%20services%20with%20Build%20Beyond%20Studio.'
-              eventName='whatsapp_click'
-              eventParams={{ button_location: 'service_page_seo_aeo_geo_cta' }}
-              className='inline-block text-white px-8 py-3 rounded-lg transition-all font-semibold'
-              style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
-            >
-              Grow Your Search Visibility →
-            </TrackedLink>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>What&apos;s Included</h2>
-            <ul className='space-y-2'>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Technical Scope
+            </h2>
+            <h3 className='text-2xl sm:text-3xl font-bold text-black mb-4'>
+              Included in Technical Support
+            </h3>
+            <ul className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
               {included.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>✓</span>
-                  {item}
+                <li key={i} className='flex gap-2.5 text-xs sm:text-sm text-gray-600 leading-relaxed bg-white p-3.5 rounded-xl border border-black/5'>
+                  <span className='text-[#C8860A] font-bold shrink-0'>✓</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Process */}
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Our Process</h2>
+            <h2 className='text-xs font-bold text-[#A06A00] uppercase tracking-widest mb-2'>
+              Execution Methodology
+            </h2>
+            <h3 className='text-2xl sm:text-3xl font-bold text-black mb-4'>
+              Our Implementation Workflow
+            </h3>
             <div className='space-y-3'>
               {process.map((item) => (
-                <div key={item.step} className='flex gap-4 p-4 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <span className='text-[#C8860A] font-mono text-sm pt-0.5 shrink-0'>{item.step}</span>
+                <div key={item.step} className='flex gap-4 p-4 sm:p-5 rounded-xl bg-white border border-[rgba(200,134,10,0.12)] shadow-sm'>
+                  <span className='text-[#C8860A] font-mono text-sm pt-0.5 shrink-0 font-bold'>{item.step}</span>
                   <div>
-                    <div className='font-semibold text-black mb-1'>{item.title}</div>
-                    <div className='text-gray-600 text-sm leading-relaxed'>{item.desc}</div>
+                    <h4 className='font-bold text-black mb-1 text-sm sm:text-base'>{item.title}</h4>
+                    <p className='text-gray-600 text-xs sm:text-sm leading-relaxed'>{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Related services */}
           <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-4'>Why Build Beyond Studio</h2>
-            <ul className='space-y-2'>
-              {whyBBS.map((item, i) => (
-                <li key={i} className='flex gap-3 text-sm text-gray-600 leading-relaxed'>
-                  <span className='text-[#C8860A] shrink-0 mt-0.5'>→</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className='flex flex-wrap gap-3'>
-            <Link href='/services/google-meta-ads' className='text-[13px] text-[#C8860A] hover:underline'>Google & Meta Ads →</Link>
-            <Link href='/services/social-media-management' className='text-[13px] text-[#C8860A] hover:underline'>Social Media Management →</Link>
-            <Link href='/services/analytics-tracking' className='text-[13px] text-[#C8860A] hover:underline'>Analytics & Tracking →</Link>
-          </div>
-
-          <div>
-            <h2 className='text-2xl sm:text-3xl font-semibold text-black mb-6'>Frequently Asked Questions</h2>
-            <div className='space-y-4'>
-              {faqs.map((faq, i) => (
-                <div key={i} className='p-4 sm:p-5 rounded-xl bg-white border border-[rgba(200,134,10,0.12)]' style={{ boxShadow: '0 2px 8px rgba(200,134,10,0.06)' }}>
-                  <h3 className='font-semibold text-black mb-2 text-sm sm:text-base'>{faq.q}</h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>{faq.a}</p>
-                </div>
-              ))}
+            <h2 className='text-xs font-bold text-gray-500 uppercase tracking-widest mb-3'>
+              Related Services
+            </h2>
+            <div className='flex flex-wrap gap-3'>
+              <Link href='/services/tracking-conversion-setup' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Tracking &amp; Conversion Setup →
+              </Link>
+              <Link href='/services/website-development' className='text-xs sm:text-sm font-semibold text-[#C8860A] bg-white px-4 py-2 rounded-lg border border-[rgba(200,134,10,0.2)] hover:border-[#C8860A] transition-colors'>
+                Website Development →
+              </Link>
             </div>
           </div>
+
         </div>
       </section>
 
+      {/* Single Merged FAQ */}
+      <FAQSection faqs={faqs} title="Technical SEO &amp; GEO FAQs" />
       <Footer />
     </main>
   )

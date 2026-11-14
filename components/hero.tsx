@@ -1,29 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
-import BestQuotationBadge from "@/components/BestQuotationBadge";
-
-const EMAIL = "admin@buildbeyondstudio.com";
-
-const CRICKET_BAT_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Crect x='11' y='2' width='10' height='18' rx='3' fill='%23c8860a' stroke='%237a4f00' stroke-width='1'/%3E%3Crect x='13' y='19' width='6' height='11' rx='1.5' fill='%23f5e6c8' stroke='%237a4f00' stroke-width='0.8'/%3E%3Crect x='14.5' y='8' width='3' height='8' rx='1' fill='%23a06a00' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E") 4 4, auto`;
-
-/* ── Magnetic button ──────────────────────────────────────────────── */
-function useMagnetic(s = 0.38) {
-  const ref = useRef<HTMLButtonElement>(null);
-  const onMove = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      const el = ref.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * s}px,${(e.clientY - r.top - r.height / 2) * s}px)`;
-    },
-    [s],
-  );
-  const onLeave = useCallback(() => {
-    if (ref.current) ref.current.style.transform = "";
-  }, []);
-  return { ref, onMove, onLeave };
-}
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import { ShieldCheck, FileCode, Receipt } from "lucide-react";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -33,29 +12,18 @@ export default function Hero() {
   /* entrance refs */
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const line2Ref = useRef<HTMLSpanElement>(null);
   const subheadRef = useRef<HTMLParagraphElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const badgesRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const emailRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const mag1 = useMagnetic(0.42);
-  const mag2 = useMagnetic(0.42);
+  const trustStripRef = useRef<HTMLDivElement>(null);
 
   /* ── Staggered entrance ─────────────────────────────────────────── */
   useEffect(() => {
     const items = [
       { el: eyebrowRef.current, delay: 0 },
       { el: titleRef.current, delay: 80 },
-      { el: line2Ref.current, delay: 200 },
-      { el: subheadRef.current, delay: 260 },
-      { el: subtitleRef.current, delay: 360 },
-      { el: badgesRef.current, delay: 480 },
-      { el: buttonsRef.current, delay: 580 },
-      { el: emailRef.current, delay: 670 },
-      { el: scrollRef.current, delay: 780 },
+      { el: subheadRef.current, delay: 200 },
+      { el: buttonsRef.current, delay: 320 },
+      { el: trustStripRef.current, delay: 440 },
     ];
     const obs = new IntersectionObserver(
       (entries) => {
@@ -82,12 +50,10 @@ export default function Hero() {
       const section = sectionRef.current;
       if (section) {
         const { height: H } = section.getBoundingClientRect();
-
-        /* ─ Scroll parallax on content */
         const sy = window.scrollY;
         const prog = Math.min(sy / (H * 0.8), 1);
         if (contentRef.current) {
-          contentRef.current.style.transform = `translateY(${sy * 0.2}px)`;
+          contentRef.current.style.transform = `translateY(${sy * 0.15}px)`;
           contentRef.current.style.opacity = `${1 - prog}`;
         }
       }
@@ -100,21 +66,31 @@ export default function Hero() {
     };
   }, []);
 
+  const handleCtaClick = (label: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "cta_click", {
+        page_location: window.location.pathname,
+        cta_label: label,
+      });
+    }
+  };
+
   return (
     <>
       <style>{`
         /* ── section ───────────────────────────────────────── */
         .hero-section {
           position: relative;
-          background: #e3dbc8ff;
+          background: #e3dbc8;
           overflow: hidden;
-          min-height: 105vh;
-          padding-top: 20px;
+          min-height: 100vh;
+          padding-top: 12px;
+          padding-bottom: 40px;
         }
 
         .hero-video-bg {
           position: absolute;
-          bottom: 22%; /* Shifted up slightly for mobile */
+          bottom: 18%;
           left: 0;
           width: 100%;
           height: 100%;
@@ -122,129 +98,146 @@ export default function Hero() {
           object-position: center bottom;
           z-index: 0;
           pointer-events: none;
-          mix-blend-mode: darken; /* Blends the video background seamlessly */
+          mix-blend-mode: darken;
         }
-        
+
         @media (min-width: 1024px) {
           .hero-video-bg {
-            bottom: 5%; /* Shift down for desktop */
+            bottom: 5%;
           }
         }
 
+        @media (min-width: 768px) {
+          .hero-section {
+            min-height: 105vh;
+            padding-top: 56px;
+            padding-bottom: 110px;
+          }
+        }
+
+        /* ── Subtle warm ambient glow ───────────────────────── */
+        .hero-glow {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 70% 50% at 50% -10%, rgba(200, 134, 10, 0.14) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 40% at 85% 90%, rgba(200, 134, 10, 0.07) 0%, transparent 50%);
+          pointer-events: none;
+          z-index: 0;
+        }
 
         /* ── entrance ──────────────────────────────────────── */
         .hero-pre {
-          opacity: 0; transform: translateY(22px);
-          transition: opacity .9s cubic-bezier(.22,1,.36,1),
-                      transform .9s cubic-bezier(.22,1,.36,1);
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
           will-change: opacity, transform;
         }
-        .hero-pre.hero-enter { opacity: 1; transform: translateY(0); }
+        .hero-pre.hero-enter {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
         /* ── shimmer gradient on headline ──────────────────── */
         .gradient-text {
           background: linear-gradient(130deg,
             #A06A00 0%, #C8860A 25%, #E8A020 50%, #C8860A 75%, #A06A00 100%);
           background-size: 250% auto;
-          -webkit-background-clip: text; background-clip: text;
+          -webkit-background-clip: text;
+          background-clip: text;
           color: transparent;
-          animation: shimmer 6s linear infinite;
+          animation: shimmer 7s linear infinite;
         }
         @keyframes shimmer {
-          0%   { background-position:   0% center; }
+          0%   { background-position: 0% center; }
           100% { background-position: 250% center; }
-        }
-
-        /* ── gradient divider ──────────────────────────────── */
-        .hero-divider {
-          width: 52px; height: 2px; border-radius: 99px;
-          background: linear-gradient(90deg,#C8860A,#E8A020);
-        }
-
-        /* ── badge ─────────────────────────────────────────── */
-        .badge-sep { width:1px; height:13px; background:#e2e8f0; flex-shrink:0; }
-        .badge-item {
-          display:flex; align-items:center; gap:6px;
-          font-size:12px; font-weight:600; color:#374151;
         }
 
         /* ── eyebrow pill ──────────────────────────────────── */
         .eyebrow-pill {
-          display:inline-flex; align-items:center; gap:8px;
-          padding:5px 14px 5px 8px; border-radius:999px;
-          border:1px solid rgba(0,0,0,0.08);
-          background:rgba(0,0,0,0.02);
-          font-size:11.5px; font-weight:500; color:#4b5563;
-          letter-spacing:.03em; backdrop-filter:blur(8px);
-          box-shadow:0 1px 4px rgba(0,0,0,.03);
-        }
-        .live-dot {
-          width:6px; height:6px; border-radius:50%;
-          background:#22c55e; flex-shrink:0;
-          animation:livePulse 2s ease-in-out infinite;
-          box-shadow:0 0 0 3px rgba(34,197,94,.2);
-        }
-        @keyframes livePulse{
-          0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.25);}
-          50%    {box-shadow:0 0 0 7px rgba(34,197,94,0);}
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 14px 6px 12px;
+          border-radius: 999px;
+          border: 1px solid rgba(200, 134, 10, 0.25);
+          background: rgba(255, 255, 255, 0.65);
+          font-size: 9.5px;
+          font-weight: 700;
+          color: #7A5200;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          backdrop-filter: blur(8px);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+          max-width: 94vw;
+          line-height: 1.3;
+          text-align: center;
         }
 
-        /* ── stat pill ─────────────────────────────────────── */
-        .stat-pill {
-          display:inline-flex; align-items:center; gap:5px;
-          padding:4px 11px; border-radius:999px;
-          background:rgba(0,0,0,0.02);
-          border:1px solid rgba(0,0,0,0.08);
-          font-size:11px; font-weight:600; color:#4b5563;
-          backdrop-filter:blur(6px);
-          box-shadow:0 1px 3px rgba(0,0,0,.02);
+        @media (min-width: 640px) {
+          .eyebrow-pill {
+            font-size: 11.5px;
+            padding: 6px 16px 6px 14px;
+            gap: 9px;
+            letter-spacing: 0.04em;
+          }
+        }
+        .live-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #22c55e;
+          flex-shrink: 0;
+          margin-left: 3px;
+          box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+          animation: livePulse 2s ease-in-out infinite;
+        }
+        @keyframes livePulse {
+          0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+          50%      { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
         }
 
         /* ── CTA primary ───────────────────────────────────── */
         .btn-primary {
-          background: linear-gradient(135deg,#A06A00 0%,#C8860A 60%,#E8A020 100%);
-          box-shadow: 0 4px 20px rgba(200,134,10,0.38);
-          transition: box-shadow .25s ease, transform .3s cubic-bezier(.22,1,.36,1);
+          background: linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%);
+          box-shadow: 0 4px 20px rgba(200, 134, 10, 0.38);
+          transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
-        .btn-primary:hover { box-shadow:0 8px 36px rgba(200,134,10,0.55); }
-
-        /* ── mag button ────────────────────────────────────── */
-        .mag-btn {
-          will-change:transform;
-          transition:transform .3s cubic-bezier(.22,1,.36,1),
-                     box-shadow .25s ease, background .18s ease, border-color .18s ease;
+        .btn-primary:hover {
+          box-shadow: 0 8px 30px rgba(200, 134, 10, 0.52);
+          transform: translateY(-2px);
         }
 
-        /* ── Revenue Model button ───────────────────────────── */
-        .btn-revenue {
-          background: #fff;
-          color: #C8860A;
-          border: 2px solid rgba(200,134,10,0.45);
-          box-shadow: 0 0 0 4px rgba(200,134,10,0.10), 0 4px 20px rgba(200,134,10,0.15);
-          animation: revBtnPulse 2.8s ease-in-out infinite;
-        }
-        .btn-revenue:hover {
-          background: rgba(200,134,10,0.04);
-          border-color: rgba(200,134,10,0.7);
-          box-shadow: 0 0 0 6px rgba(200,134,10,0.08), 0 6px 28px rgba(200,134,10,0.25);
-        }
-        @keyframes revBtnPulse {
-          0%,100% { box-shadow: 0 0 0 4px rgba(200,134,10,0.10), 0 4px 20px rgba(200,134,10,0.15); }
-          50%      { box-shadow: 0 0 0 8px rgba(200,134,10,0.06), 0 4px 28px rgba(200,134,10,0.22); }
+        /* ── Trust strip card ──────────────────────────────── */
+        .hero-trust-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 14px;
+          background: rgba(255, 255, 255, 0.75);
+          border: 1px solid rgba(200, 134, 10, 0.2);
+          border-radius: 12px;
+          backdrop-filter: blur(8px);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+          font-size: 12px;
+          font-weight: 600;
+          color: #2D251A;
+          text-align: left;
         }
 
-        /* ── scroll caret ──────────────────────────────────── */
-        @keyframes caretDrop {
-          0%,100%{transform:translateY(0);opacity:.35;}
-          55%    {transform:translateY(8px);opacity:.9;}
+        @media (min-width: 640px) {
+          .hero-trust-item {
+            gap: 10px;
+            padding: 10px 18px;
+            font-size: 13px;
+          }
         }
-        .scroll-caret { animation:caretDrop 2.1s ease-in-out infinite; }
       `}</style>
 
       <section
         ref={sectionRef}
         className="hero-section relative flex flex-col w-screen max-w-[100%]"
-        style={{ cursor: CRICKET_BAT_CURSOR }}
       >
         <video
           className="hero-video-bg"
@@ -258,166 +251,83 @@ export default function Hero() {
         {/* ── Centered content ── */}
         <div
           ref={contentRef}
-          className="relative z-10 w-full max-w-3xl mx-auto px-6 sm:px-10
-                     flex flex-col items-center text-center gap-5 sm:gap-5
-                     will-change-[transform,opacity] pt-6 sm:pt-8 pb-40"
+          className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-8
+                     flex flex-col items-center text-center gap-4 sm:gap-7
+                     will-change-[transform,opacity]"
         >
-
-
-          {/* Headline */}
-          <div className="flex flex-col items-center gap-3">
-            <h1
-              ref={titleRef}
-              className="hero-pre text-[1.95rem] sm:text-[2.8rem] md:text-[3.1rem] lg:text-[3.4rem]
-                         font-black text-black leading-[1.08] tracking-[-0.038em] text-center"
-            >
-              Outsource High-Ticket Services With Us —{" "}
-              <span
-                ref={line2Ref}
-                className="hero-pre gradient-text"
-                style={{ display: "inline" }}
-              >
-                and Expand Your Client Base at Zero Additional Cost.
-              </span>
-            </h1>
-            <p
-              ref={subheadRef}
-              className="hero-pre text-[17px] sm:text-[19px] font-semibold"
-              style={{
-                color: '#C8860A',
-                letterSpacing: '0.01em',
-                transitionDelay: '260ms',
-              }}
-            >
-              White label development delivered behind your agency brand.
-            </p>
+          {/* Eyebrow */}
+          <div ref={eyebrowRef} className="hero-pre">
+            <span className="eyebrow-pill">
+              <span className="live-dot" />
+              White-label engineering partner for marketing agencies
+            </span>
           </div>
-          {/* Service highlights */}
-          <div
-            ref={badgesRef}
-            className="hero-pre flex flex-row md:flex-col items-center justify-center gap-[6px] md:gap-3 mt-3 md:mt-7 flex-nowrap"
+
+          {/* Headline (Single H1) */}
+          <h1
+            ref={titleRef}
+            className="hero-pre text-[2rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.2rem]
+                       font-black text-black leading-[1.08] tracking-[-0.038em] text-center max-w-4xl"
           >
-            <div className="flex items-center justify-center gap-[6px] md:gap-2 flex-nowrap">
-              {[
-                {
-                  label: "Development",
-                  icon: "</>",
-                  accent: "#C8860A",
-                  bg: "rgba(200,134,10,0.07)",
-                  border: "rgba(200,134,10,0.18)",
-                },
-                {
-                  label: "Deployment",
-                  icon: "⬆",
-                  accent: "#A06A00",
-                  bg: "rgba(160,106,0,0.07)",
-                  border: "rgba(160,106,0,0.18)",
-                }
-              ].map(({ label, icon, accent, bg, border }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-[3px] md:gap-[8px] px-[8px] md:px-[20px] py-[3px] md:py-[8px] rounded-full text-[9px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
-                  style={{
-                    background: bg,
-                    border: `1px solid ${border}`,
-                    color: accent,
-                  }}
-                >
-                  <span className="text-[8px] md:text-[13px] opacity-90">{icon}</span>
-                  {label}
-                </span>
-              ))}
-            </div>
-            <div className="flex items-center justify-center gap-[6px] md:gap-2 flex-nowrap">
-              {[
-                {
-                  label: "Maintenance",
-                  icon: "⚙",
-                  accent: "#E8A020",
-                  bg: "rgba(232,160,32,0.07)",
-                  border: "rgba(232,160,32,0.18)",
-                },
-              ].map(({ label, icon, accent, bg, border }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-[3px] md:gap-[8px] px-[8px] md:px-[20px] py-[3px] md:py-[8px] rounded-full text-[9px] md:text-[14px] font-bold tracking-[.02em] backdrop-blur-md whitespace-nowrap"
-                  style={{
-                    background: bg,
-                    border: `1px solid ${border}`,
-                    color: accent,
-                  }}
-                >
-                  <span className="text-[8px] md:text-[13px] opacity-90">{icon}</span>
-                  {label}
-                </span>
-              ))}
-            </div>
-          </div>
+            White-Label Development Partner for{" "}
+            <span className="gradient-text">Marketing Agencies</span>
+          </h1>
+
+          {/* Subheading */}
+          <p
+            ref={subheadRef}
+            className="hero-pre text-[12.5px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[280px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-tight sm:leading-relaxed -mt-1 sm:mt-0"
+          >
+            BBS is the invisible engineering team behind your agency. We build custom websites, stores and web apps, and handle DevOps and tracking, under your brand at fixed partner prices.
+          </p>
 
           {/* CTAs */}
           <div
             ref={buttonsRef}
-            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3
-                       w-full sm:w-auto"
+            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 w-full sm:w-auto mt-0 sm:mt-2"
           >
-
-
-            {/* Revenue Model — highlighted primary with pulse */}
-            <button
-              onClick={() =>
-                document
-                  .getElementById("revenue")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="btn-primary text-white px-9 py-3.5 rounded-xl font-bold text-[13.5px] w-full sm:w-auto transition-all duration-300"
+            <Link
+              href="/contact"
+              onClick={() => handleCtaClick("Hero - Send a Project Brief")}
+              className="btn-primary text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
-              Revenue Model →
-            </button>
+              Send a Project Brief
+              <span aria-hidden="true">→</span>
+            </Link>
 
-            {/* Book a Call — plain secondary */}
-            <button
-              onClick={() => {
-                window.gtag?.('event', 'whatsapp_click', { button_location: 'hero' });
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="border border-black/12 text-gray-800 px-9 py-3.5 md:px-5
-                         rounded-xl font-bold text-[13.5px] w-full sm:w-auto
-                         bg-white hover:border-black/20 hover:bg-gray-50
+            <Link
+              href="/how-we-partner"
+              onClick={() => handleCtaClick("Hero - See How It Works")}
+              className="border border-black/15 text-gray-800 px-7 sm:px-8 py-3 sm:py-3.5
+                         rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto
+                         bg-white/90 hover:border-black/25 hover:bg-white
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
-                         hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300"
+                         hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]
+                         transition-all duration-300 inline-flex items-center justify-center"
             >
-              Book a Strategy Call
-            </button>
+              See How It Works
+            </Link>
           </div>
 
-          {/* Email */}
-          <div ref={emailRef} className="hero-pre text-[12.5px] text-gray-400 !mt-2 md:!mt-7 flex flex-col items-center gap-1">
-            <div>
-              Prefer email?{" "}
-              <a
-                href={`mailto:${EMAIL}`}
-                className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
-                           underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
-              >
-                {EMAIL}
-              </a>
+          {/* Trust Strip — exactly three items */}
+          <div
+            ref={trustStripRef}
+            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 w-full max-w-3xl -mt-1 sm:mt-4 pt-2.5 sm:pt-4 border-t border-black/10"
+          >
+            <div className="hero-trust-item">
+              <ShieldCheck className="w-5 h-5 text-[#C8860A] shrink-0" />
+              <span>NDA before project details</span>
             </div>
-            <div>
-              Or contact:{" "}
-              <a
-                href="mailto:Info@buildbeyondstudio.com"
-                className="font-semibold text-[#C8860A] hover:text-[#A06A00] transition-colors
-                           underline underline-offset-2 decoration-[rgba(200,134,10,0.3)] hover:decoration-[rgba(200,134,10,0.6)]"
-              >
-                Info@buildbeyondstudio.com
-              </a>
+            <div className="hero-trust-item">
+              <FileCode className="w-5 h-5 text-[#C8860A] shrink-0" />
+              <span>Code and IP handed over</span>
+            </div>
+            <div className="hero-trust-item">
+              <Receipt className="w-5 h-5 text-[#C8860A] shrink-0" />
+              <span>Fixed quote for your approved scope</span>
             </div>
           </div>
         </div>
-
-
       </section>
     </>
   );

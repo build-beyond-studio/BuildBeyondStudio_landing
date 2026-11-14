@@ -1,334 +1,141 @@
 "use client";
 
 import Link from "next/link";
+import { Globe, ShoppingBag, BarChart3, Users2, Wrench, ArrowRight } from "lucide-react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Icons — 24px outline, Tabler-style
-// ─────────────────────────────────────────────────────────────────────────────
-const Icons = {
-  web: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="13" rx="2"/>
-      <path d="M8 21h8M12 17v4"/>
-      <path d="M7 9l2 2-2 2M11 13h6"/>
-    </svg>
-  ),
-  mobile: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="6" y="2" width="12" height="20" rx="2"/>
-      <circle cx="12" cy="17" r="0.8" fill="currentColor" stroke="none"/>
-      <path d="M10 6h4"/>
-    </svg>
-  ),
-  ux: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="16" rx="2"/>
-      <path d="M8 8h8M8 12h8M8 16h5"/>
-    </svg>
-  ),
-  seo: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="6"/>
-      <path d="m16 16 5 5"/>
-      <path d="M11 8v6M8 11h6"/>
-    </svg>
-  ),
-  custom: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/>
-      <path d="M8 8h8M8 12h8M8 16h5"/>
-    </svg>
-  ),
-  chatbot: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 10h8M8 14h5"/>
-      <rect x="3" y="5" width="18" height="12" rx="3"/>
-      <path d="M8 19l-2 2 1-3"/>
-    </svg>
-  ),
-  leadgen: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 18V8l5-4 5 4v10"/>
-      <path d="M10 12h4M12 10v4"/>
-    </svg>
-  ),
-  store: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 9h16l-1.5 10.5A2 2 0 0 1 16.5 21h-9a2 2 0 0 1-2-1.5L4 9Z"/>
-      <path d="M7 9V7a5 5 0 0 1 10 0v2"/>
-    </svg>
-  ),
-  integrations: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 7h8v10H8z"/>
-      <path d="M4 12h4M16 12h4M12 4v4M12 16v4"/>
-    </svg>
-  ),
-  maintenance: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-    </svg>
-  ),
-  tracking: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 3v18h18"/>
-      <path d="m7 14 4-4 3 3 6-7"/>
-      <path d="M16 6h4v4"/>
-    </svg>
-  ),
-  pod: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="9" cy="8" r="3"/>
-      <path d="M3 20v-1a6 6 0 0 1 12 0v1"/>
-      <path d="M16 5.2a3 3 0 0 1 0 5.6M18 14a5 5 0 0 1 3 4.6V20"/>
-    </svg>
-  ),
-  arrow: (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 5l7 7-7 7"/>
-    </svg>
-  ),
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Service data
-// ─────────────────────────────────────────────────────────────────────────────
-const SERVICES = [
+const CORE_SERVICES = [
   {
-    title: "Website Development",
-    desc: "Custom-built on React and Next.js — not templates. Fast, SEO-structured, and designed to convert visitors into clients.",
+    title: "White-Label Web & Web App Development",
+    desc: "Custom websites, web portals and SaaS applications engineered on modern stacks under your agency's brand.",
     href: "/services/website-development",
-    icon: Icons.web,
+    icon: Globe,
   },
   {
-    title: "UI / UX Design",
-    desc: "Interface strategy, wireframes, and conversion-focused UX flows that make products easier to use and easier to trust.",
-    href: "/services/ui-ux-design",
-    icon: Icons.ux,
-  },
-  {
-    title: "Mobile App Development",
-    desc: "iOS and Android from a single codebase. From MVP scoping to App Store submission — one team handles it all.",
-    href: "/services/mobile-app-development",
-    icon: Icons.mobile,
-  },
-  {
-    title: "SEO, AEO & GEO",
-    desc: "Technical visibility and AI search optimization so your brand gets found, cited, and trusted across search surfaces.",
-    href: "/services/seo-aeo-geo",
-    icon: Icons.seo,
-  },
-  {
-    title: "Custom Software Development",
-    desc: "Business tools, dashboards, and web apps built around how you work.",
-    href: "/services/custom-software-development",
-    icon: Icons.custom,
-  },
-  {
-    title: "AI Chatbots & Assistants",
-    desc: "Smart chat and WhatsApp bots that answer customers and capture leads 24/7.",
-    href: "/services/ai-chatbots-assistants",
-    icon: Icons.chatbot,
-  },
-  {
-    title: "LinkedIn Lead Generation & Automation",
-    desc: "Automated outreach, connection requests, and follow-ups that fill your pipeline while you sleep.",
-    href: "/services/linkedin-lead-generation-automation",
-    icon: Icons.leadgen,
-  },
-  {
-    title: "Online Store Development",
-    desc: "Custom e-commerce stores built to sell, not just look good.",
+    title: "E-commerce & Headless Stores",
+    desc: "Fast, custom online stores built on Shopify, WooCommerce or headless architectures designed to convert.",
     href: "/services/online-store-development",
-    icon: Icons.store,
-  },
-  {
-    title: "App Integrations",
-    desc: "Connect your website or software to payment gateways, CRMs, and other tools you already use.",
-    href: "/services/app-integrations",
-    icon: Icons.integrations,
-  },
-  {
-    title: "Website & App Maintenance",
-    desc: "Ongoing fixes, updates, and hosting care so nothing breaks.",
-    href: "/services/website-app-maintenance",
-    icon: Icons.maintenance,
+    icon: ShoppingBag,
   },
   {
     title: "Tracking & Conversion Setup",
-    desc: "Accurate analytics and ad conversion tracking, implemented and tested for your clients.",
+    desc: "Accurate server-side GA4, Google Tag Manager, Meta Pixel and ad conversion tracking fully tested and verified.",
     href: "/services/tracking-conversion-setup",
-    icon: Icons.tracking,
+    icon: BarChart3,
   },
   {
     title: "Dedicated Development Pod",
-    desc: "A managed development team for agencies with ongoing client work and delivery needs.",
+    desc: "A managed, sprint-aligned developer pod dedicated to your ongoing client deliverables and high-volume needs.",
     href: "/services/dedicated-development-pod",
-    icon: Icons.pod,
+    icon: Users2,
+  },
+  {
+    title: "Website & App Maintenance",
+    desc: "Proactive security patching, bug fixes, updates and infrastructure maintenance to keep client sites running smoothly.",
+    href: "/services/website-app-maintenance",
+    icon: Wrench,
   },
 ] as const;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Service card
-// ─────────────────────────────────────────────────────────────────────────────
-function ServiceCard({
-  title,
-  desc,
-  href,
-  icon,
-}: {
-  title: string;
-  desc: string;
-  href: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group relative flex flex-col bg-white rounded-2xl border border-[#EDEAE3] overflow-hidden
-        shadow-[0_2px_8px_rgba(0,0,0,0.05)]
-        hover:shadow-[0_20px_48px_rgba(0,0,0,0.11)]
-        hover:-translate-y-2
-        hover:border-[rgba(200,134,10,0.28)]
-        transition-all duration-300 ease-out
-        p-7 sm:p-8
-        min-h-[220px]
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8860A]"
-    >
-      {/* Amber accent bar — slides down from above on hover */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl
-          bg-gradient-to-r from-[#A06A00] via-[#C8860A] to-[#E8A020]
-          -translate-y-full group-hover:translate-y-0
-          transition-transform duration-300 ease-out"
-        aria-hidden="true"
-      />
-
-      {/* Icon container */}
-      <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 flex-shrink-0
-          bg-[#F5F1EA] text-[#8C8680]
-          group-hover:bg-[rgba(200,134,10,0.1)] group-hover:text-[#C8860A]
-          transition-all duration-300 ease-out"
-      >
-        {icon}
-      </div>
-
-      {/* Title */}
-      <h3
-        className="text-[16px] sm:text-[17px] font-bold text-[#111111] leading-snug tracking-tight mb-3"
-      >
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p
-        className="text-[13px] sm:text-[13.5px] text-[#6B6560] leading-[1.7] flex-1"
-      >
-        {desc}
-      </p>
-
-      {/* CTA row — slides up and fades in on hover */}
-      <div
-        className="mt-6 flex items-center gap-1.5
-          text-[12px] font-semibold tracking-wide text-[#C8860A] uppercase
-          opacity-0 translate-y-2
-          group-hover:opacity-100 group-hover:translate-y-0
-          transition-all duration-300 ease-out delay-75"
-        aria-hidden="true"
-      >
-        View service
-        {Icons.arrow}
-      </div>
-    </Link>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CTA card (8th cell)
-// ─────────────────────────────────────────────────────────────────────────────
-function CtaCard() {
-  return (
-    <div
-      className="group relative flex flex-col justify-between
-        rounded-2xl border border-dashed border-[#D8D4CC]
-        bg-[#FAF8F4]
-        p-7 sm:p-8
-        min-h-[220px]"
-    >
-      {/* Dot grid ornament */}
-      <div className="grid grid-cols-5 gap-[7px] w-fit mb-auto" aria-hidden="true">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <div
-            key={i}
-            className="w-1 h-1 rounded-full bg-[#C8C3BB]"
-          />
-        ))}
-      </div>
-
-      {/* Body */}
-      <div>
-        <p className="text-[13px] text-[#8C8680] leading-relaxed mb-4">
-          Explore the full scope of what Build Beyond Studio delivers — twelve services, one accountable team.
-        </p>
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 text-[14px] font-bold text-[#C8860A] hover:text-[#A06A00] transition-colors duration-200 group/link"
-        >
-          View all services
-          <span
-            className="transition-transform duration-200 group-hover/link:translate-x-1"
-            aria-hidden="true"
-          >
-            {Icons.arrow}
-          </span>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Main export
-// ─────────────────────────────────────────────────────────────────────────────
 export default function Services() {
   return (
     <section
       id="services"
       className="bg-[#FAF9F6] border-t border-[#E8E4DC] py-20 sm:py-24 lg:py-28"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* ── Header ── */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 sm:mb-14">
           <div>
             <span className="inline-block text-[11px] font-bold tracking-[0.22em] text-[#C8860A] uppercase mb-3">
-              Services
+              What BBS Delivers
             </span>
-            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold text-[#0D0D0D] leading-[1.08] tracking-tight">
-              What we build<span className="text-[#D4CEBC]">.</span>
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[46px] font-black text-[#0D0D0D] leading-[1.08] tracking-tight">
+              Five core engineering services<span className="text-[#C8860A]">.</span>
             </h2>
           </div>
 
-          <div className="lg:max-w-xs lg:text-right">
-            <p className="text-[14px] text-[#6B6560] leading-relaxed mb-2">
-              From code to campaigns — every service delivered under your brand.
+          <div className="lg:max-w-md lg:text-right">
+            <p className="text-[14px] text-[#6B6560] leading-relaxed">
+              Every build, store, tracking setup and update delivered under your agency's brand at fixed partner pricing.
             </p>
-            <Link
-              href="/white-label-web-development"
-              className="text-[13px] font-semibold text-[#C8860A] hover:text-[#A06A00] hover:underline transition-colors duration-200"
-            >
-              White-label available →
-            </Link>
           </div>
         </div>
 
-        {/* ── Service grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {SERVICES.map((svc) => (
-            <ServiceCard key={svc.href} {...svc} />
+        {/* ── Exactly 5 Service Cards Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {CORE_SERVICES.map((svc) => (
+            <Link
+              key={svc.href}
+              href={svc.href}
+              className="group relative flex flex-col justify-between bg-white rounded-2xl border border-[#EDEAE3] p-7 sm:p-8
+                         shadow-[0_2px_8px_rgba(0,0,0,0.04)]
+                         hover:shadow-[0_16px_40px_rgba(200,134,10,0.12)]
+                         hover:-translate-y-1.5
+                         hover:border-[rgba(200,134,10,0.32)]
+                         transition-all duration-300 ease-out min-h-[240px]
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8860A]"
+            >
+              {/* Subtle amber line on hover */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#A06A00] to-[#E8A020]
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                aria-hidden="true"
+              />
+
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-[rgba(200,134,10,0.08)] border border-[rgba(200,134,10,0.18)] flex items-center justify-center text-[#C8860A] mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <svc.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-[18px] sm:text-[19px] font-bold text-[#0D0D0D] group-hover:text-[#A06A00] transition-colors leading-snug mb-3">
+                  {svc.title}
+                </h3>
+                <p className="text-[13.5px] text-[#6B6560] leading-relaxed">
+                  {svc.desc}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-black/5 flex items-center gap-2 text-[13px] font-bold text-[#C8860A] group-hover:text-[#A06A00]">
+                <span>Explore service</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </div>
+            </Link>
           ))}
-          <CtaCard />
+
+          {/* CTA Link Box for 6th slot on 3-col grid */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-dashed border-[#D8D4CC] bg-[#FAF8F4] p-7 sm:p-8 min-h-[240px]">
+            <div>
+              <span className="inline-block text-[11px] font-bold tracking-wider text-[#A06A00] uppercase mb-2">
+                All Capabilities
+              </span>
+              <h3 className="text-[19px] font-bold text-[#0D0D0D] mb-3 leading-snug">
+                Need more technical capabilities?
+              </h3>
+              <p className="text-[13.5px] text-[#6B6560] leading-relaxed">
+                Explore our full spectrum of specialized capabilities including AI chatbots, custom software, UI/UX and DevOps.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-[#E8E4DC]">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-[14px] font-bold text-[#C8860A] hover:text-[#A06A00] transition-colors"
+              >
+                See all services and additional capabilities
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Explicit requested text link below cards */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-[15px] font-bold text-[#C8860A] hover:text-[#A06A00] hover:underline transition-colors"
+          >
+            See all services and additional capabilities
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
       </div>

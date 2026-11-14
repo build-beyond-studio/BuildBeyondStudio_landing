@@ -1,4 +1,5 @@
 import TrackedLink from "@/components/TrackedLink";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -7,13 +8,12 @@ export default function Footer() {
         {/* Main Section */}
         <div className="text-center mb-16">
           <h3 className="text-2xl md:text-4xl font-bold mb-6 leading-tight">
-            Your Agency Owns the Client. We Handle the Build.
+            The Invisible Engineering Team Behind Marketing Agencies.
           </h3>
 
-          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            BBS works behind your agency brand to scope, build, test, launch, and maintain client projects. Your agency leads the relationship. Our team handles the agreed technical delivery.
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8 font-light">
+            BBS works behind your agency brand to scope, build, test, launch, and maintain client websites, e-commerce stores, and web applications. Your agency leads the client relationship; our team delivers under your brand.
           </p>
-
 
           {/* Social Handles */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
@@ -83,41 +83,38 @@ export default function Footer() {
           </div>
         </div>
 
-
-
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-500 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-400 mb-8">
             <div className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-4 text-base">Services</h4>
+              <h4 className="text-white font-bold mb-4 text-base">Core Services</h4>
               <div className="flex flex-col gap-2">
-                <a href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Web Development</a>
-                <a href="/services/website-development" className="hover:text-white transition-colors">Website Development</a>
-                <a href="/services/ui-ux-design" className="hover:text-white transition-colors">UI / UX Design</a>
-                <a href="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</a>
-                <a href="/services/seo-aeo-geo" className="hover:text-white transition-colors">SEO, AEO & GEO</a>
-                <a href="/services/custom-software-development" className="hover:text-white transition-colors">Custom Software Development</a>
-                <a href="/services/ai-chatbots-assistants" className="hover:text-white transition-colors">AI Chatbots & Assistants</a>
-                <a href="/services/linkedin-lead-generation-automation" className="hover:text-white transition-colors">LinkedIn Lead Generation & Automation</a>
-                <a href="/services/online-store-development" className="hover:text-white transition-colors">Online Store Development</a>
-                <a href="/services/app-integrations" className="hover:text-white transition-colors">App Integrations</a>
-                <a href="/services/website-app-maintenance" className="hover:text-white transition-colors">Website & App Maintenance</a>
+                <Link href="/white-label-web-development" className="hover:text-white transition-colors font-semibold text-[#E8A020]">White-Label Overview Pillar</Link>
+                <Link href="/white-label-web-development-uk" className="hover:text-white transition-colors text-xs text-gray-300">White-Label UK Agencies</Link>
+                <Link href="/services/website-development" className="hover:text-white transition-colors">Web &amp; Web App Development</Link>
+                <Link href="/services/online-store-development" className="hover:text-white transition-colors">E-commerce &amp; Headless Stores</Link>
+                <Link href="/services/tracking-conversion-setup" className="hover:text-white transition-colors">Tracking &amp; Conversion Setup</Link>
+                <Link href="/services/dedicated-development-pod" className="hover:text-white transition-colors">Dedicated Development Pod</Link>
+                <Link href="/services/website-app-maintenance" className="hover:text-white transition-colors">Website &amp; App Maintenance</Link>
+                <Link href="/services" className="hover:text-white transition-colors text-xs text-[#C8860A] font-semibold mt-1">View all services &amp; capabilities →</Link>
               </div>
             </div>
             <div className="text-center md:text-left">
-              <h4 className="text-white font-semibold mb-4 text-base">Company</h4>
+              <h4 className="text-white font-bold mb-4 text-base">Company &amp; Process</h4>
               <div className="flex flex-col gap-2">
-                <a href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</a>
-                <a href="/#revenue" className="hover:text-white transition-colors">Revenue Model</a>
-                <a href="/success-stories" className="hover:text-white transition-colors">Success Stories</a>
-                <a href="/training-programs" className="hover:text-white transition-colors">Internship Programs</a>
-                <a href="/ambikapur" className="hover:text-white transition-colors">Ambikapur Office</a>
-                <a href="/blog" className="hover:text-white transition-colors">Blog</a>
+                <Link href="/about" className="hover:text-white transition-colors">About BBS</Link>
+                <Link href="/how-we-partner" className="hover:text-white transition-colors">How We Partner</Link>
+                <Link href="/pricing-model" className="hover:text-white transition-colors">Pricing Model</Link>
+                <Link href="/trust" className="hover:text-white transition-colors">Trust Centre</Link>
+                <Link href="/our-work" className="hover:text-white transition-colors">Selected Builds</Link>
+                <Link href="/success-stories" className="hover:text-white transition-colors">Success Stories</Link>
+                <Link href="/contact" className="hover:text-white transition-colors">Send a Project Brief</Link>
+                <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
               </div>
             </div>
             {/* Contact + Address */}
             <div className="text-center md:text-right text-gray-300 font-light tracking-wide leading-relaxed">
-              <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
+              <h4 className="text-white font-bold mb-4 text-base">Contact</h4>
               <p>
                 <a
                   href="mailto:admin@buildbeyondstudio.com"
@@ -126,22 +123,15 @@ export default function Footer() {
                   admin@buildbeyondstudio.com
                 </a>
               </p>
-              <p>
-                <a
-                  href="mailto:Info@buildbeyondstudio.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Info@buildbeyondstudio.com
-                </a>
-              </p>
-              <p>Ambikapur, Surguja</p>
-              <p>Chhattisgarh 497001</p>
+              <p className="text-xs text-gray-400 mt-1">+91 7697339962</p>
+              <p className="mt-2 text-xs text-gray-400">Ambikapur, Surguja</p>
+              <p className="text-xs text-gray-400">Chhattisgarh 497001, India</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:items-center justify-between text-sm text-gray-500 border-t border-white/5 pt-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between text-xs text-gray-500 border-t border-white/5 pt-6">
             <p>&copy; {new Date().getFullYear()} Build Beyond Studio. All rights reserved.</p>
             <p className="mt-2 md:mt-0">
-              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a> | <a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+              <Link href="/ambikapur" className="text-gray-400 hover:text-white transition-colors mr-3">Ambikapur Office</Link> | <Link href="/training-programs" className="text-gray-400 hover:text-white transition-colors mx-3">Training Programs</Link> | <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors mx-3">Privacy Policy</Link> | <Link href="/terms" className="text-gray-400 hover:text-white transition-colors ml-3">Terms of Service</Link>
             </p>
           </div>
         </div>

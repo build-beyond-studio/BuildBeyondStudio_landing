@@ -44,12 +44,11 @@ export function WebsitePortfolioCard({
 }: WebsitePortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const [hasStartedLoading, setHasStartedLoading] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Lazy load: only start loading the video when the card enters the viewport
+  // Lazy load: start preparing video when card is within 400px of viewport
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -61,25 +60,30 @@ export function WebsitePortfolioCard({
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' } // Start loading 200px before visible
+      { rootMargin: '400px' }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  // When in view, set the video source and play
+  // Play video only when hovered, pause and reset when unhovered
   useEffect(() => {
-    if (isInView && videoRef.current && videoSrc && !hasStartedLoading) {
-      const optimizedUrl = getOptimizedVideoUrl(videoSrc);
-      videoRef.current.src = optimizedUrl;
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {
-        // Autoplay might be blocked — that's fine, the poster is showing
-      });
-      setHasStartedLoading(true);
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isHovered) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback if browser autoplay restrictions trigger
+        });
+      }
+    } else {
+      video.pause();
+      video.currentTime = 0;
     }
-  }, [isInView, videoSrc, hasStartedLoading]);
+  }, [isHovered]);
 
   useEffect(() => {
     return () => {
@@ -91,17 +95,17 @@ export function WebsitePortfolioCard({
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     hoverTimeoutRef.current = setTimeout(() => {
       setIsHovered(true);
-    }, 150);
+    }, 100);
   };
 
   const handleMouseLeave = () => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     hoverTimeoutRef.current = setTimeout(() => {
       setIsHovered(false);
-    }, 150);
+    }, 100);
   };
 
-  // Auto-generate poster from Cloudinary video if no posterSrc provided
+  // Thumbnail poster image
   const poster = posterSrc || (videoSrc ? getPosterFromVideo(videoSrc) : undefined);
 
   return (
@@ -197,19 +201,34 @@ export function WebsitePortfolioCard({
               )}
             </AnimatePresence>
 
-            {/* Video Container */}
-            <div className="relative w-full flex-grow overflow-hidden">
-              <video
-                ref={videoRef}
-                poster={poster}
-                preload="none"
-                autoPlay
-                muted
-                playsInline
-                loop
-                className={`w-full h-full object-contain block transition-transform duration-[450ms] ease-out origin-center ${isHovered ? 'scale-[1.03]' : 'scale-100'
+            {/* Video / Thumbnail Container */}
+            <div className="relative w-full flex-grow overflow-hidden bg-[#121214]">
+              {/* Thumbnail image shown by default */}
+              {poster && (
+                <img
+                  src={poster}
+                  alt={`${title} preview`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-[2] pointer-events-none ${
+                    isHovered ? "opacity-0" : "opacity-100"
                   }`}
-              />
+                  loading="lazy"
+                />
+              )}
+
+              {/* Video plays when hovered */}
+              {videoSrc && (
+                <video
+                  ref={videoRef}
+                  src={isInView ? videoSrc : undefined}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  loop
+                  className={`w-full h-full object-contain block transition-transform duration-[450ms] ease-out origin-center z-[1] relative ${
+                    isHovered ? "scale-[1.03]" : "scale-100"
+                  }`}
+                />
+              )}
             </div>
           </motion.div>
         </motion.div>

@@ -7,25 +7,27 @@ import blogs from '@/data/blogs.json';
 
 import { buildMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = buildMetadata(
-  '/blog',
-  'Blog: Resources for Agencies on White Label Development | BBS',
-  'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
-  {
-    keywords: 'blog, insights, growth strategies, SEO, web development, branding, startup tips',
-    openGraph: {
-      type: 'website',
-      images: [
-        {
-          url: 'https://buildbeyondstudio.com/og-blog.png',
-          width: 1200,
-          height: 630,
-          alt: 'BBS Blog — Insights for Marketing Agencies',
-        },
-      ],
-    },
-  }
-);
+export const metadata: Metadata = {
+  title: 'White Label Development Guides for Agencies | BBS Blog',
+  description: 'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
+  alternates: {
+    canonical: 'https://buildbeyondstudio.com/blog',
+  },
+  openGraph: {
+    title: 'White Label Development Guides for Agencies | BBS Blog',
+    description: 'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
+    url: 'https://buildbeyondstudio.com/blog',
+    type: 'website',
+    images: [
+      {
+        url: 'https://buildbeyondstudio.com/og-blog.png',
+        width: 1200,
+        height: 630,
+        alt: 'BBS Blog — Insights for Marketing Agencies',
+      },
+    ],
+  },
+};
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
@@ -182,11 +184,11 @@ export default function BlogPage() {
             These insights are more powerful when paired with a premium digital product. Let's build something that converts.
           </p>
           <Link
-            href="/services/web-applications"
+            href="/services/website-development"
             className="inline-block text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
           >
-            Explore Our Services
+            Explore Website Development
           </Link>
         </div>
       </section>

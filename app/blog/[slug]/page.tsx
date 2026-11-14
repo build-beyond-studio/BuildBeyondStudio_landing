@@ -204,15 +204,23 @@ export default async function BlogPostPage({
           {/* Inline CTA for Featured Blog Post */}
           {blog.featured && blog.slug === 'how-marketing-agencies-offer-web-development-without-hiring-developers' && (
             <div className="bg-gradient-to-r from-[#FDF8F0] to-[#FEFAF4] border-l-4 border-[#C8860A] rounded-lg p-8 mb-12">
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Ready to try this with a real client project? Start with one pilot — no commitment.
+              <p className="text-gray-700 mb-4 leading-relaxed font-light">
+                Ready to explore white-label delivery for an active client project? Start with a single project brief under NDA.
               </p>
-              <Link
-                href="/for-agencies"
-                className="inline-flex items-center gap-2 bg-[#C8860A] hover:bg-[#A06A00] text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-              >
-                Get started →
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-[#C8860A] hover:bg-[#A06A00] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+                >
+                  Send a project brief →
+                </Link>
+                <Link
+                  href="/pricing-model"
+                  className="inline-flex items-center gap-2 bg-white border border-[rgba(200,134,10,0.3)] hover:bg-[#FDF8F0] text-[#C8860A] font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+                >
+                  See Partner Pricing Model
+                </Link>
+              </div>
             </div>
           )}
 
@@ -221,22 +229,30 @@ export default async function BlogPostPage({
             <div className="flex items-start gap-4">
               <Image
                 src="/logo.png"
-                alt="Build Beyond Studio Logo"
+                alt="Build Beyond Studio"
                 width={64}
                 height={64}
                 className="rounded-full flex-shrink-0 object-cover border border-[rgba(200,134,10,0.2)]"
               />
               <div>
-                <h3 className="font-bold text-black">Build Beyond Studio</h3>
-                <p className="text-gray-600 text-sm mt-1">
-                  Web development agency specializing in MERN stack applications, DevOps, and white-label solutions for ambitious founders and modern agencies.
+                <h3 className="font-bold text-black">{blog.author || 'Build Beyond Studio'}</h3>
+                <p className="text-gray-600 text-sm mt-1 leading-relaxed font-light">
+                  {blog.authorBio || 'White-label engineering partner for marketing agencies in India. Custom web builds, DevOps and tracking delivered under your brand.'}
                 </p>
-                <Link
-                  href="/"
-                  className="inline-block mt-3 text-[#C8860A] hover:text-[#A06A00] font-semibold text-sm"
-                >
-                  Learn more about us →
-                </Link>
+                <div className="flex items-center gap-4 mt-3">
+                  <Link
+                    href="/about"
+                    className="text-[#C8860A] hover:text-[#A06A00] font-semibold text-sm"
+                  >
+                    About Ankush & BBS →
+                  </Link>
+                  <Link
+                    href="/white-label-web-development"
+                    className="text-gray-500 hover:text-black text-sm"
+                  >
+                    White-label services
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

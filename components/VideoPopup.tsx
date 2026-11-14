@@ -20,18 +20,6 @@ export default function VideoPopup() {
 
   return (
     <>
-      {/* Floating Gift Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed z-[999] flex items-center justify-center hover:scale-110 transition-transform animate-[bounce_3s_infinite] w-[80px] h-[80px] md:w-[90px] md:h-[90px] bottom-[65px] left-1/2 -translate-x-1/2 md:bottom-[110px] md:left-auto md:right-6 md:translate-x-0"
-      >
-        <img
-          src="/wWcLeiYQ61220DMagm-removebg-preview.png"
-          alt="Gift"
-          className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(255,200,0,0.7)]"
-        />
-      </button>
-
       {/* Popup Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-md flex items-center justify-center p-4">

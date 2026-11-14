@@ -197,7 +197,7 @@ export default function SkillDevelopmentFundBanner() {
           </div>
 
           <div className="rhb-paragraph">
-            Nearly a third of every rupee students pay goes straight into your institution's own account — no strings attached. Use it for scholarships, lab upgrades, or placement cell activities.
+            Nearly a third of every rupee students pay goes straight into your institution&apos;s own account for discretionary use. Allocate it toward scholarships, lab upgrades, or placement cell activities.
           </div>
 
           <div className="rhb-stats-row">

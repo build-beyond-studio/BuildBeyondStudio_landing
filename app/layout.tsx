@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import VisitorAnalyticsTracker from "@/components/analytics/VisitorAnalyticsTracker";
 import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -10,8 +12,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   themeColor: "#0066ff",
 };
 
@@ -201,6 +201,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <Suspense fallback={null}>
+          <VisitorAnalyticsTracker />
+        </Suspense>
         {children}
         <Analytics />
         <GoogleAnalytics gaId="G-3TCL6W82KM" />
