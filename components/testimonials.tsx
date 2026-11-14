@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PartnerProof {
   agency: string;
@@ -66,6 +66,19 @@ const PARTNERS: PartnerProof[] = [
 
 export default function Testimonials() {
   const cards = [...PARTNERS, ...PARTNERS];
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isManualScroll, setIsManualScroll] = useState(false);
+
+  const handleScroll = (direction: "left" | "right") => {
+    setIsManualScroll(true);
+    if (scrollContainerRef.current) {
+      const scrollAmount = 420;
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <section id="proof" className="bg-[#F5F2EC] py-20 sm:py-24 px-5 sm:px-8 border-t border-black/5 overflow-hidden">
@@ -86,24 +99,57 @@ export default function Testimonials() {
         .proof-track:hover {
           animation-play-state: paused;
         }
+        .proof-track.manual-mode {
+          animation: none !important;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
       `}</style>
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-14 sm:mb-16">
-          <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#C8860A] bg-[#FDF8F0] px-4 py-1.5 rounded-full border border-[rgba(200,134,10,0.2)] inline-block mb-3">
-            Agency Proof
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black tracking-[-0.03em] mb-4">
-            Proof From Agency Partners
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Real agency partnerships. Reliable execution. Complete brand protection.
-          </p>
+        {/* Header with Navigation Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+          <div className="text-left">
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#C8860A] bg-[#FDF8F0] px-4 py-1.5 rounded-full border border-[rgba(200,134,10,0.2)] inline-block mb-3">
+              Agency Proof
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-black tracking-[-0.03em] mb-4">
+              Proof From Agency Partners
+            </h2>
+            <p className="text-gray-600 max-w-xl text-sm sm:text-base leading-relaxed">
+              Real agency partnerships. Reliable execution. Complete brand protection.
+            </p>
+          </div>
+
+          {/* Left/Right Controls on the right side (Hidden on mobile, visible on md and up) */}
+          <div className="hidden md:flex items-center gap-3 self-end md:self-auto shrink-0 pb-1">
+            <button
+              onClick={() => handleScroll("left")}
+              aria-label="Previous testimonials"
+              className="w-11 h-11 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/90 hover:bg-[#FDF8F0] text-[#7A5200] hover:text-[#C8860A] flex items-center justify-center shadow-sm hover:shadow transition-all duration-200 active:scale-95 cursor-pointer"
+            >
+              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+            </button>
+            <button
+              onClick={() => handleScroll("right")}
+              aria-label="Next testimonials"
+              className="w-11 h-11 rounded-full border border-[rgba(200,134,10,0.3)] bg-white/90 hover:bg-[#FDF8F0] text-[#7A5200] hover:text-[#C8860A] flex items-center justify-center shadow-sm hover:shadow transition-all duration-200 active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+            </button>
+          </div>
         </div>
 
-        {/* Infinite Carousel Container */}
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="proof-track gap-6 py-4">
+        {/* Carousel Container */}
+        <div
+          ref={scrollContainerRef}
+          className="relative w-full overflow-x-auto no-scrollbar [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
+        >
+          <div className={`proof-track gap-6 py-4 ${isManualScroll ? "manual-mode" : ""}`}>
             {cards.map((partner, index) => (
               <div
                 key={`${partner.agency}-${index}`}

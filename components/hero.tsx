@@ -90,7 +90,7 @@ export default function Hero() {
 
         .hero-video-bg {
           position: absolute;
-          bottom: 22%;
+          bottom: 18%;
           left: 0;
           width: 100%;
           height: 100%;
@@ -213,17 +213,25 @@ export default function Hero() {
         .hero-trust-item {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 10px 18px;
+          gap: 8px;
+          padding: 8px 14px;
           background: rgba(255, 255, 255, 0.75);
           border: 1px solid rgba(200, 134, 10, 0.2);
           border-radius: 12px;
           backdrop-filter: blur(8px);
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 600;
           color: #2D251A;
           text-align: left;
+        }
+
+        @media (min-width: 640px) {
+          .hero-trust-item {
+            gap: 10px;
+            padding: 10px 18px;
+            font-size: 13px;
+          }
         }
       `}</style>
 
@@ -235,7 +243,6 @@ export default function Hero() {
           className="hero-video-bg"
           autoPlay
           muted
-          loop
           playsInline
         >
           <source src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%201.16.14%20AM.mp4" />
@@ -244,8 +251,8 @@ export default function Hero() {
         {/* ── Centered content ── */}
         <div
           ref={contentRef}
-          className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8
-                     flex flex-col items-center text-center gap-6 sm:gap-7
+          className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-8
+                     flex flex-col items-center text-center gap-4 sm:gap-7
                      will-change-[transform,opacity]"
         >
           {/* Eyebrow */}
@@ -259,7 +266,7 @@ export default function Hero() {
           {/* Headline (Single H1) */}
           <h1
             ref={titleRef}
-            className="hero-pre text-[2.2rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.2rem]
+            className="hero-pre text-[2rem] sm:text-[3.2rem] md:text-[3.8rem] lg:text-[4.2rem]
                        font-black text-black leading-[1.08] tracking-[-0.038em] text-center max-w-4xl"
           >
             White-Label Development Partner for{" "}
@@ -269,7 +276,7 @@ export default function Hero() {
           {/* Subheading */}
           <p
             ref={subheadRef}
-            className="hero-pre text-[13px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[290px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-snug sm:leading-relaxed -mt-1 sm:mt-0"
+            className="hero-pre text-[12.5px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[280px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-tight sm:leading-relaxed -mt-1 sm:mt-0"
           >
             BBS is the invisible engineering team behind your agency. We build custom websites, stores and web apps, and handle DevOps and tracking, under your brand at fixed partner prices.
           </p>
@@ -277,12 +284,12 @@ export default function Hero() {
           {/* CTAs */}
           <div
             ref={buttonsRef}
-            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto mt-0 sm:mt-2"
+            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 w-full sm:w-auto mt-0 sm:mt-2"
           >
             <Link
               href="/contact"
               onClick={() => handleCtaClick("Hero - Send a Project Brief")}
-              className="btn-primary text-white px-8 py-3.5 rounded-xl font-bold text-[14px] w-full sm:w-auto inline-flex items-center justify-center gap-2"
+              className="btn-primary text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto inline-flex items-center justify-center gap-2"
             >
               Send a Project Brief
               <span aria-hidden="true">→</span>
@@ -291,8 +298,8 @@ export default function Hero() {
             <Link
               href="/how-we-partner"
               onClick={() => handleCtaClick("Hero - See How It Works")}
-              className="border border-black/15 text-gray-800 px-8 py-3.5
-                         rounded-xl font-bold text-[14px] w-full sm:w-auto
+              className="border border-black/15 text-gray-800 px-7 sm:px-8 py-3 sm:py-3.5
+                         rounded-xl font-bold text-[13.5px] sm:text-[14px] w-full sm:w-auto
                          bg-white/90 hover:border-black/25 hover:bg-white
                          shadow-[0_2px_8px_rgba(0,0,0,0.05)]
                          hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]
@@ -305,7 +312,7 @@ export default function Hero() {
           {/* Trust Strip — exactly three items */}
           <div
             ref={trustStripRef}
-            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl -mt-2 sm:mt-4 pt-3 sm:pt-4 border-t border-black/10"
+            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 w-full max-w-3xl -mt-1 sm:mt-4 pt-2.5 sm:pt-4 border-t border-black/10"
           >
             <div className="hero-trust-item">
               <ShieldCheck className="w-5 h-5 text-[#C8860A] shrink-0" />
