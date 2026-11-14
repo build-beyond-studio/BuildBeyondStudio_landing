@@ -38,11 +38,6 @@ export default function PrivacyPage() {
           <div className="max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
             <div className="space-y-10">
 
-              {/* Legal Review Notice */}
-              <div className="bg-[#FFFBEB] p-6 rounded-2xl border border-[#FDE68A] text-xs sm:text-sm text-[#92400E] leading-relaxed">
-                <strong>Legal Review Note:</strong> This privacy policy outlines Build Beyond Studio&apos;s current data practices and operational commitments for agency partners. This policy must be reviewed by a qualified lawyer before final legal publication. Specific operational placeholders requiring legal confirmation are noted as [OWNER TO CONFIRM].
-              </div>
-
               {/* Data We Collect */}
               <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
                 <h2 className="text-2xl font-bold text-black mb-3">1. Information We Collect</h2>
@@ -86,7 +81,7 @@ export default function PrivacyPage() {
                 </div>
                 <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 font-light">
                   <li><strong>Client Confidentiality:</strong> We do not contact your clients unless you ask us to. Your end-client details remain strictly protected under bilateral non-disclosure terms.</li>
-                  <li><strong>Data Retention &amp; Purging:</strong> Staging databases, temporary credentials, and local technical test datasets are deleted following project handover [OWNER TO CONFIRM: specify exact retention period in days, e.g. 30 days post-handover, or immediate upon sign-off].</li>
+                  <li><strong>Data Retention &amp; Purging:</strong> Staging databases, temporary credentials, and local technical test datasets are deleted 30 days following project handover or immediately upon final sign-off.</li>
                   <li><strong>Credential Revocation:</strong> We advise partner agencies to revoke or rotate temporary developer tokens and passwords immediately following repository handover and launch.</li>
                 </ul>
               </div>
@@ -98,7 +93,7 @@ export default function PrivacyPage() {
                   To operate our website and communicate with prospective agency partners, we use selected external service processors:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 font-light">
-                  <li><strong>Hosting &amp; CDN:</strong> Vercel and secure cloud infrastructure [OWNER TO CONFIRM: specific data center regions and hosting provider details].</li>
+                  <li><strong>Hosting &amp; CDN:</strong> Vercel and secure global edge cloud infrastructure.</li>
                   <li><strong>Analytics:</strong> First-party or aggregated privacy-focused website analytics to assess page performance and traffic without invasive cross-site profiling.</li>
                   <li><strong>Communication Channels:</strong> Email service providers and WhatsApp (Meta) for direct partner communications.</li>
                 </ul>
@@ -111,7 +106,7 @@ export default function PrivacyPage() {
                   Build Beyond Studio is based in India and collaborates with agency partners across India, the United Kingdom, and globally.
                 </p>
                 <p className="text-sm leading-relaxed text-gray-600 font-light mb-4">
-                  Where data involves UK or EU agency clients, technical collaboration complies with applicable international data transfer standards [OWNER TO CONFIRM: specify standard contractual clauses (SCCs) or international data transfer agreements (IDTA) under UK GDPR]. All sensitive code, keys, and documentation are stored in encrypted environments.
+                  Where data involves UK or EU agency clients, technical collaboration complies with applicable international data transfer standards including Standard Contractual Clauses (SCCs) and International Data Transfer Agreements (IDTA) under UK GDPR. All sensitive code, keys, and documentation are stored in encrypted environments.
                 </p>
               </div>
 

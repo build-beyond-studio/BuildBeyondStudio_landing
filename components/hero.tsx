@@ -81,14 +81,35 @@ export default function Hero() {
         /* ── section ───────────────────────────────────────── */
         .hero-section {
           position: relative;
-          background: #e6dfcf;
+          background: #e3dbc8;
           overflow: hidden;
-          padding-top: 14px;
-          padding-bottom: 56px;
+          min-height: 100vh;
+          padding-top: 12px;
+          padding-bottom: 40px;
+        }
+
+        .hero-video-bg {
+          position: absolute;
+          bottom: 22%;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center bottom;
+          z-index: 0;
+          pointer-events: none;
+          mix-blend-mode: darken;
+        }
+
+        @media (min-width: 1024px) {
+          .hero-video-bg {
+            bottom: 5%;
+          }
         }
 
         @media (min-width: 768px) {
           .hero-section {
+            min-height: 105vh;
             padding-top: 56px;
             padding-bottom: 110px;
           }
@@ -208,9 +229,17 @@ export default function Hero() {
 
       <section
         ref={sectionRef}
-        className="hero-section relative flex flex-col w-full"
+        className="hero-section relative flex flex-col w-screen max-w-[100%]"
       >
-        <div className="hero-glow" />
+        <video
+          className="hero-video-bg"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="https://pub-1d0310287b3a439cb13c11e72a470156.r2.dev/certificates/WhatsApp%20Video%202026-09-06%20at%201.16.14%20AM.mp4" />
+        </video>
 
         {/* ── Centered content ── */}
         <div
@@ -240,7 +269,7 @@ export default function Hero() {
           {/* Subheading */}
           <p
             ref={subheadRef}
-            className="hero-pre text-[15px] sm:text-[18px] md:text-[19px] text-[#3D372F] max-w-2xl leading-relaxed"
+            className="hero-pre text-[13px] sm:text-[14px] md:text-[15px] text-[#1c1917] font-semibold max-w-[290px] sm:max-w-[340px] md:max-w-[390px] mx-auto leading-snug sm:leading-relaxed -mt-1 sm:mt-0"
           >
             BBS is the invisible engineering team behind your agency. We build custom websites, stores and web apps, and handle DevOps and tracking, under your brand at fixed partner prices.
           </p>
@@ -248,7 +277,7 @@ export default function Hero() {
           {/* CTAs */}
           <div
             ref={buttonsRef}
-            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto mt-2"
+            className="hero-pre flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto mt-0 sm:mt-2"
           >
             <Link
               href="/contact"
@@ -276,7 +305,7 @@ export default function Hero() {
           {/* Trust Strip — exactly three items */}
           <div
             ref={trustStripRef}
-            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-4 pt-4 border-t border-black/10"
+            className="hero-pre grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl -mt-2 sm:mt-4 pt-3 sm:pt-4 border-t border-black/10"
           >
             <div className="hero-trust-item">
               <ShieldCheck className="w-5 h-5 text-[#C8860A] shrink-0" />

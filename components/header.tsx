@@ -26,6 +26,7 @@ const NAV_LINKS: NavLink[] = [
   },
   { href: "/how-we-partner", label: "How We Partner" },
   { href: "/pricing-model", label: "Pricing Model" },
+  { href: "/our-work", label: "Our Work" },
   { href: "/success-stories", label: "Success Stories" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

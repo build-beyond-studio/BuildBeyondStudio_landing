@@ -13,6 +13,7 @@ import {
   UserCheck,
   CalendarCheck,
   BarChart3,
+  Globe,
   Settings,
   LogOut,
   Menu,
@@ -21,6 +22,7 @@ import {
 
 const navItems = [
   { href: '/panel', label: 'Overview', icon: LayoutDashboard },
+  { href: '/panel/visitor-analytics', label: 'Visitor Analytics', icon: Globe },
   { href: '/panel/leads', label: 'Lead Inbox', icon: Inbox },
   { href: '/panel/follow-ups', label: 'Follow-ups', icon: CalendarCheck },
   { href: '/panel/reports', label: 'Reports & Analytics', icon: BarChart3 },

@@ -18,7 +18,7 @@ const eventSchema = z.object({
   segment: z.enum(['agency', 'business', 'talent', 'other']).optional(),
   variant: z.string().max(100).optional(),
   eventId: z.string().min(8).max(120).regex(/^[A-Za-z0-9._:-]+$/).optional(),
-  meta: z.record(z.union([z.string().max(1000), z.number(), z.boolean()])).optional(),
+  meta: z.record(z.union([z.string().max(1000), z.number(), z.boolean(), z.array(z.string().max(200))])).optional(),
 });
 
 export async function POST(request) {

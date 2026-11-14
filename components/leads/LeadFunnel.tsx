@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { AlertCircle, ArrowLeft, ArrowRight, Building2, Check, CheckCircle2, Loader2, Lock, Mail, Phone, ShieldCheck, Sparkles, User } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { getAgencyMargin, getSessionId, isEnvironmentPlaceholder, normalizePhoneNumber, parseAttribution, persistAttribution, readStoredAttribution, sanitizeText } from '@/lib/lead-utils';
+import { getAgencyMargin, getBusinessOpportunity, getSessionId, isEnvironmentPlaceholder, normalizePhoneNumber, parseAttribution, persistAttribution, readStoredAttribution, sanitizeText } from '@/lib/lead-utils';
 
 export type LeadSegment = 'agency' | 'business' | 'talent' | 'other';
 
@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-function trackFunnelEvent(type: string, segment?: LeadSegment | null, step?: string, meta: Record<string, string | number | boolean> = {}) {
+function trackFunnelEvent(type: string, segment?: LeadSegment | null, step?: string, meta: Record<string, string | number | boolean | string[]> = {}) {
   if (typeof window === 'undefined') return;
   const sessionId = window.sessionStorage.getItem('bbs-lead-session-id');
   if (!sessionId) return;
@@ -283,16 +283,53 @@ export default function LeadFunnel({ defaultSegment }: { defaultSegment?: LeadSe
       setTransitionDirection(1);
       nextAnswers[currentStep.id] = option;
       setAnswers(nextAnswers);
-      trackFunnelEvent('step_completed', segment, currentStep.id);
+      trackFunnelEvent('step_completed', segment, currentStep.id, {
+        questionId: currentStep.id,
+        selectedAnswer: option,
+      });
       setTimeout(() => setStepIndex((prev) => Math.min(prev + 1, flow.length)), 80);
       return;
     }
 
     const currentSelection = Array.isArray(nextAnswers[currentStep.id]) ? nextAnswers[currentStep.id] : [];
-    let nextSelection = currentSelection.includes(option)
-      ? currentSelection.filter((item: string) => item !== option)
-      : [...currentSelection, option];
-    nextAnswers[currentStep.id] = nextSelection;
+    
+    if (currentStep.id === 'needs') {
+      const selectableOptions = currentStep.options.filter(
+        (o) => o !== 'Complete package' && o !== 'Not sure'
+      );
+
+      if (option === 'Complete package') {
+        const isAllSelected = selectableOptions.every((o) => currentSelection.includes(o));
+        if (isAllSelected) {
+          nextAnswers[currentStep.id] = [];
+        } else {
+          nextAnswers[currentStep.id] = [...selectableOptions, 'Complete package'];
+        }
+      } else if (option === 'Not sure') {
+        nextAnswers[currentStep.id] = currentSelection.includes('Not sure') ? [] : ['Not sure'];
+      } else {
+        const withoutNotSure = currentSelection.filter((item: string) => item !== 'Not sure');
+        let updated = withoutNotSure.includes(option)
+          ? withoutNotSure.filter((item: string) => item !== option)
+          : [...withoutNotSure, option];
+
+        const allSelectablesChosen = selectableOptions.every((o) => updated.includes(o));
+        if (allSelectablesChosen) {
+          if (!updated.includes('Complete package')) {
+            updated.push('Complete package');
+          }
+        } else {
+          updated = updated.filter((item: string) => item !== 'Complete package');
+        }
+        nextAnswers[currentStep.id] = updated;
+      }
+    } else {
+      let nextSelection = currentSelection.includes(option)
+        ? currentSelection.filter((item: string) => item !== option)
+        : [...currentSelection, option];
+      nextAnswers[currentStep.id] = nextSelection;
+    }
+
     setAnswers(nextAnswers);
   };
 
@@ -305,7 +342,10 @@ export default function LeadFunnel({ defaultSegment }: { defaultSegment?: LeadSe
     }
     setError('');
     setTransitionDirection(1);
-    trackFunnelEvent('step_completed', segment, currentStep.id);
+    trackFunnelEvent('step_completed', segment, currentStep.id, {
+      questionId: currentStep.id,
+      selectedAnswer: selected,
+    });
     setStepIndex((prev) => Math.min(prev + 1, flow.length));
   };
 
@@ -317,7 +357,12 @@ export default function LeadFunnel({ defaultSegment }: { defaultSegment?: LeadSe
       return;
     }
     setError('');
-    trackFunnelEvent('step_completed', segment, currentStep.id);
+    // For text questions, track that question was answered without storing raw personal/free-text
+    trackFunnelEvent('step_completed', segment, currentStep.id, {
+      questionId: currentStep.id,
+      hasAnswer: true,
+      charLength: value.length,
+    });
     setTransitionDirection(1);
     setStepIndex((prev) => Math.min(prev + 1, flow.length));
   };
@@ -435,7 +480,7 @@ export default function LeadFunnel({ defaultSegment }: { defaultSegment?: LeadSe
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl font-extrabold tracking-tight text-[#241c10]">
-                ₹60,000
+                {getAgencyMargin(answers)}
               </span>
               <span className="text-xs font-semibold text-[#756b5b]">/month</span>
             </div>
@@ -446,7 +491,7 @@ export default function LeadFunnel({ defaultSegment }: { defaultSegment?: LeadSe
       {segment === 'business' ? (
         <div className="relative mt-6 overflow-hidden rounded-2xl border border-[#d8c49d]/70 bg-gradient-to-br from-[#fffdf8] via-[#fbf6ed] to-[#f5ebd7]/50 p-4 sm:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_2px_8px_rgba(42,33,18,0.04)]">
           <p className="text-sm font-medium leading-6 text-[#453e34] sm:text-base">
-            You&apos;re Leaving <span className="font-bold text-[#1f1e1a] bg-[#faedd2] px-2 py-0.5 rounded-md border border-[#e2cf9f]">80k /Month</span> Money On The Table
+            You&apos;re Leaving <span className="font-bold text-[#1f1e1a] bg-[#faedd2] px-2 py-0.5 rounded-md border border-[#e2cf9f]">{getBusinessOpportunity(answers)}</span> Money On The Table
           </p>
           <p className="mt-1 text-xs font-medium tracking-wide text-[#756b5b]">By staying offline and without digital infrastructure.</p>
         </div>

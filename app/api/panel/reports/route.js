@@ -129,7 +129,7 @@ export async function GET(request) {
     }
     const events = await eventsCollection.find(eventQuery).toArray();
 
-    const standardSteps = ['PageView', 'SegmentSelected', 'CalcStarted', 'CalcCompleted', 'Lead', 'QualifiedLead', 'Contact'];
+    const standardSteps = ['PageView', 'CalcCompleted', 'Lead', 'QualifiedLead', 'Contact'];
 
     const getFunnelForSegment = (seg) => {
       const segEvents = events.filter((e) => !seg || e.segment === seg);
@@ -166,6 +166,198 @@ export async function GET(request) {
       other: getFunnelForSegment('other'),
     };
 
+    // 7. Questionnaire Answer Distribution Analytics
+    const QUESTIONNAIRE_DEFINITIONS = {
+      agency: [
+        {
+          id: 'projectVolume',
+          type: 'single',
+          title: 'How many client projects do you handle per month?',
+          options: ['1–2', '3–5', '6–10', '10+', 'Not started yet'],
+        },
+        {
+          id: 'currentBuilder',
+          type: 'single',
+          title: 'Who builds the projects currently?',
+          options: ['In-house', 'Freelancers', 'Another agency', 'Nobody yet'],
+        },
+      ],
+      business: [
+        {
+          id: 'businessType',
+          type: 'single',
+          title: 'What type of business do you run?',
+          options: [
+            'Retail / E-commerce',
+            'Restaurant / Café',
+            'Clinic / Healthcare',
+            'Education / Coaching',
+            'Real estate',
+            'Local services',
+            'Manufacturing / B2B',
+            'Other',
+          ],
+        },
+        {
+          id: 'needs',
+          type: 'multi',
+          title: 'What help are you looking for?',
+          options: [
+            'Website',
+            'Mobile app',
+            'Social media',
+            'Performance marketing / Ads',
+            'Creatives & content',
+            'Complete package',
+            'Not sure',
+          ],
+        },
+      ],
+      talent: [
+        {
+          id: 'role',
+          type: 'single',
+          title: 'Role',
+          options: [
+            'Video editor',
+            'Graphic designer',
+            'Developer',
+            'Social media / Content',
+            'Sales / Calling',
+            'Other',
+          ],
+        },
+      ],
+      other: [
+        {
+          id: 'otherDetails',
+          type: 'text',
+          title: 'Tell us what you need',
+          options: [],
+        },
+      ],
+    };
+
+    // Deduplication & Aggregation Pipeline:
+    // Build a map of latest answers per (sessionId + questionId)
+    // 1. Incorporate event stream answers (latest event per session + question)
+    const sessionAnswerMap = new Map(); // key: `${segment}_${sessionId}_${questionId}` -> { answer, at, isSubmitted: false }
+
+    // Sort events ascending so later events overwrite earlier ones
+    const sortedAnswerEvents = events
+      .filter((e) => e.type === 'step_completed' && e.meta?.questionId)
+      .sort((a, b) => new Date(a.at || 0) - new Date(b.at || 0));
+
+    sortedAnswerEvents.forEach((evt) => {
+      const qId = evt.meta.questionId;
+      const seg = evt.segment || 'other';
+      const sId = evt.sessionId;
+      const key = `${seg}_${sId}_${qId}`;
+      sessionAnswerMap.set(key, {
+        segment: seg,
+        sessionId: sId,
+        questionId: qId,
+        selectedAnswer: evt.meta.selectedAnswer ?? (evt.meta.hasAnswer ? true : null),
+        at: evt.at,
+        isSubmitted: false,
+      });
+    });
+
+    // 2. Incorporate submitted leads: Lead submissions take absolute precedence over intermediate events
+    leads.forEach((lead) => {
+      const seg = lead.segment || 'other';
+      const sId = lead.firstTouch?.sessionId || lead.sessionId || lead.leadRef;
+      const answers = lead.answers || {};
+
+      Object.entries(answers).forEach(([qId, val]) => {
+        if (['name', 'whatsapp', 'email', 'consent', 'website_hp', 'businessName'].includes(qId)) {
+          return;
+        }
+        const key = `${seg}_${sId}_${qId}`;
+        sessionAnswerMap.set(key, {
+          segment: seg,
+          sessionId: sId,
+          questionId: qId,
+          selectedAnswer: val,
+          at: lead.createdAt,
+          isSubmitted: true,
+        });
+      });
+    });
+
+    // 3. Compute question-wise distribution per segment
+    const questionnaireAnalytics = {};
+
+    Object.entries(QUESTIONNAIRE_DEFINITIONS).forEach(([segKey, questions]) => {
+      questionnaireAnalytics[segKey] = questions.map((q) => {
+        // Collect all unique user entries for this segment & question
+        const responsesForQuestion = [];
+        for (const [key, item] of sessionAnswerMap.entries()) {
+          if (item.segment === segKey && item.questionId === q.id && item.selectedAnswer !== null && item.selectedAnswer !== undefined) {
+            responsesForQuestion.push(item);
+          }
+        }
+
+        const totalRespondents = responsesForQuestion.length;
+
+        if (q.type === 'text') {
+          return {
+            id: q.id,
+            title: q.title,
+            type: q.type,
+            totalRespondents,
+            options: [],
+          };
+        }
+
+        const optionCounts = {};
+        q.options.forEach((opt) => {
+          optionCounts[opt] = 0;
+        });
+
+        responsesForQuestion.forEach((resp) => {
+          const val = resp.selectedAnswer;
+          if (Array.isArray(val)) {
+            val.forEach((chosen) => {
+              if (optionCounts[chosen] !== undefined) {
+                optionCounts[chosen] += 1;
+              }
+            });
+          } else if (typeof val === 'string') {
+            // Handle possible character variance like '1-2' vs '1–2'
+            const matched = q.options.find(
+              (opt) => opt === val || opt.replace(/–/g, '-') === val.replace(/–/g, '-')
+            );
+            if (matched && optionCounts[matched] !== undefined) {
+              optionCounts[matched] += 1;
+            } else if (optionCounts[val] !== undefined) {
+              optionCounts[val] += 1;
+            }
+          }
+        });
+
+        const optionsStats = q.options.map((opt) => {
+          const count = optionCounts[opt] || 0;
+          const percentage = totalRespondents > 0
+            ? Number(((count / totalRespondents) * 100).toFixed(1))
+            : 0;
+          return {
+            option: opt,
+            count,
+            percentage,
+          };
+        });
+
+        return {
+          id: q.id,
+          title: q.title,
+          type: q.type,
+          totalRespondents,
+          options: optionsStats,
+        };
+      });
+    });
+
     return NextResponse.json({
       metrics: {
         totalLeads,
@@ -184,6 +376,7 @@ export async function GET(request) {
       sourceDistribution: Object.entries(sourceMap).map(([label, value]) => ({ label, value })),
       trend: Object.entries(trendMap).map(([date, count]) => ({ date, count })),
       funnels,
+      questionnaireAnalytics,
     });
   } catch (error) {
     console.error('reports failed', error);

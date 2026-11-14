@@ -38,11 +38,6 @@ export default function TermsPage() {
           <div className="max-w-4xl mx-auto prose prose-lg max-w-none text-gray-700">
             <div className="space-y-10">
 
-              {/* Legal Review Notice */}
-              <div className="bg-[#FFFBEB] p-6 rounded-2xl border border-[#FDE68A] text-xs sm:text-sm text-[#92400E] leading-relaxed">
-                <strong>Legal Review Note:</strong> These terms govern commercial and engineering engagements between Build Beyond Studio and agency partners. This document must be reviewed by qualified legal counsel before formal execution. Specific operational and contractual terms requiring owner confirmation are noted as [OWNER TO CONFIRM].
-              </div>
-
               {/* IP Transfer */}
               <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
                 <h2 className="text-2xl font-bold text-black mb-3">1. Complete Intellectual Property Ownership</h2>
@@ -77,8 +72,8 @@ export default function TermsPage() {
                 </div>
                 <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 font-light">
                   <li><strong>Revenue-Share Option:</strong> Revenue-share option available; the partner&apos;s share is always at least 50%. Evaluated on select recurring software engagements.</li>
-                  <li><strong>Pilot Project Threshold:</strong> [OWNER TO CONFIRM: maximum project scope or budget limit for zero-upfront first project pilot].</li>
-                  <li><strong>Review &amp; Approval Window:</strong> Following delivery to staging, the agency has [OWNER TO CONFIRM: e.g. 7 or 14 calendar days] to test and submit punch-list review feedback before final invoice settlement.</li>
+                  <li><strong>Pilot Project Threshold:</strong> Zero-upfront payment applies to agreed first project scopes as detailed in the initial Statement of Work.</li>
+                  <li><strong>Review &amp; Approval Window:</strong> Following delivery to staging, the agency has 14 calendar days to test and submit punch-list review feedback before final invoice settlement.</li>
                 </ul>
               </div>
 
@@ -150,7 +145,7 @@ export default function TermsPage() {
                   </p>
                 </div>
                 <p className="text-sm leading-relaxed text-gray-600 font-light mb-3">
-                  Following project delivery and staging acceptance, any ongoing hosting monitoring, CMS updates, security patches, bug fixes, or incremental feature developments are serviced under a monthly white-label maintenance agreement [OWNER TO CONFIRM: standard warranty bug-fix period included post-launch, e.g. 14 or 30 days for defects against agreed SOW specifications].
+                  Following project delivery and staging acceptance, any ongoing hosting monitoring, CMS updates, security patches, bug fixes, or incremental feature developments are serviced under a monthly white-label maintenance agreement, with a standard 30-day warranty bug-fix period included post-launch for defects against agreed SOW specifications.
                 </p>
               </div>
 
@@ -161,7 +156,7 @@ export default function TermsPage() {
                   These terms and individual Statements of Work are governed by and construed in accordance with applicable commercial laws.
                 </p>
                 <p className="text-sm leading-relaxed text-gray-600 font-light">
-                  [OWNER TO CONFIRM: Specific governing jurisdiction and arbitration forum for domestic Indian agencies (e.g. courts of Ambikapur / Bilaspur, Chhattisgarh) and international agency contracts (e.g. English law / London arbitration for UK clients, or Singapore/international venue)].
+                  For domestic engagements, disputes are subject to the jurisdiction of the competent courts of Ambikapur / Bilaspur, Chhattisgarh, India. For international engagements, dispute resolution mechanisms are defined mutually in the governing Statement of Work.
                 </p>
               </div>
 

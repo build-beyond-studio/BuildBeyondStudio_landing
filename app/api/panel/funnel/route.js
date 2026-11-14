@@ -12,7 +12,7 @@ export async function GET(request) {
     const db = await getMongoDb();
     const events = await db.collection('lead_events').find({}).sort({ at: -1 }).toArray();
 
-    const funnel = ['PageView', 'SegmentSelected', 'CalcStarted', 'CalcCompleted', 'Lead', 'QualifiedLead', 'Contact'];
+    const funnel = ['PageView', 'CalcCompleted', 'Lead', 'QualifiedLead', 'Contact'];
     const counts = {};
     funnel.forEach((event) => { counts[event] = 0; });
 

@@ -13,6 +13,7 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import FloatingQuickLinks from "@/components/FloatingQuickLinks";
+import VideoPopup from "@/components/VideoPopup";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 
 export const metadata: Metadata = {
@@ -122,13 +123,14 @@ export default function Home() {
 
       <FloatingWhatsApp />
       <FloatingQuickLinks />
+      <VideoPopup />
       <Header />
       <Hero />
+      <Testimonials />
       <Workflow />
       <Services />
       <HowItWorks />
       <RevenueMath />
-      <Testimonials />
       <WhyUs />
       <FounderNote />
       <FAQ />

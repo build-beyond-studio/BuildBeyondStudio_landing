@@ -211,7 +211,7 @@ export default function AmbikapurPage() {
                     <a href="mailto:admin@buildbeyondstudio.com" className="text-[#C8860A] font-semibold hover:underline">admin@buildbeyondstudio.com</a>
                   </div>
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">Hours [CONFIRM]</div>
+                    <div className="text-xs uppercase tracking-widest text-gray-400 mb-1">Hours</div>
                     <div className="text-gray-600 text-sm font-light">Monday — Friday, 9:00 AM — 6:00 PM IST (Consultations by appointment)</div>
                   </div>
                 </div>

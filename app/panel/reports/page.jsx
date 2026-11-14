@@ -21,6 +21,7 @@ export default function ReportsPage() {
   const [customFrom, setCustomFrom] = useState('');
   const [customTo, setCustomTo] = useState('');
   const [activeFunnelSegment, setActiveFunnelSegment] = useState('overall');
+  const [activeQuestionnaireSegment, setActiveQuestionnaireSegment] = useState('agency');
 
   const loadReports = async () => {
     setLoading(true);
@@ -51,6 +52,8 @@ export default function ReportsPage() {
   const sourceDistribution = data?.sourceDistribution || [];
   const trend = data?.trend || [];
   const activeFunnel = data?.funnels?.[activeFunnelSegment] || [];
+  const questionnaireAnalytics = data?.questionnaireAnalytics || {};
+  const activeQuestions = questionnaireAnalytics[activeQuestionnaireSegment] || [];
 
   return (
     <div className="space-y-6 max-w-7xl">
@@ -307,6 +310,122 @@ export default function ReportsPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Questionnaire Answer Analytics Section */}
+          <div className="rounded-2xl border border-[#E8D5B0] bg-white p-5 shadow-[0_4px_20px_rgba(44,26,0,0.06)] space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E8D5B0]/50 pb-3">
+              <div>
+                <h2 className="text-base font-bold text-[#1F1E1A]">
+                  Questionnaire Answer Analytics
+                </h2>
+                <p className="text-xs text-[#8C7A65] mt-0.5">
+                  Option-wise selection distribution and unique respondents across questionnaire steps
+                </p>
+              </div>
+
+              {/* Segment Selector Tabs */}
+              <div className="flex items-center gap-1 rounded-xl border border-[#E8D5B0] bg-[#FAF8F5] p-1 text-xs">
+                {[
+                  { id: 'agency', label: 'Agency' },
+                  { id: 'business', label: 'Business' },
+                  { id: 'talent', label: 'Talent' },
+                  { id: 'other', label: 'Other' },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveQuestionnaireSegment(tab.id)}
+                    className={`rounded-lg px-3 py-1 font-bold transition cursor-pointer ${
+                      activeQuestionnaireSegment === tab.id
+                        ? 'bg-[#C8860A] text-white shadow-xs'
+                        : 'text-[#6B4F2A] hover:text-[#1F1E1A]'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Questions Grid / Stack */}
+            <div className="space-y-5">
+              {activeQuestions.length === 0 ? (
+                <div className="rounded-xl border border-[#E8D5B0]/60 bg-[#FAF8F5] p-8 text-center text-xs text-[#8C7A65]">
+                  No questionnaire answers recorded for this segment in the selected date range.
+                </div>
+              ) : (
+                activeQuestions.map((q, qIdx) => (
+                  <div
+                    key={q.id}
+                    className="rounded-xl border border-[#E8D5B0]/70 bg-[#FAF8F5] p-4 space-y-3"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E8D5B0]/40 pb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C8860A] text-white text-[11px] font-bold">
+                          {qIdx + 1}
+                        </span>
+                        <h3 className="font-bold text-[#1F1E1A] text-sm sm:text-base">
+                          {q.title}
+                        </h3>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-0.5 rounded border border-[#E8D5B0] text-[#956408]">
+                          {q.type === 'single' ? 'Single-Choice' : q.type === 'multi' ? 'Multi-Select' : 'Free-Text'}
+                        </span>
+                        <span className="text-xs font-semibold text-[#6B4F2A]">
+                          Total Respondents: <strong className="text-[#1F1E1A]">{q.totalRespondents}</strong>
+                        </span>
+                      </div>
+                    </div>
+
+                    {q.type === 'text' ? (
+                      <div className="bg-white rounded-lg p-4 border border-[#E8D5B0]/50 text-xs text-[#6B4F2A] flex items-center justify-between">
+                        <span>Free-text description responses recorded:</span>
+                        <span className="font-bold text-[#C8860A] text-sm">{q.totalRespondents} submissions</span>
+                      </div>
+                    ) : (
+                      <div className="space-y-2 pt-1">
+                        {q.type === 'multi' && (
+                          <p className="text-[11px] text-[#8C7A65] italic">
+                            * Multi-select question: respondents can choose multiple options, so percentages may sum to over 100%.
+                          </p>
+                        )}
+                        {q.options.map((opt) => (
+                          <div
+                            key={opt.option}
+                            className="bg-white rounded-lg p-3 border border-[#E8D5B0]/60 space-y-1.5"
+                          >
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="font-semibold text-[#1F1E1A]">
+                                {opt.option}
+                              </span>
+                              <div className="flex items-center gap-3">
+                                <span className="font-bold text-[#C8860A]">
+                                  {opt.count} {opt.count === 1 ? 'selection' : 'selections'}
+                                </span>
+                                <span className="text-[11px] font-bold text-[#8C7A65] w-12 text-right">
+                                  {opt.percentage}%
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Option Percentage Bar */}
+                            <div className="h-1.5 w-full rounded-full bg-[#F5EFE4] overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-[#C8860A] transition-all duration-300"
+                                style={{ width: `${Math.min(opt.percentage || 0, 100)}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </>
