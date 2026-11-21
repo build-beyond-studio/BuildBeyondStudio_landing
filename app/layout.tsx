@@ -18,10 +18,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://buildbeyondstudio.com"),
 
-  title: {
-    default: "Build Beyond Studio | Website, App & Software Development",
-    template: "%s | Build Beyond Studio",
-  },
+  title: "Build Beyond Studio | Website, App & Software Development",
 
   description:
     "Custom websites, mobile apps, AI chatbots, and software products built for businesses that need fast, reliable execution without the overhead.",
@@ -169,15 +166,6 @@ const structuredData = {
       inLanguage: "en-US",
       isPartOf: {
         "@id": "https://buildbeyondstudio.com/#organization",
-      },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate:
-            "https://buildbeyondstudio.com?search={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
       },
     },
   ],

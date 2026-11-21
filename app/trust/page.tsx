@@ -2,20 +2,17 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/trust', {
   title: "Trust Centre: NDA, IP Ownership and Delivery | BBS",
   description: "How BBS protects agency partners: NDA before project details, no direct client contact, IP handover, QA and escalation. Read the policies in full.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/trust",
-  },
   openGraph: {
     title: "Trust Centre: NDA, IP Ownership and Delivery | BBS",
     description: "How BBS protects agency partners: NDA before project details, no direct client contact, IP handover, QA and escalation. Read the policies in full.",
-    url: "https://buildbeyondstudio.com/trust",
     type: "website",
   },
-}
+})
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -340,4 +337,3 @@ export default function TrustCentrePage() {
     </main>
   )
 }
-

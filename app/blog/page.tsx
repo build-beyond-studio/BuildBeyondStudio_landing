@@ -5,18 +5,14 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import blogs from '@/data/blogs.json';
 
-import { buildMetadata } from '@/lib/metadata';
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/blog', {
   title: 'White Label Development Guides for Agencies | BBS Blog',
   description: 'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
-  alternates: {
-    canonical: 'https://buildbeyondstudio.com/blog',
-  },
   openGraph: {
     title: 'White Label Development Guides for Agencies | BBS Blog',
     description: 'Guides on white label development, pricing, and scaling a marketing agency\'s technical delivery without hiring developers.',
-    url: 'https://buildbeyondstudio.com/blog',
     type: 'website',
     images: [
       {
@@ -27,7 +23,12 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog' },
+]);
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
@@ -46,6 +47,10 @@ export default function BlogPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <section className="bg-[#F5F2EC] pt-24 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 relative overflow-hidden min-h-[40vh] flex items-center justify-center border-b border-[rgba(200,134,10,0.10)]">
         {/* Decorative Elements */}
@@ -181,7 +186,7 @@ export default function BlogPage() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-2xl mx-auto">
-            These insights are more powerful when paired with a premium digital product. Let's build something that converts.
+            These insights are more powerful when paired with a premium digital product. Let&apos;s build something that converts.
           </p>
           <Link
             href="/services/website-development"

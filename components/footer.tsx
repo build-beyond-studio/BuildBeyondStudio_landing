@@ -108,6 +108,7 @@ export default function Footer() {
                 <Link href="/trust" className="hover:text-white transition-colors">Trust Centre</Link>
                 <Link href="/our-work" className="hover:text-white transition-colors">Selected Builds</Link>
                 <Link href="/success-stories" className="hover:text-white transition-colors">Success Stories</Link>
+                <Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
                 <Link href="/contact" className="hover:text-white transition-colors">Send a Project Brief</Link>
                 <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
               </div>

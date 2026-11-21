@@ -120,6 +120,7 @@ export default function SuccessStoryCard({ study }: { study: CaseStudy }) {
               alt={`${study.founder}, ${study.founderRole} of ${study.client}`}
               width={48}
               height={48}
+              loading="lazy"
               className="w-12 h-12 rounded-full object-cover shadow-sm ring-2 ring-white"
             />
             <div>

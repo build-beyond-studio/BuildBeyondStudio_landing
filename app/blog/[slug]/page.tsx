@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildMetadata } from '@/lib/metadata';
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -17,6 +17,10 @@ interface BlogPost {
   featuredImage: string;
   keywords: string[];
   content: string;
+  author?: string;
+  authorBio?: string;
+  updatedAt?: string;
+  updatedDate?: string;
   featured?: boolean;
 }
 
@@ -69,7 +73,8 @@ export async function generateMetadata({
           },
         ],
         publishedTime: blog.date,
-        authors: ['Build Beyond Studio'],
+        modifiedTime: blog.updatedDate ?? blog.updatedAt ?? blog.date,
+        authors: [blog.author ?? 'Build Beyond Studio'],
       },
       twitter: {
         card: 'summary_large_image',
@@ -112,11 +117,13 @@ export default async function BlogPostPage({
     '@type': 'BlogPosting',
     headline: blog.title,
     description: blog.description,
-    image: blog.featuredImage,
+    image: new URL(blog.featuredImage, 'https://buildbeyondstudio.com').href,
     datePublished: blog.date,
+    dateModified: blog.updatedDate ?? blog.updatedAt ?? blog.date,
     author: {
-      '@type': 'Organization',
-      name: 'Build Beyond Studio',
+      '@type': blog.author ? 'Person' : 'Organization',
+      name: blog.author ?? 'Build Beyond Studio',
+      ...(blog.authorBio ? { description: blog.authorBio } : {}),
       url: 'https://buildbeyondstudio.com',
     },
     publisher: {
@@ -124,14 +131,16 @@ export default async function BlogPostPage({
       name: 'Build Beyond Studio',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://buildbeyondstudio.com/logo.ico',
+        url: 'https://buildbeyondstudio.com/logo.png',
       },
     },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://buildbeyondstudio.com/blog/${blog.slug}`,
-    },
+    mainEntityOfPage: `https://buildbeyondstudio.com/blog/${blog.slug}`,
   };
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: blog.title, path: `/blog/${blog.slug}` },
+  ]);
 
   return (
     <>
@@ -142,6 +151,10 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogPostingSchema),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Blog Header */}
@@ -197,7 +210,11 @@ export default async function BlogPostPage({
           <div className="prose-lg max-w-none mb-12">
             <div
               className="text-gray-700 leading-relaxed [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-black [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-black [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:mb-4 [&_strong]:font-semibold [&_a]:text-[#C8860A] [&_a]:hover:text-[#A06A00] [&_a]:underline"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{
+                __html: blog.content
+                  .replace(/<h1(\b[^>]*)>/gi, '<h2$1>')
+                  .replace(/<\/h1>/gi, '</h2>'),
+              }}
             />
           </div>
 
@@ -290,11 +307,11 @@ export default async function BlogPostPage({
               Ready to Build Beyond?
             </h2>
             <p className="text-lg mb-8 text-gray-700 max-w-2xl mx-auto">
-              These insights are most powerful when applied to a real, production-ready web application. Let's turn strategy into competitive advantage.
+              These insights are most powerful when applied to a real, production-ready web application. Let&apos;s turn strategy into competitive advantage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/services/web-applications"
+                href="/services/website-development"
                 className="inline-block text-white px-8 py-3 rounded-lg font-semibold transition-colors"
                 style={{ background: 'linear-gradient(135deg, #A06A00 0%, #C8860A 60%, #E8A020 100%)', boxShadow: '0 4px 16px rgba(200,134,10,0.30)' }}
               >

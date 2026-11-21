@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: 'Join the Build Beyond Studio talent list for future collaboration opportunities.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
-    googleBot: { index: false, follow: false },
+    googleBot: { index: false, follow: true },
   },
 };
 

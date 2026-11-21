@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: 'Your lead has been submitted successfully.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
     googleBot: {
       index: false,
-      follow: false,
+      follow: true,
     },
   },
 };

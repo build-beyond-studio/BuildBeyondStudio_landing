@@ -138,12 +138,30 @@ const ADDITIONAL_CAPABILITIES = [
     link: "/services/linkedin-lead-generation-automation",
     icon: Send,
   },
+  {
+    title: "Google & Meta Ads Management",
+    desc: "Campaign setup, conversion tracking, optimization, and reporting for client accounts managed under your agency relationship.",
+    link: "/services/google-meta-ads",
+    icon: BarChart3,
+  },
+  {
+    title: "Technical Project Scoping",
+    desc: "Review project briefs, architecture, and integrations to give your agency a clear technical scope and estimate before quoting.",
+    link: "/services/consulting",
+    icon: Search,
+  },
+  {
+    title: "Fractional CTO & Technical Roadmaps",
+    desc: "Senior technical guidance on architecture, platform choices, and delivery roadmaps without adding a full-time CTO.",
+    link: "/services/technical-consulting",
+    icon: Cpu,
+  },
 ]
 
 const faqs: FAQItem[] = [
   {
     question: "What technical services does BBS provide to agencies?",
-    answer: "Our core services include white-label web and web app development, e-commerce stores, tracking and conversion setup, dedicated developer pods, and ongoing maintenance. We also support specialized capabilities including mobile apps, UI/UX design, app integrations, custom software, and technical SEO."
+    answer: "Our core services include white-label web and web app development, e-commerce stores, tracking and conversion setup, dedicated developer pods, and ongoing maintenance. We also support mobile apps, UI/UX design, app integrations, custom software, technical SEO, paid media, project scoping, and technical roadmaps."
   },
   {
     question: "Can we outsource a single project or component?",

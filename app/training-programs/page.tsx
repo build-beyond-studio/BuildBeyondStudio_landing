@@ -7,12 +7,17 @@ import TrackedLink from "@/components/TrackedLink";
 import { GENERAL_BENEFITS, COURSES } from "./data";
 import SkillDevelopmentFundBanner from "@/components/SkillDevelopmentFundBanner";
 import FAQSection from '@/components/FAQSection';
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata('/training-programs', {
   title: "Web Development Internship & Training Programs | BBS Academy",
   description: "Learn HTML, CSS, JavaScript, and the MERN stack with real deployed projects. Top performers get fast-tracked into paid internships.",
-};
+});
 
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Training Programs', path: '/training-programs' },
+]);
 
 
 const faqSchema = {
@@ -99,6 +104,8 @@ const pageSpecificFaqs = [
 
 export default function InternshipProgramsPage() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     <main className="min-h-screen bg-[#F5F2EC] text-black">
       <script
         type="application/ld+json"
@@ -117,7 +124,7 @@ export default function InternshipProgramsPage() {
           {/* Top Performers Banner */}
           <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300">
             <div className="flex-shrink-0">
-              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" width={64} height={64} loading="lazy" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
             </div>
             <div className="text-left">
               <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>
@@ -328,5 +335,6 @@ export default function InternshipProgramsPage() {
       <FAQSection faqs={pageSpecificFaqs} />
       <Footer />
     </main>
+    </>
   );
 }

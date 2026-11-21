@@ -3,20 +3,23 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import FAQSection from '@/components/FAQSection'
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/services/devops-hosting-support', {
   title: "White Label DevOps & Cloud Hosting Support for Agencies | BBS",
-  description: "DevOps and cloud hosting infrastructure for marketing agencies. Production deployments, CI/CD pipelines, SSL, domain DNS, and server monitoring under your brand.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/services/devops-hosting-support",
-  },
+  description: "DevOps and cloud hosting for marketing agencies: production deployments, CI/CD, SSL, DNS, and monitoring for client projects under your brand.",
   openGraph: {
     title: "White Label DevOps & Cloud Hosting Support for Agencies | BBS",
-    description: "DevOps and cloud hosting infrastructure for marketing agencies. Production deployments, CI/CD pipelines, SSL, domain DNS, and server monitoring under your brand.",
-    url: "https://buildbeyondstudio.com/services/devops-hosting-support",
+    description: "DevOps and cloud hosting for marketing agencies: production deployments, CI/CD, SSL, DNS, and monitoring for client projects under your brand.",
     type: "website",
   },
-}
+})
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'DevOps & Hosting Support', path: '/services/devops-hosting-support' },
+])
 
 const faqs = [
   {
@@ -74,6 +77,10 @@ export default function DevOpsHostingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
@@ -200,4 +207,3 @@ export default function DevOpsHostingPage() {
     </main>
   )
 }
-

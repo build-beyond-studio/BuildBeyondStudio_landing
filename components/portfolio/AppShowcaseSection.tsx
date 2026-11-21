@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 const apps = [
   {
@@ -65,9 +66,11 @@ export default function AppShowcaseSection() {
             >
               <div className="relative overflow-hidden rounded-[28px] border border-black/5 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out md:min-h-[420px] md:hover:-translate-y-1">
                 <div className="relative h-[360px] overflow-hidden sm:h-[420px] md:h-[500px]">
-                  <img
+                  <Image
                     src={app.image}
                     alt={app.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="h-full w-full object-contain bg-[#f7f6f2] transition-transform duration-500 ease-out group-hover:scale-[1.015]"
                   />
 
@@ -117,11 +120,15 @@ export default function AppShowcaseSection() {
                       </div>
 
                       <div className="bg-[#f0efe9] p-4 md:p-6">
-                        <img
-                          src={app.image}
-                          alt={app.name}
-                          className="mx-auto h-[72vh] w-full max-w-[700px] rounded-[18px] border border-[#E9E4DB] bg-white object-contain shadow-sm"
-                        />
+                        <div className="relative mx-auto h-[72vh] w-full max-w-[700px]">
+                          <Image
+                            src={app.image}
+                            alt={app.name}
+                            fill
+                            sizes="(max-width: 768px) 90vw, 700px"
+                            className="rounded-[18px] border border-[#E9E4DB] bg-white object-contain shadow-sm"
+                          />
+                        </div>
                       </div>
                     </motion.div>
                   </motion.div>

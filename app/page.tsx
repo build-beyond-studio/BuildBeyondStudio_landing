@@ -9,6 +9,7 @@ import Testimonials from "@/components/testimonials";
 import WhyUs from "@/components/why-us";
 import FounderNote from "@/components/founder-note";
 import FAQ from "@/components/faq";
+import { buildMetadata } from "@/lib/metadata";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -16,18 +17,14 @@ import FloatingQuickLinks from "@/components/FloatingQuickLinks";
 import VideoPopup from "@/components/VideoPopup";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/', {
   title: "Build Beyond Studio | White Label Partner for Marketing Agencies",
   description:
     "BBS is the white-label engineering team for marketing agencies in India. Custom web builds, DevOps and tracking delivered under your brand.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/",
-  },
   openGraph: {
     title: "Build Beyond Studio: White Label Development Partner for Agencies",
     description:
       "BBS is the white-label engineering team for marketing agencies in India. Custom web builds, DevOps and tracking delivered under your brand.",
-    url: "https://buildbeyondstudio.com/",
     type: "website",
     siteName: "Build Beyond Studio",
     images: [
@@ -46,7 +43,7 @@ export const metadata: Metadata = {
       "BBS is the white-label engineering team for marketing agencies in India. Custom web builds, DevOps and tracking delivered under your brand.",
     images: ["https://buildbeyondstudio.com/og-home.png"],
   },
-};
+});
 
 // Structured Data: Organization, WebSite, and FAQPage
 const organizationSchema = {

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import FAQSection from '@/components/FAQSection'
 import Link from 'next/link'
 
 import { buildMetadata, buildBreadcrumbSchema } from '@/lib/metadata'
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata(
     `/case-studies/${study.slug}`,
     `${study.client} — ${study.resultStat}`,
-    `How ${study.client} achieved ${study.resultStat.toLowerCase()} by partnering with Build Beyond Studio for ${study.relatedServiceName.toLowerCase()}.`
+    `${study.client} case study: review the project challenge, delivery approach, work completed, and partner-reported outcome for ${study.relatedServiceName.toLowerCase()}.`
   )
 }
 
@@ -96,20 +97,20 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
         <div className="space-y-16 text-gray-700">
 
-          {/* The Challenge */}
+          {/* Problem */}
           <div>
             <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4 flex items-center gap-3">
-              <span className="text-[#C8860A] font-mono text-lg">01</span> The Challenge
+              <span className="text-[#C8860A] font-mono text-lg">01</span> The Problem
             </h2>
             <p className="leading-relaxed text-base font-light pl-8">
               {study.challenge}
             </p>
           </div>
 
-          {/* What BBS Built */}
+          {/* Approach */}
           <div>
             <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4 flex items-center gap-3">
-              <span className="text-[#C8860A] font-mono text-lg">02</span> What BBS Built
+              <span className="text-[#C8860A] font-mono text-lg">02</span> Our Approach
             </h2>
             <p className="leading-relaxed text-base font-light pl-8">
               {study.solution}
@@ -124,10 +125,20 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </div>
           </div>
 
+          {/* Deliverables are limited to items already described in the approved case-study data. */}
+          <div>
+            <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4 flex items-center gap-3">
+              <span className="text-[#C8860A] font-mono text-lg">03</span> Deliverables
+            </h2>
+            <ul className="list-disc space-y-2 pl-12 leading-relaxed text-base font-light">
+              {study.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
+            </ul>
+          </div>
+
           {/* The Outcome */}
           <div>
             <h2 className="uppercase tracking-wide text-sm text-[#C8860A] font-bold mb-4 flex items-center gap-3">
-              <span className="text-[#C8860A] font-mono text-lg">03</span> The Outcome
+              <span className="text-[#C8860A] font-mono text-lg">04</span> The Outcome
             </h2>
             <p className="leading-relaxed text-base font-light pl-8">
               {study.outcome}
@@ -160,6 +171,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   alt={`${study.founder}, ${study.founderRole} of ${study.client}`}
                   width={56}
                   height={56}
+                  loading="lazy"
                   className="w-14 h-14 rounded-full object-cover shadow-sm ring-2 ring-white"
                 />
                 <div>
@@ -172,6 +184,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </div>
 
         </div>
+
+        <FAQSection faqs={[
+          {
+            question: 'What challenge is described in this case study?',
+            answer: study.challenge,
+          },
+          {
+            question: 'What work did Build Beyond Studio deliver?',
+            answer: study.solution,
+          },
+        ]} />
 
         {/* CTA Banner */}
         <div className="bg-[#0A0A0A] rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden mt-12 sm:mt-20 shadow-2xl border border-white/5">

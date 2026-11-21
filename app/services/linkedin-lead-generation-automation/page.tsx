@@ -3,12 +3,12 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata'
 
-export const metadata = {
+export const metadata = buildMetadata('/services/linkedin-lead-generation-automation', {
   title: 'White Label LinkedIn Outreach Setup for Agencies | BBS',
   description: 'Technical LinkedIn outreach setup for agencies, including approved targeting, message sequences, lead capture, CRM routing, and reporting.',
-}
+})
 
 const serviceSchema = {
   '@context': 'https://schema.org',

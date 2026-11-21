@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: 'Apply for white-label agency partnership support with Build Beyond Studio.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
-    googleBot: { index: false, follow: false },
+    googleBot: { index: false, follow: true },
   },
 };
 

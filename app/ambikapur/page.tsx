@@ -2,20 +2,17 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/ambikapur', {
   title: "Web Development Company in Ambikapur, Chhattisgarh | BBS",
   description: "Build Beyond Studio is a web development team in Ambikapur, Chhattisgarh, serving local businesses and partnering with agencies across India.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/ambikapur",
-  },
   openGraph: {
     title: "Web Development Company in Ambikapur, Chhattisgarh | BBS",
     description: "Build Beyond Studio is a web development team in Ambikapur, Chhattisgarh, serving local businesses and partnering with agencies across India.",
-    url: "https://buildbeyondstudio.com/ambikapur",
     type: "website",
   },
-}
+})
 
 /* ---------- JSON-LD: LocalBusiness ---------- */
 const localBusinessSchema = {

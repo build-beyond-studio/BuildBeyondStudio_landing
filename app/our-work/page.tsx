@@ -8,20 +8,17 @@ import AppShowcaseSection from "@/components/portfolio/AppShowcaseSection";
 import SeoShowcaseSection from "@/components/portfolio/SeoShowcaseSection";
 import FAQSection from '@/components/FAQSection';
 import Link from 'next/link';
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/our-work', {
   title: "Selected Builds: Websites, Stores and Tracking | BBS",
   description: "Selected website, ecommerce and tracking work from Build Beyond Studio, the white-label engineering partner for marketing agencies.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/our-work",
-  },
   openGraph: {
     title: "Selected Builds: Websites, Stores and Tracking | BBS",
     description: "Selected website, ecommerce and tracking work from Build Beyond Studio, the white-label engineering partner for marketing agencies.",
-    url: "https://buildbeyondstudio.com/our-work",
     type: "website",
   },
-};
+});
 
 const pageSpecificFaqs = [
   {
@@ -123,6 +120,29 @@ export default function OurWork() {
           Technical SEO & Tracking ↓
         </a>
       </div>
+
+      <section className="max-w-5xl mx-auto px-4 py-12">
+        <div className="grid gap-6 md:grid-cols-3">
+          <div>
+            <h2 className="mb-2 text-lg font-bold text-black">Project Problem</h2>
+            <p className="text-sm leading-relaxed text-gray-700">
+              Each build starts from a client brief and its specific requirements. Details are shown only where the project can be shared.
+            </p>
+          </div>
+          <div>
+            <h2 className="mb-2 text-lg font-bold text-black">Approach</h2>
+            <p className="text-sm leading-relaxed text-gray-700">
+              Examples are organized by work type so agencies can review website, application, and technical SEO or tracking work.
+            </p>
+          </div>
+          <div>
+            <h2 className="mb-2 text-lg font-bold text-black">Deliverables</h2>
+            <p className="text-sm leading-relaxed text-gray-700">
+              Project scope varies by brief. Confirm the approved scope and deliverables for any example before using it in a client proposal.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Section 1: Websites & Online Stores */}
       <div id="websites-and-stores">

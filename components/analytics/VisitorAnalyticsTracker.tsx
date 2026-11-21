@@ -8,6 +8,14 @@ const SESSION_STORAGE_KEY = 'bbs_s_id';
 const LAST_ACTIVE_KEY = 'bbs_last_active';
 const SESSION_TIMEOUT_MS = 30 * 60 * 1000; // 30 minutes
 
+type AnalyticsPayload = {
+  type: 'pageview' | 'interaction' | 'heartbeat';
+  path: string;
+  visitorId: string;
+  sessionId: string;
+  [key: string]: string | number | undefined;
+};
+
 function getOrCreateVisitorId() {
   if (typeof window === 'undefined') return '';
   try {
@@ -22,7 +30,7 @@ function getOrCreateVisitorId() {
   }
 }
 
-function getOrCreateSessionId(visitorId) {
+function getOrCreateSessionId(visitorId: string): string {
   if (typeof window === 'undefined') return '';
   const now = Date.now();
   try {
@@ -40,7 +48,7 @@ function getOrCreateSessionId(visitorId) {
   }
 }
 
-function sendAnalytics(payload) {
+function sendAnalytics(payload: AnalyticsPayload): void {
   if (typeof window === 'undefined') return;
   const endpoint = '/api/analytics/collect';
   const data = JSON.stringify(payload);
@@ -67,7 +75,6 @@ export default function VisitorAnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const lastTrackedPath = useRef('');
-  const sessionStartTime = useRef(Date.now());
   const activeTimeSec = useRef(0);
   const scrollMilestones = useRef(new Set());
 
@@ -118,8 +125,9 @@ export default function VisitorAnalyticsTracker() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const handleClick = (e) => {
-      const targetEl = e.target.closest('[data-track-category], a, button');
+    const handleClick = (e: MouseEvent) => {
+      if (!(e.target instanceof Element)) return;
+      const targetEl = e.target.closest<HTMLElement>('[data-track-category], a, button');
       if (!targetEl) return;
 
       const vid = getOrCreateVisitorId();
@@ -146,10 +154,10 @@ export default function VisitorAnalyticsTracker() {
           target = href.replace('tel:', '');
         } else if (href.startsWith('/services/') || href === '/services') {
           category = 'service_click';
-          target = text || href.split('/').pop();
+          target = text || href.split('/').pop() || href;
         } else if (href.startsWith('/case-studies/')) {
           category = 'portfolio_click';
-          target = text || href.split('/').pop();
+          target = text || href.split('/').pop() || href;
         } else if (href === '/contact' || href.includes('/leads')) {
           category = 'cta_click';
           target = text || 'Get in Touch';
@@ -240,4 +248,3 @@ export default function VisitorAnalyticsTracker() {
 
   return null;
 }
-

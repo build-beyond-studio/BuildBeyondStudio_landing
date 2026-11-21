@@ -9,19 +9,15 @@ import SuccessStoryCard from './SuccessStoryCard'
 import SuccessStoriesCarousel from './SuccessStoriesCarousel'
 import FAQSection from '@/components/FAQSection'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/success-stories', {
   title: "Agency Partner Case Studies | White Label Results | BBS",
   description: "Case studies from agencies that use BBS as their white-label engineering partner: what was built, how delivery worked, and what changed for the agency.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/success-stories",
-  },
   openGraph: {
     title: "Agency Partner Case Studies | White Label Results | BBS",
     description: "Case studies from agencies that use BBS as their white-label engineering partner: what was built, how delivery worked, and what changed for the agency.",
-    url: "https://buildbeyondstudio.com/success-stories",
     type: "website",
   },
-}
+})
 
 const pageSpecificFaqs = [
   {
@@ -145,7 +141,7 @@ export default function SuccessStoriesPage() {
             Deliver Reliable Engineering Under Your Agency Brand
           </h2>
           <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-            We work behind the scenes in your communication channels, sprint workflows, and staging pipelines. Let's discuss a project brief or capacity model.
+            We work behind the scenes in your communication channels, sprint workflows, and staging pipelines. Let&apos;s discuss a project brief or capacity model.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link

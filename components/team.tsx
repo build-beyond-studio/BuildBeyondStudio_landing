@@ -109,6 +109,7 @@ export default function Team() {
                     alt={`${member.name} - ${member.role} at Build Beyond Studio`}
                     width={128}
                     height={128}
+                    loading="lazy"
                     className="w-32 h-32 rounded-full border-4 border-white shadow-lg shadow-black/10 object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
@@ -220,7 +221,7 @@ export default function Team() {
             <div className="text-3xl mb-3">🤝</div>
             <h3 className="text-lg font-bold text-black mb-2">Long-Term Partner</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              We're here for the long haul. Ongoing support, maintenance, and scaling assistance are part of our commitment to your success.
+              We&apos;re here for the long haul. Ongoing support, maintenance, and scaling assistance are part of our commitment to your success.
             </p>
           </div>
         </div>

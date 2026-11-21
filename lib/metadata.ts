@@ -7,48 +7,74 @@ import { Metadata } from 'next';
  * @param description Optional description
  * @param extra Optional extra Metadata fields
  */
+export function buildMetadata(path: string, metadata: Partial<Metadata>): Metadata;
 export function buildMetadata(
   path: string,
   title?: string,
   description?: string,
-  extra: Partial<Metadata> = {}
+  extra?: Partial<Metadata>
+): Metadata;
+export function buildMetadata(
+  path: string,
+  titleOrMetadata?: string | Partial<Metadata>,
+  description?: string,
+  metadataExtra: Partial<Metadata> = {}
 ): Metadata {
   const baseUrl = 'https://buildbeyondstudio.com';
-  
-  // Normalize the path
-  let cleanPath = path;
-  if (!cleanPath.startsWith('/')) {
-    cleanPath = '/' + cleanPath;
-  }
-  if (cleanPath.endsWith('/') && cleanPath.length > 1) {
-    cleanPath = cleanPath.slice(0, -1);
-  }
-
-  const canonicalUrl = cleanPath === '/' ? baseUrl : `${baseUrl}${cleanPath}`;
-  const fullTitle = title 
-    ? `${title} | Build Beyond Studio` 
-    : 'Build Beyond Studio | Website, App & Software Development';
+  const pathname = new URL(path, baseUrl).pathname.replace(/\/+$/, '') || '/';
+  const canonicalUrl = pathname === '/' ? baseUrl : `${baseUrl}${pathname}`;
+  const extra = typeof titleOrMetadata === 'object' ? titleOrMetadata : metadataExtra;
+  const title =
+    typeof titleOrMetadata === 'string'
+      ? titleOrMetadata
+      : typeof extra.title === 'string'
+        ? extra.title
+        : undefined;
+  const pageDescription = description ?? extra.description ?? undefined;
+  const titleSuffix = ' | BBS';
+  const maxTitleLength = 60;
+  const cleanTitle = title
+    ?.trim()
+    .replace(/\s*\|\s*(?:BBS(?: Academy)?|Build Beyond Studio)$/i, '');
+  const shortenedTitle = cleanTitle
+    ? cleanTitle.length + titleSuffix.length <= maxTitleLength
+        ? cleanTitle
+        : `${cleanTitle.slice(0, maxTitleLength - titleSuffix.length - 1).replace(/\s+\S*$/, '').trim()}…`
+    : 'Build Beyond Studio';
+  const fullTitle = `${shortenedTitle}${titleSuffix}`;
+  const defaultImage = {
+    url: 'https://buildbeyondstudio.com/og-home.png',
+    width: 1200,
+    height: 630,
+    alt: 'Build Beyond Studio',
+  };
+  const openGraphType =
+    extra.openGraph && 'type' in extra.openGraph ? extra.openGraph.type : 'website';
+  const twitterCard =
+    extra.twitter && 'card' in extra.twitter ? extra.twitter.card : 'summary_large_image';
 
   const mergedOpenGraph = {
-    title: fullTitle,
-    description: description,
-    url: canonicalUrl,
-    type: 'website',
-    siteName: 'Build Beyond Studio',
     ...extra.openGraph,
+    title: extra.openGraph?.title ?? fullTitle,
+    description: extra.openGraph?.description ?? pageDescription,
+    url: canonicalUrl,
+    type: openGraphType,
+    siteName: extra.openGraph?.siteName ?? 'Build Beyond Studio',
+    images: extra.openGraph?.images ?? [defaultImage],
   };
 
   const mergedTwitter = {
-    card: 'summary_large_image',
-    title: fullTitle,
-    description: description,
     ...extra.twitter,
+    card: twitterCard,
+    title: extra.twitter?.title ?? fullTitle,
+    description: extra.twitter?.description ?? pageDescription,
+    images: extra.twitter?.images ?? [defaultImage.url],
   };
 
   return {
-    ...(title ? { title } : {}),
-    ...(description ? { description } : {}),
     ...extra,
+    ...(title ? { title: { absolute: fullTitle } } : {}),
+    ...(pageDescription ? { description: pageDescription } : {}),
     alternates: {
       ...extra.alternates,
       canonical: canonicalUrl,

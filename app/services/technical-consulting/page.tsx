@@ -155,17 +155,24 @@ export default function TechnicalConsultingPage() {
 
         <div className="space-y-12 text-gray-700">
           
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">The Problem</h2>
+            <p className="leading-relaxed mb-4">
+              Projects can stall when requirements are unclear, integrations are complex, or a team lacks confidence in a technical decision. An independent review can help an agency understand dependencies and risks before it commits to a delivery plan.
+            </p>
+          </div>
+
           {/* 2. Why Pitch This? */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Why Pitch This?</h2>
             <p className="leading-relaxed mb-4">
-              Strategic consulting elevates your agency from a vendor to an indispensable partner. By offering CTO-level guidance, you unlock premium retainers and gain deeper integration into your client's business.
+              Strategic consulting elevates your agency from a vendor to an indispensable partner. By offering CTO-level guidance, you unlock premium retainers and gain deeper integration into your client&apos;s business.
             </p>
           </div>
 
-          {/* 3. The Invisible Process */}
+          {/* Approach */}
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">The Invisible Process</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Our Approach</h2>
             <div className="space-y-4">
               {[
                 { step: '01', title: 'Audit & Analysis', desc: 'We review the client\'s current tech stack and architecture behind the scenes.' },
@@ -182,6 +189,13 @@ export default function TechnicalConsultingPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">Potential Deliverables</h2>
+            <p className="leading-relaxed mb-4">
+              The scope is agreed for each brief. Depending on the work requested, deliverables may include an architecture review, technology recommendations, a project risk and dependency breakdown, or a technical roadmap with supporting documentation.
+            </p>
           </div>
 
           {/* 4. The Tech Stack (Translated) */}

@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: 'Tell us about your business and discover your growth opportunity gap.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
-    googleBot: { index: false, follow: false },
+    googleBot: { index: false, follow: true },
   },
 };
 

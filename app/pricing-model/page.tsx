@@ -2,21 +2,18 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
+import { buildMetadata } from '@/lib/metadata'
 import FAQSection from '@/components/FAQSection'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/pricing-model', {
   title: "White Label Web Development Pricing for Agencies | BBS",
   description: "How BBS partner pricing works: a fixed quote per project, you set the client price and keep the margin. Includes an example margin calculation.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/pricing-model",
-  },
   openGraph: {
     title: "White Label Web Development Pricing for Agencies | BBS",
     description: "How BBS partner pricing works: a fixed quote per project, you set the client price and keep the margin. Includes an example margin calculation.",
-    url: "https://buildbeyondstudio.com/pricing-model",
     type: "website",
   },
-}
+})
 
 const faqs = [
   {
@@ -344,4 +341,3 @@ export default function PricingModelPage() {
     </main>
   )
 }
-

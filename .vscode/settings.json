@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^npm config get registry; node --version; git status --short; npm view mongodb@7\\.8\\.0 dist\\.tarball$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

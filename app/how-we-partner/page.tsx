@@ -2,20 +2,17 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import FAQSection from '@/components/FAQSection'
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata = {
+export const metadata = buildMetadata('/how-we-partner', {
   title: "How White Label Delivery Works for Agencies | BBS",
   description: "See how BBS works behind your agency brand: brief, fixed quote, sprint delivery, QA, handover and support, with NDA before any project details.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/how-we-partner",
-  },
   openGraph: {
     title: "How White Label Delivery Works for Agencies | BBS",
     description: "See how BBS works behind your agency brand: brief, fixed quote, sprint delivery, QA, handover and support, with NDA before any project details.",
-    url: "https://buildbeyondstudio.com/how-we-partner",
     type: "website",
   },
-}
+})
 
 const pageSpecificFaqs = [
   {
@@ -368,7 +365,7 @@ export default function HowWePartnerPage() {
                 Three Flexible Engagement Models
               </h2>
               <p className="text-gray-500 max-w-2xl mx-auto font-light text-sm sm:text-base">
-                Choose the model that fits your agency's pipeline—scale capacity on demand without long-term payroll overhead.
+                Choose the model that fits your agency&apos;s pipeline—scale capacity on demand without long-term payroll overhead.
               </p>
             </div>
 

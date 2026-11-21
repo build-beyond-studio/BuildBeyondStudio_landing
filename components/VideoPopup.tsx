@@ -40,6 +40,9 @@ export default function VideoPopup() {
               className="w-full max-h-[85vh] object-cover"
               src="/popup.png"
               alt="Marketing Agency? You Chill, We’ll Build. More Projects. Zero Tech Hassle."
+              width={1212}
+              height={1298}
+              loading="lazy"
             />
           </div>
         </div>

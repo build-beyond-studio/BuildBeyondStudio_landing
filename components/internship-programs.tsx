@@ -6,42 +6,42 @@ import { GraduationCap, FileText, Video, Monitor, Rocket, Users, ShieldCheck, Br
 
 const BENEFITS = [
   {
-    icon: <img src="/internship_images/iso.png" alt="ISO Certified" className="w-14 h-14 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/iso.png" alt="ISO Certified" width={56} height={56} loading="lazy" className="w-14 h-14 object-contain drop-shadow-sm" />,
     title: "ISO Certified Certificate",
     desc: "Internationally recognised certificate for private-sector employment across India.",
   },
   {
-    icon: <img src="/internship_images/interview.png" alt="Interview Prep" className="w-8 h-8 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/interview.png" alt="Interview Prep" width={32} height={32} loading="lazy" className="w-8 h-8 object-contain drop-shadow-sm" />,
     title: "Interview Prep PDF",
     desc: "Curated question bank from real front-end and MERN interviews with full answers.",
   },
   {
-    icon: <img src="/internship_images/live.png" alt="Recorded Lectures" className="w-14 h-14 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/live.png" alt="Recorded Lectures" width={56} height={56} loading="lazy" className="w-14 h-14 object-contain drop-shadow-sm" />,
     title: "Lifetime Recorded Lectures",
     desc: "Lifetime access to all sessions. Re-watch any lesson at any time on the BBS portal.",
   },
   {
-    icon: <img src="/internship_images/learning_portal.png" alt="Learning Portal" className="w-10 h-10 object-cover rounded-md drop-shadow-sm" />,
+    icon: <img src="/internship_images/learning_portal.png" alt="Learning Portal" width={40} height={40} loading="lazy" className="w-10 h-10 object-cover rounded-md drop-shadow-sm" />,
     title: "Dedicated Learning Portal",
     desc: "Personal login, progress tracking, materials, and assignments in one place.",
   },
   {
-    icon: <img src="/internship_images/real-life.png" alt="Real Life Project" className="w-10 h-10 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/real-life.png" alt="Real Life Project" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain drop-shadow-sm" />,
     title: "Live Deployed Project",
     desc: "A real deployed website on the internet (like DevLinks, TaskFlow, NoteNest).",
   },
   {
-    icon: <img src="/internship_images/community.png" alt="Community Access" className="w-10 h-10 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/community.png" alt="Community Access" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain drop-shadow-sm" />,
     title: "BBS Community Access",
     desc: "Doubt support, peer group, and access to the BBS developer network.",
   },
   {
-    icon: <img src="/internship_images/resume.jpg" alt="Resume Review" className="w-10 h-10 object-cover rounded-md drop-shadow-sm" />,
+    icon: <img src="/internship_images/resume.jpg" alt="Resume Review" width={40} height={40} loading="lazy" className="w-10 h-10 object-cover rounded-md drop-shadow-sm" />,
     title: "Resume & LinkedIn Review",
     desc: "Resume review and LinkedIn profile guidance from BBS developers.",
   },
   {
-    icon: <img src="/internship_images/placement.png" alt="Placement Support" className="w-10 h-10 object-contain drop-shadow-sm" />,
+    icon: <img src="/internship_images/placement.png" alt="Placement Support" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain drop-shadow-sm" />,
     title: "Placement Support",
     desc: "Job-readiness mentoring and placement assistance from the BBS team.",
   },
@@ -104,7 +104,7 @@ export default function InternshipProgramsSection() {
           {/* Top Performers Banner */}
           <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300 mx-auto max-w-4xl w-full">
             <div className="flex-shrink-0">
-              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" width={64} height={64} loading="lazy" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
             </div>
             <div className="text-left">
               <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>

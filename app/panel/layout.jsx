@@ -4,7 +4,7 @@ import PanelShell from '@/components/panel/PanelShell';
 export const metadata = {
   robots: {
     index: false,
-    follow: false,
+    follow: true,
   },
 };
 

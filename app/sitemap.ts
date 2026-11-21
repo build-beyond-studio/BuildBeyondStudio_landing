@@ -1,129 +1,170 @@
-import fs from 'fs';
-import path from 'path';
+import { readdir, readFile } from 'node:fs/promises';
+import path from 'node:path';
 import type { MetadataRoute } from 'next';
 
 import blogs from '@/data/blogs.json';
-import { COURSES } from './training-programs/data';
 import { CASE_STUDIES } from './case-studies/data';
+import { COURSES } from './training-programs/data';
 
 const BASE_URL = 'https://buildbeyondstudio.com';
+const APP_DIR = path.join(process.cwd(), 'app');
+const PAGE_FILES = new Set(['page.tsx', 'page.ts', 'page.jsx', 'page.js']);
 
-const ROUTE_CONFIG: Record<string, { priority: number; changeFrequency: string }> = {
-  '/': { priority: 1.0, changeFrequency: 'weekly' },
-  '/white-label-web-development': { priority: 1.0, changeFrequency: 'weekly' },
-  '/white-label-web-development-uk': { priority: 1.0, changeFrequency: 'weekly' },
-  '/services': { priority: 0.9, changeFrequency: 'weekly' },
-  '/how-we-partner': { priority: 0.9, changeFrequency: 'weekly' },
-  '/success-stories': { priority: 0.9, changeFrequency: 'weekly' },
-  '/case-studies': { priority: 0.9, changeFrequency: 'weekly' },
-  '/training-programs': { priority: 0.9, changeFrequency: 'weekly' },
-  '/our-work': { priority: 0.9, changeFrequency: 'weekly' },
-  '/ambikapur': { priority: 0.9, changeFrequency: 'monthly' },
-  '/blog': { priority: 0.8, changeFrequency: 'weekly' },
-  '/privacy': { priority: 0.3, changeFrequency: 'yearly' },
-  '/terms': { priority: 0.3, changeFrequency: 'yearly' },
-};
+// Exclude private and duplicate-canonical routes even if their noindex metadata changes.
+const EXCLUDED_ROUTES = new Set([
+  '/leads',
+  '/panel',
+  '/for-agencies',
+  '/services/white-label',
+]);
 
-const EXCLUDED_DIRS = new Set(['api', 'assets', '_components', 'leads', 'panel']);
+export const dynamic = 'force-static';
 
-function discoverStaticRoutes(dir: string, basePath = ''): string[] {
-  const routes: string[] = [];
+type RouteFile = { route: string; file: string };
+type SitemapEntry = MetadataRoute.Sitemap[number];
 
-  let entries: fs.Dirent[];
-  try {
-    entries = fs.readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return routes;
+function isExcludedRoute(route: string): boolean {
+  for (const excluded of EXCLUDED_ROUTES) {
+    if (route === excluded || route.startsWith(`${excluded}/`)) return true;
   }
+  return false;
+}
 
-  const hasPage = entries.some(
-    (entry) => !entry.isDirectory() && ['page.tsx', 'page.ts', 'page.jsx', 'page.js'].includes(entry.name)
-  );
+function stripRouteGroups(segments: string[]): string[] {
+  return segments.filter((segment) => !(segment.startsWith('(') && segment.endsWith(')')));
+}
 
-  if (hasPage && basePath !== '/robots.txt' && basePath !== '/sitemap.xml') {
-    routes.push(basePath || '/');
+async function findPages(directory: string, routeSegments: string[] = []): Promise<RouteFile[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const page = entries.find((entry) => entry.isFile() && PAGE_FILES.has(entry.name));
+  const routes: RouteFile[] = [];
+
+  if (page && !routeSegments.some((segment) => segment.startsWith('[') && segment.endsWith(']'))) {
+    const urlSegments = stripRouteGroups(routeSegments);
+    const route = `/${urlSegments.join('/')}`.replace(/\/+$/, '') || '/';
+    routes.push({ route, file: path.join(directory, page.name) });
   }
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-
-    const dirName = entry.name;
-
-    if (dirName.startsWith('[') && dirName.endsWith(']')) continue;
-    if (EXCLUDED_DIRS.has(dirName)) continue;
-    if (dirName.startsWith('_') || dirName.startsWith('.')) continue;
-
-    const childPath = `${basePath}/${dirName}`;
-    routes.push(...discoverStaticRoutes(path.join(dir, dirName), childPath));
+    if (
+      entry.name.startsWith('_') ||
+      entry.name.startsWith('.') ||
+      entry.name === 'api' ||
+      entry.name === 'assets'
+    ) {
+      continue;
+    }
+    routes.push(
+      ...(await findPages(path.join(directory, entry.name), [...routeSegments, entry.name]))
+    );
   }
-
   return routes;
 }
 
-function getRouteConfig(routePath: string) {
-  if (ROUTE_CONFIG[routePath]) {
-    return ROUTE_CONFIG[routePath];
+async function hasNoindexDirective(routeFile: RouteFile): Promise<boolean> {
+  const sourceFiles = [routeFile.file];
+  let directory = path.dirname(routeFile.file);
+  while (directory === APP_DIR || directory.startsWith(`${APP_DIR}${path.sep}`)) {
+    for (const name of ['layout.tsx', 'layout.ts', 'layout.jsx', 'layout.js']) {
+      sourceFiles.push(path.join(directory, name));
+    }
+    if (directory === APP_DIR) break;
+    directory = path.dirname(directory);
   }
 
-  if (routePath.startsWith('/services/')) {
-    return { priority: 0.8, changeFrequency: 'monthly' };
-  }
-
-  const depth = routePath.split('/').filter(Boolean).length;
-  if (depth <= 1) {
-    return { priority: 0.8, changeFrequency: 'monthly' };
-  }
-  return { priority: 0.7, changeFrequency: 'monthly' };
-}
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const appDir = path.join(process.cwd(), 'app');
-  const staticRoutes = discoverStaticRoutes(appDir).filter(
-    (route) =>
-      !route.startsWith('/leads') &&
-      !route.startsWith('/panel') &&
-      route !== '/for-agencies' &&
-      route !== '/services/white-label'
-  );
-
-  const staticPages = staticRoutes.map((route) => {
-    const config = getRouteConfig(route);
-    return {
-      url: `${BASE_URL}${route === '/' ? '' : route}`,
-      changeFrequency: config.changeFrequency,
-      priority: config.priority,
-    };
-  });
-
-  const blogPages = blogs.map((blog: { slug: string; date: string }) => ({
-    url: `${BASE_URL}/blog/${blog.slug}`,
-    lastModified: new Date(blog.date),
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
-
-  const coursePages = COURSES.map((course) => ({
-    url: `${BASE_URL}/training-programs/${course.id}`,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
-
-  const caseStudyPages = CASE_STUDIES.map((study) => ({
-    url: `${BASE_URL}/case-studies/${study.slug}`,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
-
-  const allPages = [...staticPages, ...blogPages, ...coursePages, ...caseStudyPages];
-  const seen = new Set<string>();
-  const deduped: MetadataRoute.Sitemap = [];
-
-  for (const page of allPages) {
-    if (!seen.has(page.url)) {
-      seen.add(page.url);
-      deduped.push(page);
+  for (const file of new Set(sourceFiles)) {
+    try {
+      const source = await readFile(file, 'utf8');
+      if (/\bindex\s*:\s*false\b/.test(source)) return true;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
     }
   }
+  return false;
+}
 
-  return deduped;
+async function getRedirectSources(): Promise<Set<string>> {
+  const configPath = path.join(process.cwd(), 'next.config.mjs');
+  const configSource = await readFile(configPath, 'utf8');
+  const redirectsBlock = configSource.match(
+    /async\s+redirects\s*\(\s*\)\s*\{\s*return\s*\[([\s\S]*?)\]\s*\}/
+  );
+  if (!redirectsBlock) {
+    throw new Error('Could not read the static redirects() list from next.config.mjs');
+  }
+  const sources = [...redirectsBlock[1].matchAll(/\bsource\s*:\s*(['"])(.*?)\1/g)].map(
+    ([, , source]) => source
+  );
+  if (sources.length === 0) {
+    throw new Error('The redirects() list in next.config.mjs contains no source routes');
+  }
+  return new Set(sources);
+}
+
+function canonicalEntry(route: string, lastModified?: Date): SitemapEntry {
+  const pathname = route === '/' ? '' : route.replace(/\/+$/, '');
+  return {
+    url: `${BASE_URL}${pathname}`,
+    ...(lastModified ? { lastModified } : {}),
+  };
+}
+
+function datedEntry(
+  route: string,
+  date: string | undefined
+): SitemapEntry {
+  const lastModified = date ? new Date(date) : undefined;
+  return canonicalEntry(
+    route,
+    lastModified && !Number.isNaN(lastModified.getTime()) ? lastModified : undefined
+  );
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [discoveredPages, redirectSources] = await Promise.all([
+    findPages(APP_DIR),
+    getRedirectSources(),
+  ]);
+  const staticPages = await Promise.all(
+    discoveredPages
+      .filter((page) => !isExcludedRoute(page.route) && !redirectSources.has(page.route))
+      .map(async (page) => {
+        if (await hasNoindexDirective(page)) return null;
+        return canonicalEntry(page.route);
+      })
+  );
+
+  const dataPages: SitemapEntry[] = [
+    ...blogs.map((blog: { slug: string; date?: string; updatedAt?: string; updatedDate?: string }) =>
+      datedEntry(`/blog/${blog.slug}`, blog.updatedDate ?? blog.updatedAt ?? blog.date)
+    ),
+    ...COURSES.map((course) =>
+      datedEntry(
+        `/training-programs/${course.id}`,
+        'date' in course && typeof course.date === 'string' ? course.date : undefined
+      )
+    ),
+    ...CASE_STUDIES.map((study) =>
+      datedEntry(
+        `/case-studies/${study.slug}`,
+        'date' in study && typeof study.date === 'string' ? study.date : undefined
+      )
+    ),
+  ];
+
+  const unique = new Map<string, SitemapEntry>();
+  for (const page of [...staticPages, ...dataPages]) {
+    if (!page) continue;
+    const url = new URL(page.url);
+    url.search = '';
+    url.hash = '';
+    if (url.pathname !== '/') url.pathname = url.pathname.replace(/\/+$/, '');
+    url.hostname = 'buildbeyondstudio.com';
+    url.protocol = 'https:';
+    const normalized = { ...page, url: url.href.replace(/\/$/, url.pathname === '/' ? '' : '') };
+    if (url.pathname === '/') normalized.url = BASE_URL;
+    if (!unique.has(normalized.url)) unique.set(normalized.url, normalized);
+  }
+  return [...unique.values()];
 }

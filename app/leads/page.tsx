@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: 'Book a discovery call or submit a project enquiry with Build Beyond Studio.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
     googleBot: {
       index: false,
-      follow: false,
+      follow: true,
     },
   },
 };

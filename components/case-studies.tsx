@@ -149,7 +149,7 @@ export default function CaseStudies() {
             </div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 text-center">Delivered under agency brands across India</h2>
-          <p className="text-base sm:text-lg text-gray-600 text-center max-w-2xl mx-auto">Every project below was built by our team and delivered under a partner agency's brand. The end clients never knew we were involved.</p>
+          <p className="text-base sm:text-lg text-gray-600 text-center max-w-2xl mx-auto">Every project below was built by our team and delivered under a partner agency&apos;s brand. The end clients never knew we were involved.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
@@ -170,6 +170,7 @@ export default function CaseStudies() {
                     alt={`${study.title} digital interface showcase`}
                     width={600}
                     height={400}
+                    loading="lazy"
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 filter"
                     style={{
                       filter: 'brightness(1.02) contrast(1.08)',
@@ -282,6 +283,7 @@ export default function CaseStudies() {
                         alt={`${caseStudies[selectedStudy].title} project interface screenshot ${idx + 1}`}
                         width={800}
                         height={533}
+                        loading="lazy"
                         className="w-full h-auto object-contain bg-gray-50 transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>

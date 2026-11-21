@@ -10,7 +10,7 @@ import FAQSection from '@/components/FAQSection';
 export const metadata: Metadata = buildMetadata(
   '/case-studies',
   'Case Studies: Agency Web & App Projects | Build Beyond Studio',
-  'Detailed case studies on website, app, and DevOps projects delivered white label for marketing agency partners.'
+  'Detailed case studies on website, app, and DevOps projects delivered white label for marketing agency partners, with project context and delivery details.'
 )
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -182,6 +182,7 @@ export default function CaseStudiesIndexPage() {
                     alt={`${study.founder}, ${study.founderRole} of ${study.client}`}
                     width={40}
                     height={40}
+                    loading="lazy"
                     className="w-10 h-10 rounded-full object-cover shadow-sm ring-2 ring-white"
                   />
                   <div>

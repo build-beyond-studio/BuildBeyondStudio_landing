@@ -3,12 +3,12 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 import TrackedLink from '@/components/TrackedLink'
 
-import { buildBreadcrumbSchema } from '@/lib/metadata'
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata'
 
-export const metadata = {
+export const metadata = buildMetadata('/services/google-meta-ads', {
   title: "White Label PPC Management for Agencies | Build Beyond Studio",
   description: "Outsource Google and Meta PPC management to BBS. We handle setup, tracking, optimization and reporting while your agency owns the client relationship.",
-}
+})
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -179,7 +179,7 @@ export default function GoogleMetaAdsPage() {
 
           {/* What's included */}
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">What's Included</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-black mb-4">What&apos;s Included</h2>
             <ul className="space-y-2">
               {included.map((item, i) => (
                 <li key={i} className="flex gap-3 text-sm text-gray-600 leading-relaxed">

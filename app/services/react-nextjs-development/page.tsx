@@ -3,20 +3,23 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Link from 'next/link'
 import FAQSection from '@/components/FAQSection'
+import { buildBreadcrumbSchema, buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/services/react-nextjs-development', {
   title: "React & Next.js Development for Marketing Agencies | BBS",
   description: "White-label React and Next.js engineering for marketing agencies. Production-grade server-side rendering, App Router architecture, and full IP handover.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/services/react-nextjs-development",
-  },
   openGraph: {
     title: "React & Next.js Development for Marketing Agencies | BBS",
     description: "White-label React and Next.js engineering for marketing agencies. Production-grade server-side rendering, App Router architecture, and full IP handover.",
-    url: "https://buildbeyondstudio.com/services/react-nextjs-development",
     type: "website",
   },
-}
+})
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'React & Next.js Development', path: '/services/react-nextjs-development' },
+])
 
 const faqs = [
   {
@@ -71,6 +74,7 @@ const serviceSchema = {
 export default function ReactNextjsPage() {
   return (
     <main className="min-h-screen bg-[#F5F2EC] text-black">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -200,4 +204,3 @@ export default function ReactNextjsPage() {
     </main>
   )
 }
-

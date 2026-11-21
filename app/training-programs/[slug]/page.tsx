@@ -5,7 +5,12 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
+
+export function generateStaticParams() {
+  return COURSES.map((course) => ({ slug: course.id }));
+}
 
 export async function generateMetadata({
   params,
@@ -26,7 +31,7 @@ export async function generateMetadata({
   return buildMetadata(
     `/training-programs/${course.id}`,
     course.title,
-    course.tagline,
+    `Explore the ${course.duration} course: ${course.tagline} See the curriculum, project work, schedule, and enrollment details.`,
     {
       openGraph: {
         title: course.title,
@@ -93,15 +98,15 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
         <section className="px-4 sm:px-6 max-w-5xl mx-auto animate-fade-in">
           {/* Back button */}
           <div className="mb-6">
-            <a href="/training-programs" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-black transition-colors">
+            <Link href="/training-programs" className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-black transition-colors">
               ← Back to all programs
-            </a>
+            </Link>
           </div>
 
           {/* Top Performers Banner */}
           <div className="flex flex-row items-center gap-4 sm:gap-5 bg-[#2B2215] rounded-xl p-4 sm:px-8 sm:py-4 mb-8 border-t-[4px] border-t-[#C8860A] shadow-[0_0_40px_rgba(200,134,10,0.25)] hover:shadow-[0_0_55px_rgba(200,134,10,0.4)] transition-shadow duration-300">
             <div className="flex-shrink-0">
-              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
+              <img src="/internship_images/887b1000-9bed-4180-a270-1d0652aa383c-removebg-preview.png" alt="Hired" width={64} height={64} loading="lazy" className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-md" />
             </div>
             <div className="text-left">
               <h2 className="text-[17px] sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Georgia, "Playfair Display", serif' }}>
@@ -120,8 +125,8 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 <span className="inline-block px-3 py-1 rounded-full bg-[#C8860A]/10 border border-[#C8860A]/20 text-xs font-bold text-[#C8860A] uppercase tracking-wider mb-2">
                   {activeCourse.num} Detail Sheet
                 </span>
-                <h2 className="text-2xl md:text-4xl font-extrabold text-black tracking-tight">{activeCourse.title}</h2>
-                <p className="mt-2 text-gray-500 italic">"{activeCourse.tagline}"</p>
+                <h1 className="text-2xl md:text-4xl font-extrabold text-black tracking-tight">{activeCourse.title}</h1>
+                <p className="mt-2 text-gray-500 italic">&quot;{activeCourse.tagline}&quot;</p>
               </div>
               <div className="flex gap-3 shrink-0">
                 <TrackedLink

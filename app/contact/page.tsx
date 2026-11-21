@@ -2,20 +2,17 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ContactForm from './ContactForm'
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/contact', {
   title: "Contact BBS | Start a White Label Partnership",
   description: "Send a project brief or book a partnership call with Build Beyond Studio. NDA before details, fixed quote for your approved scope.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/contact",
-  },
   openGraph: {
     title: "Contact BBS | Start a White Label Partnership",
     description: "Send a project brief or book a partnership call with Build Beyond Studio. NDA before details, fixed quote for your approved scope.",
-    url: "https://buildbeyondstudio.com/contact",
     type: "website",
   },
-}
+})
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -81,4 +78,3 @@ export default function ContactPage() {
     </main>
   )
 }
-

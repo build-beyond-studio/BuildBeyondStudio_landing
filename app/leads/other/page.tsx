@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   description: 'Tell us what you need from Build Beyond Studio.',
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     nocache: true,
-    googleBot: { index: false, follow: false },
+    googleBot: { index: false, follow: true },
   },
 };
 

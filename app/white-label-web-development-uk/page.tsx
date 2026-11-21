@@ -10,7 +10,7 @@ import FAQSection, { FAQItem } from '@/components/FAQSection'
 export const metadata: Metadata = buildMetadata(
   '/white-label-web-development-uk',
   'White Label Web Development for UK Marketing Agencies | BBS',
-  'White-label engineering partner for UK marketing agencies. Custom React and Next.js builds, e-commerce, tracking setups, and dedicated pods delivered under your agency brand.'
+  'White-label engineering for UK marketing agencies: React and Next.js builds, e-commerce, tracking, and dedicated development pods delivered under your brand.'
 )
 
 const serviceSchema = {
@@ -311,7 +311,7 @@ export default function WhiteLabelWebDevelopmentUkPage() {
         <div className="bg-[#0A0A0A] rounded-[24px] sm:rounded-[32px] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl border border-white/5 text-center sm:text-left">
           <div className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#C8860A] rounded-full mix-blend-screen filter blur-[100px] opacity-[0.12] pointer-events-none" />
           <h2 className="text-2xl sm:text-3xl font-black mb-3 text-white tracking-tight relative z-10">
-            Scale Your Agency's Development Capacity
+            Scale Your Agency&apos;s Development Capacity
           </h2>
           <p className="text-gray-400 text-sm sm:text-base mb-6 leading-relaxed font-light relative z-10 max-w-xl">
             Share your project brief with BBS under an NDA. We respond within 24 hours with an itemised partner quote and timeline.
@@ -343,4 +343,3 @@ export default function WhiteLabelWebDevelopmentUkPage() {
     </main>
   )
 }
-

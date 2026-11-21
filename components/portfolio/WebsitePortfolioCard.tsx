@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface WebsitePortfolioCardProps {
   title: string;
@@ -205,9 +206,11 @@ export function WebsitePortfolioCard({
             <div className="relative w-full flex-grow overflow-hidden bg-[#121214]">
               {/* Thumbnail image shown by default */}
               {poster && (
-                <img
+                <Image
                   src={poster}
                   alt={`${title} preview`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-[2] pointer-events-none ${
                     isHovered ? "opacity-0" : "opacity-100"
                   }`}

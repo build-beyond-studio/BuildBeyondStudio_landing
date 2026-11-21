@@ -4,20 +4,17 @@ import Footer from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FaLinkedin } from 'react-icons/fa'
+import { buildMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata('/about', {
   title: "About Build Beyond Studio | Founder and Team | BBS",
   description: "Meet Ankush Kumar Gupta and the Build Beyond Studio team, the white-label engineering partner for marketing agencies, based in Ambikapur, Chhattisgarh.",
-  alternates: {
-    canonical: "https://buildbeyondstudio.com/about",
-  },
   openGraph: {
     title: "About Build Beyond Studio | Founder and Team | BBS",
     description: "Meet Ankush Kumar Gupta and the Build Beyond Studio team, the white-label engineering partner for marketing agencies, based in Ambikapur, Chhattisgarh.",
-    url: "https://buildbeyondstudio.com/about",
     type: "website",
   },
-}
+})
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -189,7 +186,7 @@ export default function AboutPage() {
               <ul className="space-y-3 text-xs sm:text-sm text-gray-600 font-light">
                 <li className="flex items-start gap-2.5">
                   <span className="text-red-400 font-bold">✕</span>
-                  <span><strong>Digital Marketing & Ad Management:</strong> We don't manage ad spend, PPC campaigns, or social media.</span>
+                  <span><strong>Digital Marketing & Ad Management:</strong> We don&apos;t manage ad spend, PPC campaigns, or social media.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-red-400 font-bold">✕</span>
@@ -251,7 +248,7 @@ export default function AboutPage() {
             Meet the Team Behind Your Next Build
           </h2>
           <p className="text-gray-600 text-base sm:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">
-            Have an upcoming client website or application? Let's discuss requirements and establish a bilateral NDA.
+            Have an upcoming client website or application? Let&apos;s discuss requirements and establish a bilateral NDA.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Link
@@ -278,4 +275,3 @@ export default function AboutPage() {
     </main>
   )
 }
-
