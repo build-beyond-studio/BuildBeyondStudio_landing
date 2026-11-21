@@ -5,8 +5,18 @@ import { pathToFileURL } from 'node:url';
 const ROOT = process.cwd();
 const BUILD_DIR = path.join(ROOT, '.next', 'server', 'app');
 const SITEMAP_FILE = path.join(BUILD_DIR, 'sitemap.xml.body');
+const VERCEL_STATIC_DIR = path.join(ROOT, '.vercel', 'output', 'static');
 const BASE_URL = 'https://buildbeyondstudio.com';
 const SOURCE_DIRS = ['app', 'components', 'data'];
+const OUTPUT_UNAVAILABLE_MESSAGE = 'SEO check skipped: build output not available on Vercel';
+
+class BuildOutputUnavailableError extends Error {}
+
+function skipForUnavailableVercelOutput() {
+  if (!process.env.VERCEL) return false;
+  console.log(OUTPUT_UNAVAILABLE_MESSAGE);
+  return true;
+}
 
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);
@@ -27,9 +37,45 @@ function isRedirectPath(pathname, redirects) {
   });
 }
 
-function getRenderedFile(pathname) {
+function getRenderedFiles(pathname) {
   const relative = pathname === '/' ? 'index.html' : `${pathname.replace(/^\/+/, '')}.html`;
-  return path.join(BUILD_DIR, relative);
+  const candidates = [path.join(BUILD_DIR, relative)];
+  if (pathname !== '/') {
+    const routePath = pathname.replace(/^\/+/, '');
+    candidates.push(
+      path.join(VERCEL_STATIC_DIR, relative),
+      path.join(VERCEL_STATIC_DIR, routePath),
+      path.join(VERCEL_STATIC_DIR, routePath, 'index.html')
+    );
+  } else {
+    candidates.push(path.join(VERCEL_STATIC_DIR, relative));
+  }
+  return candidates;
+}
+
+async function readFirstExistingFile(files) {
+  for (const file of files) {
+    try {
+      return { file, content: await readFile(file, 'utf8') };
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
+  }
+  return null;
+}
+
+async function readBuiltSitemap() {
+  const result = await readFirstExistingFile([
+    SITEMAP_FILE,
+    path.join(VERCEL_STATIC_DIR, 'sitemap.xml'),
+    path.join(VERCEL_STATIC_DIR, 'sitemap.xml.body'),
+  ]);
+  if (!result) {
+    throw new BuildOutputUnavailableError(
+      `Built sitemap not found. Checked ${SITEMAP_FILE} and Vercel static output ${VERCEL_STATIC_DIR}.`
+    );
+  }
+  return result.content;
 }
 
 function plainText(html) {
@@ -139,7 +185,7 @@ async function main() {
   const errors = [];
   const warnings = [];
   const redirects = await loadRedirects();
-  const sitemap = await readFile(SITEMAP_FILE, 'utf8');
+  const sitemap = await readBuiltSitemap();
   const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(([, url]) => url.trim());
   const seen = new Set();
   const titles = new Map();
@@ -168,14 +214,13 @@ async function main() {
     assert(pathname === '/' || !pathname.endsWith('/'), `Trailing slash in sitemap URL: ${url}`, errors);
     assert(!isRedirectPath(pathname, redirects), `Sitemap URL is a redirect source: ${url}`, errors);
 
-    const file = getRenderedFile(pathname);
-    let html;
-    try {
-      html = await readFile(file, 'utf8');
-    } catch {
+    const renderedPage = await readFirstExistingFile(getRenderedFiles(pathname));
+    if (!renderedPage) {
+      if (skipForUnavailableVercelOutput()) return;
       errors.push(`No rendered HTML for sitemap URL: ${url}`);
       continue;
     }
+    const html = renderedPage.content;
 
     const canonical = getTagAttribute(html, 'link', 'href', (attributes) =>
       attributes.rel?.toLowerCase() === 'canonical'
@@ -292,6 +337,10 @@ async function main() {
 }
 
 main().catch((error) => {
+  if (process.env.VERCEL && error instanceof BuildOutputUnavailableError) {
+    skipForUnavailableVercelOutput();
+    return;
+  }
   console.error('SEO validation could not complete:', error);
   process.exitCode = 1;
 });
